@@ -232,7 +232,9 @@ class PullRequest:
         elif pending or self.waiting:
             parts = [either(group.people) for group in pending] + [f"@{who}" for _, who in self.waiting]
             state, description = "pending", "Waiting for " + "; ".join(dict.fromkeys(parts))
-        elif self.groups and all(group.waived for group in self.groups.values()):
+        elif not self.groups:
+            state, description = "success", "Only generated pages changed; tools/check.py compares them with their sources"
+        elif all(group.waived for group in self.groups.values()):
             state, description = "success", "No reviewer but the author, who is the only maintainer"
         else:
             state, description = "success", "Approved by someone who covers each change"
@@ -258,7 +260,10 @@ class PullRequest:
         lines = [MARKER, "### Moderation", ""]
         if result["state"] == "success":
             lines += ["Every change is covered.", ""]
-        lines += ["| Changes | Who can approve | Status |", "|---|---|---|"]
+        if self.groups:
+            lines += ["| Changes | Who can approve | Status |", "|---|---|---|"]
+        else:
+            lines += ["Only generated pages changed."]
         for group in self.groups.values():
             if group.waived:
                 who, status = "the author, the only maintainer", "no other reviewer"
