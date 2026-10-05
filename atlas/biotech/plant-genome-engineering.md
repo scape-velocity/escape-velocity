@@ -10,7 +10,7 @@
 | Atlas status | **proposed**: Named, with a statement and a scope; nothing mapped yet |
 | Readiness | not assessed |
 | Serves | UN SDG 2 Zero hunger |
-| Curators | none yet; see [how to become one](../../CONTRIBUTING.md#curators) |
+| Curators | none yet; see [how to become one](../../GOVERNANCE.md#curators) |
 | Last reviewed | never |
 
 ## Scope

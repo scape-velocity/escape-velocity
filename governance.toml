@@ -1,0 +1,12 @@
+# Who reviews what. GOVERNANCE.md explains the roles; .github/workflows/moderation.yml applies them
+# to every pull request, reading this file from the main branch. A change here needs a maintainer.
+#
+# Fields:
+#   maintainers   GitHub handles, without @. Maintainers merge pull requests, keep the tools, the
+#                 taxonomy, the site and this file, and approve any change that no curator or
+#                 moderator covers.
+#
+# Moderators of a domain are listed in taxonomy/domains.toml (moderators); curators of a
+# technology in the technology's file (curators).
+
+maintainers = ["JoaoAlisson"]

@@ -41,13 +41,15 @@ Only Python 3.11 or later is needed, with no packages to install.
   `established`.
 - The full policy is [decision 0006](docs/decisions/0006-evidence-policy.md).
 
-## Curators
+## Curators and moderators
 
-A curator is responsible for one or more technologies: reviewing new evidence at least every six
-months, keeping the gaps current and verifying cards (`status = "verified"`, `reviewed_by`). A
-technology with a curator can reach status `tracked`. To become one, open an issue naming the
-technology and your background in it, or add yourself to `curators` in a pull request that also
-reviews the file. Curators are listed by GitHub handle in each technology file.
+A curator looks after one or more technologies: reviewing new evidence at least every six months,
+keeping the gaps current and verifying cards (`status = "verified"`, `reviewed_by`). A moderator
+looks after a domain. A technology with a curator can reach status `tracked`.
+
+Your pull request needs an approval from a curator or moderator of what it changes; the
+`moderation` check says who, requests their review and passes once one of them approves. Roles,
+terms, conflicts of interest and how to become one are in [GOVERNANCE.md](GOVERNANCE.md).
 
 ## Commit and pull request titles
 

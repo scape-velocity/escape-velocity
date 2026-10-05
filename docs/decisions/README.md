@@ -15,3 +15,4 @@ decision is never edited after it is accepted; a later decision supersedes it.
 | [0008](0008-relationship-with-the-alan-machine.md) | Relationship with The Alan Machine | accepted |
 | [0009](0009-licenses.md) | Licenses | accepted |
 | [0010](0010-static-site-and-json-export.md) | A static site and a JSON export | accepted |
+| [0011](0011-moderators-and-the-moderation-check.md) | Moderators by domain and a moderation check | accepted |

@@ -30,7 +30,8 @@ is TOML; the pages are generated. The model is explained in [docs/model.md](docs
 2. **Every current value cites an evidence card** with a finding for that metric, in the metric's
    unit. Write cards as `status = "unverified"` and `added_by = "agent:<model>"`, then run
    `python3 skills/review-evidence/scripts/verify_evidence.py <keys> --write`. Never set
-   `verified`; that is a curator's act.
+   `verified` or `reviewed_by`, and never add anyone to `curators`, `moderators` or
+   `governance.toml`; those are people's acts ([GOVERNANCE.md](GOVERNANCE.md)).
 3. **Every target has a rationale**: who set it, or why this value. Limits only where a physical law
    gives one, with the basis.
 4. **Do not edit generated files** (`STATUS.md`, the `.md` pages under `atlas/`,

@@ -10,7 +10,7 @@
 | Atlas status | **scoping**: Dependencies and the headline metric are mapped; the current value has a source |
 | Readiness | not assessed |
 | Serves | UN SDG 2 Zero hunger, 15 Life on land |
-| Curators | none yet; see [how to become one](../../CONTRIBUTING.md#curators) |
+| Curators | none yet; see [how to become one](../../GOVERNANCE.md#curators) |
 | Last reviewed | 2026-10-04 |
 
 ## Scope

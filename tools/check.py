@@ -4,9 +4,11 @@
 
 Errors (exit 1): values outside the taxonomy, missing required fields for a technology's status,
 references to technologies or evidence cards that do not exist, dependency cycles, evidence cards
-that break the key convention, generated pages out of date.
+that break the key convention, people named by something other than a GitHub handle, a card
+verified by the person who added it, generated pages out of date.
 Warnings (exit 0): reviews past due, current values older than two years, a current value that
-differs from its evidence card, evidence cards nothing cites.
+differs from its evidence card, evidence cards nothing cites, a card verified by someone who no
+longer curates or moderates any technology that cites it.
 """
 
 from __future__ import annotations
@@ -37,6 +39,7 @@ EVIDENCE_KEYS = {
     "class", "status", "added", "added_by", "checked", "reviewed_by", "note", "finding",
 }
 FINDING_KEYS = {"metric", "value", "unit", "conditions", "quote", "note"}
+GOVERNANCE_KEYS = {"maintainers"}
 MAX_QUOTE_WORDS = 60
 
 
@@ -56,6 +59,39 @@ def is_number(value) -> bool:
     return isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value)
 
 
+def check_people(where: str, field_name: str, value, report: Report):
+    """A list of GitHub handles, without @, each once."""
+    if not isinstance(value, list):
+        report.error(where, f"{field_name} must be a list of GitHub handles")
+        return
+    seen = set()
+    for person in value:
+        if not isinstance(person, str) or not atlas.GITHUB_HANDLE.match(person):
+            report.error(where, f"{field_name}: {person!r} is not a GitHub handle (write it without @)")
+        elif person.lower() in seen:
+            report.error(where, f"{field_name}: {person!r} is listed twice")
+        else:
+            seen.add(person.lower())
+
+
+def check_governance(report: Report) -> list[str]:
+    where = "governance.toml"
+    path = atlas.ROOT / where
+    if not path.exists():
+        report.error(where, "is missing; it lists the maintainers (GOVERNANCE.md)")
+        return []
+    data = atlas._load_or_record(path)
+    if data is None:
+        return []
+    for field_name in set(data) - GOVERNANCE_KEYS:
+        report.error(where, f"unknown field {field_name!r}")
+    people = data.get("maintainers", [])
+    check_people(where, "maintainers", people, report)
+    if not people:
+        report.error(where, "needs at least one maintainer")
+    return [p for p in people if isinstance(p, str)] if isinstance(people, list) else []
+
+
 def check_taxonomy(tax: atlas.Taxonomy, report: Report):
     for domain_id, domain in tax.domains.items():
         where = f"taxonomy/domains.toml [{domain_id}]"
@@ -66,6 +102,7 @@ def check_taxonomy(tax: atlas.Taxonomy, report: Report):
         for sdg in domain.get("sdgs", []):
             if sdg not in tax.sdgs:
                 report.error(where, f"unknown SDG {sdg!r}")
+        check_people(where, "moderators", domain.get("moderators", []), report)
     for metric_id, metric in tax.metrics.items():
         where = f"taxonomy/metrics.toml [{metric_id}]"
         if not ID.match(metric_id):
@@ -256,6 +293,7 @@ def check_technology(tech: atlas.Technology, ctx: generate.Context, report: Repo
             report.error(where, f"a {status} technology needs at least one gap")
         if data.get("readiness") is None or not data.get("readiness_evidence"):
             report.error(where, f"a {status} technology needs readiness with readiness_evidence")
+    check_people(where, "curators", data.get("curators", []), report)
     if status == "tracked" and not data.get("curators"):
         report.error(where, "a tracked technology needs at least one curator")
     if status == "retired" and not str(data.get("retired_reason", "")).strip():
@@ -265,7 +303,9 @@ def check_technology(tech: atlas.Technology, ctx: generate.Context, report: Repo
     if last:
         months = 6 if status == "tracked" else 12
         if status in ("scoping", "mapped", "tracked") and (today - last).days > months * 30.5:
-            report.warn(where, f"last reviewed on {last}; a {status} technology is reviewed every {months} months")
+            curators = data.get("curators") if isinstance(data.get("curators"), list) else []
+            who = "; curators: " + ", ".join(f"@{c}" for c in curators) if curators else ""
+            report.warn(where, f"last reviewed on {last}; a {status} technology is reviewed every {months} months{who}")
 
 
 def check_cycles(ctx: generate.Context, report: Report):
@@ -288,7 +328,7 @@ def check_cycles(ctx: generate.Context, report: Report):
             visit(node, [node])
 
 
-def check_evidence(ctx: generate.Context, report: Report):
+def check_evidence(ctx: generate.Context, report: Report, maintainers: list[str]):
     tax = ctx.tax
     for key, (path, card) in ctx.cards.items():
         where = f"evidence/{path.name}"
@@ -319,6 +359,20 @@ def check_evidence(ctx: generate.Context, report: Report):
             report.error(where, "a machine-checked card needs the date it was checked")
         if card.get("status") == "verified" and not card.get("reviewed_by"):
             report.error(where, "a verified card needs reviewed_by")
+        reviewer = card.get("reviewed_by")
+        if reviewer:
+            if not isinstance(reviewer, str) or not atlas.GITHUB_HANDLE.match(reviewer):
+                report.error(where, f"reviewed_by {reviewer!r} is not a GitHub handle (write it without @)")
+            elif reviewer.lower() == str(card.get("added_by", "")).lower():
+                report.error(where, "reviewed_by must be someone other than added_by; nobody verifies their own card")
+            elif card.get("status") == "verified":
+                eligible = {m.lower() for m in maintainers}
+                for tech_id in ctx.cited_by.get(key, ()):
+                    tech = ctx.techs[tech_id]
+                    eligible |= {str(c).lower() for c in tech.data.get("curators", []) if isinstance(c, str)}
+                    eligible |= {str(m).lower() for m in tax.domains.get(tech.domain, {}).get("moderators", [])}
+                if reviewer.lower() not in eligible:
+                    report.warn(where, f"verified by @{reviewer}, who no longer curates or moderates a technology that cites it")
         if atlas.as_date(card.get("added")) is None:
             report.error(where, "added must be a date (YYYY-MM-DD)")
         findings = card.get("finding", [])
@@ -354,11 +408,12 @@ def main() -> int:
     report = Report()
     today = dt.date.today()
     ctx = generate.Context()
+    maintainers = check_governance(report)
     check_taxonomy(ctx.tax, report)
     for tech in ctx.techs.values():
         check_technology(tech, ctx, report, today)
     check_cycles(ctx, report)
-    check_evidence(ctx, report)
+    check_evidence(ctx, report, maintainers)
 
     for relative, message in atlas.LOAD_ERRORS.items():
         report.error(relative, message)

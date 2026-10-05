@@ -6,6 +6,8 @@ New materials and the ability to make them at scale.
 
 Readiness scale: Technology readiness level, unless a technology states another.
 
+Moderators: none yet; see [how to become one](../../GOVERNANCE.md#moderators).
+
 | Technology | Atlas status | Readiness | Headline metric | Current | Target | Gap to target |
 |---|---|---|---|---|---|---|
 | [Low-cost high-temperature superconducting conductor](low-cost-hts-conductor.md) | scoping | not assessed | Conductor cost | 100 USD kA^-1 m^-1 | 20 USD kA^-1 m^-1 | 0.7 orders of magnitude |

@@ -6,6 +6,8 @@ Cross-cutting technologies many others depend on: cryogenics, power electronics,
 
 Readiness scale: Technology readiness level, unless a technology states another.
 
+Moderators: none yet; see [how to become one](../../GOVERNANCE.md#moderators).
+
 | Technology | Atlas status | Readiness | Headline metric | Current | Target | Gap to target |
 |---|---|---|---|---|---|---|
 | [High-flux heat removal](heat-removal.md) | scoping | TRL 4 (4 of 9) | Heat flux removed | 10⁷ W m^-2 | 10⁸ W m^-2 | 1.0 orders of magnitude |

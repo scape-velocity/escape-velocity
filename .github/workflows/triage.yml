@@ -1,0 +1,47 @@
+name: Triage issues
+
+# Labels an issue opened from a form with its domain and mentions the domain's moderators
+# (GOVERNANCE.md). The issue's text is read as data by tools/moderation.py.
+
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Find the domain
+        env:
+          BODY: ${{ github.event.issue.body }}
+        run: |
+          printf '%s' "$BODY" > body.md
+          python3 tools/moderation.py issue --body-file body.md > triage.json
+          cat triage.json
+
+      - name: Label and mention
+        env:
+          GH_TOKEN: ${{ github.token }}
+          NUMBER: ${{ github.event.issue.number }}
+          ACTION: ${{ github.event.action }}
+          AUTHOR: ${{ github.event.issue.user.login }}
+        run: |
+          label=$(jq -r '.label // empty' triage.json)
+          [ -n "$label" ] || exit 0
+          name=$(jq -r .name triage.json)
+          gh label create "$label" --repo "$GITHUB_REPOSITORY" --color ededed --description "$name" 2> /dev/null || true
+          gh issue edit "$NUMBER" --repo "$GITHUB_REPOSITORY" --add-label "$label"
+          [ "$ACTION" = "opened" ] || exit 0
+          people=$(jq -r --arg author "$AUTHOR" \
+            '[.moderators[] | select(ascii_downcase != ($author | ascii_downcase)) | "@" + .] | join(", ")' triage.json)
+          [ -n "$people" ] || exit 0
+          gh issue comment "$NUMBER" --repo "$GITHUB_REPOSITORY" \
+            --body "Moderators of ${name}: ${people}. The roles are in [GOVERNANCE.md]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/blob/main/GOVERNANCE.md)."

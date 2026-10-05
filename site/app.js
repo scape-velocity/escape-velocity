@@ -150,6 +150,13 @@ function severityChip(severity) {
   return chip(severity, `sev-${severity}`, meaning("severity", severity));
 }
 
+// GitHub handles as profile links, or a link to volunteer for the role (GOVERNANCE.md).
+function people(handles, role) {
+  const url = (state.data.governance && state.data.governance.url) || `${state.data.repository}/blob/main/GOVERNANCE.md`;
+  if (!handles || !handles.length) return h`none yet: <a href="${url}#${role}">volunteer</a>`;
+  return handles.map((name, i) => h`${i ? ", " : ""}<a href="https://github.com/${name}">@${name}</a>`);
+}
+
 function plainChip(text, title) {
   return h`<span class="chip" title="${title || ""}">${text}</span>`;
 }
@@ -325,6 +332,7 @@ function domainView(domainId) {
       ${scale ? plainChip(`Readiness on ${scale.name}`, scale.summary) : ""}
       ${sdgs.map((name) => plainChip(`SDG: ${name}`))}
     </div>
+    <p class="small muted" style="margin:.8rem 0 0">Moderators: ${people(domain.moderators, "moderators")}</p>
     <div class="stack" style="margin-top:1.2rem">${techs.map((t) => {
       const m = headline(t);
       return h`<article class="card">
@@ -368,7 +376,7 @@ function techView(id, params) {
       <div><dt>Readiness</dt><dd>${tech.readiness_name}${tech.readiness_note ? h`<div class="small muted">${oneLine(tech.readiness_note)}</div>` : ""}${evidenceLinks(tech.readiness_evidence)}</dd></div>
       <div><dt>Serves</dt><dd>${sdgs.length ? sdgs.join(", ") : "–"}</dd></div>
       <div><dt>Last reviewed</dt><dd>${tech.last_reviewed || "never"}</dd></div>
-      <div><dt>Curators</dt><dd>${tech.curators && tech.curators.length ? tech.curators.join(", ") : h`none yet: <a href="${state.data.repository}/blob/main/CONTRIBUTING.md">volunteer</a>`}</dd></div>
+      <div><dt>Curators</dt><dd>${people(tech.curators, "curators")}</dd></div>
     </dl>
     ${tech.status === "proposed" ? h`<p class="notice">Proposed: the statement and scope are written, but the metrics, target or gaps are not complete yet. One sourced number is a real contribution.</p>` : ""}
 
@@ -946,6 +954,9 @@ function aboutView() {
       <h2>Contribute</h2>
       <p>One sourced number is a real contribution. Every change, from a person or an agent, is a pull request reviewed
       by a person. See <a href="${data.repository}/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a>.</p>
+      <p>Each domain has moderators and each tracked technology has curators. They review the changes to what they look
+      after, and only they mark an evidence card as verified. How the roles work, and how to take one, is in
+      <a href="${data.governance ? data.governance.url : data.repository + "/blob/main/GOVERNANCE.md"}">GOVERNANCE.md</a>.</p>
       <h2>The Alan Machine</h2>
       <p><a href="${data.alan_machine}">The Alan Machine</a> is an open-source book about a hypothetical supercomputer at the
       physical limits of computation. The atlas shares its metrics and its kinds of claim, and links each technology

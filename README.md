@@ -78,8 +78,9 @@ The whole atlas is also published as one file,
 [atlas.json](https://scape-velocity.github.io/escape-velocity/atlas.json) ([format](docs/export.md)),
 and for language models as [llms.txt](https://scape-velocity.github.io/escape-velocity/llms.txt).
 
-Every change, from a person or an agent, is a pull request reviewed by a person. Agents write
-evidence as unverified; only curators verify it.
+Every change, from a person or an agent, is a pull request reviewed by a person: a curator of the
+technology or a moderator of its domain, checked by the `moderation` check. Agents write evidence as
+unverified; only curators and moderators verify it ([GOVERNANCE.md](GOVERNANCE.md)).
 
 ## The Alan Machine
 
@@ -95,13 +96,14 @@ projects need them ([decision 0008](docs/decisions/0008-relationship-with-the-al
 |---|---|
 | 0 | Data model, taxonomy, checks, generated pages, skills, a local read-only MCP server, first technologies in every domain |
 | 1 | JSON export, `llms.txt` and a static explorer with the graph (shipped); a hosted copy of the MCP server over the export |
-| 2 | Scheduled scouting that opens pull requests with proposed evidence; curators for the main technologies |
+| 2 | Scheduled scouting that opens pull requests with proposed evidence; moderators for every domain and curators for the main technologies (the roles and the check shipped) |
 | 3 | Limits computed by the book's `alan` library; dossiers of The Alan Machine pulling pinned versions of the atlas |
 
 ## Contributing
 
 One sourced number is a real contribution. See [CONTRIBUTING.md](CONTRIBUTING.md); agents read
-[AGENTS.md](AGENTS.md). Decisions are in [docs/decisions/](docs/decisions/README.md).
+[AGENTS.md](AGENTS.md). Roles and who approves what are in [GOVERNANCE.md](GOVERNANCE.md).
+Decisions are in [docs/decisions/](docs/decisions/README.md).
 
 Out of scope: weapons, dual-use research of concern, surveillance aimed at people, investment
 advice and medical advice ([decision 0001](docs/decisions/0001-purpose-and-scope.md)).

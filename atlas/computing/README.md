@@ -6,6 +6,8 @@ Classical information processing: logic, memory and data movement after the end 
 
 Readiness scale: Technology readiness level, unless a technology states another.
 
+Moderators: none yet; see [how to become one](../../GOVERNANCE.md#moderators).
+
 | Technology | Atlas status | Readiness | Headline metric | Current | Target | Gap to target |
 |---|---|---|---|---|---|---|
 | [Low-energy data movement](low-energy-data-movement.md) | scoping | TRL 4 (4 of 9) | Energy per bit moved | 6.5 × 10⁻¹³ J | 10⁻¹³ J | 0.8 orders of magnitude |

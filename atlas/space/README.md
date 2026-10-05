@@ -6,6 +6,8 @@ Reaching, working in and living in space.
 
 Readiness scale: Technology readiness level, unless a technology states another.
 
+Moderators: none yet; see [how to become one](../../GOVERNANCE.md#moderators).
+
 | Technology | Atlas status | Readiness | Headline metric | Current | Target | Gap to target |
 |---|---|---|---|---|---|---|
 | [Low-cost access to orbit](low-cost-access-to-orbit.md) | scoping | not assessed | Launch cost | 3 868 USD kg^-1 | 300 USD kg^-1 | 1.1 orders of magnitude |
