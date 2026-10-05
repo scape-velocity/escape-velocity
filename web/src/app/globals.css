@@ -388,3 +388,8 @@ blockquote {
   .metric-values { grid-template-columns: 1fr; }
   .grid-domains, .grid-two { grid-template-columns: 1fr; }
 }
+
+/* Language switcher: the other languages, next to the theme toggle; visible on every width. */
+.lang-switch { display: flex; gap: 8px; }
+.lang-link { color: var(--muted); font-size: 0.92rem; white-space: nowrap; }
+.lang-link:hover { color: var(--text); }

@@ -1,9 +1,35 @@
 /* The shape of atlas.json, schema 1, as described in docs/export.md. Optional fields are the
-   optional fields of the TOML files; derived fields are always present. */
+   optional fields of the TOML files; derived fields are always present. atlas.<lang>.json has the
+   same shape, with the texts translated and a `translation` status. */
 
 export interface VocabularyItem {
   id: string;
+  /** The value as a reader sees it: the id with spaces for hyphens, or its translation. */
+  label: string;
   meaning: string;
+}
+
+/** How much of a page's text is translated, in a translated file only: counts of texts. */
+export interface TranslationStatus {
+  translated: number;
+  total: number;
+  machine: number;
+  stale: number;
+  reviewed_by: string[];
+}
+
+/** A published language of the atlas; English comes first. */
+export interface Language {
+  id: string;
+  /** The BCP 47 tag the pages declare, such as "pt-BR". */
+  tag: string;
+  /** The language's name in the language itself. */
+  name: string;
+  english_name: string;
+  maintainers: string[];
+  /** The atlas file in the language, next to atlas.json: "atlas.json", "atlas.pt.json". */
+  file: string;
+  translation?: TranslationStatus;
 }
 
 export type VocabularyField =
@@ -158,6 +184,7 @@ export interface Technology {
   source: string;
   page: string;
   alan_machine: AlanMachinePage[];
+  translation?: TranslationStatus;
 }
 
 export interface Finding {
@@ -191,10 +218,16 @@ export interface EvidenceCard {
   link: string | null;
   cited_by: string[];
   source: string;
+  translation?: TranslationStatus;
 }
 
 export interface AtlasData {
   schema: number;
+  /** The language of the texts of this file ("en", "pt") and the tag the pages declare. */
+  lang: string;
+  tag: string;
+  languages: Language[];
+  translation?: TranslationStatus;
   name: string;
   description: string;
   version: string;

@@ -1,11 +1,21 @@
 /* The ladder of a metric: now, target and limit on one axis, better to the right. A port of
-   ladder() in site/app.js; colors are CSS tokens, so it follows the theme. */
+   ladder() in site/app.js; colors are CSS tokens, so it follows the theme. The words come from the
+   page language's dictionary. */
 
 import type { ReactNode } from "react";
 
+import { fill, type Dictionary } from "@/i18n";
 import type { Metric, MetricDefinition } from "@/lib/types";
 
-export function Ladder({ metric, def }: { metric: Metric; def: Partial<MetricDefinition> & { name: string } }) {
+export function Ladder({
+  metric,
+  def,
+  t,
+}: {
+  metric: Metric;
+  def: Partial<MetricDefinition> & { name: string };
+  t: Dictionary["ladder"];
+}) {
   const log = def.scale === "log";
   const lower = def.direction === "lower";
   const points = (
@@ -92,7 +102,7 @@ export function Ladder({ metric, def }: { metric: Metric; def: Partial<MetricDef
     const near = "target" in byName && Math.abs(px - x(byName.target)) < 50;
     parts.push(
       <text key="limit-label" x={n(px)} y={near ? Y + 26 : Y - 16} textAnchor={anchor(px)}>
-        limit
+        {t.limit}
       </text>,
     );
   }
@@ -112,7 +122,7 @@ export function Ladder({ metric, def }: { metric: Metric; def: Partial<MetricDef
     );
     parts.push(
       <text key="target-label" className="val" x={n(px)} y={Y - 16} textAnchor={anchor(px)}>
-        target
+        {t.target}
       </text>,
     );
   }
@@ -123,11 +133,11 @@ export function Ladder({ metric, def }: { metric: Metric; def: Partial<MetricDef
     );
     parts.push(
       <text key="now-label" className="val" x={n(px)} y={Y + 26} textAnchor={anchor(px)}>
-        now
+        {t.now}
       </text>,
     );
   }
-  const label = `${def.name}: ${log ? "log scale, one tick per order of magnitude" : "linear scale"}; better to the right`;
+  const label = fill(log ? t.log : t.linear, { name: def.name });
   return (
     <svg className="ladder" viewBox="0 0 360 64" role="img" aria-label={label}>
       <title>{label}</title>

@@ -1,5 +1,9 @@
 /* Text and number helpers ported from the vanilla explorer (site/app.js). Pure functions, safe on
-   the server and in the browser. */
+   the server and in the browser. Numbers follow the page language: the decimal mark is its own
+   (a comma in Portuguese) and thousands are grouped by a space, as in SI. The data's `display`
+   strings are already formatted this way and are preferred where they exist. */
+
+import { dictionary, type Lang } from "@/i18n";
 
 import type { EvidenceCard } from "./types";
 
@@ -45,16 +49,21 @@ export function paragraphs(text: string | null | undefined): string[] {
     .map((block) => block.replace(/\s+/g, " "));
 }
 
+/** A plain number with the language's decimal mark. */
+function decimal(value: number, lang: Lang): string {
+  return String(value).replace(".", dictionary(lang).number.decimal);
+}
+
 /** A number as the pages show it: grouped integers, or a mantissa and a superscript exponent. */
-export function fmtNumber(value: unknown): string {
+export function fmtNumber(value: unknown, lang: Lang = "en"): string {
   if (typeof value !== "number") return String(value);
   if (Number.isInteger(value) && Math.abs(value) < 1e6) return value.toLocaleString("en-US").replace(/,/g, " ");
   if (value === 0) return "0";
   const exponent = Math.floor(Math.log10(Math.abs(value)));
-  if (exponent >= -3 && exponent <= 5) return String(Number(value.toPrecision(6)));
+  if (exponent >= -3 && exponent <= 5) return decimal(Number(value.toPrecision(6)), lang);
   const mantissa = Number((value / 10 ** exponent).toPrecision(3));
   const sup = superscript(String(exponent));
-  return mantissa === 1 ? `10${sup}` : `${mantissa} × 10${sup}`;
+  return mantissa === 1 ? `10${sup}` : `${decimal(mantissa, lang)} × 10${sup}`;
 }
 
 /** Unit exponents as superscripts: "USD kg^-1" becomes "USD kg⁻¹". */
@@ -63,17 +72,17 @@ export function prettyUnit(unit: string): string {
 }
 
 /** A value with its unit, or an en dash when there is none. */
-export function fmtValue(value: number | null | undefined, unit: string | null | undefined): string {
+export function fmtValue(value: number | null | undefined, unit: string | null | undefined, lang: Lang = "en"): string {
   if (value === null || value === undefined) return "–";
-  const number = fmtNumber(value);
+  const number = fmtNumber(value, lang);
   if (!unit || unit === "1") return number;
   if (unit === "%") return `${number}%`;
   return `${number} ${prettyUnit(unit)}`;
 }
 
 /** "First et al." for three or more authors, "First and Second" for two. */
-export function authorsShort(card: EvidenceCard): string {
+export function authorsShort(card: EvidenceCard, lang: Lang = "en"): string {
   const authors = card.authors ?? [];
   if (!authors.length) return "";
-  return authors.length > 2 ? `${authors[0]} et al.` : authors.join(" and ");
+  return authors.length > 2 ? `${authors[0]} et al.` : authors.join(` ${dictionary(lang).common.and} `);
 }

@@ -1,5 +1,9 @@
 /* The atlas with its lookups (technologies, cards, domains, metrics, scales, vocabulary) and the
-   helpers of the vanilla explorer that need them. Built once per build from atlas.json. */
+   helpers of the vanilla explorer that need them. Built once per build and language from atlas.json
+   or atlas.<lang>.json; it carries the interface strings of its language, so the components that
+   receive it render in that language. */
+
+import { DEFAULT_LANG, dictionary, fill, isLang, type Dictionary, type Lang } from "@/i18n";
 
 import type {
   AtlasData,
@@ -21,9 +25,15 @@ export class Atlas {
   readonly metrics = new Map<string, MetricDefinition>();
   readonly scales = new Map<string, ReadinessScale>();
   readonly vocab: Record<string, Record<string, string>>;
+  readonly labels: Record<string, Record<string, string>>;
+  readonly lang: Lang;
+  /** The interface strings of the atlas's language. */
+  readonly t: Dictionary;
 
   constructor(data: AtlasData) {
     this.data = data;
+    this.lang = data.lang && isLang(data.lang) ? data.lang : DEFAULT_LANG;
+    this.t = dictionary(this.lang);
     data.technologies.forEach((t) => this.techs.set(t.id, t));
     data.evidence.forEach((c) => this.cards.set(c.key, c));
     data.taxonomy.domains.forEach((d) => this.domains.set(d.id, d));
@@ -35,6 +45,17 @@ export class Atlas {
         Object.fromEntries(items.map((i) => [i.id, i.meaning])),
       ]),
     );
+    this.labels = Object.fromEntries(
+      Object.entries(data.taxonomy.vocabulary).map(([field, items]) => [
+        field,
+        Object.fromEntries(items.map((i) => [i.id, i.label ?? i.id.replace(/-/g, " ")])),
+      ]),
+    );
+  }
+
+  /** A controlled value as the reader sees it ("beyond limit", or its translation). */
+  label(field: VocabularyField, id: string): string {
+    return this.labels[field]?.[id] ?? id.replace(/-/g, " ");
   }
 
   /** The meaning of a controlled value, for the title of its chip. */
@@ -49,12 +70,12 @@ export class Atlas {
 
   /** The name of a readiness level on the technology's scale, such as "TRL 4". */
   levelName(tech: Technology, level: number | null | undefined): string {
-    if (level === undefined || level === null) return "not assessed";
+    if (level === undefined || level === null) return this.t.common.notAssessed;
     const domain = this.domains.get(tech.domain);
     const scale = this.scales.get(tech.readiness_scale ?? domain?.readiness_scale ?? "");
-    if (!scale) return `level ${level}`;
+    if (!scale) return fill(this.t.common.level, { level });
     const found = (scale.level ?? []).find((item) => item.level === level);
-    return found ? found.name : `level ${level}`;
+    return found ? found.name : fill(this.t.common.level, { level });
   }
 
   metricName(id: string): string {

@@ -1,0 +1,254 @@
+{
+  "number": {
+    "decimal": "."
+  },
+  "site": {
+    "description": "An open atlas of what each technology still needs to reach maturity: metrics, gaps, dependencies and the evidence behind every number.",
+    "jsonTitle": "The atlas as JSON"
+  },
+  "shell": {
+    "skip": "Skip to content",
+    "sections": "Sections",
+    "nav": {
+      "overview": "Overview",
+      "graph": "Graph",
+      "gaps": "Gaps",
+      "evidence": "Evidence",
+      "about": "About"
+    },
+    "alanMachineTitle": "The Alan Machine, the companion book",
+    "githubTitle": "Source on GitHub",
+    "theme": "Switch color theme",
+    "languages": "Other languages",
+    "version": "Atlas version {version}, {date}. Every number links to its source.",
+    "licenses": "Data {data}, text {text}, code {code}.",
+    "contribute": "Contribute"
+  },
+  "notice": {
+    "machine": "This page was translated by machine and has not been reviewed yet.",
+    "partial": "Part of this page is still in English.",
+    "help": "How to help"
+  },
+  "notFound": {
+    "title": "Not found",
+    "text": "Nothing at this address. {link}.",
+    "back": "Back to the overview"
+  },
+  "common": {
+    "notAssessed": "not assessed",
+    "level": "level {level}",
+    "noneYet": "none yet:",
+    "volunteer": "volunteer",
+    "sourceToml": "Source TOML",
+    "unknown": "?",
+    "and": "and"
+  },
+  "overview": {
+    "title": "What each technology still needs",
+    "lede": "Escape Velocity is an open atlas of technologies on their way to maturity: where each one stands, the target that would make it useful, the physical limit behind that target, the gaps in between and the other technologies it waits on. Every number has a source.",
+    "statTechs": "technologies, {mapped} fully mapped",
+    "statDomains": "domains",
+    "statGaps": "open gaps, {critical} critical",
+    "statCards": "evidence cards, {verified} verified by a curator",
+    "distance": "Distance to target",
+    "allGaps": "All gaps",
+    "distanceText": "The headline metric of each technology: how far the best demonstrated value is from the target, in orders of magnitude. Open a technology for the conditions and the evidence behind each value.",
+    "noHeadline": "No headline metric has both a current value and a target yet.",
+    "percentage": "Percentage metrics",
+    "domains": "Domains",
+    "seeGraph": "See the graph",
+    "critical": "Critical gaps",
+    "noCritical": "No critical gaps recorded.",
+    "depended": "Most depended on",
+    "neededBy": "needed by {names}",
+    "holdsOpen": {
+      "one": "holds open {n} gap",
+      "other": "holds open {n} gaps"
+    },
+    "noDeps": "No dependencies recorded yet."
+  },
+  "bars": {
+    "label": "{metric}: {current} now, {target} target",
+    "aria": "{tech}: {distance} to target"
+  },
+  "domainCard": {
+    "techs": {
+      "one": "{n} technology",
+      "other": "{n} technologies"
+    },
+    "openGaps": {
+      "one": "{n} open gap",
+      "other": "{n} open gaps"
+    },
+    "met": "met",
+    "toGo": "{distance} to go",
+    "ordersLong": "orders of magnitude",
+    "ordersShort": "orders"
+  },
+  "metric": {
+    "headline": "headline",
+    "headlineTitle": "The metric shown for this technology in summaries",
+    "targetMet": "target met",
+    "toGo": "{distance} to go",
+    "lower": "Lower is better.",
+    "higher": "Higher is better.",
+    "current": "Current",
+    "target": "Target",
+    "limit": "Limit",
+    "conditions": "Conditions.",
+    "whyTarget": "Why this target.",
+    "limitBasis": "Limit.",
+    "targetToLimit": "Target to limit: {distance}.",
+    "note": "Note."
+  },
+  "ladder": {
+    "now": "now",
+    "target": "target",
+    "limit": "limit",
+    "log": "{name}: log scale, one tick per order of magnitude; better to the right",
+    "linear": "{name}: linear scale; better to the right"
+  },
+  "gap": {
+    "layer": "layer: {layer}",
+    "heldOpenBy": "Held open by:",
+    "approaches": "Approaches"
+  },
+  "cardRow": {
+    "citedBy": "cited by {n}",
+    "notCited": "not cited"
+  },
+  "panel": {
+    "toTarget": "{distance} to target",
+    "requires": "Requires:",
+    "nothingRecorded": "nothing recorded",
+    "requiredBy": "Required by:",
+    "nothingYet": "nothing yet",
+    "open": "Open the technology"
+  },
+  "filters": {
+    "all": "All",
+    "search": "Search",
+    "clear": "Clear",
+    "count": "{shown} of {total} {noun}"
+  },
+  "graph": {
+    "title": "Graph",
+    "description": "Every technology in the atlas and what it requires: a shared dependency shows up once, however many domains wait on it.",
+    "heading": "The dependency graph",
+    "text": "Every technology in the atlas. An arrow goes from a technology to one it requires; a shared dependency shows up once, however many domains wait on it. Dashed nodes are proposed and not yet mapped.",
+    "label": "Dependency graph of every technology",
+    "empty": "Select a technology to see what it requires and what waits on it.",
+    "group": "Group by domain",
+    "proposed": "Show proposed",
+    "isolated": "Show technologies without links",
+    "legend": "Domains (select to hide)",
+    "failed": "The graph library did not load."
+  },
+  "gaps": {
+    "title": "Gaps",
+    "description": "What stands between each technology and its target, classified by type, layer and severity.",
+    "text": "What stands between each technology and its target, classified by type, layer and severity. A gap held open by another technology points to it.",
+    "domain": "Domain",
+    "severity": "Severity",
+    "type": "Type",
+    "layer": "Layer",
+    "status": "Status",
+    "placeholder": "Words in the title or description",
+    "noun": "gaps",
+    "empty": "No gap matches these filters."
+  },
+  "evidence": {
+    "title": "Evidence",
+    "description": "Every number in the atlas comes from a card: the source, a verbatim quote, the conditions and a class.",
+    "text": "Every number in the atlas comes from a card: the source, a verbatim quote, the conditions and a class. Agents add cards as unverified or machine-checked; only a curator marks a card verified.",
+    "class": "Class",
+    "status": "Status",
+    "type": "Type",
+    "placeholder": "Title, author, venue or key",
+    "noun": "cards",
+    "empty": "No card matches these filters."
+  },
+  "card": {
+    "readSource": "Read the source",
+    "findings": "Findings",
+    "citedBy": "Cited by",
+    "notCited": "No technology cites this card yet.",
+    "added": "Added {date} by {who}",
+    "checked": ", checked {date}",
+    "report": "Report a problem"
+  },
+  "domain": {
+    "eyebrow": "Domain",
+    "readinessOn": "Readiness on {scale}",
+    "sdg": "SDG: {name}",
+    "moderators": "Moderators:",
+    "noCurrent": "no current value",
+    "nowTarget": " now, target {target}"
+  },
+  "tech": {
+    "describeTarget": ", target {target}",
+    "describe": "{sentence} {metric}: {current} now{target}.",
+    "need": " Need: {need}",
+    "readinessLevel": "Readiness level",
+    "horizon": "horizon {horizon}",
+    "gapOpen": "{severity} gap open",
+    "worstTitle": "The most severe open gap",
+    "scope": "Scope",
+    "readiness": "Readiness",
+    "serves": "Serves",
+    "lastReviewed": "Last reviewed",
+    "never": "never",
+    "curators": "Curators",
+    "proposed": "Proposed: the statement and scope are written, but the metrics, target or gaps are not complete yet. One sourced number is a real contribution.",
+    "metrics": "Metrics",
+    "noMetric": "No metric yet.",
+    "gaps": "Gaps",
+    "noGap": "No gap recorded yet.",
+    "dependencies": "Dependencies",
+    "requires": "Requires",
+    "nothing": "Nothing recorded.",
+    "requiredBy": "Required by",
+    "noDependents": "Nothing in the atlas depends on it yet.",
+    "holdsOpen": "Holds open",
+    "graphLabel": "Dependency graph around {name}",
+    "graphHelp": "Arrows point from a technology to what it requires. Select a node to open it.",
+    "evidence": "Evidence",
+    "noEvidence": "No evidence cited yet.",
+    "alanMachine": "In The Alan Machine",
+    "page": "Page on GitHub",
+    "suggest": "Suggest a correction"
+  },
+  "about": {
+    "title": "About",
+    "description": "What the atlas is, its model, how to use its data, how to cite it and how to contribute.",
+    "heading": "About the atlas",
+    "lede": "Escape velocity is the speed at which a rocket stops falling back. A technology has one too: the point where it works well enough, cheaply enough and reliably enough to carry on by itself.",
+    "model": "The model",
+    "modelItems": [
+      { "term": "A technology", "text": "is a capability with a measurable target, a statement and a scope." },
+      {
+        "term": "Each metric",
+        "text": "has three numbers: the best value demonstrated so far, the target with its rationale, and the physical limit where one exists."
+      },
+      { "term": "Gaps", "text": "are classified by type, layer and severity. A gap held open by another technology points to it." },
+      {
+        "term": "Evidence cards",
+        "text": "carry every number: the source, a verbatim quote, the conditions and a class (established, reported, extrapolation, speculation)."
+      }
+    ],
+    "modelMore": "The full model is in {link}.",
+    "data": "Use the data",
+    "dataJson": "{file}: the whole atlas in one file, with gap sizes, dependents and citations ({format}).",
+    "dataFormat": "format",
+    "dataLlms": "{llms} and {full}: the atlas for language models.",
+    "dataMcp": "An MCP server for agents, in {file}: technologies, gaps, dependencies, bottlenecks, evidence and literature search.",
+    "cite": "Cite",
+    "citeText": "Cite the atlas version you used: this page shows version {version} ({date}). The citation metadata is in {cff}. Data is under CC0 1.0, text under CC BY 4.0 and code under Apache 2.0.",
+    "contribute": "Contribute",
+    "contributeText": "One sourced number is a real contribution. Every change, from a person or an agent, is a pull request reviewed by a person. See {link}.",
+    "rolesText": "Each domain has moderators and each tracked technology has curators. They review the changes to what they look after, and only they mark an evidence card as verified. How the roles work, and how to take one, is in {link}.",
+    "alanMachine": "The Alan Machine",
+    "alanMachineText": "{link} is an open-source book about a hypothetical supercomputer at the physical limits of computation. The atlas shares its metrics and its kinds of claim, and links each technology to the pages that discuss it.",
+    "outOfScope": "Out of scope: weapons, dual-use research of concern, surveillance aimed at people, investment advice and medical advice."
+  }
+}

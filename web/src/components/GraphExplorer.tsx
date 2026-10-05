@@ -1,25 +1,29 @@
 "use client";
 
 /* The graph page: every technology, the options, the domain legend and the side panel. A port of
-   graphView() in site/app.js. The panels are rendered on the server, one per technology. */
+   graphView() in site/app.js. The panels are rendered on the server, one per technology, and the
+   words come with them in the page language. */
 
 import { useState, type CSSProperties, type ReactNode } from "react";
 
+import type { Dictionary, Lang } from "@/i18n";
 import { domainColor } from "@/lib/colors";
 import type { GraphDomain, GraphTech } from "@/lib/graph";
 
 import { Graph } from "./Graph";
 
-const EMPTY_PANEL = "Select a technology to see what it requires and what waits on it.";
-
 export function GraphExplorer({
   techs,
   domains,
   panels,
+  lang,
+  t,
 }: {
   techs: GraphTech[];
   domains: GraphDomain[];
   panels: Record<string, ReactNode>;
+  lang: Lang;
+  t: Dictionary["graph"];
 }) {
   const [hidden, setHidden] = useState<Set<string>>(() => new Set());
   const [group, setGroup] = useState(true);
@@ -53,7 +57,9 @@ export function GraphExplorer({
     <div className="graph-layout">
       <Graph
         className="graph-box graph-full"
-        label="Dependency graph of every technology"
+        label={t.label}
+        lang={lang}
+        failedText={t.failed}
         techs={techs}
         domains={domains}
         ids={ids}
@@ -68,26 +74,26 @@ export function GraphExplorer({
             panels[selected]
           ) : (
             <p className="muted small" style={{ margin: 0 }}>
-              {EMPTY_PANEL}
+              {t.empty}
             </p>
           )}
         </div>
         <div className="card">
           <label className="small" style={{ display: "flex", gap: 8, alignItems: "center" }}>
-            <input type="checkbox" checked={group} onChange={(e) => redraw(() => setGroup(e.target.checked))} /> Group by domain
+            <input type="checkbox" checked={group} onChange={(e) => redraw(() => setGroup(e.target.checked))} /> {t.group}
           </label>
           <label className="small" style={{ display: "flex", gap: 8, alignItems: "center" }}>
-            <input type="checkbox" checked={showProposed} onChange={(e) => redraw(() => setShowProposed(e.target.checked))} /> Show
-            proposed
+            <input type="checkbox" checked={showProposed} onChange={(e) => redraw(() => setShowProposed(e.target.checked))} />{" "}
+            {t.proposed}
           </label>
           <label className="small" style={{ display: "flex", gap: 8, alignItems: "center" }}>
-            <input type="checkbox" checked={showIsolated} onChange={(e) => redraw(() => setShowIsolated(e.target.checked))} /> Show
-            technologies without links
+            <input type="checkbox" checked={showIsolated} onChange={(e) => redraw(() => setShowIsolated(e.target.checked))} />{" "}
+            {t.isolated}
           </label>
         </div>
         <div className="card">
           <div className="small muted" style={{ marginBottom: 6 }}>
-            Domains (select to hide)
+            {t.legend}
           </div>
           <div className="legend">
             {domains.map((d) => (

@@ -2,12 +2,14 @@
 
 /* A Cytoscape graph of technologies, ported from buildGraph() in site/app.js. Cytoscape is loaded
    in an effect, so the static HTML holds only the empty box; the instance is destroyed on unmount
-   and restyled from the CSS tokens whenever the theme changes (toggle or system). */
+   and restyled from the CSS tokens whenever the theme changes (toggle or system). Names and words
+   come in the page language; a tap opens the technology in that language. */
 
 import type cytoscape from "cytoscape";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
+import type { Lang } from "@/i18n";
 import { domainColor } from "@/lib/colors";
 import { domainGridPositions, graphStyle, type GraphDomain, type GraphTech } from "@/lib/graph";
 import { techPath } from "@/lib/paths";
@@ -26,9 +28,13 @@ export interface GraphProps {
   selected?: string | null;
   className: string;
   label: string;
+  lang: Lang;
+  /** Shown when Cytoscape fails to load. */
+  failedText: string;
 }
 
-export function Graph({ techs, domains, ids, focus, layout, onSelect, onClear, selected, className, label }: GraphProps) {
+export function Graph(props: GraphProps) {
+  const { techs, domains, ids, focus, layout, onSelect, onClear, selected, className, label, lang, failedText } = props;
   const container = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const [cy, setCy] = useState<cytoscape.Core | null>(null);
@@ -131,7 +137,7 @@ export function Graph({ techs, domains, ids, focus, layout, onSelect, onClear, s
           const node = event.target as cytoscape.NodeSingular;
           if (node.data("isDomain")) return;
           if (handlers.current.onSelect) handlers.current.onSelect(node.id());
-          else router.push(techPath(node.id()));
+          else router.push(techPath(node.id(), undefined, lang));
         });
         instance.on("tap", (event) => {
           if (event.target === instance) handlers.current.onClear?.();
@@ -180,7 +186,7 @@ export function Graph({ techs, domains, ids, focus, layout, onSelect, onClear, s
     <div className={className} ref={container} aria-label={label}>
       {failed ? (
         <p className="empty" style={{ padding: 16 }}>
-          The graph library did not load.
+          {failedText}
         </p>
       ) : null}
     </div>
