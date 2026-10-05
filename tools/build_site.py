@@ -104,7 +104,7 @@ def export() -> dict:
     required_by: dict[str, list[dict]] = defaultdict(list)
     for tech in techs.values():
         for requirement in tech.requires():
-            required_by[requirement.get("technology", "")].append({"technology": tech.id, **plain(requirement)})
+            required_by[requirement.get("technology", "")].append({**plain(requirement), "technology": tech.id})
     cited_by: dict[str, list[str]] = defaultdict(list)
     for tech in techs.values():
         for key in cited_keys(tech):
