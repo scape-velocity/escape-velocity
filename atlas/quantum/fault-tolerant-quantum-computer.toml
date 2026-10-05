@@ -21,6 +21,16 @@ curators = []
 last_reviewed = 2026-10-04
 alan_machine = [{ page = "chapters/quantum-alan", title = "The quantum Alan" }, { page = "building-alan/quantum-hardware", title = "Building Alan: quantum hardware" }]
 
+# What reaching the target would change, and for whom (decision 0015).
+[[impact]]
+kind = "risk"
+who = "Anyone whose data is protected by RSA-2048"
+claim = "A quantum computer with less than a million noisy qubits could factor a 2048-bit RSA integer in less than a week, under the estimate's assumptions of a uniform gate error of 0.1%, a surface-code cycle of 1 microsecond and a control reaction time of 10 microseconds."
+class = "reported"
+evidence = ["gidney2025how"]
+metric = "physical-qubits"
+sdgs = [9]
+
 [[requires]]
 technology = "quantum/real-time-qec-decoder"
 why = "Every error-correction cycle needs its syndromes decoded before the next logical operation that depends on them."

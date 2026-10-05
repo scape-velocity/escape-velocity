@@ -296,3 +296,17 @@ text = "O Alan quântico"
 path = "alan_machine[building-alan/quantum-hardware].title"
 source = "e737e49586"
 text = "Construindo Alan: hardware quântico"
+
+[[text]]
+path = "impact[1].who"
+source = "ebc0e5770e"
+text = "Qualquer pessoa cujos dados são protegidos por RSA-2048"
+
+[[text]]
+path = "impact[1].claim"
+source = "0be38e7c53"
+text = """
+Um computador quântico com menos de um milhão de qubits ruidosos poderia fatorar um inteiro RSA de
+2048 bits em menos de uma semana, sob as hipóteses da estimativa: erro de porta uniforme de 0,1%,
+ciclo do código de superfície de 1 microssegundo e tempo de reação do controle de 10 microssegundos.
+"""

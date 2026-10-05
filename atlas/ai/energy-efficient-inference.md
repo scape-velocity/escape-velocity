@@ -20,6 +20,12 @@
 
 In scope: the energy drawn to serve a trained language model, measured per token or per query, including accelerator, memory, interconnect, host and cooling overhead. Out of scope: the energy of training (not mapped yet); the logic devices, data movement and cooling that inference depends on, covered by computing/beyond-cmos-logic, computing/low-energy-data-movement and enablers/heat-removal; and what AI is used for, covered by ai/ai-for-science.
 
+## Impact
+
+What reaching the target would change, and for whom (decision 0015).
+
+- **Benefit**: Across models, serving systems and hardware, efficiency gains in sight could cut the energy of AI inference 8 to 20 times. At 1 billion queries a day with 10% long queries, demand would fall from 1.7 GWh a day to 0.8 GWh a day with efficiency interventions. Who: Data centers that serve AI models, and the electricity grids that supply them. Class extrapolation; unlocked by the target for Energy per token; serves UN SDG 7 Affordable and clean energy, 13 Climate action; evidence [oviedo2026energy](../../evidence/oviedo2026energy.toml). Assumptions: A bottom-up model of production serving from token throughput, node power and overhead, for frontier-scale models (more than 200B parameters) on H100 nodes; not a measurement.
+
 ## Metrics
 
 | Metric | Current | Target | Physical limit | Gap to target | Target to limit |

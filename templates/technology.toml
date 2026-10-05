@@ -6,7 +6,8 @@
 #   proposed  name, statement, status
 #   scoping   + a headline metric with a sourced current value and a target with a rationale,
 #             last_reviewed
-#   mapped    + every metric has current and target, at least one gap, readiness with evidence
+#   mapped    + every metric has current and target, at least one gap, readiness with evidence,
+#             at least one impact
 #   tracked   + at least one curator, reviewed in the last six months
 #   retired   + retired_reason
 
@@ -35,6 +36,21 @@ curators = []                # GitHub handles, without @; adding one needs a mai
 last_reviewed = 2026-10-04
 alan_machine = [{ page = "chapters/quantum-alan", title = "The quantum Alan" }]
 # retired_reason = "Merged into quantum/..."
+
+# Impact: what reaching the target would change, and for whom (decision 0015). One table per
+# benefit or risk. No claim stronger than its evidence: established needs an established card,
+# reported an established or reported one, and an extrapolation states its assumptions. Speculation
+# is not an impact; write it in the pull request or the issue.
+[[impact]]
+kind = "risk"                # benefit | risk
+who = "Anyone whose data is protected by RSA-2048"
+claim = "A quantum computer with less than a million noisy qubits could factor a 2048-bit RSA integer in less than a week."
+class = "reported"           # established | reported | extrapolation
+evidence = ["gidney2025how"] # at least one card of evidence/
+metric = "physical-qubits"   # optional: a metric of this technology whose target unlocks the impact
+# horizon = "2030s"          # optional, free text, as the technology's horizon
+sdgs = [9]                   # optional, taxonomy/sdgs.toml
+# assumptions = "..."        # required when class = "extrapolation"
 
 # What this technology needs from others. Each one is a technology in the atlas with its own file,
 # its own metrics and its own gaps. Add the dependency as "proposed" if it has no file yet.

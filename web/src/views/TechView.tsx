@@ -141,6 +141,35 @@ export function TechView({ lang, domain: domainId, slug }: { lang: Lang; domain:
       </dl>
       {tech.status === "proposed" ? <p className="notice">{t.proposed}</p> : null}
 
+      {tech.impact?.length ? (
+        <>
+          <h2>{t.impact}</h2>
+          <p className="small muted">{t.impactLede}</p>
+          <div className="stack">
+            {tech.impact.map((impact, i) => {
+              const impactSdgs = (impact.sdgs ?? []).map((n) => atlas.sdgName(n)).filter((name): name is string => Boolean(name));
+              return (
+                <div key={i} className="card">
+                  <div className="chips">
+                    <Chip text={impact.kind === "risk" ? t.risk : t.benefit} cls={`impact-${impact.kind}`} />
+                    <PlainChip text={atlas.label("evidence_class", impact.class)} title={atlas.meaning("evidence_class", impact.class)} />
+                    {impact.horizon ? <PlainChip text={fill(t.horizon, { horizon: impact.horizon })} /> : null}
+                  </div>
+                  <p>{oneLine(impact.claim)}</p>
+                  <p className="small muted">{fill(t.impactWho, { who: oneLine(impact.who) })}</p>
+                  {impact.assumptions ? (
+                    <p className="small muted">{fill(t.impactAssumptions, { assumptions: oneLine(impact.assumptions) })}</p>
+                  ) : null}
+                  {impact.metric ? <p className="small muted">{fill(t.impactMetric, { metric: atlas.metricName(impact.metric) })}</p> : null}
+                  {impactSdgs.length ? <p className="small muted">{fill(t.impactServes, { sdgs: impactSdgs.join(", ") })}</p> : null}
+                  <EvidenceLinks atlas={atlas} keys={impact.evidence} />
+                </div>
+              );
+            })}
+          </div>
+        </>
+      ) : null}
+
       <h2>{t.metrics}</h2>
       {tech.metrics.length ? (
         <div className="grid grid-two">

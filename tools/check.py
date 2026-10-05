@@ -6,7 +6,8 @@ Errors (exit 1): values outside the taxonomy, missing required fields for a tech
 references to technologies or evidence cards that do not exist, dependency cycles, evidence cards
 that break the key convention, people named by something other than a GitHub handle, a card
 verified by the person who added it, generated pages out of date, a translation of a text its source
-file does not have or whose numbers differ from the English.
+file does not have or whose numbers differ from the English, an impact claimed more strongly than
+its evidence, a JSON export that does not match tools/atlas.schema.json.
 Warnings (exit 0): reviews past due, current values older than two years, a current value that
 differs from its evidence card, evidence cards nothing cites, a card verified by someone who no
 longer curates or moderates any technology that cites it, a translation whose English has changed
@@ -16,6 +17,7 @@ since it was made.
 from __future__ import annotations
 
 import datetime as dt
+import json
 import math
 import re
 import sys
@@ -25,6 +27,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import atlas  # noqa: E402
+import build_site  # noqa: E402
 import generate  # noqa: E402
 import i18n  # noqa: E402
 
@@ -33,11 +36,22 @@ EVIDENCE_KEY = re.compile(r"^[a-z]+(\d{4})[a-z]+$")
 TECHNOLOGY_KEYS = {
     "name", "statement", "scope", "status", "readiness", "readiness_scale", "readiness_evidence",
     "readiness_note", "horizon", "sdgs", "openalex_topics", "arxiv", "search_terms", "curators",
-    "last_reviewed", "alan_machine", "retired_reason", "requires", "metric", "gap",
+    "last_reviewed", "alan_machine", "retired_reason", "requires", "metric", "gap", "impact",
 }
 METRIC_KEYS = {"id", "metric", "headline", "conditions", "current", "target", "limit", "history"}
 GAP_KEYS = {"id", "title", "description", "metric", "type", "layer", "severity", "status", "blocked_by", "evidence", "search_terms", "approach"}
 REQUIRES_KEYS = {"technology", "why", "metric", "value", "need"}
+IMPACT_KEYS = {"kind", "who", "claim", "class", "evidence", "metric", "horizon", "sdgs", "assumptions"}
+IMPACT_KINDS = ("benefit", "risk")
+# The classes an impact may claim (decision 0015). Speculation is not one: it goes in the pull
+# request or the issue, as in the cross-domain-transfer skill.
+IMPACT_CLASSES = ("established", "reported", "extrapolation")
+# The evidence classes that can carry an impact of each class: no claim stronger than its cards.
+IMPACT_SUPPORT = {
+    "established": {"established"},
+    "reported": {"established", "reported"},
+    "extrapolation": {"established", "reported", "extrapolation", "speculation"},
+}
 EVIDENCE_KEYS = {
     "title", "authors", "year", "venue", "type", "doi", "arxiv", "pmid", "nct", "url", "accessed",
     "class", "status", "added", "added_by", "checked", "reviewed_by", "note", "finding",
@@ -439,6 +453,8 @@ def check_technology(tech: atlas.Technology, ctx: generate.Context, report: Repo
                 if key not in ctx.cards:
                     report.error(gwhere, f"approach {approach.get('name')!r} cites {key!r}, which is not in evidence/")
 
+    check_impacts(tech, ctx, report, where)
+
     # What each status requires.
     headline = tech.headline()
     if status in ("scoping", "mapped", "tracked", "achieved"):
@@ -460,6 +476,8 @@ def check_technology(tech: atlas.Technology, ctx: generate.Context, report: Repo
             report.error(where, f"a {status} technology needs at least one gap")
         if data.get("readiness") is None or not data.get("readiness_evidence"):
             report.error(where, f"a {status} technology needs readiness with readiness_evidence")
+        if not tech.impacts():
+            report.error(where, f"a {status} technology needs at least one impact")
     check_people(where, "curators", data.get("curators", []), report)
     if status == "tracked" and not data.get("curators"):
         report.error(where, "a tracked technology needs at least one curator")
@@ -473,6 +491,48 @@ def check_technology(tech: atlas.Technology, ctx: generate.Context, report: Repo
             curators = data.get("curators") if isinstance(data.get("curators"), list) else []
             who = "; curators: " + ", ".join(f"@{c}" for c in curators) if curators else ""
             report.warn(where, f"last reviewed on {last}; a {status} technology is reviewed every {months} months{who}")
+
+
+def check_impacts(tech: atlas.Technology, ctx: generate.Context, report: Report, where: str):
+    """The [[impact]] tables (decision 0015): who gains or loses what when the target is reached,
+    each claim no stronger than the evidence cards it cites."""
+    metric_names = {m.get("metric") for m in tech.metrics()}
+    for index, impact in enumerate(tech.impacts(), 1):
+        iwhere = f"{where} impact {index}"
+        if not isinstance(impact, dict):
+            report.error(iwhere, "must be an [[impact]] table")
+            continue
+        for key in set(impact) - IMPACT_KEYS:
+            report.error(iwhere, f"unknown field {key!r}")
+        if impact.get("kind") not in IMPACT_KINDS:
+            report.error(iwhere, f"kind {impact.get('kind')!r} is not one of {', '.join(IMPACT_KINDS)}")
+        for field_name in ("who", "claim"):
+            if not isinstance(impact.get(field_name), str) or not impact[field_name].strip():
+                report.error(iwhere, f"has no {field_name}")
+        claimed = impact.get("class")
+        if claimed == "speculation":
+            report.error(iwhere, "class 'speculation' is not an impact; write it in the pull request or the issue, labelled Speculation")
+        elif claimed not in IMPACT_CLASSES:
+            report.error(iwhere, f"class {claimed!r} is not one of {', '.join(IMPACT_CLASSES)}")
+        keys = impact.get("evidence")
+        if not isinstance(keys, list) or not keys:
+            report.error(iwhere, "needs evidence: a list of at least one key of evidence/")
+            keys = []
+        for key in keys:
+            if key not in ctx.cards:
+                report.error(iwhere, f"cites {key!r}, which is not in evidence/")
+        if claimed in IMPACT_SUPPORT and keys:
+            classes = {ctx.cards[key][1].get("class") for key in keys if key in ctx.cards}
+            if not classes & IMPACT_SUPPORT[claimed]:
+                needed = " or ".join(sorted(IMPACT_SUPPORT[claimed] - {"speculation"}))
+                report.error(iwhere, f"class {claimed!r} is stronger than its evidence; it needs a cited card of class {needed}")
+        if claimed == "extrapolation" and not str(impact.get("assumptions", "")).strip():
+            report.error(iwhere, "an extrapolation needs assumptions: what has to hold for the claim to follow")
+        if "metric" in impact and impact["metric"] not in metric_names:
+            report.error(iwhere, f"metric {impact['metric']!r} is not the metric of a [[metric]] in this file")
+        for sdg in impact.get("sdgs", []):
+            if sdg not in ctx.tax.sdgs:
+                report.error(iwhere, f"unknown SDG {sdg!r}")
 
 
 def check_cycles(ctx: generate.Context, report: Report):
@@ -572,6 +632,70 @@ def check_evidence(ctx: generate.Context, report: Report, maintainers: list[str]
             report.warn(where, "no technology cites this card")
 
 
+JSON_TYPES = {
+    "object": lambda v: isinstance(v, dict),
+    "array": lambda v: isinstance(v, list),
+    "string": lambda v: isinstance(v, str),
+    "integer": lambda v: isinstance(v, int) and not isinstance(v, bool),
+    "number": lambda v: isinstance(v, (int, float)) and not isinstance(v, bool),
+    "boolean": lambda v: isinstance(v, bool),
+    "null": lambda v: v is None,
+}
+
+
+def schema_errors(value, schema: dict, root: dict, path: str = "$") -> list[str]:
+    """Validate a JSON value against the subset of JSON Schema 2020-12 that tools/atlas.schema.json
+    uses: $ref to $defs, type, enum, required, properties, additionalProperties and items. Standard
+    library only, so the check runs without jsonschema installed."""
+    if "$ref" in schema:
+        ref = schema["$ref"]
+        if not ref.startswith("#/$defs/") or ref[len("#/$defs/"):] not in root.get("$defs", {}):
+            return [f"{path}: unknown $ref {ref!r} in the schema"]
+        return schema_errors(value, root["$defs"][ref[len("#/$defs/"):]], root, path)
+    errors = []
+    if "type" in schema:
+        types = schema["type"] if isinstance(schema["type"], list) else [schema["type"]]
+        if not any(JSON_TYPES[t](value) for t in types):
+            return [f"{path}: {type(value).__name__} where the schema has {' or '.join(types)}"]
+    if "enum" in schema and value not in schema["enum"]:
+        errors.append(f"{path}: {value!r} is not one of {schema['enum']}")
+    if isinstance(value, dict):
+        properties = schema.get("properties", {})
+        for name in schema.get("required", []):
+            if name not in value:
+                errors.append(f"{path}: missing {name!r}")
+        extra = schema.get("additionalProperties", True)
+        for name, item in value.items():
+            if name in properties:
+                errors += schema_errors(item, properties[name], root, f"{path}.{name}")
+            elif extra is False:
+                errors.append(f"{path}: field {name!r} is not in the schema; document it in docs/export.md and tools/atlas.schema.json")
+            elif isinstance(extra, dict):
+                errors += schema_errors(item, extra, root, f"{path}.{name}")
+    if isinstance(value, list) and isinstance(schema.get("items"), dict):
+        for index, item in enumerate(value):
+            errors += schema_errors(item, schema["items"], root, f"{path}[{index}]")
+    return errors
+
+
+def check_export(report: Report):
+    """The JSON export, built in memory as tools/build_site.py builds it, against its schema."""
+    where = str(build_site.SCHEMA_FILE.relative_to(atlas.ROOT))
+    try:
+        schema = json.loads(build_site.SCHEMA_FILE.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as error:
+        report.error(where, f"cannot be read: {error}")
+        return
+    languages = ["en"] + [lang.id for lang in i18n.languages().values() if lang.published]
+    for lang in languages:
+        name = "atlas.json" if lang == "en" else f"atlas.{lang}.json"
+        errors = schema_errors(build_site.export(lang), schema, schema)
+        for error in errors[:20]:
+            report.error(f"{name} (tools/build_site.py)", f"does not match {where}: {error}")
+        if len(errors) > 20:
+            report.error(f"{name} (tools/build_site.py)", f"and {len(errors) - 20} more differences from {where}")
+
+
 def main() -> int:
     report = Report()
     today = dt.date.today()
@@ -583,6 +707,8 @@ def main() -> int:
     check_cycles(ctx, report)
     check_evidence(ctx, report, maintainers)
     check_translations(report)
+    if not atlas.LOAD_ERRORS:
+        check_export(report)
 
     for relative, message in atlas.LOAD_ERRORS.items():
         report.error(relative, message)

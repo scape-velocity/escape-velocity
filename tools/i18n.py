@@ -119,6 +119,11 @@ def _technology(data: dict):
         for index, approach in enumerate(gap.get("approach", []), 1):
             if _text(approach, "name"):
                 yield Slot(f"{where}.approach[{index}].name", approach["name"], approach, "name")
+    for index, impact in enumerate(data.get("impact", []), 1):
+        if isinstance(impact, dict):
+            for key in ("who", "claim", "assumptions"):
+                if _text(impact, key):
+                    yield Slot(f"impact[{index}].{key}", impact[key], impact, key)
     for page in data.get("alan_machine", []):
         if isinstance(page, dict) and _text(page, "title"):
             yield Slot(f"alan_machine[{page.get('page')}].title", page["title"], page, "title")

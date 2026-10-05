@@ -23,6 +23,17 @@ curators = []
 last_reviewed = 2026-10-04
 alan_machine = [{ page = "building-alan/energy-per-token", title = "Building Alan: energy per token" }]
 
+# What reaching the target would change, and for whom (decision 0015).
+[[impact]]
+kind = "benefit"
+who = "Data centers that serve AI models, and the electricity grids that supply them"
+claim = "Across models, serving systems and hardware, efficiency gains in sight could cut the energy of AI inference 8 to 20 times. At 1 billion queries a day with 10% long queries, demand would fall from 1.7 GWh a day to 0.8 GWh a day with efficiency interventions."
+class = "extrapolation"
+assumptions = "A bottom-up model of production serving from token throughput, node power and overhead, for frontier-scale models (more than 200B parameters) on H100 nodes; not a measurement."
+evidence = ["oviedo2026energy"]
+metric = "energy-per-token"
+sdgs = [7, 13]
+
 [[requires]]
 technology = "computing/beyond-cmos-logic"
 why = "Arithmetic in the accelerator is bounded by the switching energy of CMOS logic, which is estimated to allow only about two hundred times more efficiency than current microprocessors."

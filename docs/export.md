@@ -7,6 +7,12 @@ file, with the fields the pages derive already computed.
 
 The data is CC0 1.0 and the text CC BY 4.0. Cite the `version` you used.
 
+The format is also a JSON Schema (2020-12), published next to the export as
+https://scape-velocity.github.io/escape-velocity/atlas.schema.json. Its source is
+`tools/atlas.schema.json`; `tools/check.py` builds the export in memory and validates it against
+the schema, which closes the technology and impact objects (`additionalProperties: false`), so a
+field added to the export without a line here fails the check.
+
 ## Top level
 
 | Field | |
@@ -47,6 +53,25 @@ Every field of the technology's TOML file, with dates as ISO strings, plus:
 | `evidence` | Keys of every card the technology cites |
 | `source`, `page` | The TOML file and the generated page on GitHub |
 | `alan_machine` | Pages of The Alan Machine, each with `page`, `title` and `url` |
+| `impact` | The `[[impact]]` tables as in the TOML, when the technology has any; fields below |
+
+### Impact fields
+
+What reaching the technology's target would change, and for whom
+([decision 0015](decisions/0015-impact-of-a-technology.md)). Present only when the TOML has
+`[[impact]]` tables; a mapped, tracked or achieved technology always has at least one.
+
+| Field | |
+|---|---|
+| `kind` | `benefit` or `risk` |
+| `who` | Who gains or is put at risk, in words |
+| `claim` | What would change, in one or two sentences |
+| `class` | `established`, `reported` or `extrapolation`, never stronger than the cited cards |
+| `evidence` | Keys of the evidence cards the claim rests on, at least one |
+| `metric` | Optional: the metric id of this technology whose target unlocks the impact |
+| `horizon` | Optional, free text |
+| `sdgs` | Optional: ids of the UN SDGs in `taxonomy.sdgs` |
+| `assumptions` | What has to hold for the claim to follow; present when `class` is `extrapolation` |
 
 ### Metric fields
 
