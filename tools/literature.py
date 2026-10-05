@@ -318,6 +318,29 @@ def crossref_work(doi: str) -> Work | None:
     return _crossref_work(data["message"]) if data else None
 
 
+RETRACTING = ("retraction", "withdrawal", "removal")
+
+
+def crossref_updates(doi: str) -> list[dict]:
+    """Notices registered in Crossref as updating the DOI, including the Retraction Watch database
+    Crossref has carried since September 2023. One dict per notice: type (retraction, withdrawal,
+    removal, correction, erratum, expression_of_concern...), notice (its DOI), date and source."""
+    data = fetch_json("https://api.crossref.org/works", {"filter": f"updates:{doi}", "rows": 100})
+    notices = []
+    for item in data.get("message", {}).get("items", []):
+        for update in item.get("update-to", []):
+            if str(update.get("DOI", "")).lower() != doi.lower():
+                continue
+            parts = ((update.get("updated") or {}).get("date-parts") or [[]])[0]
+            notices.append({
+                "type": str(update.get("type", "unknown")).lower(),
+                "notice": item.get("DOI", "?"),
+                "date": "-".join(f"{int(p):02d}" for p in parts if p) or "no date",
+                "source": update.get("source", "publisher"),
+            })
+    return notices
+
+
 # PubMed ---------------------------------------------------------------------------------------
 
 def _ncbi(params: dict) -> dict:

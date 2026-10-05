@@ -22,6 +22,12 @@ The script checks that the DOI, arXiv id, PMID, NCT number or URL resolves; that
 year and the first author match; and that each finding's quote appears in the abstract (or the page
 text, for a dataset or report cited by URL). It ignores case, spacing, punctuation and LaTeX.
 
+For a card with a DOI it also asks Crossref for notices that update the work
+(`https://api.crossref.org/works?filter=updates:<doi>`). Crossref has carried the Retraction Watch
+database since September 2023, so the notices include retractions the publisher did not register.
+A retraction, withdrawal or removal fails the card; any other notice (correction, erratum,
+expression of concern) is a warning. Each names the type, the notice's DOI, its date and its source.
+
 ## When it fails
 
 - **Year**: a paper online in December and in print in January has two years; the script accepts
@@ -31,6 +37,13 @@ text, for a dataset or report cited by URL). It ignores case, spacing, punctuati
 - **Quote not found**: copy the quote again from `--show-abstract`. If the number is only in the
   body of the paper, the card cannot be machine-checked: leave it `unverified`, say on which page
   the number is, and ask a curator to verify it.
+- **Retraction, withdrawal or removal**: the source no longer supports any finding. Read the
+  notice (`https://doi.org/<notice DOI>`), set the card to `status = "rejected"` with a `note`
+  naming the notice, and find another source for every value that cites the card. If there is
+  none, the value leaves the technology.
+- **Correction or expression of concern** (a warning): read the notice. If it touches a finding,
+  correct the value or the quote from the corrected text; an expression of concern makes the card
+  at most `reported`. Say what you checked in the pull request.
 - **Value not in the quote**: a warning. It is fine when the card converts units (0.143% is
   `1.43e-3`; 63 microseconds is `6.3e-5` s); say the conversion in `conditions`. Otherwise the value
   is wrong.
