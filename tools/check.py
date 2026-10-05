@@ -42,7 +42,7 @@ EVIDENCE_KEYS = {
     "title", "authors", "year", "venue", "type", "doi", "arxiv", "pmid", "nct", "url", "accessed",
     "class", "status", "added", "added_by", "checked", "reviewed_by", "note", "finding",
 }
-FINDING_KEYS = {"metric", "value", "unit", "conditions", "quote", "note"}
+FINDING_KEYS = {"metric", "value", "unit", "conditions", "quote", "note", "uncertainty", "interval", "coverage"}
 GOVERNANCE_KEYS = {"maintainers"}
 LANGUAGE_KEYS = {"id", "tag", "name", "english_name", "maintainers", "published"}
 OVERLAY_KEYS = {"status", "reviewed_by", "text"}
@@ -283,6 +283,33 @@ def check_value_table(where: str, part: str, table, report: Report, cards: dict,
                 is_number(f.get("value")) and math.isclose(f["value"], table["value"], rel_tol=1e-9) for f in findings
             ):
                 report.warn(where, f"{part} value {table.get('value')} differs from every {metric_id!r} finding in {key!r}")
+
+
+def check_finding_uncertainty(where: str, finding: dict, report: Report):
+    """The optional uncertainty of a finding, in the sense of the GUM (JCGM 100:2008). `uncertainty`
+    is a standard uncertainty in the finding's unit; `interval` with `coverage` is an interval the
+    source states with its probability. They are independent and never derived from each other."""
+    if "uncertainty" in finding:
+        u = finding["uncertainty"]
+        if not is_number(u) or u <= 0:
+            report.error(where, "uncertainty must be a positive number, the standard uncertainty in the finding's unit")
+    has_interval, has_coverage = "interval" in finding, "coverage" in finding
+    if has_interval != has_coverage:
+        report.error(where, "interval and coverage go together: the interval the source gives and its probability")
+    if has_coverage:
+        p = finding["coverage"]
+        if not is_number(p) or not 0 < p < 1:
+            report.error(where, "coverage must be a probability between 0 and 1, exclusive, such as 0.95")
+    if has_interval:
+        interval = finding["interval"]
+        if not (isinstance(interval, list) and len(interval) == 2 and all(is_number(x) for x in interval)):
+            report.error(where, "interval must be [low, high], two numbers in the finding's unit")
+        elif not interval[0] < interval[1]:
+            report.error(where, f"interval {interval} must have low < high")
+        elif is_number(finding.get("value")) and not interval[0] <= finding["value"] <= interval[1]:
+            report.error(where, f"value {finding['value']} lies outside its interval {interval}")
+    if ("uncertainty" in finding or has_interval) and not is_number(finding.get("value")):
+        report.error(where, "uncertainty and interval need a numeric value")
 
 
 def check_technology(tech: atlas.Technology, ctx: generate.Context, report: Report, today: dt.date):
@@ -540,6 +567,7 @@ def check_evidence(ctx: generate.Context, report: Report, maintainers: list[str]
                         )
                 if not str(finding.get("conditions", "")).strip():
                     report.warn(fwhere, "a numeric finding should state its conditions")
+            check_finding_uncertainty(fwhere, finding, report)
         if not ctx.cited_by.get(key):
             report.warn(where, "no technology cites this card")
 

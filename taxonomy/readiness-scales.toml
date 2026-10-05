@@ -10,8 +10,8 @@
 [[scale]]
 id = "trl"
 name = "Technology readiness level"
-summary = "From a principle observed in the laboratory to a system proven in operation."
-source = "NASA, Technology Readiness Levels"
+summary = "From a principle observed in the laboratory to a system proven in operation. For energy, the IEA extends the scale to 11 levels, up to mature technologies with widespread adoption; the atlas keeps levels 1 to 9."
+source = "NASA, Technology Readiness Levels; also ISO 16290:2013, Space systems, Definition of the Technology Readiness Levels (TRLs) and their criteria of assessment (confirmed in 2024), https://www.iso.org/standard/56064.html; the IEA 1 to 11 scale as described by the Canada Energy Regulator, https://www.rec-cer.gc.ca/en/data-analysis/energy-markets/market-snapshots/2025/market-snapshot-how-ready-are-energy-technologies.html"
 url = "https://www.nasa.gov/directorates/somd/spacetech/technology-readiness-level"
 
 [[scale.level]]

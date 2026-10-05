@@ -323,6 +323,11 @@ def card_markdown(card: dict) -> list[str]:
         value = ""
         if finding.get("metric"):
             value = f"{finding['metric']} = {finding.get('value')} {finding.get('unit', '')}".rstrip() + ". "
+            if "uncertainty" in finding:
+                value += f"Standard uncertainty: {finding['uncertainty']}. "
+            if "interval" in finding:
+                low, high = finding["interval"]
+                value += f"Interval: {low} to {high} at coverage {finding.get('coverage')}. "
         lines.append(f"- {value}Conditions: {paragraphs(finding.get('conditions'))} Quote: \"{paragraphs(finding.get('quote'))}\"")
     lines.append("")
     return lines

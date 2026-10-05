@@ -67,6 +67,20 @@ Every field of the card's TOML file, with dates as ISO strings, plus:
 | `cited_by` | Ids of the technologies that cite the card |
 | `source` | The TOML file on GitHub |
 
+Each finding has `metric`, `value`, `unit`, `conditions`, `quote` and `note` as in the TOML,
+and, only when its source states them, the uncertainty in the sense of the GUM ("Evaluation of
+measurement data — Guide to the expression of uncertainty in measurement", JCGM 100:2008,
+https://www.bipm.org/en/doi/10.59161/jcgm100-2008e):
+
+| Field | |
+|---|---|
+| `uncertainty` | Standard uncertainty, a positive number in the finding's unit |
+| `interval` | `[low, high]` in the finding's unit, with `value` inside it |
+| `coverage` | The probability of `interval`, between 0 and 1, such as 0.95; present exactly when `interval` is |
+
+They are optional and independent; a reader that ignores them reads the export as before, so
+`schema` stays 1. Neither is computed from the other.
+
 A card's `status` says how far it has been checked: `unverified` and `machine-checked` cards have
 not been reviewed by a curator (decision 0006).
 

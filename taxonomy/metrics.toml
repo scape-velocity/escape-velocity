@@ -43,7 +43,7 @@ scale = "log"
 [[metric]]
 id = "energy-per-token"
 name = "Energy per token"
-meaning = "Energy drawn per generated token in language model inference, as defined by the source"
+meaning = "Energy drawn per generated token in language model inference, as defined by the source. The number belongs to one of three measurement boundaries, and the conditions of the value say which: the chip or accelerator alone; the system, as power at the plug (MLPerf Power measures full system power with a SPEC-approved power analyzer read through the Power-Thermal Daemon, PTD, arXiv:2410.12032); or the facility, the system times the power usage effectiveness of the data center (PUE, ISO/IEC 30134-2:2026). Numbers from different boundaries are not comparable"
 unit = "J"
 direction = "lower"
 scale = "log"

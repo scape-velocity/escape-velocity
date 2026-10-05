@@ -9,6 +9,10 @@ the title, the year and the first author match the source; every finding's quote
 abstract, or in the page text for a source cited by URL. Matching ignores case, spacing,
 punctuation and LaTeX markup.
 
+For a card with a DOI, Crossref is also asked for notices that update the work (it carries the
+Retraction Watch database). A retraction, withdrawal or removal fails the card; any other notice
+(correction, erratum, expression of concern) is a warning a curator reads.
+
 A number in the finding that cannot be found in its quote, at any power of ten, is a warning: the
 conversion may be right (0.143% is 1.43e-3) and a curator confirms it.
 
@@ -133,6 +137,19 @@ def check_card(key: str, card: dict, show_abstract: bool) -> tuple[list[str], li
                 failures.append(f"first author {authors[0]!r} is not among the source's first authors {work.authors[:3]}")
         elif authors and not work.authors:
             warnings.append("the source lists no authors; first author not checked")
+    if card.get("doi"):
+        doi = literature.bare_doi(card["doi"])
+        try:
+            notices = literature.crossref_updates(doi)
+        except literature.FetchError as error:
+            failures.append(f"could not reach the source: {error}")
+            notices = []
+        for notice in notices:
+            described = f"{notice['type']} notice {notice['notice']} of {notice['date']} ({notice['source']})"
+            if notice["type"] in literature.RETRACTING:
+                failures.append(f"{described}; the source must not be cited as valid")
+            else:
+                warnings.append(f"{described}; read it and check the findings still hold")
     if show_abstract:
         print(f"\n--- text from {identifier} ---\n{text or '(none)'}\n---")
     normalized = literature.normalize(text)

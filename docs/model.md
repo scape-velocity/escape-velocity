@@ -62,7 +62,14 @@ Approaches are the lines of research aimed at the gap, each with its evidence an
 
 A number enters only through an **evidence card**, `evidence/<key>.toml`: one source, its
 identifier, its class (established, reported, extrapolation, speculation) and its findings, each with
-a value in the metric's unit, the conditions and a verbatim quote. Cards are `unverified` when added,
+a value in the metric's unit, the conditions and a verbatim quote. A finding may also carry the
+uncertainty its source states, in the sense of the GUM ("Evaluation of measurement data — Guide to
+the expression of uncertainty in measurement", JCGM 100:2008,
+https://www.bipm.org/en/doi/10.59161/jcgm100-2008e): `uncertainty`, a standard uncertainty ("uncertainty of the result of a measurement expressed as a standard deviation",
+GUM 2.3.1), or `interval = [low, high]` with its `coverage` probability, as the source gives a
+confidence interval or an expanded uncertainty. The two are independent and neither is derived from
+the other: going from one to the other needs assumptions about the distribution that the source
+may not state (GUM 2.3.5, note 2). Cards are `unverified` when added,
 `machine-checked` once the verify script confirms the source and the quotes, and `verified` once a
 curator has read the source.
 
