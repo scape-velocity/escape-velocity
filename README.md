@@ -67,6 +67,7 @@ The atlas is kept current by people and agents following the same procedures. Th
 | [find-neglected-gaps](skills/find-neglected-gaps/SKILL.md) | Finds bottlenecks many technologies wait on and few people research |
 | [cross-domain-transfer](skills/cross-domain-transfer/SKILL.md) | Looks for approaches from one field that could close a gap in another |
 | [weekly-brief](skills/weekly-brief/SKILL.md) | Summarizes what is new for the mapped technologies |
+| [translate-page](skills/translate-page/SKILL.md) | Translates a technology, a card or the taxonomy into a registered language, for a person to review |
 
 An MCP server gives any agent read access to the atlas and the literature search:
 `list_technologies`, `technology`, `gaps`, `dependencies`, `bottlenecks`, `evidence`,
@@ -101,7 +102,9 @@ projects need them ([decision 0008](docs/decisions/0008-relationship-with-the-al
 
 ## Contributing
 
-One sourced number is a real contribution. See [CONTRIBUTING.md](CONTRIBUTING.md); agents read
+One sourced number is a real contribution, and so is a translation: the atlas is written in English
+and translated into other languages, starting with Portuguese (Brazil)
+([docs/translating.md](docs/translating.md)). See [CONTRIBUTING.md](CONTRIBUTING.md); agents read
 [AGENTS.md](AGENTS.md). Roles and who approves what are in [GOVERNANCE.md](GOVERNANCE.md).
 Decisions are in [docs/decisions/](docs/decisions/README.md).
 

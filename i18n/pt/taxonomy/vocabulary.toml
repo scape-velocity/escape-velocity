@@ -1,0 +1,450 @@
+# Portuguese (Brazil) translation of taxonomy/vocabulary.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "technology_status[proposed].label"
+source = "81e766d897"
+text = "proposta"
+
+[[text]]
+path = "technology_status[proposed].meaning"
+source = "71457d7aae"
+text = "Nomeada, com enunciado e escopo; nada mapeado ainda"
+
+[[text]]
+path = "technology_status[scoping].label"
+source = "0843b0f81e"
+text = "em delimitação"
+
+[[text]]
+path = "technology_status[scoping].meaning"
+source = "2039cd660d"
+text = "As dependências e a métrica principal estão mapeadas; o valor atual tem fonte"
+
+[[text]]
+path = "technology_status[mapped].label"
+source = "03f881b62e"
+text = "mapeada"
+
+[[text]]
+path = "technology_status[mapped].meaning"
+source = "761eef3cde"
+text = "Toda métrica tem valor atual com fonte e uma meta; as principais lacunas estão escritas"
+
+[[text]]
+path = "technology_status[tracked].label"
+source = "b605596c21"
+text = "acompanhada"
+
+[[text]]
+path = "technology_status[tracked].meaning"
+source = "36b531fa7e"
+text = "Mapeada, e um curador revisa novas evidências pelo menos a cada seis meses"
+
+[[text]]
+path = "technology_status[achieved].label"
+source = "54aa7f35d4"
+text = "alcançada"
+
+[[text]]
+path = "technology_status[achieved].meaning"
+source = "34198d22a0"
+text = "Toda meta foi atingida; mantida como registro"
+
+[[text]]
+path = "technology_status[retired].label"
+source = "5b720147b6"
+text = "descontinuada"
+
+[[text]]
+path = "technology_status[retired].meaning"
+source = "98581ca62d"
+text = "Não é mais buscada, ou foi incorporada a outra tecnologia; o motivo está no arquivo"
+
+[[text]]
+path = "gap_status[open].label"
+source = "2348f99874"
+text = "aberta"
+
+[[text]]
+path = "gap_status[open].meaning"
+source = "88a58e39b6"
+text = "Nenhuma abordagem mostrou evidência de que a fecha"
+
+[[text]]
+path = "gap_status[active].label"
+source = "9687961165"
+text = "ativa"
+
+[[text]]
+path = "gap_status[active].meaning"
+source = "21979542d1"
+text = "Há pesquisa em andamento voltada à lacuna, ainda sem resultados decisivos"
+
+[[text]]
+path = "gap_status[promising].label"
+source = "e1d290577f"
+text = "promissora"
+
+[[text]]
+path = "gap_status[promising].meaning"
+source = "3d0b27f6a4"
+text = "Pelo menos uma abordagem tem evidência de que pode fechar a lacuna"
+
+[[text]]
+path = "gap_status[closed].label"
+source = "c3eefb58d7"
+text = "fechada"
+
+[[text]]
+path = "gap_status[closed].meaning"
+source = "9dca0a9b6b"
+text = """
+A métrica atingiu a meta numa demonstração sustentada por uma ficha de evidência consolidada; um
+único resultado relatado deixa a lacuna promissora
+"""
+
+[[text]]
+path = "gap_status[beyond-limit].label"
+source = "eac7658ac2"
+text = "além do limite"
+
+[[text]]
+path = "gap_status[beyond-limit].meaning"
+source = "e8be611720"
+text = "A meta está além de um limite físico; é ela que precisa mudar, não a tecnologia"
+
+[[text]]
+path = "gap_type[scientific-unknown].label"
+source = "fafe4681a9"
+text = "incógnita científica"
+
+[[text]]
+path = "gap_type[scientific-unknown].meaning"
+source = "ed34765c8e"
+text = "A ciência subjacente não é compreendida o bastante"
+
+[[text]]
+path = "gap_type[engineering].label"
+source = "8c85b6639e"
+text = "engenharia"
+
+[[text]]
+path = "gap_type[engineering].meaning"
+source = "4cf6b9b5e5"
+text = "A ciência é conhecida; um dispositivo ou sistema que funcione, não"
+
+[[text]]
+path = "gap_type[fundamental-limit].label"
+source = "a4743d02b2"
+text = "limite fundamental"
+
+[[text]]
+path = "gap_type[fundamental-limit].meaning"
+source = "a88e09a816"
+text = "Uma lei física limita a métrica; avançar exige outra abordagem"
+
+[[text]]
+path = "gap_type[data].label"
+source = "3a6eb0790f"
+text = "dados"
+
+[[text]]
+path = "gap_type[data].meaning"
+source = "e8341dbd9b"
+text = "Os dados, referências comparativas ou medições necessários não existem"
+
+[[text]]
+path = "gap_type[manufacturing].label"
+source = "039d6add7e"
+text = "fabricação"
+
+[[text]]
+path = "gap_type[manufacturing].meaning"
+source = "ee71c628b6"
+text = """
+Funciona no laboratório, mas não pode ser produzido em escala ou com o rendimento necessário
+"""
+
+[[text]]
+path = "gap_type[cost].label"
+source = "9f82f7b375"
+text = "custo"
+
+[[text]]
+path = "gap_type[cost].meaning"
+source = "685be6266e"
+text = "Funciona e pode ser produzido, mas custa caro demais para ser usado"
+
+[[text]]
+path = "gap_type[regulation].label"
+source = "383b6630e8"
+text = "regulação"
+
+[[text]]
+path = "gap_type[regulation].meaning"
+source = "44d916831d"
+text = "Aprovação, normas, segurança ou ética impedem o uso"
+
+[[text]]
+path = "gap_type[supply-chain].label"
+source = "177025b0ee"
+text = "cadeia de suprimentos"
+
+[[text]]
+path = "gap_type[supply-chain].meaning"
+source = "eb0a603117"
+text = "Materiais escassos, fornecedores únicos ou controles de exportação impedem a escala"
+
+[[text]]
+path = "layer[principle].label"
+source = "763f2223af"
+text = "princípio"
+
+[[text]]
+path = "layer[principle].meaning"
+source = "3f27b047d8"
+text = "Princípio físico, químico ou biológico; materiais"
+
+[[text]]
+path = "layer[device].label"
+source = "263a4dbe41"
+text = "dispositivo"
+
+[[text]]
+path = "layer[device].meaning"
+source = "dd65c4e88e"
+text = "Um único componente: um qubit, uma célula, uma molécula, um eletrodo"
+
+[[text]]
+path = "layer[system].label"
+source = "bbc5e661e1"
+text = "sistema"
+
+[[text]]
+path = "layer[system].meaning"
+source = "66d5791839"
+text = "Componentes trabalhando juntos: arquitetura, controle, integração"
+
+[[text]]
+path = "layer[manufacturing].label"
+source = "039d6add7e"
+text = "fabricação"
+
+[[text]]
+path = "layer[manufacturing].meaning"
+source = "1135ed3941"
+text = "Produzir em escala: processo, rendimento, suprimento"
+
+[[text]]
+path = "layer[deployment].label"
+source = "aee50b18a0"
+text = "implantação"
+
+[[text]]
+path = "layer[deployment].meaning"
+source = "5d2d21e224"
+text = "Pôr em uso: custo, regulação, adoção, infraestrutura"
+
+[[text]]
+path = "severity[critical].label"
+source = "bfba703357"
+text = "crítica"
+
+[[text]]
+path = "severity[critical].meaning"
+source = "b762e9d39d"
+text = "A meta não pode ser atingida até esta lacuna ser fechada"
+
+[[text]]
+path = "severity[high].label"
+source = "6ef7c9b15e"
+text = "alta"
+
+[[text]]
+path = "severity[high].meaning"
+source = "421c468e39"
+text = "Atingir a meta sem fechá-la é possível, mas muito mais difícil"
+
+[[text]]
+path = "severity[medium].label"
+source = "c082456a77"
+text = "média"
+
+[[text]]
+path = "severity[medium].meaning"
+source = "1d6c7d4d6c"
+text = "Fechá-la aproximaria a meta de forma perceptível"
+
+[[text]]
+path = "severity[low].label"
+source = "6c1ff09db3"
+text = "baixa"
+
+[[text]]
+path = "severity[low].meaning"
+source = "18706e273e"
+text = "Vale registrar; não está no caminho crítico"
+
+[[text]]
+path = "evidence_class[established].label"
+source = "90221e9a0f"
+text = "consolidada"
+
+[[text]]
+path = "evidence_class[established].meaning"
+source = "2ab7fd6320"
+text = "Medida e publicada após revisão por pares, ou numa referência normativa"
+
+[[text]]
+path = "evidence_class[reported].label"
+source = "8e752bb981"
+text = "relatada"
+
+[[text]]
+path = "evidence_class[reported].meaning"
+source = "d0dd01ba97"
+text = "Um preprint, um relato de empresa ou de imprensa, ou um único resultado não replicado"
+
+[[text]]
+path = "evidence_class[extrapolation].label"
+source = "3343a03a0d"
+text = "extrapolação"
+
+[[text]]
+path = "evidence_class[extrapolation].meaning"
+source = "c662ddc96a"
+text = "Uma projeção a partir de resultados consolidados, sob premissas declaradas"
+
+[[text]]
+path = "evidence_class[speculation].label"
+source = "660ab05c8c"
+text = "especulação"
+
+[[text]]
+path = "evidence_class[speculation].meaning"
+source = "9f0f5ba919"
+text = "Uma hipótese ainda sem evidência, como uma ideia de outro domínio sugerida por um agente"
+
+[[text]]
+path = "evidence_status[unverified].label"
+source = "97b7e2db79"
+text = "não verificada"
+
+[[text]]
+path = "evidence_status[unverified].meaning"
+source = "7a19d044e8"
+text = "Adicionada, por uma pessoa ou um agente, e ainda não checada"
+
+[[text]]
+path = "evidence_status[machine-checked].label"
+source = "aaf6ab4816"
+text = "checada automaticamente"
+
+[[text]]
+path = "evidence_status[machine-checked].meaning"
+source = "42dcf87d16"
+text = "O identificador resolve, os metadados conferem e a citação aparece no resumo"
+
+[[text]]
+path = "evidence_status[verified].label"
+source = "1c34f88707"
+text = "verificada"
+
+[[text]]
+path = "evidence_status[verified].meaning"
+source = "fb178cb5ce"
+text = "Um curador leu a fonte e confirmou cada resultado"
+
+[[text]]
+path = "evidence_status[rejected].label"
+source = "20cd938a2e"
+text = "rejeitada"
+
+[[text]]
+path = "evidence_status[rejected].meaning"
+source = "bd005d0cf0"
+text = "A fonte não sustenta a ficha; mantida para que não seja adicionada de novo"
+
+[[text]]
+path = "evidence_type[article].label"
+source = "84393add8c"
+text = "artigo"
+
+[[text]]
+path = "evidence_type[article].meaning"
+source = "cec71c9bc2"
+text = "Artigo de pesquisa revisado por pares"
+
+[[text]]
+path = "evidence_type[review].label"
+source = "c97ace4c8f"
+text = "revisão"
+
+[[text]]
+path = "evidence_type[review].meaning"
+source = "dd0f3a811e"
+text = "Artigo de revisão revisado por pares"
+
+[[text]]
+path = "evidence_type[preprint].label"
+source = "0ed51eaecc"
+text = "preprint"
+
+[[text]]
+path = "evidence_type[preprint].meaning"
+source = "f908aa1a8c"
+text = "Preprint (arXiv, bioRxiv, medRxiv, ChemRxiv)"
+
+[[text]]
+path = "evidence_type[dataset].label"
+source = "b277fd6236"
+text = "conjunto de dados"
+
+[[text]]
+path = "evidence_type[dataset].meaning"
+source = "4c954d321b"
+text = "Conjunto de dados ou ranking de referência, com data de acesso"
+
+[[text]]
+path = "evidence_type[report].label"
+source = "845e918313"
+text = "relatório"
+
+[[text]]
+path = "evidence_type[report].meaning"
+source = "10cc56cb98"
+text = "Relatório de governo, órgão normativo, laboratório ou empresa"
+
+[[text]]
+path = "evidence_type[trial].label"
+source = "79891e9807"
+text = "ensaio clínico"
+
+[[text]]
+path = "evidence_type[trial].meaning"
+source = "3a7028316d"
+text = "Registro de ensaio clínico (ClinicalTrials.gov, EU CTR, WHO ICTRP)"
+
+[[text]]
+path = "evidence_type[patent].label"
+source = "4cd6b391db"
+text = "patente"
+
+[[text]]
+path = "evidence_type[patent].meaning"
+source = "d04d108127"
+text = "Patente ou pedido de patente"
+
+[[text]]
+path = "evidence_type[standard].label"
+source = "fe6d3468cf"
+text = "norma"
+
+[[text]]
+path = "evidence_type[standard].meaning"
+source = "a82c24960c"
+text = "Norma ou dados de referência (CODATA, ISO, NIST)"

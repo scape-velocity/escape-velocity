@@ -1,0 +1,90 @@
+# Portuguese (Brazil) translation of taxonomy/sdgs.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "sdg[1].name"
+source = "db0910cbb4"
+text = "Erradicação da pobreza"
+
+[[text]]
+path = "sdg[2].name"
+source = "a30e45ce78"
+text = "Fome zero e agricultura sustentável"
+
+[[text]]
+path = "sdg[3].name"
+source = "d8a5e507cd"
+text = "Saúde e bem-estar"
+
+[[text]]
+path = "sdg[4].name"
+source = "bbe235d79b"
+text = "Educação de qualidade"
+
+[[text]]
+path = "sdg[5].name"
+source = "ada8626fea"
+text = "Igualdade de gênero"
+
+[[text]]
+path = "sdg[6].name"
+source = "7e8e624dff"
+text = "Água potável e saneamento"
+
+[[text]]
+path = "sdg[7].name"
+source = "05715d3fe4"
+text = "Energia limpa e acessível"
+
+[[text]]
+path = "sdg[8].name"
+source = "71c194ddd2"
+text = "Trabalho decente e crescimento econômico"
+
+[[text]]
+path = "sdg[9].name"
+source = "3e85055073"
+text = "Indústria, inovação e infraestrutura"
+
+[[text]]
+path = "sdg[10].name"
+source = "f283adc4b2"
+text = "Redução das desigualdades"
+
+[[text]]
+path = "sdg[11].name"
+source = "b973950f8f"
+text = "Cidades e comunidades sustentáveis"
+
+[[text]]
+path = "sdg[12].name"
+source = "cbce0ac06f"
+text = "Consumo e produção responsáveis"
+
+[[text]]
+path = "sdg[13].name"
+source = "02f65eefb0"
+text = "Ação contra a mudança global do clima"
+
+[[text]]
+path = "sdg[14].name"
+source = "68b4f70b6d"
+text = "Vida na água"
+
+[[text]]
+path = "sdg[15].name"
+source = "8ed5416d08"
+text = "Vida terrestre"
+
+[[text]]
+path = "sdg[16].name"
+source = "3019790f17"
+text = "Paz, justiça e instituições eficazes"
+
+[[text]]
+path = "sdg[17].name"
+source = "da765e1bb3"
+text = "Parcerias e meios de implementação"

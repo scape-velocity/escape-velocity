@@ -7,12 +7,12 @@
 request), files.jsonl and reviews.jsonl (the GitHub API's changed files and reviews, one JSON
 object per line) and head/, the pull request's version of each TOML file it changes. It writes
 result.json (state, description, reviewers to request) and comment.md. The maintainers,
-moderators and curators come from this checkout, the main branch, so a pull request that adds its
-author to a list does not make the author an approver. The pull request's files are parsed as
+moderators, curators and language maintainers come from this checkout, the main branch, so a pull
+request that adds its author to a list does not make the author an approver. The pull request's files are parsed as
 TOML, never run.
 
-`issue` reads the body of an issue opened from a form and prints, as JSON, the domain, its label
-and the moderators to mention.
+`issue` reads the body of an issue opened from a form and prints, as JSON, the domain or the
+language, its label and the people to mention.
 
 The rules are in GOVERNANCE.md.
 """
@@ -31,10 +31,13 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import atlas  # noqa: E402
+import i18n  # noqa: E402
 from generate import Context  # noqa: E402
 
 TECH_FILE = re.compile(r"^atlas/([a-z0-9-]+)/([a-z0-9-]+)\.toml$")
 CARD_FILE = re.compile(r"^evidence/([a-z0-9]+)\.toml$")
+# A translation (decision 0014): an overlay, the words and terms of a language, or its interface.
+TRANSLATION_FILE = re.compile(r"^(?:i18n/([a-z0-9-]+)/.+|web/src/i18n/([a-z0-9-]+)\.json)$")
 # Pages tools/generate.py writes from the TOML. tools/check.py fails when they drift from it, so
 # they need no approval of their own.
 GENERATED = re.compile(r"^(STATUS\.md|evidence/README\.md|atlas/[a-z0-9-]+/(README|[a-z0-9-]+)\.md)$")
@@ -95,7 +98,7 @@ def citations(techs: dict[str, dict]) -> dict[str, set[str]]:
 class Group:
     """Changes that the same people can approve."""
 
-    role: str  # "curators and moderators" or "maintainers"
+    role: str  # "curators and moderators", "<language> maintainers" or "maintainers"
     people: list[str]  # who can approve, without the author
     covers: list[str] = field(default_factory=list)
     approved_by: list[str] = field(default_factory=list)
@@ -114,6 +117,7 @@ class PullRequest:
         self.author = pr["user"]["login"]
         self.head_sha = pr["head"]["sha"]
         self.maintainers = handles(atlas.maintainers())
+        self.languages = i18n.languages()
         self.tax = atlas.taxonomy()
         self.base_techs = {tech_id: tech.data for tech_id, tech in atlas.technologies().items()}
         self.base_cards = {key: data for key, (_, data) in atlas.evidence().items()}
@@ -158,10 +162,10 @@ class PullRequest:
         domain = self.tax.domains.get(tech_id.split("/", 1)[0], {})
         return handles(list(self.base_techs.get(tech_id, {}).get("curators", [])) + list(domain.get("moderators", [])))
 
-    def add(self, people: list[str], what: str):
+    def add(self, people: list[str], what: str, role: str = "curators and moderators"):
         others = [person for person in people if person.lower() != self.author.lower()]
         if others:
-            role, approvers = "curators and moderators", others
+            approvers = others
         else:
             role, approvers = "maintainers", [m for m in self.maintainers if m.lower() != self.author.lower()]
         key = (role, frozenset(person.lower() for person in approvers))
@@ -208,6 +212,10 @@ class PullRequest:
                     after = handles((head_techs.get(tech_id) or {}).get("curators", []))
                     if sorted(p.lower() for p in before) != sorted(p.lower() for p in after):
                         self.add([], f"{name} (curators)")
+            elif (match := TRANSLATION_FILE.match(name)) and (match.group(1) or match.group(2)) in self.languages:
+                # Translators approve translations; the English they follow was approved already.
+                lang = self.languages[match.group(1) or match.group(2)]
+                self.add(handles(lang.maintainers), name, role=f"{lang.english_name} maintainers")
             elif match := CARD_FILE.match(name):
                 key = match.group(1)
                 people: list[str] = []
@@ -293,6 +301,18 @@ def form_fields(body: str) -> dict[str, str]:
 
 def issue_domain(body: str) -> dict:
     fields = form_fields(body)
+    named_language = fields.get("Language", "").strip().strip("`").lower()
+    if named_language:
+        for lang in i18n.languages().values():
+            if named_language in (lang.id, lang.tag.lower(), lang.name.lower(), lang.english_name.lower()):
+                return {
+                    "domain": None,
+                    "name": lang.english_name,
+                    "label": f"lang: {lang.id}",
+                    "role": "Maintainers",
+                    "moderators": handles(lang.maintainers),
+                }
+        return {"domain": None}
     domains = atlas.taxonomy().domains
     domain_id = fields.get("Domain", "").strip()
     if domain_id not in domains:
@@ -308,6 +328,7 @@ def issue_domain(body: str) -> dict:
         "domain": domain_id,
         "name": domains[domain_id]["name"],
         "label": f"domain: {domain_id}",
+        "role": "Moderators",
         "moderators": handles(domains[domain_id].get("moderators", [])),
     }
 
@@ -317,7 +338,7 @@ def main(argv: list[str]) -> int:
     sub = parser.add_subparsers(dest="command", required=True)
     pr = sub.add_parser("pr", help="evaluate a pull request fetched by the moderation workflow")
     pr.add_argument("--dir", type=Path, required=True)
-    issue = sub.add_parser("issue", help="find the domain of an issue opened from a form")
+    issue = sub.add_parser("issue", help="find the domain or the language of an issue opened from a form")
     issue.add_argument("--body-file", type=Path, required=True)
     args = parser.parse_args(argv)
 

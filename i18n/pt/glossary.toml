@@ -1,0 +1,176 @@
+# The terms of the atlas in Portuguese (Brazil). A translator uses these words for these terms, so
+# that one English term reads the same on every page and in the interface (web/src/i18n/pt.json).
+# A change is proposed in a translation pull request and approved by the language maintainers.
+#
+# Fields:
+#   en     the English term
+#   text   the Portuguese term
+#   note   when to use it, or why this word and not another
+#
+# Conventions that are not terms:
+#   - Numbers, units and dates stay as the English writes them, except the decimal mark, which is
+#     a comma (1.5 becomes 1,5). Thousands stay grouped by a space, as in SI. tools/check.py
+#     compares the digits of each translation with its English.
+#   - Names stay in their language: Escape Velocity, The Alan Machine, the titles of papers and
+#     journals, the names of institutions and of facilities.
+#   - Quotes from a source are never translated; they are evidence (decision 0006).
+#   - GitHub terms stay in English: pull request, issue, fork, commit.
+
+[[term]]
+en = "atlas"
+text = "atlas"
+
+[[term]]
+en = "technology"
+text = "tecnologia"
+
+[[term]]
+en = "domain"
+text = "domínio"
+
+[[term]]
+en = "statement"
+text = "enunciado"
+note = "What the technology must do, stated so that it can be checked."
+
+[[term]]
+en = "scope"
+text = "escopo"
+
+[[term]]
+en = "gap"
+text = "lacuna"
+note = "What stands between the current value and the target. Not 'brecha', which suggests a loophole."
+
+[[term]]
+en = "readiness"
+text = "maturidade"
+
+[[term]]
+en = "readiness level"
+text = "nível de maturidade"
+
+[[term]]
+en = "technology readiness level (TRL)"
+text = "nível de maturidade tecnológica (TRL)"
+note = "The abbreviation stays TRL, as Brazilian agencies use it."
+
+[[term]]
+en = "metric"
+text = "métrica"
+
+[[term]]
+en = "headline metric"
+text = "métrica principal"
+
+[[term]]
+en = "current value"
+text = "valor atual"
+
+[[term]]
+en = "target"
+text = "meta"
+
+[[term]]
+en = "physical limit"
+text = "limite físico"
+
+[[term]]
+en = "conditions"
+text = "condições"
+note = "The conditions of a measurement, without which two values cannot be compared."
+
+[[term]]
+en = "orders of magnitude"
+text = "ordens de grandeza"
+
+[[term]]
+en = "evidence card"
+text = "ficha de evidência"
+
+[[term]]
+en = "evidence"
+text = "evidência"
+
+[[term]]
+en = "finding"
+text = "resultado"
+note = "A value a source reports, with its conditions and a quote."
+
+[[term]]
+en = "source"
+text = "fonte"
+
+[[term]]
+en = "requires"
+text = "depende de"
+
+[[term]]
+en = "dependents"
+text = "dependentes"
+
+[[term]]
+en = "blocked by"
+text = "bloqueada por"
+note = "Agrees with lacuna."
+
+[[term]]
+en = "severity"
+text = "gravidade"
+
+[[term]]
+en = "layer"
+text = "camada"
+
+[[term]]
+en = "approach"
+text = "abordagem"
+
+[[term]]
+en = "established"
+text = "consolidada"
+note = "Evidence class. Agrees with evidência."
+
+[[term]]
+en = "reported"
+text = "relatada"
+note = "Evidence class: a single result, not yet replicated."
+
+[[term]]
+en = "extrapolation"
+text = "extrapolação"
+
+[[term]]
+en = "speculation"
+text = "especulação"
+
+[[term]]
+en = "curator"
+text = "curador"
+
+[[term]]
+en = "moderator"
+text = "moderador"
+
+[[term]]
+en = "maintainer"
+text = "mantenedor"
+
+[[term]]
+en = "machine translation"
+text = "tradução automática"
+
+[[term]]
+en = "reviewed"
+text = "revisada"
+note = "Of a translation."
+
+[[term]]
+en = "stale"
+text = "desatualizada"
+note = "Of a translation whose English has changed since."
+
+[[term]]
+en = "Sustainable Development Goals"
+text = "Objetivos de Desenvolvimento Sustentável (ODS)"
+note = "The names of the goals are the official ones of the United Nations in Brazil, https://brasil.un.org/pt-br/sdgs, in sentence case."

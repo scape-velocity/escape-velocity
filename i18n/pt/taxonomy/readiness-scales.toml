@@ -1,0 +1,372 @@
+# Portuguese (Brazil) translation of taxonomy/readiness-scales.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "scale[trl].name"
+source = "58b7a7cdb6"
+text = "Nível de maturidade tecnológica"
+
+[[text]]
+path = "scale[trl].summary"
+source = "48cc4ad2b3"
+text = "De um princípio observado em laboratório a um sistema comprovado em operação."
+
+[[text]]
+path = "scale[trl].level[1].name"
+source = "006f844959"
+text = "TRL 1"
+
+[[text]]
+path = "scale[trl].level[1].meaning"
+source = "24a1a11a26"
+text = "Princípios básicos observados e relatados"
+
+[[text]]
+path = "scale[trl].level[2].name"
+source = "c3c4708c47"
+text = "TRL 2"
+
+[[text]]
+path = "scale[trl].level[2].meaning"
+source = "6a4d66a9ac"
+text = "Conceito ou aplicação da tecnologia formulados"
+
+[[text]]
+path = "scale[trl].level[3].name"
+source = "bc47976f24"
+text = "TRL 3"
+
+[[text]]
+path = "scale[trl].level[3].meaning"
+source = "0356e28499"
+text = "Prova de conceito analítica e experimental da função crítica"
+
+[[text]]
+path = "scale[trl].level[4].name"
+source = "9197da6b15"
+text = "TRL 4"
+
+[[text]]
+path = "scale[trl].level[4].meaning"
+source = "be26ef8022"
+text = "Componente ou protótipo de bancada validado em laboratório"
+
+[[text]]
+path = "scale[trl].level[5].name"
+source = "bc10d56552"
+text = "TRL 5"
+
+[[text]]
+path = "scale[trl].level[5].meaning"
+source = "d49bf9aeae"
+text = "Componente ou protótipo de bancada validado em ambiente relevante"
+
+[[text]]
+path = "scale[trl].level[6].name"
+source = "cd21d176ba"
+text = "TRL 6"
+
+[[text]]
+path = "scale[trl].level[6].meaning"
+source = "1f8aca50e5"
+text = "Protótipo de sistema ou subsistema demonstrado em ambiente relevante"
+
+[[text]]
+path = "scale[trl].level[7].name"
+source = "1db528972e"
+text = "TRL 7"
+
+[[text]]
+path = "scale[trl].level[7].meaning"
+source = "9c0764e037"
+text = "Protótipo de sistema demonstrado em ambiente operacional"
+
+[[text]]
+path = "scale[trl].level[8].name"
+source = "1b1a2d2e0d"
+text = "TRL 8"
+
+[[text]]
+path = "scale[trl].level[8].meaning"
+source = "62cedf74e4"
+text = "Sistema real concluído e qualificado por testes e demonstração"
+
+[[text]]
+path = "scale[trl].level[9].name"
+source = "b97709f08e"
+text = "TRL 9"
+
+[[text]]
+path = "scale[trl].level[9].meaning"
+source = "6383bf8c86"
+text = "Sistema real comprovado em operação"
+
+[[text]]
+path = "scale[mrl].name"
+source = "7702b84720"
+text = "Nível de maturidade de fabricação"
+
+[[text]]
+path = "scale[mrl].summary"
+source = "c4aad45be8"
+text = "Da identificação das implicações de fabricação à produção em plena escala."
+
+[[text]]
+path = "scale[mrl].level[1].name"
+source = "7edf774e13"
+text = "MRL 1"
+
+[[text]]
+path = "scale[mrl].level[1].meaning"
+source = "10a72febfc"
+text = "Implicações básicas de fabricação identificadas"
+
+[[text]]
+path = "scale[mrl].level[2].name"
+source = "c681341d4c"
+text = "MRL 2"
+
+[[text]]
+path = "scale[mrl].level[2].meaning"
+source = "22c27718bb"
+text = "Conceitos de fabricação identificados"
+
+[[text]]
+path = "scale[mrl].level[3].name"
+source = "fc46715dcb"
+text = "MRL 3"
+
+[[text]]
+path = "scale[mrl].level[3].meaning"
+source = "d642e4c8ff"
+text = "Prova de conceito de fabricação desenvolvida"
+
+[[text]]
+path = "scale[mrl].level[4].name"
+source = "57b5cfd02e"
+text = "MRL 4"
+
+[[text]]
+path = "scale[mrl].level[4].meaning"
+source = "c736721ae5"
+text = "Capacidade de produzir a tecnologia em ambiente de laboratório"
+
+[[text]]
+path = "scale[mrl].level[5].name"
+source = "88e89e4e16"
+text = "MRL 5"
+
+[[text]]
+path = "scale[mrl].level[5].meaning"
+source = "6919ba39aa"
+text = "Capacidade de produzir componentes protótipo em ambiente relevante para a produção"
+
+[[text]]
+path = "scale[mrl].level[6].name"
+source = "a851a55164"
+text = "MRL 6"
+
+[[text]]
+path = "scale[mrl].level[6].meaning"
+source = "e66ecdb95e"
+text = """
+Capacidade de produzir um protótipo de sistema ou subsistema em ambiente relevante para a produção
+"""
+
+[[text]]
+path = "scale[mrl].level[7].name"
+source = "c0dcb73a8c"
+text = "MRL 7"
+
+[[text]]
+path = "scale[mrl].level[7].meaning"
+source = "1171e9fc79"
+text = "Capacidade de produzir sistemas ou componentes em ambiente representativo da produção"
+
+[[text]]
+path = "scale[mrl].level[8].name"
+source = "53edc61fe9"
+text = "MRL 8"
+
+[[text]]
+path = "scale[mrl].level[8].meaning"
+source = "39b162a1b8"
+text = "Linha piloto demonstrada; pronta para produção em baixa escala"
+
+[[text]]
+path = "scale[mrl].level[9].name"
+source = "2dce3d581b"
+text = "MRL 9"
+
+[[text]]
+path = "scale[mrl].level[9].meaning"
+source = "8bb85ed18d"
+text = "Produção em baixa escala demonstrada; pronta para produção em plena escala"
+
+[[text]]
+path = "scale[mrl].level[10].name"
+source = "bcbb415edd"
+text = "MRL 10"
+
+[[text]]
+path = "scale[mrl].level[10].meaning"
+source = "7cab073f95"
+text = "Produção em plena escala demonstrada"
+
+[[text]]
+path = "scale[clinical-drug].name"
+source = "eac16a227c"
+text = "Desenvolvimento clínico de um medicamento ou biológico"
+
+[[text]]
+path = "scale[clinical-drug].summary"
+source = "e2df20be46"
+text = """
+De um alvo a um tratamento padrão. A aprovação por um grande órgão regulador conta como aprovado.
+"""
+
+[[text]]
+path = "scale[clinical-drug].level[1].name"
+source = "80fc402133"
+text = "Descoberta"
+
+[[text]]
+path = "scale[clinical-drug].level[1].meaning"
+source = "83c07d7e9e"
+text = "Alvo ou candidato identificado"
+
+[[text]]
+path = "scale[clinical-drug].level[2].name"
+source = "0d460e29d2"
+text = "Pré-clínico"
+
+[[text]]
+path = "scale[clinical-drug].level[2].meaning"
+source = "a00b423752"
+text = "Testado em células e animais"
+
+[[text]]
+path = "scale[clinical-drug].level[3].name"
+source = "e20821b54c"
+text = "Fase 1"
+
+[[text]]
+path = "scale[clinical-drug].level[3].meaning"
+source = "a70fb22ad4"
+text = "Primeiro uso em humanos: segurança e dose"
+
+[[text]]
+path = "scale[clinical-drug].level[4].name"
+source = "c33607debd"
+text = "Fase 2"
+
+[[text]]
+path = "scale[clinical-drug].level[4].meaning"
+source = "ec8ff79410"
+text = "Eficácia e efeitos colaterais em pacientes"
+
+[[text]]
+path = "scale[clinical-drug].level[5].name"
+source = "a8738bd5e3"
+text = "Fase 3"
+
+[[text]]
+path = "scale[clinical-drug].level[5].meaning"
+source = "dedc5f187f"
+text = "Ensaios confirmatórios em grandes grupos de pacientes"
+
+[[text]]
+path = "scale[clinical-drug].level[6].name"
+source = "87b42e40c2"
+text = "Aprovado"
+
+[[text]]
+path = "scale[clinical-drug].level[6].meaning"
+source = "0f5be856e6"
+text = "Aprovado por pelo menos um grande órgão regulador"
+
+[[text]]
+path = "scale[clinical-drug].level[7].name"
+source = "047da700b8"
+text = "Padrão de cuidado"
+
+[[text]]
+path = "scale[clinical-drug].level[7].meaning"
+source = "c0ea6be30b"
+text = "Recomendado em diretrizes clínicas e em uso rotineiro"
+
+[[text]]
+path = "scale[clinical-device].name"
+source = "80531ec68b"
+text = "Desenvolvimento clínico de um dispositivo médico ou diagnóstico"
+
+[[text]]
+path = "scale[clinical-device].summary"
+source = "97775a170f"
+text = """
+De um conceito a um dispositivo em uso rotineiro. A liberação por um grande órgão regulador conta
+como liberado.
+"""
+
+[[text]]
+path = "scale[clinical-device].level[1].name"
+source = "54287be806"
+text = "Conceito"
+
+[[text]]
+path = "scale[clinical-device].level[1].meaning"
+source = "4e24544a84"
+text = "Conceito do dispositivo e primeiros trabalhos de bancada"
+
+[[text]]
+path = "scale[clinical-device].level[2].name"
+source = "9a4a65915d"
+text = "Bancada e animais"
+
+[[text]]
+path = "scale[clinical-device].level[2].meaning"
+source = "29a85d4bda"
+text = "Testes de bancada, analíticos e em animais"
+
+[[text]]
+path = "scale[clinical-device].level[3].name"
+source = "b2277fac6d"
+text = "Viabilidade inicial"
+
+[[text]]
+path = "scale[clinical-device].level[3].meaning"
+source = "08fe6fdc91"
+text = "Primeiros estudos em humanos, com poucos participantes"
+
+[[text]]
+path = "scale[clinical-device].level[4].name"
+source = "59aa626ac6"
+text = "Pivotal"
+
+[[text]]
+path = "scale[clinical-device].level[4].meaning"
+source = "9a89d8d37a"
+text = "Estudo clínico pivotal que fundamenta uma decisão regulatória"
+
+[[text]]
+path = "scale[clinical-device].level[5].name"
+source = "7a9fad9bd3"
+text = "Liberado ou aprovado"
+
+[[text]]
+path = "scale[clinical-device].level[5].meaning"
+source = "08b4cd3685"
+text = "Liberado ou aprovado por pelo menos um grande órgão regulador"
+
+[[text]]
+path = "scale[clinical-device].level[6].name"
+source = "047da700b8"
+text = "Padrão de cuidado"
+
+[[text]]
+path = "scale[clinical-device].level[6].meaning"
+source = "c0ea6be30b"
+text = "Recomendado em diretrizes clínicas e em uso rotineiro"

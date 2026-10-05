@@ -8,6 +8,8 @@ web/ builds from atlas.json (decision 0012). It is never committed.
 
     _site/atlas.json      the whole atlas in one file, with derived fields (gap sizes, dependents,
                           citations); the format is described in docs/export.md
+    _site/atlas.<lang>.json  the same in each published language of i18n/languages.toml, with the
+                          translated texts in place of the English (decision 0014)
     _site/llms.txt        an index for language models (https://llmstxt.org)
     _site/llms-full.txt   every technology and evidence card as plain Markdown
 
@@ -29,6 +31,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import atlas  # noqa: E402
+import i18n  # noqa: E402
 
 SCHEMA_VERSION = 1
 SITE_URL = "https://scape-velocity.github.io/escape-velocity/"
@@ -98,10 +101,32 @@ def source_url(card: dict) -> str | None:
     return card.get("url")
 
 
-def export() -> dict:
-    tax = atlas.taxonomy()
+def relative(path: Path) -> str:
+    return str(path.relative_to(atlas.ROOT))
+
+
+def export(lang: str = "en") -> dict:
+    """The atlas in English, or in a language of i18n/languages.toml with each text whose
+    translation is current in place of the English."""
+    words = atlas.WORDS if lang == "en" else i18n.words(lang)
+    tax_files = atlas.taxonomy_files()
     techs = atlas.technologies()
     cards = atlas.evidence()
+    coverage: dict[str, i18n.Coverage] = {}
+    if lang != "en":
+        coverage["taxonomy"] = i18n.Coverage()
+        for name, data in tax_files.items():
+            tax_files[name], part = i18n.translate(lang, f"taxonomy/{name}.toml", data)
+            coverage["taxonomy"].add(part)
+        for tech in techs.values():
+            tech.data, coverage[tech.id] = i18n.translate(lang, relative(tech.path), tech.data)
+        for key, (path, card) in list(cards.items()):
+            translated, coverage[f"evidence/{key}"] = i18n.translate(lang, relative(path), card)
+            cards[key] = (path, translated)
+    tax = atlas.taxonomy(tax_files)
+
+    def translation(key: str) -> dict:
+        return {"translation": coverage[key].as_dict()} if key in coverage else {}
 
     required_by: dict[str, list[dict]] = defaultdict(list)
     for tech in techs.values():
@@ -143,11 +168,11 @@ def export() -> dict:
                 "gap_to_target": round_or_none(gap),
                 "target_to_limit": round_or_none(room),
                 "display": {
-                    "current": pretty(atlas.format_value(current, unit)) if current is not None else None,
-                    "target": pretty(atlas.format_value(target, unit)) if target is not None else None,
-                    "limit": pretty(atlas.format_value(limit, unit)) if limit is not None else None,
-                    "gap_to_target": pretty(atlas.format_gap(definition, gap)) if gap is not None else None,
-                    "target_to_limit": pretty(atlas.format_gap(definition, room)) if room is not None else None,
+                    "current": pretty(atlas.format_value(current, unit, words)) if current is not None else None,
+                    "target": pretty(atlas.format_value(target, unit, words)) if target is not None else None,
+                    "limit": pretty(atlas.format_value(limit, unit, words)) if limit is not None else None,
+                    "gap_to_target": pretty(atlas.format_gap(definition, gap, words)) if gap is not None else None,
+                    "target_to_limit": pretty(atlas.format_gap(definition, room, words)) if room is not None else None,
                 },
             })
         open_gaps = [g for g in tech.gaps() if g.get("status") != "closed"]
@@ -157,7 +182,7 @@ def export() -> dict:
             "id": tech.id,
             "domain": tech.domain,
             **{k: plain(v) for k, v in tech.data.items() if k not in ("metric", "gap", "requires")},
-            "readiness_name": tax.level_name(tax.scale_of(tech), tech.data.get("readiness")),
+            "readiness_name": tax.level_name(tax.scale_of(tech), tech.data.get("readiness"), words),
             "metrics": metrics,
             "gaps": [plain(g) for g in tech.gaps()],
             "requires": [plain(r) for r in tech.requires()],
@@ -173,6 +198,7 @@ def export() -> dict:
                 {**item, "url": f"{atlas.ALAN_MACHINE_URL}{item['page']}/index.html"}
                 for item in tech.data.get("alan_machine", [])
             ],
+            **translation(tech.id),
         })
 
     evidence = []
@@ -183,11 +209,21 @@ def export() -> dict:
             "link": source_url(card),
             "cited_by": cited_by.get(key, []),
             "source": f"{atlas.REPO_URL}/blob/main/{path.relative_to(atlas.ROOT)}",
+            **translation(f"evidence/{key}"),
         })
 
-    vocabulary = {name: [{"id": k, "meaning": v} for k, v in items.items()] for name, items in tax.vocabulary.items()}
+    vocabulary = {
+        name: [{"id": k, "label": tax.label(name, k), "meaning": v} for k, v in items.items()]
+        for name, items in tax.vocabulary.items()
+    }
+    total = i18n.Coverage()
+    for part in coverage.values():
+        total.add(part)
+    language = i18n.languages().get(lang)
     return {
         "schema": SCHEMA_VERSION,
+        "lang": lang,
+        "tag": language.tag if language else "en",
         "name": "Escape Velocity",
         "description": "An open atlas of what each technology still needs to reach maturity.",
         "version": git("rev-parse", "--short", "HEAD") or "uncommitted",
@@ -197,6 +233,8 @@ def export() -> dict:
         "site": SITE_URL,
         "alan_machine": atlas.ALAN_MACHINE_URL,
         "governance": {"maintainers": atlas.maintainers(), "url": atlas.GOVERNANCE_URL},
+        "languages": [],  # filled in by main(), which builds every language
+        **({"translation": total.as_dict()} if lang != "en" else {}),
         "taxonomy": {
             "domains": [plain(d) for d in tax.domains.values()],
             "metrics": [plain(m) for m in tax.metrics.values()],
@@ -357,6 +395,7 @@ def main(argv: list[str]) -> int:
     out = Path(args.out)
 
     data = export()
+    translations = {lang.id: export(lang.id) for lang in i18n.languages().values() if lang.published}
     if atlas.LOAD_ERRORS:
         for where, error in atlas.LOAD_ERRORS.items():
             print(f"error: {where}: {error}", file=sys.stderr)
@@ -365,13 +404,30 @@ def main(argv: list[str]) -> int:
     if out.exists():
         shutil.rmtree(out)
     out.mkdir(parents=True)
-    (out / "atlas.json").write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    listing = [{"id": "en", "tag": "en", "name": "English", "english_name": "English", "maintainers": [], "file": "atlas.json"}]
+    for lang_id, translated in translations.items():
+        language = i18n.languages()[lang_id]
+        listing.append({
+            "id": lang_id,
+            "tag": language.tag,
+            "name": language.name,
+            "english_name": language.english_name,
+            "maintainers": language.maintainers,
+            "file": f"atlas.{lang_id}.json",
+            "translation": translated["translation"],
+        })
+    for name, content in [("atlas.json", data)] + [(f"atlas.{k}.json", v) for k, v in translations.items()]:
+        content["languages"] = listing
+        (out / name).write_text(json.dumps(content, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     (out / "llms.txt").write_text(llms_txt(data), encoding="utf-8")
     (out / "llms-full.txt").write_text(llms_full(data), encoding="utf-8")
     print(
         f"wrote {out.relative_to(atlas.ROOT) if out.is_relative_to(atlas.ROOT) else out}: "
         f"{len(data['technologies'])} technologies, {len(data['evidence'])} evidence cards, version {data['version']}"
     )
+    for lang_id, translated in translations.items():
+        part = translated["translation"]
+        print(f"  atlas.{lang_id}.json: {part['translated']} of {part['total']} texts translated, {part['machine']} by machine, {part['stale']} stale")
     return 0
 
 

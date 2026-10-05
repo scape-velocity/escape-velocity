@@ -10,14 +10,15 @@ reasons are in [decision 0011](docs/decisions/0011-moderators-and-the-moderation
 | Maintainer | The whole repository: tools, taxonomy, decisions, workflows and the lists of people. Maintainers merge pull requests and handle conduct reports. | [`governance.toml`](governance.toml) |
 | Moderator | A domain: its technologies, the evidence cards they cite and its issues. | `moderators` in [`taxonomy/domains.toml`](taxonomy/domains.toml) |
 | Curator | One or more technologies, with the evidence cards they cite. | `curators` in the technology's TOML file |
+| Language maintainer | The translations into a language: the overlays, its glossary and the interface in it ([docs/translating.md](docs/translating.md)). | `maintainers` of the language in [`i18n/languages.toml`](i18n/languages.toml) |
 
 People are listed by GitHub handle, without @. The lists change only through pull requests. The
 names appear on the generated pages, on the [explorer](https://scape-velocity.github.io/escape-velocity/)
 and in `atlas.json`.
 
-Moderators and curators do not need write access. A maintainer gives them the triage role, so
-GitHub can request their reviews and they can label and close issues. Their approval counts through
-the `moderation` check, not through repository permissions.
+Moderators, curators and language maintainers do not need write access. A maintainer gives them
+the triage role, so GitHub can request their reviews and they can label and close issues. Their
+approval counts through the `moderation` check, not through repository permissions.
 
 ## Who approves what
 
@@ -32,10 +33,11 @@ each change has an approving review from someone who covers it:
 | A change to a technology's `curators` | A maintainer, as well as the above |
 | An evidence card | A curator or moderator of any technology that cites the card, before or after the change |
 | An evidence card that no technology cites | A maintainer |
-| Anything else: tools, taxonomy, decisions, documentation, `governance.toml` | A maintainer |
+| A translation: `i18n/<lang>/...` or `web/src/i18n/<lang>.json` | A maintainer of that language |
+| Anything else: tools, taxonomy, decisions, documentation, `governance.toml`, `i18n/languages.toml` | A maintainer |
 
-- The curators and moderators counted are those on `main`, so nobody approves a change by adding
-  themselves in the same pull request.
+- The curators, moderators and language maintainers counted are those on `main`, so nobody
+  approves a change by adding themselves in the same pull request.
 - The author's own approval does not count. If the author is the only person who covers a change, a
   maintainer approves it. If the author is the only maintainer and nobody else covers the change,
   the check passes; that happens only while the project has a single maintainer.
@@ -86,11 +88,21 @@ A moderator looks after a domain:
   mentioning the domain's moderators ([`.github/workflows/triage.yml`](.github/workflows/triage.yml));
 - finds curators for the technologies that need one.
 
+## Language maintainers
+
+A language maintainer looks after the translations into a language:
+
+- reviews translation pull requests for the language and the glossary; the science was reviewed in
+  English;
+- reviews machine translations and marks the files `reviewed` (docs/translating.md);
+- triages the issues opened with the translation form, which get the label `lang: <id>`;
+- keeps the glossary, `i18n/<lang>/glossary.toml`.
+
 ## Becoming one
 
 Open an issue, or a pull request that adds your handle to the list, with:
 
-- the domain or the technologies;
+- the domain, the technologies or the language;
 - your background in them, with a link others can check;
 - any conflict of interest (below).
 

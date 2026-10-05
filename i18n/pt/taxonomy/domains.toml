@@ -1,0 +1,143 @@
+# Portuguese (Brazil) translation of taxonomy/domains.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "domain[computing].name"
+source = "f035532aae"
+text = "Computação"
+
+[[text]]
+path = "domain[computing].summary"
+source = "a8492ea3aa"
+text = """
+Processamento clássico de informação: lógica, memória e movimentação de dados depois do fim da
+miniaturização dos transistores.
+"""
+
+[[text]]
+path = "domain[quantum].name"
+source = "581ea84e83"
+text = "Tecnologias quânticas"
+
+[[text]]
+path = "domain[quantum].summary"
+source = "7e70ad13ba"
+text = "Máquinas que usam superposição e emaranhamento: computadores, sensores e redes quânticos."
+
+[[text]]
+path = "domain[ai].name"
+source = "35ceef9555"
+text = "Inteligência artificial"
+
+[[text]]
+path = "domain[ai].summary"
+source = "104492baeb"
+text = """
+Sistemas que aprendem: sua capacidade, sua confiabilidade e a energia e os dados que consomem.
+"""
+
+[[text]]
+path = "domain[health].name"
+source = "3ed46ab18d"
+text = "Saúde e medicina"
+
+[[text]]
+path = "domain[health].summary"
+source = "74d6cf7089"
+text = "Diagnóstico, prevenção e tratamento de doenças, medidos em pacientes."
+
+[[text]]
+path = "domain[biotech].name"
+source = "83a08ea52f"
+text = "Biotecnologia"
+
+[[text]]
+path = "domain[biotech].summary"
+source = "44d6942624"
+text = "Engenharia da biologia: projetar moléculas, células e organismos, e fabricar com eles."
+
+[[text]]
+path = "domain[neurotech].name"
+source = "cdbf4f2c34"
+text = "Neurotecnologia"
+
+[[text]]
+path = "domain[neurotech].summary"
+source = "a2918c4440"
+text = "Ler e escrever no sistema nervoso: interfaces cérebro-computador e terapias neurais."
+
+[[text]]
+path = "domain[energy].name"
+source = "f2fcd3f7dc"
+text = "Energia"
+
+[[text]]
+path = "domain[energy].summary"
+source = "e41e0e8e00"
+text = "Gerar, armazenar e distribuir energia: fusão, fissão, solar, baterias e a rede elétrica."
+
+[[text]]
+path = "domain[climate].name"
+source = "ab942621f9"
+text = "Clima e meio ambiente"
+
+[[text]]
+path = "domain[climate].summary"
+source = "35ed617bcd"
+text = "Remover gases de efeito estufa, adaptar-se a um clima mais quente e medir o planeta."
+
+[[text]]
+path = "domain[materials].name"
+source = "12d758c3ea"
+text = "Materiais e fabricação"
+
+[[text]]
+path = "domain[materials].summary"
+source = "2fb89a801d"
+text = "Materiais novos e a capacidade de produzi-los em escala."
+
+[[text]]
+path = "domain[water].name"
+source = "7ca7dea906"
+text = "Água"
+
+[[text]]
+path = "domain[water].summary"
+source = "b53e24f444"
+text = "Água limpa para pessoas, lavouras e indústria: dessalinização, purificação e reúso."
+
+[[text]]
+path = "domain[food].name"
+source = "83587d38a0"
+text = "Alimentos e agricultura"
+
+[[text]]
+path = "domain[food].summary"
+source = "fa3afbc778"
+text = "Produzir mais alimento com menos terra, água, fertilizante e emissões."
+
+[[text]]
+path = "domain[space].name"
+source = "20eac5aae2"
+text = "Espaço"
+
+[[text]]
+path = "domain[space].summary"
+source = "281b126786"
+text = "Chegar ao espaço, trabalhar e viver nele."
+
+[[text]]
+path = "domain[enablers].name"
+source = "eb3e503f46"
+text = "Tecnologias habilitadoras"
+
+[[text]]
+path = "domain[enablers].summary"
+source = "9b059d35d5"
+text = """
+Tecnologias transversais das quais muitas outras dependem: criogenia, eletrônica de potência,
+fotônica, sensores e fabricação de precisão.
+"""
