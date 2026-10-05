@@ -6,6 +6,8 @@ Engineering biology: designing molecules, cells and organisms, and manufacturing
 
 Readiness scale: Technology readiness level, unless a technology states another.
 
+Moderators: none yet; see [how to become one](../../GOVERNANCE.md#moderators).
+
 | Technology | Atlas status | Readiness | Headline metric | Current | Target | Gap to target |
 |---|---|---|---|---|---|---|
 | [De novo protein design](de-novo-protein-design.md) | scoping | not assessed | Design success rate | 10% | 90% | 1.0 orders of magnitude |

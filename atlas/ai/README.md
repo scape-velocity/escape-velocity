@@ -6,6 +6,8 @@ Learning systems: their capability, reliability and the energy and data they con
 
 Readiness scale: Technology readiness level, unless a technology states another.
 
+Moderators: none yet; see [how to become one](../../GOVERNANCE.md#moderators).
+
 | Technology | Atlas status | Readiness | Headline metric | Current | Target | Gap to target |
 |---|---|---|---|---|---|---|
 | [Energy-efficient AI inference](energy-efficient-inference.md) | mapped | TRL 6 (6 of 9) | Energy per token | 0.72 J | 0.07 J | 1.0 orders of magnitude |

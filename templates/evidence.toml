@@ -4,7 +4,7 @@
 #
 # Status: an agent may write "unverified". skills/review-evidence/scripts/verify_evidence.py sets
 # "machine-checked" when the identifier resolves, the metadata matches and every quote is in the
-# abstract. Only a curator sets "verified", with reviewed_by.
+# abstract. Only a curator or moderator sets "verified", with reviewed_by (GOVERNANCE.md).
 
 title = "Quantum error correction below the surface code threshold"
 authors = ["Google Quantum AI and Collaborators"]   # "Family, Given" for people; an organization as written
@@ -22,7 +22,7 @@ status = "unverified"
 added = 2026-10-04
 added_by = "github-handle or agent:model-name"
 # checked = 2026-10-04       # set by verify_evidence.py --write
-# reviewed_by = "github-handle"
+# reviewed_by = "github-handle"  # who verified it; never the person in added_by
 # note = "..."
 
 # Findings: the numbers the atlas takes from this source. The unit is the metric's unit in

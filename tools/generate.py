@@ -35,6 +35,13 @@ def link(from_page: str, to_page: str, text: str) -> str:
     return f"[{cell(text)}]({'../' * depth}{to_page})"
 
 
+def people(from_page: str, handles: list, role: str) -> str:
+    """GitHub handles as profile links, or how to volunteer for the role (GOVERNANCE.md)."""
+    if not handles:
+        return "none yet; see " + link(from_page, f"GOVERNANCE.md#{role}", "how to become one")
+    return ", ".join(f"[@{name}](https://github.com/{name})" for name in handles)
+
+
 def evidence_link(from_page: str, key: str) -> str:
     return link(from_page, f"evidence/{key}.toml", key)
 
@@ -151,7 +158,7 @@ def technology_page(ctx: Context, tech: atlas.Technology) -> str:
         lines.append(f"| Serves | UN SDG {cell(sdgs)} |")
     curators = data.get("curators", [])
     lines.append(
-        f"| Curators | {', '.join(f'@{name}' for name in curators) if curators else 'none yet; see ' + link(page, 'CONTRIBUTING.md#curators', 'how to become one')} |"
+        f"| Curators | {people(page, curators, 'curators')} |"
     )
     lines.append(f"| Last reviewed | {data.get('last_reviewed', 'never')} |")
     book = data.get("alan_machine", [])
@@ -334,6 +341,8 @@ def domain_page(ctx: Context, domain_id: str) -> str:
         domain.get("summary", ""),
         "",
         f"Readiness scale: {scale.get('name', domain.get('readiness_scale'))}, unless a technology states another.",
+        "",
+        f"Moderators: {people(page, domain.get('moderators', []), 'moderators')}.",
         "",
     ]
     if domain_id == "health" or domain_id == "neurotech":

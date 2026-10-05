@@ -6,6 +6,8 @@ Reading from and writing to the nervous system: brain-computer interfaces and ne
 
 Readiness scale: Clinical development of a medical device or diagnostic, unless a technology states another.
 
+Moderators: none yet; see [how to become one](../../GOVERNANCE.md#moderators).
+
 > This page maps research, not treatment. Nothing in the atlas is medical advice.
 
 | Technology | Atlas status | Readiness | Headline metric | Current | Target | Gap to target |

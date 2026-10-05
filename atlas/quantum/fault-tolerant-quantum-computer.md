@@ -11,7 +11,7 @@
 | Readiness | TRL 4 (4 of 9) ([google2024quantum](../../evidence/google2024quantum.toml)) |
 | Readiness note | A distance-7 surface-code memory below threshold has been shown in the laboratory; no logical algorithm of practical value has run, and the wiring, refrigeration and decoding for a million-qubit machine are not built. |
 | Serves | UN SDG 9 Industry, innovation and infrastructure |
-| Curators | none yet; see [how to become one](../../CONTRIBUTING.md#curators) |
+| Curators | none yet; see [how to become one](../../GOVERNANCE.md#curators) |
 | Last reviewed | 2026-10-04 |
 | In The Alan Machine | [The quantum Alan](https://the-alan-machine.github.io/alan-machine/chapters/quantum-alan/index.html), [Building Alan: quantum hardware](https://the-alan-machine.github.io/alan-machine/building-alan/quantum-hardware/index.html) |
 

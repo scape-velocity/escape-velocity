@@ -12,7 +12,7 @@
 | Readiness note | Embedded cooling is shown on thermal test vehicles and small GaN-on-diamond devices; a review warns that records are not transferable to package-compatible, large-area, deployed platforms. |
 | Horizon | 2030s |
 | Serves | UN SDG 9 Industry, innovation and infrastructure |
-| Curators | none yet; see [how to become one](../../CONTRIBUTING.md#curators) |
+| Curators | none yet; see [how to become one](../../GOVERNANCE.md#curators) |
 | Last reviewed | 2026-10-04 |
 | In The Alan Machine | [Building Alan: heat removal](https://the-alan-machine.github.io/alan-machine/building-alan/heat-removal/index.html) |
 

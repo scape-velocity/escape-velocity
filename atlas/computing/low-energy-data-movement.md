@@ -12,7 +12,7 @@
 | Readiness note | The best figure found is a 28 nm prototype die-to-die interface; no deployed system figure is sourced yet. |
 | Horizon | 2030s |
 | Serves | UN SDG 9 Industry, innovation and infrastructure |
-| Curators | none yet; see [how to become one](../../CONTRIBUTING.md#curators) |
+| Curators | none yet; see [how to become one](../../GOVERNANCE.md#curators) |
 | Last reviewed | 2026-10-04 |
 | In The Alan Machine | [Building Alan: data movement](https://the-alan-machine.github.io/alan-machine/building-alan/data-movement/index.html) |
 

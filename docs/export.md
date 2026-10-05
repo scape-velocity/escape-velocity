@@ -16,7 +16,8 @@ The data is CC0 1.0 and the text CC BY 4.0. Cite the `version` you used.
 | `version_date` | Date of that commit |
 | `license` | `data`, `text`, `code` and a one-line `note` |
 | `repository`, `site`, `alan_machine` | URLs |
-| `taxonomy` | `domains`, `metrics`, `readiness_scales`, `sdgs` and `vocabulary`, as in `taxonomy/*.toml` |
+| `governance` | `maintainers`, a list of GitHub handles, and `url`, the page that explains the roles |
+| `taxonomy` | `domains`, `metrics`, `readiness_scales`, `sdgs` and `vocabulary`, as in `taxonomy/*.toml`. Each domain carries `moderators`, a list of GitHub handles. |
 | `technologies` | One object per technology, below |
 | `evidence` | One object per evidence card, below |
 

@@ -1,4 +1,5 @@
-"""Shared helpers for the tools: load the taxonomy, the technologies and the evidence cards.
+"""Shared helpers for the tools: load the taxonomy, the technologies, the evidence cards and the
+maintainers.
 
 Only the Python standard library is used, so the tools run anywhere with Python 3.11 or later.
 """
@@ -7,6 +8,7 @@ from __future__ import annotations
 
 import datetime as dt
 import math
+import re
 import tomllib
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -15,6 +17,9 @@ ROOT = Path(__file__).resolve().parent.parent
 REPO_URL = "https://github.com/scape-velocity/escape-velocity"
 ALAN_MACHINE_URL = "https://the-alan-machine.github.io/alan-machine/"
 SUPERSCRIPT = str.maketrans("0123456789-+", "⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁺")
+# A GitHub handle: letters, digits and single hyphens, at most 39 characters, no hyphen at the ends.
+GITHUB_HANDLE = re.compile(r"^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9])){0,38}$")
+GOVERNANCE_URL = REPO_URL + "/blob/main/GOVERNANCE.md"
 
 
 def load_toml(path: Path) -> dict:
@@ -135,6 +140,11 @@ def evidence() -> dict[str, tuple[Path, dict]]:
         if data is not None:
             found[path.stem] = (path, data)
     return found
+
+
+def maintainers() -> list[str]:
+    """GitHub handles of the maintainers, from governance.toml."""
+    return list(load_toml(ROOT / "governance.toml").get("maintainers", []))
 
 
 def as_date(value) -> dt.date | None:

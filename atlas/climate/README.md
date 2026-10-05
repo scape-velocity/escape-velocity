@@ -6,6 +6,8 @@ Removing greenhouse gases, adapting to a warmer climate and measuring the planet
 
 Readiness scale: Technology readiness level, unless a technology states another.
 
+Moderators: none yet; see [how to become one](../../GOVERNANCE.md#moderators).
+
 | Technology | Atlas status | Readiness | Headline metric | Current | Target | Gap to target |
 |---|---|---|---|---|---|---|
 | [Direct air capture](direct-air-capture.md) | proposed | not assessed | – | – | – | – |

@@ -6,6 +6,8 @@ Machines that use superposition and entanglement: quantum computers, sensors and
 
 Readiness scale: Technology readiness level, unless a technology states another.
 
+Moderators: none yet; see [how to become one](../../GOVERNANCE.md#moderators).
+
 | Technology | Atlas status | Readiness | Headline metric | Current | Target | Gap to target |
 |---|---|---|---|---|---|---|
 | [Fault-tolerant quantum computer](fault-tolerant-quantum-computer.md) | mapped | TRL 4 (4 of 9) | Logical error per cycle | 0.00143 | 10⁻¹² | 9.2 orders of magnitude |

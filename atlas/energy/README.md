@@ -6,6 +6,8 @@ Generating, storing and delivering energy: fusion, fission, solar, batteries and
 
 Readiness scale: Technology readiness level, unless a technology states another.
 
+Moderators: none yet; see [how to become one](../../GOVERNANCE.md#moderators).
+
 | Technology | Atlas status | Readiness | Headline metric | Current | Target | Gap to target |
 |---|---|---|---|---|---|---|
 | [Fusion power](fusion-power.md) | scoping | not assessed | Target gain | 1.5 | 100 | 1.8 orders of magnitude |

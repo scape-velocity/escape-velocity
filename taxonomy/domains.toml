@@ -10,6 +10,9 @@
 #                     uses arXiv)
 #   pubmed            true when the scout should also search PubMed and ClinicalTrials.gov
 #   sdgs              UN Sustainable Development Goals the domain serves most directly
+#   moderators        GitHub handles, without @, of the people who moderate the domain: they
+#                     approve changes to its technologies and to the evidence they cite, and
+#                     triage its issues (GOVERNANCE.md). A change to this list needs a maintainer.
 #
 # A new domain needs a decision record: domains are the top of the navigation and change rarely.
 
@@ -22,6 +25,7 @@ openalex_fields = [17, 22]
 arxiv = ["cs.AR", "cs.ET", "physics.app-ph"]
 pubmed = false
 sdgs = [9]
+moderators = []
 
 [[domain]]
 id = "quantum"
@@ -32,6 +36,7 @@ openalex_fields = [31, 17]
 arxiv = ["quant-ph"]
 pubmed = false
 sdgs = [9]
+moderators = []
 
 [[domain]]
 id = "ai"
@@ -42,6 +47,7 @@ openalex_fields = [17]
 arxiv = ["cs.LG", "cs.CL", "cs.AI"]
 pubmed = false
 sdgs = [9]
+moderators = []
 
 [[domain]]
 id = "health"
@@ -52,6 +58,7 @@ openalex_fields = [27, 30, 24]
 arxiv = []
 pubmed = true
 sdgs = [3]
+moderators = []
 
 [[domain]]
 id = "biotech"
@@ -62,6 +69,7 @@ openalex_fields = [13, 15]
 arxiv = ["q-bio.BM", "q-bio.QM"]
 pubmed = true
 sdgs = [3, 9, 12]
+moderators = []
 
 [[domain]]
 id = "neurotech"
@@ -72,6 +80,7 @@ openalex_fields = [28, 22, 27]
 arxiv = ["q-bio.NC", "eess.SP"]
 pubmed = true
 sdgs = [3]
+moderators = []
 
 [[domain]]
 id = "energy"
@@ -82,6 +91,7 @@ openalex_fields = [21, 22]
 arxiv = ["physics.plasm-ph", "physics.app-ph", "cond-mat.mtrl-sci"]
 pubmed = false
 sdgs = [7, 13]
+moderators = []
 
 [[domain]]
 id = "climate"
@@ -92,6 +102,7 @@ openalex_fields = [23, 19, 15]
 arxiv = ["physics.ao-ph"]
 pubmed = false
 sdgs = [13, 15]
+moderators = []
 
 [[domain]]
 id = "materials"
@@ -102,6 +113,7 @@ openalex_fields = [25, 16]
 arxiv = ["cond-mat.mtrl-sci", "cond-mat.supr-con"]
 pubmed = false
 sdgs = [9, 12]
+moderators = []
 
 [[domain]]
 id = "water"
@@ -112,6 +124,7 @@ openalex_fields = [23, 15]
 arxiv = []
 pubmed = false
 sdgs = [6]
+moderators = []
 
 [[domain]]
 id = "food"
@@ -122,6 +135,7 @@ openalex_fields = [11, 13]
 arxiv = []
 pubmed = false
 sdgs = [2, 15]
+moderators = []
 
 [[domain]]
 id = "space"
@@ -132,6 +146,7 @@ openalex_fields = [22, 19, 31]
 arxiv = ["astro-ph.IM", "physics.space-ph"]
 pubmed = false
 sdgs = [9]
+moderators = []
 
 [[domain]]
 id = "enablers"
@@ -142,3 +157,4 @@ openalex_fields = [22, 31]
 arxiv = ["physics.app-ph", "physics.ins-det"]
 pubmed = false
 sdgs = [9]
+moderators = []

@@ -194,6 +194,7 @@ def export() -> dict:
         "repository": atlas.REPO_URL,
         "site": SITE_URL,
         "alan_machine": atlas.ALAN_MACHINE_URL,
+        "governance": {"maintainers": atlas.maintainers(), "url": atlas.GOVERNANCE_URL},
         "taxonomy": {
             "domains": [plain(d) for d in tax.domains.values()],
             "metrics": [plain(m) for m in tax.metrics.values()],

@@ -31,7 +31,7 @@ sdgs = [9]                   # taxonomy/sdgs.toml
 search_terms = ["quantum error correction below threshold", "logical qubit"]
 # openalex_topics = ["T10682"]
 # arxiv = ["quant-ph"]       # overrides the domain's categories for the scout
-curators = []                # GitHub handles, without @
+curators = []                # GitHub handles, without @; adding one needs a maintainer (GOVERNANCE.md)
 last_reviewed = 2026-10-04
 alan_machine = [{ page = "chapters/quantum-alan", title = "The quantum Alan" }]
 # retired_reason = "Merged into quantum/..."

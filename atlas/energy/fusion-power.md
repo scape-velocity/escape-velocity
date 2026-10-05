@@ -11,7 +11,7 @@
 | Readiness | not assessed |
 | Horizon | 2040s |
 | Serves | UN SDG 7 Affordable and clean energy, 13 Climate action |
-| Curators | none yet; see [how to become one](../../CONTRIBUTING.md#curators) |
+| Curators | none yet; see [how to become one](../../GOVERNANCE.md#curators) |
 | Last reviewed | 2026-10-04 |
 
 ## Scope

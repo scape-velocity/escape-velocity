@@ -11,7 +11,7 @@
 | Readiness | not assessed |
 | Horizon | Not stated by any source read for this entry |
 | Serves | UN SDG 3 Good health and well-being |
-| Curators | none yet; see [how to become one](../../CONTRIBUTING.md#curators) |
+| Curators | none yet; see [how to become one](../../GOVERNANCE.md#curators) |
 | Last reviewed | 2026-10-04 |
 
 ## Scope

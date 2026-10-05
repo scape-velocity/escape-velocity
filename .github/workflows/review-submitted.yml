@@ -1,0 +1,17 @@
+name: Review submitted
+
+# Wakes moderation.yml when a review is submitted or dismissed. It does nothing itself: on a pull
+# request from a fork this event gets a read-only token, and its workflow file comes from the pull
+# request, so the check runs from moderation.yml on main instead.
+
+on:
+  pull_request_review:
+    types: [submitted, dismissed]
+
+permissions: {}
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "A review changed; moderation.yml re-evaluates the pull request."

@@ -6,6 +6,8 @@ Clean water for people, farms and industry: desalination, purification and reuse
 
 Readiness scale: Technology readiness level, unless a technology states another.
 
+Moderators: none yet; see [how to become one](../../GOVERNANCE.md#moderators).
+
 | Technology | Atlas status | Readiness | Headline metric | Current | Target | Gap to target |
 |---|---|---|---|---|---|---|
 | [Low-energy desalination](low-energy-desalination.md) | scoping | not assessed | Specific energy consumption | 3 kWh m^-3 | 1 kWh m^-3 | 0.5 orders of magnitude |
