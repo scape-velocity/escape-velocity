@@ -11,8 +11,12 @@ text = "Nível de maturidade tecnológica"
 
 [[text]]
 path = "scale[trl].summary"
-source = "48cc4ad2b3"
-text = "De um princípio observado em laboratório a um sistema comprovado em operação."
+source = "3c67fa720a"
+text = """
+De um princípio observado em laboratório a um sistema comprovado em operação. Para energia, a IEA
+estende a escala a 11 níveis, até tecnologias maduras de adoção ampla; o atlas mantém os níveis 1 a
+9.
+"""
 
 [[text]]
 path = "scale[trl].level[1].name"
