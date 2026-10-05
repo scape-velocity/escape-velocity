@@ -193,6 +193,12 @@ export interface Finding {
   unit?: string;
   conditions?: string;
   quote?: string;
+  /** Standard uncertainty (GUM, JCGM 100:2008), in the finding's unit. */
+  uncertainty?: number;
+  /** [low, high] as the source gives it, in the finding's unit; always with coverage. */
+  interval?: [number, number];
+  /** Probability of the interval, in (0, 1), such as 0.95. */
+  coverage?: number;
 }
 
 export interface EvidenceCard {

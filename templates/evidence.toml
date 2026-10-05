@@ -28,6 +28,16 @@ added_by = "github-handle or agent:model-name"
 # Findings: the numbers the atlas takes from this source. The unit is the metric's unit in
 # taxonomy/metrics.toml; convert the value if the source uses another (0.143% is 1.43e-3).
 # The quote is verbatim from the abstract (or the page, for a dataset or report), at most 60 words.
+#
+# Uncertainty, optional, in the sense of the GUM: "Evaluation of measurement data — Guide to the
+# expression of uncertainty in measurement", JCGM 100:2008,
+# https://www.bipm.org/en/doi/10.59161/jcgm100-2008e. Write only what the source gives, in the
+# finding's unit; never convert one form into the other (no guessed coverage factor k = 2).
+#   uncertainty = u           the standard uncertainty, a positive number: when the source gives a
+#                             standard uncertainty, a standard error or +-1 sigma
+#   interval = [low, high]    when the source gives an interval: a confidence interval, an
+#   coverage = 0.95           expanded uncertainty or a range, with its stated probability in (0, 1).
+#                             interval and coverage go together; low < high; value lies inside
 [[finding]]
 metric = "logical-error-per-cycle"
 value = 1.43e-3
