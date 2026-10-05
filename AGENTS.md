@@ -17,7 +17,8 @@ is TOML; the pages are generated. The model is explained in [docs/model.md](docs
 | `evidence/<key>.toml` | One evidence card per source |
 | `taxonomy/` | Domains, readiness scales, metrics, controlled vocabulary, SDGs |
 | `templates/` | Commented starting points for a technology and an evidence card |
-| `tools/` | `generate.py`, `check.py`, shared `atlas.py` and `literature.py`, the read-only `mcp_server.py` |
+| `tools/` | `generate.py`, `check.py`, shared `atlas.py` and `literature.py`, the read-only `mcp_server.py`, `build_site.py` for the site and the JSON export |
+| `site/` | The explorer published on GitHub Pages; it reads `atlas.json` and has no build step |
 | `skills/` | Agent skills, linked from `.claude/skills/` |
 | `docs/decisions/` | Why the project is the way it is |
 

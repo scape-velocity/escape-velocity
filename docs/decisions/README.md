@@ -14,3 +14,4 @@ decision is never edited after it is accepted; a later decision supersedes it.
 | [0007](0007-agents-skills-and-mcp.md) | Agents, skills, scouting and an MCP server | accepted |
 | [0008](0008-relationship-with-the-alan-machine.md) | Relationship with The Alan Machine | accepted |
 | [0009](0009-licenses.md) | Licenses | accepted |
+| [0010](0010-static-site-and-json-export.md) | A static site and a JSON export | accepted |

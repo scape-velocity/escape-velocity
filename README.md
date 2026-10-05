@@ -9,8 +9,10 @@ in between, the other technologies it waits on, and the research that could clos
 Every number has a source. Every technology is a node in one graph, so a bottleneck shared by
 quantum computing, fusion and medicine shows up as one thing, not three.
 
-**Start here: [STATUS.md](STATUS.md)**: every domain, headline metric, critical gap and the
-technologies the rest of the atlas depends on most.
+**Explore it at [scape-velocity.github.io/escape-velocity](https://scape-velocity.github.io/escape-velocity/)**:
+the distance to target of every technology, the dependency graph, and filters over the gaps and
+the evidence. On GitHub, start with [STATUS.md](STATUS.md): every domain, headline metric, critical
+gap and the technologies the rest of the atlas depends on most.
 
 ## How it works
 
@@ -72,6 +74,10 @@ An MCP server gives any agent read access to the atlas and the literature search
 [.mcp.json](.mcp.json) when you open the repository; other clients run
 `python3 tools/mcp_server.py` from the repository root.
 
+The whole atlas is also published as one file,
+[atlas.json](https://scape-velocity.github.io/escape-velocity/atlas.json) ([format](docs/export.md)),
+and for language models as [llms.txt](https://scape-velocity.github.io/escape-velocity/llms.txt).
+
 Every change, from a person or an agent, is a pull request reviewed by a person. Agents write
 evidence as unverified; only curators verify it.
 
@@ -88,7 +94,7 @@ projects need them ([decision 0008](docs/decisions/0008-relationship-with-the-al
 | Stage | What |
 |---|---|
 | 0 | Data model, taxonomy, checks, generated pages, skills, a local read-only MCP server, first technologies in every domain |
-| 1 | JSON export and `llms.txt`; a hosted copy of the MCP server over the export; a static site with graph views |
+| 1 | JSON export, `llms.txt` and a static explorer with the graph (shipped); a hosted copy of the MCP server over the export |
 | 2 | Scheduled scouting that opens pull requests with proposed evidence; curators for the main technologies |
 | 3 | Limits computed by the book's `alan` library; dossiers of The Alan Machine pulling pinned versions of the atlas |
 
