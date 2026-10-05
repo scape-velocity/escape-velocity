@@ -95,7 +95,7 @@ projects need them ([decision 0008](docs/decisions/0008-relationship-with-the-al
 | Stage | What |
 |---|---|
 | 0 | Data model, taxonomy, checks, generated pages, skills, a local read-only MCP server, first technologies in every domain |
-| 1 | JSON export, `llms.txt` and a static explorer with the graph (shipped); a hosted copy of the MCP server over the export |
+| 1 | JSON export, `llms.txt` and a static explorer with the graph and a page per technology and card (shipped); a hosted copy of the MCP server over the export |
 | 2 | Scheduled scouting that opens pull requests with proposed evidence; moderators for every domain and curators for the main technologies (the roles and the check shipped) |
 | 3 | Limits computed by the book's `alan` library; dossiers of The Alan Machine pulling pinned versions of the atlas |
 

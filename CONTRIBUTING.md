@@ -29,7 +29,9 @@ contribution.
    ```
 4. Commit with a sign-off and open a pull request using the template.
 
-Only Python 3.11 or later is needed, with no packages to install.
+Only Python 3.11 or later is needed, with no packages to install. The `python3` that comes with
+macOS is older and cannot read TOML; install a current one from python.org or Homebrew. Working on
+the explorer in `web/` also needs Node.js ([web/README.md](web/README.md)).
 
 ## Evidence rules
 
@@ -63,6 +65,7 @@ characters. Pull requests are squash-merged, so the title becomes the commit.
 | `taxonomy` | Domains, metrics, scales, vocabulary |
 | `skill` | Agent skills |
 | `tools` | Generators, checks, literature clients |
+| `web` | The explorer in `web/` |
 | `docs` | Documentation and decisions |
 | `fix` | Corrections of wrong values or broken tools |
 | `chore` | Maintenance |

@@ -17,8 +17,8 @@ is TOML; the pages are generated. The model is explained in [docs/model.md](docs
 | `evidence/<key>.toml` | One evidence card per source |
 | `taxonomy/` | Domains, readiness scales, metrics, controlled vocabulary, SDGs |
 | `templates/` | Commented starting points for a technology and an evidence card |
-| `tools/` | `generate.py`, `check.py`, shared `atlas.py` and `literature.py`, the read-only `mcp_server.py`, `build_site.py` for the site and the JSON export |
-| `site/` | The explorer published on GitHub Pages; it reads `atlas.json` and has no build step |
+| `tools/` | `generate.py`, `check.py`, shared `atlas.py` and `literature.py`, the read-only `mcp_server.py`, `build_site.py` for the JSON export and `llms.txt` |
+| `web/` | The explorer published on GitHub Pages: a Next.js app exported as static files, one page per technology, card and domain, built from `atlas.json` (decision 0012) |
 | `skills/` | Agent skills, linked from `.claude/skills/` |
 | `docs/decisions/` | Why the project is the way it is |
 
@@ -52,12 +52,13 @@ python3 tools/generate.py
 python3 tools/check.py
 ```
 
-`tools/check.py` must pass. It needs only Python 3.11 or later.
+`tools/check.py` must pass. It needs only Python 3.11 or later. A change in `web/` must also pass
+`npm run typecheck` and `npm run build` there.
 
 ## Commits and pull requests
 
 - Title: `type(scope): summary`, imperative, lowercase, no final period, at most 72 characters.
-  Types: `data`, `evidence`, `taxonomy`, `skill`, `tools`, `docs`, `fix`, `chore`. The scope is the
+  Types: `data`, `evidence`, `taxonomy`, `skill`, `tools`, `web`, `docs`, `fix`, `chore`. The scope is the
   technology id's slug, the domain or the tool. See [CONTRIBUTING.md](CONTRIBUTING.md#commit-and-pull-request-titles).
 - Every commit is signed off (`git commit -s`) by the human contributor responsible for it. The
   sign-off is a human's certification; an agent does not certify on anyone's behalf.

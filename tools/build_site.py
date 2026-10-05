@@ -1,21 +1,23 @@
-"""Build the static site: the JSON export of the atlas, llms.txt and the explorer in site/.
+"""Build the data files of the site: the JSON export of the atlas and llms.txt.
 
     python3 tools/build_site.py              write _site/
     python3 tools/build_site.py --out DIR    write somewhere else
 
-The output is what GitHub Pages serves (.github/workflows/pages.yml). It is never committed.
+The output is what GitHub Pages serves (.github/workflows/pages.yml), next to the explorer that
+web/ builds from atlas.json (decision 0012). It is never committed.
 
     _site/atlas.json      the whole atlas in one file, with derived fields (gap sizes, dependents,
                           citations); the format is described in docs/export.md
     _site/llms.txt        an index for language models (https://llmstxt.org)
     _site/llms-full.txt   every technology and evidence card as plain Markdown
-    _site/index.html ...  the explorer, copied from site/
+
+The explorer reads _site/atlas.json at build time: `npm run build` in web/ writes web/out/, which
+the workflow copies into _site/.
 """
 
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 import re
 import shutil
@@ -362,14 +364,7 @@ def main(argv: list[str]) -> int:
 
     if out.exists():
         shutil.rmtree(out)
-    shutil.copytree(atlas.ROOT / "site", out)
-    # Pages caches for minutes: a content hash in the URL makes a new deploy load the new files.
-    index = out / "index.html"
-    html = index.read_text(encoding="utf-8")
-    for name in ("app.js", "style.css"):
-        digest = hashlib.sha256((out / name).read_bytes()).hexdigest()[:10]
-        html = html.replace(f'"{name}"', f'"{name}?v={digest}"')
-    index.write_text(html, encoding="utf-8")
+    out.mkdir(parents=True)
     (out / "atlas.json").write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     (out / "llms.txt").write_text(llms_txt(data), encoding="utf-8")
     (out / "llms-full.txt").write_text(llms_full(data), encoding="utf-8")

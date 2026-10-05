@@ -1,4 +1,6 @@
-/* Escape Velocity explorer. Colors and type follow The Alan Machine's site (Quarto, cosmo theme). */
+/* Escape Velocity explorer. Colors and type follow The Alan Machine's site (Quarto, cosmo theme).
+   Ported from site/style.css with the same class names and tokens. The fonts come from next/font
+   (layout.tsx), which sets --font-sans and --font-mono on the root element. */
 
 :root {
   --bg: #ffffff;
@@ -20,8 +22,8 @@
   --ok: #2b8a3e;
   --shadow: 0 1px 2px rgba(15, 23, 42, 0.06), 0 1px 1px rgba(15, 23, 42, 0.04);
   --radius: 6px;
-  --font: "Source Sans 3", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --mono: "Source Code Pro", SFMono-Regular, Menlo, Consolas, monospace;
+  --font: var(--font-sans), "Source Sans 3", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --mono: var(--font-mono), "Source Code Pro", SFMono-Regular, Menlo, Consolas, monospace;
   color-scheme: light;
 }
 
@@ -99,6 +101,10 @@ code, .mono { font-family: var(--mono); font-size: 0.88em; }
 code { background: var(--code-bg); padding: 0.1em 0.35em; border-radius: 4px; }
 
 .skip { position: absolute; left: -999px; top: 0; }
+/* Keyboard focus in both themes. */
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+main:focus-visible { outline: none; }
+
 .skip:focus { left: 16px; top: 8px; z-index: 10; background: var(--surface); padding: 6px 10px; }
 
 /* Top bar */
