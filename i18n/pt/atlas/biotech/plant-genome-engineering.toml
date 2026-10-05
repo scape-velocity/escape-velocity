@@ -1,0 +1,27 @@
+# Portuguese (Brazil) translation of atlas/biotech/plant-genome-engineering.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "0ccf2cc7cf"
+text = "Engenharia de genomas vegetais"
+
+[[text]]
+path = "statement"
+source = "df68770c5f"
+text = """
+Fazer alterações precisas e hereditárias nos genomas de plantas cultivadas, com rapidez e em várias
+espécies, sem as longas etapas de cultura de tecidos que hoje limitam muitas culturas.
+"""
+
+[[text]]
+path = "scope"
+source = "ed6503bfa1"
+text = """
+Dentro: métodos de edição e transformação para plantas cultivadas e a regeneração de plantas
+inteiras a partir de células editadas. Fora: a escolha da característica (por exemplo
+food/nitrogen-fixing-cereals) e a regulação em campo das culturas resultantes.
+"""

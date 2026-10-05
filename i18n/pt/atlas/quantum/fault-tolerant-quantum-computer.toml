@@ -1,0 +1,298 @@
+# Portuguese (Brazil) translation of atlas/quantum/fault-tolerant-quantum-computer.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "08d69a270c"
+text = "Computador quântico tolerante a falhas"
+
+[[text]]
+path = "statement"
+source = "705cea806b"
+text = """
+Um computador quântico que executa algoritmos de valor prático, com taxas de erro lógico baixas o
+bastante para que a resposta seja confiável. Ele faz isso codificando cada qubit lógico em muitos
+qubits físicos ruidosos e corrigindo os erros mais rápido do que eles se acumulam.
+"""
+
+[[text]]
+path = "scope"
+source = "ba2d9fc58a"
+text = """
+No escopo: a máquina completa que corrige os erros de uma computação, construída aqui a partir de
+qubits físicos, um decodificador em tempo real, controle criogênico e refrigeração, e enlaces entre
+módulos. Fora do escopo: máquinas ruidosas de escala intermediária sem correção de erros, sensores
+quânticos e redes quânticas como fins em si. O decodificador é coberto por
+quantum/real-time-qec-decoder e os enlaces entre módulos por quantum/quantum-interconnect.
+"""
+
+[[text]]
+path = "readiness_note"
+source = "13d9773967"
+text = """
+Uma memória de código de superfície de distância 7 abaixo do limiar foi demonstrada em laboratório;
+nenhum algoritmo lógico de valor prático foi executado, e a fiação, a refrigeração e a
+decodificação para uma máquina de um milhão de qubits não estão construídas.
+"""
+
+[[text]]
+path = "requires[quantum/real-time-qec-decoder].why"
+source = "adf53328ff"
+text = """
+Cada ciclo de correção de erros precisa ter suas síndromes decodificadas antes da próxima operação
+lógica que depende delas.
+"""
+
+[[text]]
+path = "requires[quantum/real-time-qec-decoder].need"
+source = "9e17f9f489"
+text = """
+Tempo de reação de 10 microssegundos, o valor suposto na estimativa de recursos do RSA-2048
+(gidney2025how).
+"""
+
+[[text]]
+path = "requires[enablers/dilution-refrigeration].why"
+source = "d300684a39"
+text = """
+Qubits supercondutores operam a cerca de 10 mK, e cada linha de controle e amplificador acrescenta
+calor a esse estágio.
+"""
+
+[[text]]
+path = "requires[enablers/dilution-refrigeration].need"
+source = "8da7d6daff"
+text = """
+Potência de resfriamento suficiente, em um criostato ou em vários interligados, para a carga
+térmica de até um milhão de qubits físicos e sua fiação.
+"""
+
+[[text]]
+path = "requires[enablers/cryogenic-control-electronics].why"
+source = "64cf78731e"
+text = """
+Uma linha coaxial por qubit não escala para um milhão de qubits; a eletrônica de controle e leitura
+precisa ficar no frio.
+"""
+
+[[text]]
+path = "requires[quantum/quantum-interconnect].why"
+source = "02fa91ffa9"
+text = """
+Uma máquina de até um milhão de qubits dificilmente caberá em um único criostato, de modo que os
+módulos precisam ser interligados por canais quânticos.
+"""
+
+[[text]]
+path = "metric[logical-error].conditions"
+source = "62d77484be"
+text = "Memória de código de superfície, distância 7, 101 qubits, processador supercondutor."
+
+[[text]]
+path = "metric[logical-error].target.rationale"
+source = "71f87eb5a5"
+text = """
+A estimativa de Gidney para o RSA-2048 roda por menos de uma semana com ciclo de 1 microssegundo,
+cerca de 6e11 ciclos (6,05e5 s divididos por 1e-6 s; durações de gidney2025how). Um único qubit
+lógico deve então falhar com probabilidade bem abaixo de 1/(6e11), cerca de 1,7e-12, por ciclo; com
+muitos qubits lógicos a exigência é ainda menor, de modo que 1e-12 é um piso da ordem de grandeza,
+não um orçamento preciso.
+"""
+
+[[text]]
+path = "metric[two-qubit-error].conditions"
+source = "bea80ed6ce"
+text = """
+Melhor par isolado relatado: porta de 60 ns em dois qubits fluxonium, benchmarking aleatorizado.
+"""
+
+[[text]]
+path = "metric[two-qubit-error].current.note"
+source = "b2db8eeb30"
+text = """
+as_of é o início do ano de publicação (PRX Quantum volume 6, 2025); a data exata não estava no
+resumo. Um par, não uma matriz uniforme.
+"""
+
+[[text]]
+path = "metric[two-qubit-error].target.rationale"
+source = "85493c5954"
+text = """
+A estimativa de Gidney para o RSA-2048 supõe um erro de porta uniforme de 0,1% em uma grade
+quadrada de qubits. O melhor par já supera esse valor, de modo que a lacuna é a uniformidade em um
+milhão de qubits, não o melhor par.
+"""
+
+[[text]]
+path = "metric[qubits].conditions"
+source = "2a194a6e68"
+text = """
+Qubits usados pela memória de código de superfície de distância 7 no processador Willow.
+"""
+
+[[text]]
+path = "metric[qubits].target.rationale"
+source = "575029298f"
+text = """
+Limite superior da estimativa de recursos do RSA-2048: menos de um milhão de qubits ruidosos
+(gidney2025how), abaixo dos 20 milhões da estimativa de 2019.
+"""
+
+[[text]]
+path = "metric[decoder].conditions"
+source = "dfc7cb608e"
+text = """
+Latência média do decodificador em tempo real, código de superfície de distância 5, tempo de ciclo
+de 1,1 microssegundo.
+"""
+
+[[text]]
+path = "metric[decoder].target.rationale"
+source = "09e5c5d940"
+text = """
+O tempo de reação do sistema de controle de 10 microssegundos suposto pela estimativa de recursos
+do RSA-2048 (gidney2025how).
+"""
+
+[[text]]
+path = "gap[physical-error].title"
+source = "cb9e95f8a9"
+text = "Taxas de erro físico uniformes em toda a matriz"
+
+[[text]]
+path = "gap[physical-error].description"
+source = "894169349b"
+text = """
+Pares isolados de qubits supercondutores alcançam fidelidade de porta de dois qubits de 99,94%
+(erro de 6e-4) com estabilidade por 24 dias, mas uma máquina de um milhão de qubits precisa de
+todos os pares perto desse nível ao mesmo tempo, com a fuga e a diafonia contidas. A memória do
+Willow operou com 0,143% de erro lógico por ciclo na distância 7, cerca de nove ordens de grandeza
+aquém da meta. Fechar a lacuna exige tanto erro físico menor quanto maior distância de código em
+muito mais qubits.
+"""
+
+[[text]]
+path = "gap[physical-error].approach[1].name"
+source = "8b232ddadb"
+text = "Qubits fluxonium com portas diretas de dois qubits"
+
+[[text]]
+path = "gap[qubit-count-and-wiring].title"
+source = "a5d7e3a499"
+text = "Número de qubits e fiação de controle"
+
+[[text]]
+path = "gap[qubit-count-and-wiring].description"
+source = "6dad093efe"
+text = """
+A maior memória com correção de erros na evidência usa 101 qubits; a meta é de até um milhão. Uma
+linha coaxial por qubit vinda da temperatura ambiente não escala, de modo que o controle e a
+leitura precisam passar para dentro do criostato. A multiplexação cryo-CMOS funcionou abaixo de 15
+mK sem degradar os tempos de relaxação, e a demultiplexação digital supercondutora operou um
+sistema de vários qubits, ambas em escala de laboratório.
+"""
+
+[[text]]
+path = "gap[qubit-count-and-wiring].approach[1].name"
+source = "ce16a332d8"
+text = "Multiplexador cryo-CMOS abaixo de 15 mK"
+
+[[text]]
+path = "gap[qubit-count-and-wiring].approach[2].name"
+source = "a3579714e8"
+text = "Eletrônica digital supercondutora de controle em milikelvin"
+
+[[text]]
+path = "gap[correlated-errors].title"
+source = "ed59b1d1bf"
+text = "Erros correlacionados por raios cósmicos e radioatividade"
+
+[[text]]
+path = "gap[correlated-errors].description"
+source = "257a4dbce8"
+text = """
+Múons e raios gama criam surtos de quasipartículas que causam erros correlacionados em todo o chip,
+que a correção de erros não consegue absorver. Uma medição em um processador de 63 qubits separou
+as contribuições dos múons e dos raios gama. A conversão descendente de fônons pela face traseira
+reduziu o envenenamento correlacionado em duas ordens de grandeza em chips de três qubits; isso não
+foi demonstrado em uma matriz de um milhão de qubits.
+"""
+
+[[text]]
+path = "gap[correlated-errors].approach[1].name"
+source = "09baffebee"
+text = "Conversão descendente de fônons com reservatórios de metal normal na face traseira"
+
+[[text]]
+path = "gap[decoding-at-scale].title"
+source = "52c302516a"
+text = "Decodificação em escala e em tempo real"
+
+[[text]]
+path = "gap[decoding-at-scale].description"
+source = "22256ad5f0"
+text = """
+O decodificador do Willow teve média de 63 microssegundos na distância 5, seis vezes o tempo de
+reação de 10 microssegundos suposto na estimativa do RSA-2048, e com tempo de ciclo de 1,1
+microssegundo, longe de 1 microssegundo com milhares de qubits lógicos. Decodificadores em FPGA
+relatam dezenas a centenas de nanossegundos por rodada de medição em estudos com ruído modelado, o
+que não é a mesma grandeza que a latência de ponta a ponta em um experimento em execução.
+"""
+
+[[text]]
+path = "gap[decoding-at-scale].approach[1].name"
+source = "adf0bf0d56"
+text = "Decodificador Union-Find distribuído em FPGA"
+
+[[text]]
+path = "gap[refrigeration].title"
+source = "9fc642b2af"
+text = "Refrigeração para a carga térmica"
+
+[[text]]
+path = "gap[refrigeration].description"
+source = "342bad5ca3"
+text = """
+Cada qubit cabeado acrescenta carga térmica passiva dos cabos e carga ativa da dissipação dos
+sinais. O refrigerador de diluição mais potente na evidência entrega 2 mW a cerca de 100 mK, com
+temperatura de base de 6,6 mK; nenhuma fonte no atlas declara a carga de uma máquina de um milhão
+de qubits. Modelos de recursos de máquinas modulares preveem a carga elétrica e térmica e apontam
+para dividir a máquina entre criostatos.
+"""
+
+[[text]]
+path = "gap[refrigeration].approach[1].name"
+source = "b2bc50b2cd"
+text = "Máquina modular dividida entre vários criostatos"
+
+[[text]]
+path = "gap[module-links].title"
+source = "4fc1d11dc9"
+text = "Enlaces entre módulos"
+
+[[text]]
+path = "gap[module-links].description"
+source = "3302d20227"
+text = """
+Uma máquina de vários nós precisa de emaranhamento entre criostatos. As portas entre nós podem ser
+duas a três ordens de grandeza mais ruidosas e mais lentas do que as operações locais, e uma
+análise de sistemas conclui que o desempenho dos enlaces precisa melhorar de 10 a 100 vezes.
+"""
+
+[[text]]
+path = "gap[module-links].approach[1].name"
+source = "629b26d795"
+text = "Interconexões ópticas com destilação de emaranhamento"
+
+[[text]]
+path = "alan_machine[chapters/quantum-alan].title"
+source = "034d89f6a8"
+text = "O Alan quântico"
+
+[[text]]
+path = "alan_machine[building-alan/quantum-hardware].title"
+source = "e737e49586"
+text = "Construindo Alan: hardware quântico"

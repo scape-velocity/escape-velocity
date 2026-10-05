@@ -1,0 +1,15 @@
+# Portuguese (Brazil) translation of evidence/bose2024anneal.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "4399e2d1f5"
+text = "Perda em guia de onda em um processo de baixa temperatura compatível com CMOS."
+
+[[text]]
+path = "finding[1].conditions"
+source = "31ccf47eb1"
+text = "Guias de onda com núcleo de nitreto de 80 nm, processo sem recozimento a no máximo 250 C."

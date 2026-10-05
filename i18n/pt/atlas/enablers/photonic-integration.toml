@@ -1,0 +1,60 @@
+# Portuguese (Brazil) translation of atlas/enablers/photonic-integration.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "3fd89b8748"
+text = "Integração fotônica"
+
+[[text]]
+path = "statement"
+source = "d706ec64d0"
+text = """
+Muitos componentes ópticos, como guias de onda, moduladores, lasers e detectores, fabricados juntos
+em um único chip com baixa perda, a um custo que permita volume.
+"""
+
+[[text]]
+path = "scope"
+source = "61c742382d"
+text = """
+No escopo: circuitos fotônicos integrados, como as plataformas de nitreto de silício, silício e
+III-V, e sua perda, a integração de fontes de luz e detectores, e a fabricação. Fora do escopo: os
+sistemas que os usam, cobertos por quantum/quantum-interconnect e
+computing/low-energy-data-movement.
+"""
+
+[[text]]
+path = "metric[loss].conditions"
+source = "aa1195e6b8"
+text = """
+Guias de onda de nitreto de silício com núcleo de 80 nm, fabricados em um processo sem recozimento
+a no máximo 250 C.
+"""
+
+[[text]]
+path = "metric[loss].current.note"
+source = "102e7bff4f"
+text = """
+as_of é o ano de publicação; o resumo não dá data. Ainda sem meta: a perda de que uma interconexão
+quântica ou um enlace óptico de memória precisa não tem fonte.
+"""
+
+[[text]]
+path = "gap[low-loss-with-active-devices].title"
+source = "aaf2253b14"
+text = "Baixa perda e dispositivos ativos em um único processo"
+
+[[text]]
+path = "gap[low-loss-with-active-devices].description"
+source = "e06cc5d7a2"
+text = """
+O nitreto de silício dá a menor perda em guias de onda, e a integração de materiais III-V e de
+silício tornou possíveis circuitos de nitreto em grande escala com lasers e detectores. Perda
+ultrabaixa foi alcançada em um processo sem recozimento a no máximo 250 C, compatível com as etapas
+de back-end do CMOS; manter essa perda enquanto lasers, moduladores e detectores dividem o chip, em
+volume, é o problema em aberto.
+"""

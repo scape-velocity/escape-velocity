@@ -1,0 +1,20 @@
+# Portuguese (Brazil) translation of evidence/jordan2026quantum.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "0a8e1520df"
+text = """
+Lista de autores truncada na saída do scout. Primeiro sistema de múltiplos qubits com eletrônica de
+controle digital supercondutora a milikelvin.
+"""
+
+[[text]]
+path = "finding[1].conditions"
+source = "5c4dc4950c"
+text = """
+Sistema de múltiplos qubits com demultiplexação digital supercondutora das linhas de controle.
+"""

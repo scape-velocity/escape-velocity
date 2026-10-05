@@ -1,0 +1,23 @@
+# Portuguese (Brazil) translation of evidence/vellaisamy2026characterization.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "f6411b237e"
+text = """
+A energia por token aqui é a energia marginal mais amortizada por token de saída na janela de
+inferência de uma requisição em lote, medida em GPUs; ela cai à medida que o comprimento da saída
+cresce porque o custo fixo de prefill se distribui por mais tokens.
+"""
+
+[[text]]
+path = "finding[1].conditions"
+source = "46464dc5ea"
+text = """
+Llama-3.2-1B (denso, 1B parâmetros) em uma GPU NVIDIA H200, tamanho de lote 16, contexto de 4K
+tokens, 512 tokens de saída. Com 10 tokens de saída a mesma configuração dá 7,46 J/token. Um modelo
+de 1B é muito menor que os modelos de fronteira.
+"""

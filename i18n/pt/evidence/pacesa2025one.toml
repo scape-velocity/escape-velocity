@@ -1,0 +1,21 @@
+# Portuguese (Brazil) translation of evidence/pacesa2025one.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "8d0bcb86a1"
+text = """
+Lista de autores truncada aos oito primeiros, como impressa pelo scout. O resumo dá uma faixa entre
+os alvos; o atlas toma o extremo inferior como o valor que vale para todos os alvos testados.
+"""
+
+[[text]]
+path = "finding[1].conditions"
+source = "2a308a4828"
+text = """
+Projeto de novo de ligantes proteicos com um pipeline baseado em AlphaFold2; a faixa de taxas de
+sucesso experimentais entre os alvos testados, extremo inferior.
+"""

@@ -1,0 +1,102 @@
+# Portuguese (Brazil) translation of atlas/health/multi-cancer-early-detection.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "dfed6e2cda"
+text = "Detecção precoce de múltiplos cânceres"
+
+[[text]]
+path = "statement"
+source = "b1bc151e8c"
+text = """
+Um exame de sangue que rastreia pessoas sem sintomas para muitos tipos de câncer ao mesmo tempo,
+encontra cânceres cedo o bastante para mudar os desfechos e raramente dá alarme falso. Esta entrada
+mapeia o estado da pesquisa sobre a tecnologia; não é aconselhamento médico.
+"""
+
+[[text]]
+path = "scope"
+source = "3ced90878d"
+text = """
+Dentro: exames de sangue para sinais de vários cânceres ao mesmo tempo (metilação do DNA livre de
+células, fragmentômica, marcadores proteicos) usados para rastrear pessoas sem sintomas. Fora:
+exames para um único tipo de câncer, exames para pessoas com sintomas ou com câncer conhecido, e
+tratamento. O sequenciamento em escala é tratado em biotech/low-cost-dna-sequencing.
+"""
+
+[[text]]
+path = "horizon"
+source = "7f03b352b3"
+text = "Não informado por nenhuma fonte lida para esta entrada"
+
+[[text]]
+path = "requires[biotech/low-cost-dna-sequencing].why"
+source = "bc8080ccd8"
+text = """
+Os exames baseados em metilação e em fragmentos leem o DNA livre de células por sequenciamento,
+então o preço do exame acompanha o preço do sequenciamento.
+"""
+
+[[text]]
+path = "metric[stage-one-sensitivity].conditions"
+source = "1fba391e9d"
+text = """
+Cânceres de estágio I de todos os tipos detectados, exame de sangue baseado em metilação, conjunto
+de validação caso-controle.
+"""
+
+[[text]]
+path = "metric[stage-one-sensitivity].current.note"
+source = "4d4185397d"
+text = """
+as_of é o ano de publicação; o dia não está no resumo. Dados de caso-controle, não de uma população
+rastreada.
+"""
+
+[[text]]
+path = "metric[stage-one-sensitivity].target.rationale"
+source = "387c7b94b8"
+text = """
+Meta de trabalho do atlas, não definida por uma agência ou um regulador: o ponto em que um exame
+encontra mais cânceres de estágio I do que deixa passar. Nenhuma fonte lida para esta entrada
+define um limiar numérico para o estágio I; a revisão sistemática diz que o rastreamento
+populacional precisa de alta especificidade e sensibilidade razoável para doença em estágio
+inicial.
+"""
+
+[[text]]
+path = "metric[specificity].conditions"
+source = "9318ed5e9f"
+text = "Detecção de sinal de câncer, conjunto de validação caso-controle."
+
+[[text]]
+path = "gap[stage-one-sensitivity].title"
+source = "fd80371db2"
+text = "Baixa sensibilidade para cânceres de estágio I"
+
+[[text]]
+path = "gap[stage-one-sensitivity].description"
+source = "3203cd7c6d"
+text = """
+No estudo de validação caso-controle, a sensibilidade subiu com o estágio, de 16,8% no estágio I a
+90,1% no estágio IV, então o exame encontra sobretudo cânceres já avançados. O estágio I é onde a
+detecção precoce mais importaria e onde pouco DNA tumoral chega ao sangue.
+"""
+
+[[text]]
+path = "gap[clinical-utility].title"
+source = "dc8399a345"
+text = "Benefício aos pacientes não mostrado em ensaio randomizado"
+
+[[text]]
+path = "gap[clinical-utility].description"
+source = "2c1157d4e1"
+text = """
+O ensaio randomizado NHS-Galleri, com 142 250 participantes, relatou que seu desfecho primário, uma
+redução de diagnósticos em estágio III/IV no braço do exame, não foi atingido. Detectar cânceres
+não é o mesmo que melhorar desfechos; são necessários acompanhamento mais longo e outros ensaios.
+"""

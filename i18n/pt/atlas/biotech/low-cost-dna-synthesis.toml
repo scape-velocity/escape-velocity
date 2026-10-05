@@ -1,0 +1,27 @@
+# Portuguese (Brazil) translation of atlas/biotech/low-cost-dna-synthesis.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "e6a732d6c5"
+text = "Síntese de DNA de baixo custo"
+
+[[text]]
+path = "statement"
+source = "5c93c7888a"
+text = """
+Escrever DNA longo e preciso de uma sequência escolhida, a um custo e uma velocidade que permitam
+construir e testar projetos sem espera nem racionamento.
+"""
+
+[[text]]
+path = "scope"
+source = "c543e4ff8a"
+text = """
+Dentro: síntese química e enzimática de oligonucleotídeos, genes e construtos montados. Fora: a
+leitura de DNA (biotech/low-cost-dna-sequencing) e a entrega de DNA nas células
+(biotech/in-vivo-gene-delivery).
+"""

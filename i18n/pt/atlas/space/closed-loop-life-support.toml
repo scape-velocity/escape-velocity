@@ -1,0 +1,29 @@
+# Portuguese (Brazil) translation of atlas/space/closed-loop-life-support.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "a91a39c874"
+text = "Suporte de vida em circuito fechado"
+
+[[text]]
+path = "statement"
+source = "6cbd7430b7"
+text = """
+Um sistema de suporte de vida para pessoas no espaço ou em outro mundo que recicla ar, água e
+resíduos alimentares, de modo que o reabastecimento a partir da Terra seja uma pequena fração do
+consumo da tripulação.
+"""
+
+[[text]]
+path = "scope"
+source = "4a74f62a81"
+text = """
+Dentro: recuperação de água e oxigênio, processamento de resíduos e produção biorregenerativa de
+alimentos para uma tripulação. Fora: o lançamento à órbita (space/low-cost-access-to-orbit), a
+blindagem contra radiação e a usina de energia. A métrica principal, uma fração de fechamento dos
+fluxos de massa, ainda não está em taxonomy/metrics.toml, então a tecnologia continua proposta.
+"""

@@ -1,0 +1,22 @@
+# Portuguese (Brazil) translation of evidence/ho2023limits.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "0388a4f935"
+text = """
+Uma estimativa da eficiência máxima de CMOS a partir de custos de energia de primeiros princípios e
+parâmetros empíricos, em operações FP4 por joule; é uma projeção, não uma medição.
+"""
+
+[[text]]
+path = "finding[1].conditions"
+source = "88c7bb168f"
+text = """
+Estimativa por média geométrica do máximo de operações de ponto flutuante por joule para
+microprocessadores CMOS, contadas em operações FP4, combinando chaveamento de transistores,
+capacitância de interconexão e fuga. Uma estimativa de um teto, não um valor atual.
+"""

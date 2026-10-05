@@ -1,0 +1,12 @@
+# Portuguese (Brazil) translation of evidence/allen2017expression.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "finding[1].conditions"
+source = "1d25dadfce"
+text = """
+Afirmação qualitativa do resumo; expressão em Nicotiana benthamiana, não em uma cultura agrícola.
+"""

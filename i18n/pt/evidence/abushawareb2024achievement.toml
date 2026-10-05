@@ -1,0 +1,21 @@
+# Portuguese (Brazil) translation of evidence/abushawareb2024achievement.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "b43b2bbb0e"
+text = """
+Lista de autores reduzida ao primeiro autor; o artigo traz a lista de autores da colaboração.
+Disparo de 2022-12-05, publicado em 2024.
+"""
+
+[[text]]
+path = "finding[1].conditions"
+source = "ea03bb61c7"
+text = """
+Implosão por acionamento indireto na National Ignition Facility, 2,05 MJ de luz laser de 351 nm,
+rendimento de fusão de 3,1 MJ, 2022-12-05.
+"""

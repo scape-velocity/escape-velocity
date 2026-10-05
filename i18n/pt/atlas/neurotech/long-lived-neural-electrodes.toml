@@ -1,0 +1,27 @@
+# Portuguese (Brazil) translation of atlas/neurotech/long-lived-neural-electrodes.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "1cb154f117"
+text = "Eletrodos neurais de longa duração"
+
+[[text]]
+path = "statement"
+source = "86581fb171"
+text = """
+Eletrodos implantados que registram a atividade de muitos neurônios com qualidade de sinal estável
+por muitos anos, sem danificar o tecido nem ser rejeitados pelo corpo.
+"""
+
+[[text]]
+path = "scope"
+source = "3a28156995"
+text = """
+Dentro: matrizes de eletrodos intracorticais e sondas de filme fino ou flexíveis, e a estabilidade
+do sinal e a resposta do tecido ao longo do tempo. Fora: o software de decodificação e a interface
+como um todo (neurotech/high-bandwidth-bci).
+"""

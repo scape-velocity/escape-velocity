@@ -1,0 +1,10 @@
+# Portuguese (Brazil) translation of evidence/reddy2018spacex.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "finding[1].conditions"
+source = "85472a1166"
+text = "Afirmação qualitativa do resumo de um levantamento."

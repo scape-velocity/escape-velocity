@@ -1,0 +1,60 @@
+# Portuguese (Brazil) translation of atlas/climate/direct-air-capture.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "836dbe4f4b"
+text = "Captura direta do ar"
+
+[[text]]
+path = "statement"
+source = "a5d4ede00f"
+text = """
+Usinas que removem CO2 do ar ambiente e o armazenam de forma duradoura, a um custo baixo o bastante
+para remover gigatoneladas por ano.
+"""
+
+[[text]]
+path = "scope"
+source = "2763d6ddf6"
+text = """
+Dentro: captura de CO2 do ar por sorventes ou solventes, com transporte e armazenamento geológico.
+Fora: captura em fontes pontuais, remoção biológica e mineral, e o próprio local de armazenamento
+(climate/geologic-co2-storage).
+"""
+
+[[text]]
+path = "requires[materials/low-cost-co2-sorbents].why"
+source = "fd6be090b7"
+text = """
+O sorvente define a capacidade de captura, a energia de regeneração e grande parte do custo da
+usina.
+"""
+
+[[text]]
+path = "requires[climate/geologic-co2-storage].why"
+source = "ca6723d572"
+text = """
+A remoção só conta se o CO2 ficar fora do ar por séculos; o armazenamento também é parte do custo
+por tonelada.
+"""
+
+[[text]]
+path = "gap[cost].title"
+source = "5b28c93a5e"
+text = "O custo projetado fica na casa das centenas de USD por tonelada"
+
+[[text]]
+path = "gap[cost].description"
+source = "6cc3902a53"
+text = """
+Estimativas de projeto e de curva de aprendizado põem o custo nivelado de captura na casa das
+centenas de USD por tonelada: 94 a 232 USD/t para uma usina projetada de KOH aquoso (só captura, um
+projeto e não uma usina em operação), e 341 a 374 USD/t de CO2 removido líquido, com transporte e
+armazenamento, a 1 Gt-CO2 por ano de capacidade acumulada. Nenhuma fonte encontrada para o custo de
+uma usina em operação hoje. Fechar a lacuna exige sorventes mais baratos, menor energia de
+regeneração e armazenamento mais barato.
+"""

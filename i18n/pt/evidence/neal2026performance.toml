@@ -1,0 +1,18 @@
+# Portuguese (Brazil) translation of evidence/neal2026performance.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "9243e6491e"
+text = """
+Lista de autores truncada aos oito primeiros, como impressa pelo scout. Desfechos secundários
+descritivos; o desfecho primário foi relatado em outro lugar.
+"""
+
+[[text]]
+path = "finding[1].conditions"
+source = "ea624f5ce9"
+text = "Ensaio randomizado NHS-Galleri, 142 250 participantes de 50-77 anos."

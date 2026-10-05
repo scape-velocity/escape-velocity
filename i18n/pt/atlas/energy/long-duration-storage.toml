@@ -1,0 +1,27 @@
+# Portuguese (Brazil) translation of atlas/energy/long-duration-storage.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "d2fe9d0eb2"
+text = "Armazenamento de energia de longa duração"
+
+[[text]]
+path = "statement"
+source = "e3182175f6"
+text = """
+Armazenamento que guarda energia da rede por muitas horas a dias ou mais, a um custo por kWh baixo
+o bastante para firmar uma rede abastecida principalmente por vento e sol.
+"""
+
+[[text]]
+path = "scope"
+source = "0631321bc9"
+text = """
+Dentro: armazenamento eletroquímico (fluxo, metal-ar), térmico, mecânico e químico (hidrogênio) com
+duração acima de cerca de 10 horas. Fora: baterias de íon-lítio de curta duração para deslocamento
+na escala de horas.
+"""

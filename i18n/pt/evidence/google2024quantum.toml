@@ -1,0 +1,30 @@
+# Portuguese (Brazil) translation of evidence/google2024quantum.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "d726d149fd"
+text = "Publicado online em 2024-12-09; impresso em 2025. O processador Willow."
+
+[[text]]
+path = "finding[1].conditions"
+source = "b8a9367a19"
+text = """
+Memória de código de superfície de distância 7 em 101 qubits do processador supercondutor Willow.
+"""
+
+[[text]]
+path = "finding[2].conditions"
+source = "e3125e18bb"
+text = """
+Latência média do decodificador em tempo real, código de superfície de distância 5, até um milhão de
+ciclos de 1,1 microssegundo cada.
+"""
+
+[[text]]
+path = "finding[3].conditions"
+source = "b6174ebe1b"
+text = "Qubits usados pela memória de código de superfície de distância 7."

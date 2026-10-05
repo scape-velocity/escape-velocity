@@ -1,0 +1,21 @@
+# Portuguese (Brazil) translation of evidence/goncharov2025laser.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "e198a7e9f1"
+text = """
+Palestra de conferência (anais da SPIE). Declara o requisito de alto ganho para energia de fusão
+inercial como uma razão entre rendimento de nêutrons e energia do laser de cerca de 100.
+"""
+
+[[text]]
+path = "finding[1].conditions"
+source = "177f75b7ec"
+text = """
+Requisito para uma usina de energia de fusão inercial, não uma medição: rendimento de nêutrons sobre
+a energia do laser incidente.
+"""

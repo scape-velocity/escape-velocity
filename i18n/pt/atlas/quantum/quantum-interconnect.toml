@@ -1,0 +1,37 @@
+# Portuguese (Brazil) translation of atlas/quantum/quantum-interconnect.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "446232fe07"
+text = "Interconexão quântica"
+
+[[text]]
+path = "statement"
+source = "862221db65"
+text = """
+Canais que transportam estados quânticos ou emaranhamento entre processadores quânticos em
+criostatos ou módulos separados, para que uma máquina possa crescer além do que um criostato
+comporta.
+"""
+
+[[text]]
+path = "scope"
+source = "13f27a5fa5"
+text = """
+No escopo: enlaces entre módulos de uma máquina supercondutora, como a transdução de micro-ondas
+para óptico e a distribuição óptica de emaranhamento, e sua fidelidade e taxa. Fora do escopo:
+redes quânticas de longa distância e comunicação como fins em si, e acopladores no chip dentro de
+um módulo.
+"""
+
+[[text]]
+path = "requires[enablers/photonic-integration].why"
+source = "cb9a0ff141"
+text = """
+Enlaces ópticos entre módulos precisam de guias de onda de baixa perda, moduladores e detectores
+integrados no chip.
+"""

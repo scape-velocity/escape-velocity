@@ -1,0 +1,23 @@
+# Portuguese (Brazil) translation of evidence/oviedo2026energy.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "890f7c385c"
+text = """
+Um modelo de baixo para cima com premissas de implantação, não uma medição: 0,31 Wh por consulta
+para modelos de escala de fronteira, não por token, então seu resultado não traz métrica. Citado
+pela redução de energia de 8 a 20 vezes, já à vista, que os autores estimam.
+"""
+
+[[text]]
+path = "finding[1].conditions"
+source = "23ceb833b0"
+text = """
+Por consulta, não por token: estimativa de modelo de baixo para cima para modelos de escala de
+fronteira (>200B parâmetros) em nós H100 (0,31 Wh, cerca de 1128 J). Nenhuma métrica do atlas é por
+consulta, então este resultado não traz métrica.
+"""

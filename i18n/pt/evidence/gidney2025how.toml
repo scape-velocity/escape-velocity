@@ -1,0 +1,22 @@
+# Portuguese (Brazil) translation of evidence/gidney2025how.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "42cbbad504"
+text = """
+Estimativa de recursos, não uma medição. Usada para as metas: menos de um milhão de qubits ruidosos,
+erro de porta uniforme de 0,1%, ciclo de código de superfície de 1 microssegundo, tempo de reação do
+controle de 10 microssegundos, menos de uma semana de execução.
+"""
+
+[[text]]
+path = "finding[1].conditions"
+source = "71d0345af4"
+text = """
+Limite superior de qubits para fatorar um inteiro RSA de 2048 bits em menos de uma semana; o resumo
+diz menos de um milhão, então 1e6 é o limite, não uma estimativa da contagem exata.
+"""

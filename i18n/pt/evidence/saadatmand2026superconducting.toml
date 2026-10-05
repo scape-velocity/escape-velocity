@@ -1,0 +1,21 @@
+# Portuguese (Brazil) translation of evidence/saadatmand2026superconducting.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "170ba132b9"
+text = """
+Só o primeiro autor foi impresso pelo scout; a lista completa é mais longa. Modelo arquitetural de
+recursos, sem valor medido.
+"""
+
+[[text]]
+path = "finding[1].conditions"
+source = "33b4393ddd"
+text = """
+Modelo de estimativa de recursos de um computador supercondutor tolerante a falhas modular com
+enlaces coerentes.
+"""

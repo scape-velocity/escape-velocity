@@ -1,0 +1,28 @@
+# Portuguese (Brazil) translation of atlas/materials/low-cost-co2-sorbents.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "cf4c2639db"
+text = "Sorventes de CO2 de baixo custo"
+
+[[text]]
+path = "statement"
+source = "f2813179f9"
+text = """
+Materiais sólidos ou líquidos que capturam CO2 do ar ambiente com alta capacidade, cinética rápida
+e baixa energia de regeneração, por anos de ciclos, a um custo de material baixo o bastante para
+remoção na escala de gigatoneladas.
+"""
+
+[[text]]
+path = "scope"
+source = "5bb4f8b88a"
+text = """
+Dentro: aminas em suportes, estruturas metalorgânicas, ciclos de hidróxido e carbonato para captura
+direta do ar. Fora: sorventes para gás de combustão com 4 a 15% de CO2 e membranas
+(materials/high-selectivity-membranes).
+"""

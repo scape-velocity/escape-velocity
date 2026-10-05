@@ -1,0 +1,22 @@
+# Portuguese (Brazil) translation of evidence/keith2018process.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "ffc02dbf40"
+text = """
+Um projeto para uma usina de 1 Mt-CO2 por ano com dados de planta piloto; o custo é uma estimativa
+de projeto, não um custo medido de uma usina em operação.
+"""
+
+[[text]]
+path = "finding[1].conditions"
+source = "e9c66c2239"
+text = """
+Extremo inferior da faixa de custo nivelado de uma usina projetada de KOH aquoso que captura cerca
+de 1 Mt-CO2 por ano, com CO2 entregue a 15 MPa; só captura, armazenamento não incluído. Extremo
+superior 232 USD/t. Estimativa de projeto, não um valor atual.
+"""

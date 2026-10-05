@@ -1,0 +1,22 @@
+# Portuguese (Brazil) translation of evidence/willett2023high.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "650ef185cb"
+text = """
+Lista de autores truncada aos oito primeiros, como impressa pelo scout. Um participante com
+esclerose lateral amiotrófica.
+"""
+
+[[text]]
+path = "finding[1].conditions"
+source = "81dca7f85f"
+text = """
+Decodificação de fala para texto da fala tentada a partir de matrizes de microeletrodos
+intracorticais, um participante, vocabulário de 125 000 palavras com taxa de erro de palavras de
+23,8%.
+"""

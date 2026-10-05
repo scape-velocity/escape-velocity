@@ -1,0 +1,38 @@
+# Portuguese (Brazil) translation of atlas/ai/ai-for-science.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "10ce4cd309"
+text = "IA para a ciência"
+
+[[text]]
+path = "statement"
+source = "f97f5e6720"
+text = """
+Sistemas de IA que propõem, testam e refinam hipóteses, projetos e experimentos científicos bem o
+bastante para que seus resultados sejam confirmados em laboratório a uma taxa que acelere a
+descoberta.
+"""
+
+[[text]]
+path = "scope"
+source = "101d0f7c87"
+text = """
+No escopo: modelos e agentes usados para gerar e classificar candidatos (moléculas, proteínas,
+materiais, experimentos) e para fechar o ciclo com o retorno do laboratório ou da simulação. Fora
+do escopo: o custo energético de executá-los, coberto por ai/energy-efficient-inference; as
+descobertas específicas que eles possibilitam, cobertas por tecnologias como
+biotech/de-novo-protein-design e health/antibiotics-for-resistant-bacteria.
+"""
+
+[[text]]
+path = "requires[ai/energy-efficient-inference].why"
+source = "790326bacb"
+text = """
+Triagem e ciclos agênticos fazem muitas chamadas de modelo por experimento, de modo que a energia e
+o custo por token determinam até onde os ciclos de descoberta podem escalar.
+"""

@@ -1,0 +1,18 @@
+# Portuguese (Brazil) translation of evidence/sievert2024considering.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "2d1cfa55f5"
+text = "Uma projeção a 1 Gt-CO2 por ano de capacidade acumulada, não um custo presente."
+
+[[text]]
+path = "finding[1].conditions"
+source = "80eaf3cb73"
+text = """
+Projeção, DACCS com sorvente sólido, custo do CO2 líquido removido a 1 Gt-CO2/ano de capacidade
+acumulada; faixa de confiança de 90% de 281 a 579 USD/t. Não é um valor atual.
+"""

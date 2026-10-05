@@ -1,0 +1,117 @@
+# Portuguese (Brazil) translation of atlas/food/nitrogen-fixing-cereals.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "34a8567bf0"
+text = "Cereais fixadores de nitrogênio"
+
+[[text]]
+path = "statement"
+source = "99d26cbe4b"
+text = """
+Cereais que obtêm a maior parte do nitrogênio do ar, por meio da própria nitrogenase, de uma
+simbiose modificada ou de um microbioma associado, de modo que altas produtividades não dependam de
+fertilizante nitrogenado sintético.
+"""
+
+[[text]]
+path = "scope"
+source = "01a6a86956"
+text = """
+Dentro: milho, trigo, arroz e outros cereais que fixam nitrogênio na planta ou em associação
+estável com ela. Fora: inoculantes microbianos aplicados com fertilizante, que complementam mas não
+substituem o fertilizante (aparecem aqui só como abordagem), e ferramentas de edição gênica de
+plantas, que são biotech/plant-genome-engineering.
+"""
+
+[[text]]
+path = "requires[biotech/plant-genome-engineering].why"
+source = "7e58b1911a"
+text = """
+Toda rota para um cereal autofertilizante exige muitas edições coordenadas no genoma da planta.
+"""
+
+[[text]]
+path = "metric[n-fixation].conditions"
+source = "1466d45458"
+text = """
+Fração do nitrogênio da cultura vinda da fixação biológica do nitrogênio atmosférico, medida com
+métodos de 15N.
+"""
+
+[[text]]
+path = "metric[n-fixation].current.note"
+source = "15f8e4af74"
+text = """
+Extremo superior de uma faixa de 29-82%, em uma variedade crioula cultivada em solo pobre em
+nitrogênio. Não é uma cultivar moderna de alta produtividade: nenhum cereal de elite mostrou isso.
+"""
+
+[[text]]
+path = "metric[n-fixation].target.rationale"
+source = "c93e017c2a"
+text = """
+Uma cultura que obtém todo o nitrogênio do ar é a cultura 'N-self-fertilizing' descrita na
+literatura como capaz de fixação autônoma, dispensando fertilizantes químicos. A meta vale para
+cultivares de elite com produtividade plena, que é o que o valor atual não mostra.
+"""
+
+[[text]]
+path = "gap[landrace-to-elite].title"
+source = "1d2a011359"
+text = "Fixação mostrada em uma variedade crioula, não em cultivares de alta produtividade"
+
+[[text]]
+path = "gap[landrace-to-elite].description"
+source = "472f6ff58a"
+text = """
+A alta fração de fixação foi medida em uma variedade crioula com raízes aéreas que secretam
+mucilagem, cultivada em solo pobre em nitrogênio. Levar a característica a cultivares de elite com
+produtividade plena, e sob fertilização, não foi mostrado. Bactérias modificadas associadas às
+raízes, que continuam fixando em campos fertilizados, foram comercializadas, mas o resumo delas
+relata um ganho de produtividade sobre o fertilizante sozinho, não uma fração de nitrogênio vinda
+da fixação.
+"""
+
+[[text]]
+path = "gap[landrace-to-elite].approach[1].name"
+source = "b2d9816ce8"
+text = "Diazotrófico modificado associado às raízes que fixa nitrogênio apesar do fertilizante"
+
+[[text]]
+path = "gap[nitrogenase-in-plant-cells].title"
+source = "22f2123a40"
+text = "Uma nitrogenase funcional dentro de células vegetais"
+
+[[text]]
+path = "gap[nitrogenase-in-plant-cells].description"
+source = "904eb4bf60"
+text = """
+Expressar os componentes da nitrogenase nas mitocôndrias da planta é a rota para uma cultura que
+fixe o próprio nitrogênio. Dezesseis proteínas da nitrogenase já foram expressas, cada uma, e
+direcionadas à matriz mitocondrial de uma planta modelo, mas o componente NifD é o menos abundante
+e um complexo funcional completo em uma planta não foi mostrado.
+"""
+
+[[text]]
+path = "gap[nitrogenase-in-plant-cells].approach[1].name"
+source = "0d2e567465"
+text = "Fusão de NifD e NifK para igualar sua abundância nas mitocôndrias da planta"
+
+[[text]]
+path = "gap[nodulation-in-cereals].title"
+source = "e060b6e1f5"
+text = "Simbiose de nódulos radiculares ainda não transferida para não leguminosas"
+
+[[text]]
+path = "gap[nodulation-in-cereals].description"
+source = "0f2a28be8e"
+text = """
+As leguminosas abrigam rizóbios fixadores de nitrogênio em nódulos nas raízes. O objetivo de
+induzir a nodulação em culturas não leguminosas não foi alcançado; as questões em aberto são os
+programas de sinalização, infecção e organogênese do nódulo.
+"""

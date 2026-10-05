@@ -1,0 +1,21 @@
+# Portuguese (Brazil) translation of evidence/li2025cosmic.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "bc2027d8a3"
+text = """
+Lista de autores truncada na saída do scout (oito primeiros mostrados). Evidência de mecanismo para
+a lacuna de erros correlacionados; nenhum valor de métrica do atlas foi extraído.
+"""
+
+[[text]]
+path = "finding[1].conditions"
+source = "c58dc5bd8a"
+text = """
+Observação direta de surtos de quasipartículas induzidos por múons e de erros correlacionados em um
+processador de 63 qubits, com detectores de múons no refrigerador de diluição.
+"""

@@ -1,0 +1,27 @@
+# Portuguese (Brazil) translation of atlas/energy/tritium-breeding.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "9207f8bfd9"
+text = "Regeneração de trítio"
+
+[[text]]
+path = "statement"
+source = "9f07ee6612"
+text = """
+Uma usina de fusão que produz no próprio manto ao menos tanto trítio quanto queima, e recupera e
+recicla o combustível rápido o bastante para manter pequeno o inventário de partida.
+"""
+
+[[text]]
+path = "scope"
+source = "8498ed2fd5"
+text = """
+Dentro: mantos regeneradores, extração de trítio e o ciclo de combustível da usina. Fora: a física
+do plasma ou do alvo em si (energy/fusion-power) e o suprimento de enriquecimento de isótopos de
+lítio, que ainda não está no atlas.
+"""

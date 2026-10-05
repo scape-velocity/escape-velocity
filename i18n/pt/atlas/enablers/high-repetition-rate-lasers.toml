@@ -1,0 +1,27 @@
+# Portuguese (Brazil) translation of atlas/enablers/high-repetition-rate-lasers.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "5a52f796ea"
+text = "Lasers de alta energia e alta taxa de repetição"
+
+[[text]]
+path = "statement"
+source = "24357c5b11"
+text = """
+Lasers da classe do megajoule que disparam várias vezes por segundo, com alta eficiência na tomada
+e por bilhões de disparos.
+"""
+
+[[text]]
+path = "scope"
+source = "eec590e664"
+text = """
+Dentro: drivers laser para fusão inercial e as abordagens de estado sólido bombeado por diodo, a
+gás e a fibra para eles. Fora: lasers industriais de onda contínua e lasers de pulso ultracurto de
+baixa energia.
+"""

@@ -1,0 +1,92 @@
+# Portuguese (Brazil) translation of atlas/water/low-energy-desalination.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "4f0c336fa7"
+text = "Dessalinização de baixa energia"
+
+[[text]]
+path = "statement"
+source = "f857df70ef"
+text = """
+Transformar água do mar em água doce usando eletricidade próxima do mínimo termodinâmico da
+separação, de modo que a dessalinização deixe de ser limitada pela conta de energia.
+"""
+
+[[text]]
+path = "scope"
+source = "9fc65dfee6"
+text = """
+Dentro: dessalinização de água do mar por membranas (osmose reversa, eletrodiálise) e a recuperação
+de energia e o estagiamento em torno delas. Fora: as próprias membranas, que são
+materials/high-selectivity-membranes; o reúso de água salobra e de efluentes, que partem de
+salinidade muito menor e precisam de menos energia; e a fonte de energia, que pertence ao domínio
+de energia.
+"""
+
+[[text]]
+path = "requires[materials/high-selectivity-membranes].why"
+source = "1d8fd297ee"
+text = """
+A permeabilidade e a seletividade da membrana definem o quanto a dessalinização em estágios pode se
+aproximar do mínimo termodinâmico.
+"""
+
+[[text]]
+path = "metric[sec].conditions"
+source = "fddae1b3a2"
+text = "Alimentação com água do mar, eletricidade por metro cúbico de água doce."
+
+[[text]]
+path = "metric[sec].current.note"
+source = "4a747d27f3"
+text = """
+Melhor valor encontrado em uma medição com água do mar natural nesta passagem inicial:
+eletrodiálise em múltiplos estágios, não osmose reversa. A busca no nível dos resumos não encontrou
+um número medido de osmose reversa em escala plena com valor citável, então o estado da arte real
+pode ser menor; um curador deve substituir este valor por uma medição de osmose reversa em escala
+plena.
+"""
+
+[[text]]
+path = "metric[sec].target.rationale"
+source = "deb58b1462"
+text = """
+Um valor redondo escolhido pelo atlas, não definido por uma agência: cerca do nível que um estudo
+de simulação atingiu para osmose reversa em água do mar diluída osmoticamente (0,96 kWh/m3), e um
+terço do valor atual, para que a energia deixe de dominar o custo da água dessalinizada.
+"""
+
+[[text]]
+path = "gap[thermodynamic-floor].title"
+source = "e66534ed21"
+text = "Usinas práticas já operam perto do limite termodinâmico"
+
+[[text]]
+path = "gap[thermodynamic-floor].description"
+source = "752ab964a9"
+text = """
+A osmose reversa e a eletrodiálise reversíveis consomem a energia livre de Gibbs da separação, e a
+energia prática de ambas só se aproxima desse mínimo à medida que o número de estágios cresce.
+Revisões afirmam que a maioria das tecnologias de dessalinização já opera perto do seu limite,
+então a redução restante é limitada e cada passo custa capital. O valor numérico do mínimo está no
+corpo dos artigos citados e ainda não está registrado aqui.
+"""
+
+[[text]]
+path = "gap[membrane-permselectivity].title"
+source = "6d99e29100"
+text = "Permeabilidade e seletividade da membrana são um compromisso"
+
+[[text]]
+path = "gap[membrane-permselectivity].description"
+source = "1701ecbb1d"
+text = """
+As membranas de osmose reversa trocam permeabilidade à água por rejeição de sal. A análise de
+membranas biomiméticas indica o que uma membrana mais permeável e sem defeitos poderia oferecer
+para a dessalinização de água do mar, mas essas membranas ainda não são um produto comercial.
+"""

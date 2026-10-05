@@ -1,0 +1,62 @@
+# Portuguese (Brazil) translation of atlas/quantum/real-time-qec-decoder.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "fd97c59fe9"
+text = "Decodificador de correção quântica de erros em tempo real"
+
+[[text]]
+path = "statement"
+source = "c96edf3fd1"
+text = """
+Hardware e algoritmos clássicos que transformam o fluxo de medições de síndrome de um código
+corretor de erros em correções, rápido o bastante para que o computador quântico nunca espere por
+elas.
+"""
+
+[[text]]
+path = "scope"
+source = "308381698a"
+text = """
+No escopo: o algoritmo de decodificação, sua implementação em FPGA ou ASIC, e sua latência e vazão
+durante um experimento em execução. Fora do escopo: a escolha do código, os próprios qubits
+(quantum/fault-tolerant-quantum-computer) e a eletrônica criogênica sobre a qual ele pode ficar
+(enablers/cryogenic-control-electronics).
+"""
+
+[[text]]
+path = "requires[enablers/cryogenic-control-electronics].why"
+source = "40651d7918"
+text = """
+O decodificador lê as síndromes do sistema de controle, e colocá-lo perto dos qubits encurta o
+caminho e a latência.
+"""
+
+[[text]]
+path = "metric[latency].conditions"
+source = "232859cfdf"
+text = """
+Latência média do decodificador em tempo real em um experimento em execução: código de superfície
+de distância 5, tempo de ciclo de 1,1 microssegundo.
+"""
+
+[[text]]
+path = "metric[latency].current.note"
+source = "154aee4c1d"
+text = """
+Outros estudos de decodificadores relatam tempos por rodada de medição sob ruído modelado
+(liyanage2024fpga); esses não são latências de ponta a ponta em um experimento e não são usados
+como valores atuais.
+"""
+
+[[text]]
+path = "metric[latency].target.rationale"
+source = "09e5c5d940"
+text = """
+O tempo de reação do sistema de controle de 10 microssegundos suposto pela estimativa de recursos
+do RSA-2048 (gidney2025how).
+"""

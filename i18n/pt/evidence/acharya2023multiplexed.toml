@@ -1,0 +1,21 @@
+# Portuguese (Brazil) translation of evidence/acharya2023multiplexed.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "480c9dc939"
+text = """
+Lista de autores truncada na saída do scout. Evidência de controle cryo-CMOS a milikelvin sem
+degradar o qubit.
+"""
+
+[[text]]
+path = "finding[1].conditions"
+source = "638b8a1a66"
+text = """
+Multiplexador cryo-CMOS de radiofrequência operando abaixo de 15 mK, ligado a um qubit
+supercondutor.
+"""
