@@ -15,3 +15,29 @@ jobs:
           python-version: "3.12"
       - name: Validate data, graph and generated pages
         run: python3 tools/check.py
+
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build the export the explorer reads
+        run: python3 tools/build_site.py
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Install the explorer's dependencies
+        working-directory: web
+        run: npm ci
+      - name: Type-check the explorer
+        working-directory: web
+        run: npm run typecheck
+      - name: Build the explorer
+        working-directory: web
+        env:
+          ATLAS_JSON: ../_site/atlas.json
+        run: npm run build
