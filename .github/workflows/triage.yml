@@ -1,7 +1,8 @@
 name: Triage issues
 
-# Labels an issue opened from a form with its domain and mentions the domain's moderators
-# (GOVERNANCE.md). The issue's text is read as data by tools/moderation.py.
+# Labels an issue opened from a form with its domain, or its language, and mentions the domain's
+# moderators or the language's maintainers (GOVERNANCE.md). The issue's text is read as data by
+# tools/moderation.py.
 
 on:
   issues:
@@ -19,7 +20,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Find the domain
+      - name: Find the domain or the language
         env:
           BODY: ${{ github.event.issue.body }}
         run: |
@@ -37,6 +38,7 @@ jobs:
           label=$(jq -r '.label // empty' triage.json)
           [ -n "$label" ] || exit 0
           name=$(jq -r .name triage.json)
+          role=$(jq -r '.role // "Moderators"' triage.json)
           gh label create "$label" --repo "$GITHUB_REPOSITORY" --color ededed --description "$name" 2> /dev/null || true
           gh issue edit "$NUMBER" --repo "$GITHUB_REPOSITORY" --add-label "$label"
           [ "$ACTION" = "opened" ] || exit 0
@@ -44,4 +46,4 @@ jobs:
             '[.moderators[] | select(ascii_downcase != ($author | ascii_downcase)) | "@" + .] | join(", ")' triage.json)
           [ -n "$people" ] || exit 0
           gh issue comment "$NUMBER" --repo "$GITHUB_REPOSITORY" \
-            --body "Moderators of ${name}: ${people}. The roles are in [GOVERNANCE.md]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/blob/main/GOVERNANCE.md)."
+            --body "${role} of ${name}: ${people}. The roles are in [GOVERNANCE.md]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/blob/main/GOVERNANCE.md)."

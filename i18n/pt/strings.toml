@@ -1,0 +1,10 @@
+# The words the tools put around numbers, in Portuguese (Brazil). The keys and their English are in
+# tools/atlas.py (WORDS); the placeholders in braces stay as they are.
+
+decimal = ","
+not_assessed = "não avaliado"
+level = "nível {level}"
+level_of = "{name} ({level} de {top})"
+met = "atingida"
+orders_of_magnitude = "{size} ordens de grandeza"
+points = "pontos"

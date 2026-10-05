@@ -15,6 +15,9 @@ contribution.
 - **Map a technology**: take one from `proposed` to `scoping` or `mapped` (see the
   `decompose-technology` skill).
 - **Curate**: become responsible for a technology (below).
+- **Translate**: the atlas is written in English and translated by people who read both. See
+  [docs/translating.md](docs/translating.md) and the
+  [translation](.github/ISSUE_TEMPLATE/translation.yml) form.
 
 ## How a change is made
 
@@ -63,6 +66,7 @@ characters. Pull requests are squash-merged, so the title becomes the commit.
 | `data` | Technology files: new technologies, values, gaps, dependencies |
 | `evidence` | Evidence cards only |
 | `taxonomy` | Domains, metrics, scales, vocabulary |
+| `translation` | Translations under `i18n/` and `web/src/i18n/`; the scope is the language id |
 | `skill` | Agent skills |
 | `tools` | Generators, checks, literature clients |
 | `web` | The explorer in `web/` |
@@ -71,7 +75,8 @@ characters. Pull requests are squash-merged, so the title becomes the commit.
 | `chore` | Maintenance |
 
 Examples: `data(fusion-power): add tritium breeding dependency`,
-`evidence(google2024quantum): add decoder latency finding`.
+`evidence(google2024quantum): add decoder latency finding`,
+`translation(pt): translate the climate domain`.
 
 ## Developer Certificate of Origin
 

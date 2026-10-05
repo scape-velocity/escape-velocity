@@ -12,6 +12,9 @@ The data is CC0 1.0 and the text CC BY 4.0. Cite the `version` you used.
 | Field | |
 |---|---|
 | `schema` | Format version, an integer. Raised when a change breaks readers. Currently 1. |
+| `lang`, `tag` | The language of the texts: `en` in `atlas.json`, the language's id in `atlas.<id>.json`; `tag` is its BCP 47 tag, such as `pt-BR` |
+| `languages` | Every language the site is built in, English first: `id`, `tag`, `name` (in the language itself), `english_name`, `maintainers`, `file` (`atlas.json` or `atlas.<id>.json`) and, for a translation, `translation` (below) |
+| `translation` | Only in a translation: how many of its texts are translated, below |
 | `version` | Short commit hash the export was built from |
 | `version_date` | Date of that commit |
 | `license` | `data`, `text`, `code` and a one-line `note` |
@@ -22,7 +25,8 @@ The data is CC0 1.0 and the text CC BY 4.0. Cite the `version` you used.
 | `evidence` | One object per evidence card, below |
 
 `vocabulary` maps each controlled field (`technology_status`, `gap_status`, `gap_type`, `layer`,
-`severity`, `evidence_class`, `evidence_status`, `evidence_type`) to a list of `{id, meaning}`.
+`severity`, `evidence_class`, `evidence_status`, `evidence_type`) to a list of `{id, label,
+meaning}`. The `label` is the value in words: in English the id with spaces for hyphens.
 
 ## Technologies
 
@@ -66,7 +70,26 @@ Every field of the card's TOML file, with dates as ISO strings, plus:
 A card's `status` says how far it has been checked: `unverified` and `machine-checked` cards have
 not been reviewed by a curator (decision 0006).
 
+## Translations
+
+For each published language of `i18n/languages.toml`, `atlas.<id>.json` sits next to `atlas.json`
+([decision 0014](decisions/0014-translations.md)). It has the same shape and the same identifiers,
+URLs and numbers. Each text whose translation is current replaces the English; the others stay in
+English. The `display` strings and `readiness_name` use the language's words and decimal mark.
+
+A translation adds `translation` at the top level, to each technology and to each evidence card:
+
+| Field | |
+|---|---|
+| `translated` | Texts translated from the current English |
+| `total` | Texts there are to translate |
+| `machine` | Of the translated, those no person has reviewed yet |
+| `stale` | Texts translated from an English that has changed since; they show in English |
+| `reviewed_by` | GitHub handles of the people who reviewed the translation |
+
 ## Also built
 
 - `llms.txt`: an index of the atlas for language models, following https://llmstxt.org
 - `llms-full.txt`: every technology and evidence card as plain Markdown
+
+Both are in English only.

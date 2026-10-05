@@ -1,0 +1,42 @@
+name: Translation
+description: A wrong or missing translation, a term of a glossary, or an offer to translate.
+title: "translation(<lang>): <what>"
+labels: ["translation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Write the issue in English and quote the translated text as it is. How translations work:
+        [docs/translating.md](https://github.com/scape-velocity/escape-velocity/blob/main/docs/translating.md).
+  - type: input
+    id: language
+    attributes:
+      label: Language
+      description: The id from i18n/languages.toml, such as pt, or the name of a language not translated yet.
+      placeholder: pt
+    validations:
+      required: true
+  - type: dropdown
+    id: what
+    attributes:
+      label: What
+      options:
+        - A wrong translation
+        - A missing translation
+        - A term of the glossary
+        - I want to translate into this language
+        - I want to review translations
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Page or file
+      placeholder: https://scape-velocity.github.io/escape-velocity/pt/tech/climate/direct-air-capture/
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: The text as it is, what it should say and why. For a new language, your experience with it.
+    validations:
+      required: true

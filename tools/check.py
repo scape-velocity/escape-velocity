@@ -5,10 +5,12 @@
 Errors (exit 1): values outside the taxonomy, missing required fields for a technology's status,
 references to technologies or evidence cards that do not exist, dependency cycles, evidence cards
 that break the key convention, people named by something other than a GitHub handle, a card
-verified by the person who added it, generated pages out of date.
+verified by the person who added it, generated pages out of date, a translation of a text its source
+file does not have or whose numbers differ from the English.
 Warnings (exit 0): reviews past due, current values older than two years, a current value that
 differs from its evidence card, evidence cards nothing cites, a card verified by someone who no
-longer curates or moderates any technology that cites it.
+longer curates or moderates any technology that cites it, a translation whose English has changed
+since it was made.
 """
 
 from __future__ import annotations
@@ -17,12 +19,14 @@ import datetime as dt
 import math
 import re
 import sys
+import tomllib
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import atlas  # noqa: E402
 import generate  # noqa: E402
+import i18n  # noqa: E402
 
 ID = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 EVIDENCE_KEY = re.compile(r"^[a-z]+(\d{4})[a-z]+$")
@@ -40,6 +44,12 @@ EVIDENCE_KEYS = {
 }
 FINDING_KEYS = {"metric", "value", "unit", "conditions", "quote", "note"}
 GOVERNANCE_KEYS = {"maintainers"}
+LANGUAGE_KEYS = {"id", "tag", "name", "english_name", "maintainers", "published"}
+OVERLAY_KEYS = {"status", "reviewed_by", "text"}
+TEXT_KEYS = {"path", "source", "text", "status"}
+GLOSSARY_KEYS = {"en", "text", "note"}
+DIGITS = re.compile(r"\d+")
+PLACEHOLDER = re.compile(r"\{[a-z_]+\}")
 MAX_QUOTE_WORDS = 60
 
 
@@ -90,6 +100,132 @@ def check_governance(report: Report) -> list[str]:
     if not people:
         report.error(where, "needs at least one maintainer")
     return [p for p in people if isinstance(p, str)] if isinstance(people, list) else []
+
+
+def check_languages(report: Report) -> dict[str, i18n.Language]:
+    where = "i18n/languages.toml"
+    if not i18n.LANGUAGES_FILE.is_file():
+        if i18n.BASE.exists():
+            report.error(where, "is missing; it lists the languages of i18n/ (decision 0014)")
+        return {}
+    data = atlas._load_or_record(i18n.LANGUAGES_FILE)
+    if data is None:
+        return {}
+    for field_name in set(data) - {"language"}:
+        report.error(where, f"unknown field {field_name!r}")
+    seen: set[str] = set()
+    for item in data.get("language", []):
+        lang_id = item.get("id")
+        lwhere = f"{where} [{lang_id}]"
+        for field_name in set(item) - LANGUAGE_KEYS:
+            report.error(lwhere, f"unknown field {field_name!r}")
+        if not isinstance(lang_id, str) or not i18n.LANGUAGE_ID.match(lang_id) or lang_id == "en":
+            report.error(lwhere, "id must be a lowercase ISO 639 code other than en, the source")
+        elif lang_id in seen:
+            report.error(lwhere, "duplicate id")
+        seen.add(str(lang_id))
+        if not isinstance(item.get("tag"), str) or not i18n.LANGUAGE_TAG.match(item["tag"]):
+            report.error(lwhere, "tag must be a BCP 47 tag, such as pt-BR")
+        for field_name in ("name", "english_name"):
+            if not str(item.get(field_name, "")).strip():
+                report.error(lwhere, f"has no {field_name}")
+        check_people(lwhere, "maintainers", item.get("maintainers", []), report)
+        if not item.get("maintainers"):
+            report.error(lwhere, "needs at least one maintainer, who approves its translations")
+        if not isinstance(item.get("published", False), bool):
+            report.error(lwhere, "published must be true or false")
+        if item.get("published") and not (atlas.ROOT / "web" / "src" / "i18n" / f"{lang_id}.json").is_file():
+            report.error(lwhere, f"is published, but web/src/i18n/{lang_id}.json, the interface in the language, is missing")
+    return i18n.languages()
+
+
+def check_translation_file(lang: str, file: Path, source: str, data: dict, report: Report):
+    where = str(file.relative_to(atlas.ROOT))
+    try:
+        overlay = i18n.load_overlay(file)
+    except (tomllib.TOMLDecodeError, UnicodeDecodeError) as error:
+        report.error(where, f"not valid TOML: {error}")
+        return
+    raw = overlay.raw
+    for field_name in set(raw) - OVERLAY_KEYS:
+        report.error(where, f"unknown field {field_name!r}")
+    if raw.get("status", "machine") not in i18n.STATUSES:
+        report.error(where, f"status must be one of {', '.join(i18n.STATUSES)}")
+    check_people(where, "reviewed_by", raw.get("reviewed_by", []), report)
+    if raw.get("status") == "reviewed" and not raw.get("reviewed_by"):
+        report.error(where, "a reviewed translation names who reviewed it in reviewed_by")
+    english = {slot.path: slot.english for slot in i18n.slots(source, data)}
+    seen: set[str] = set()
+    for index, item in enumerate(raw.get("text", []), 1):
+        twhere = f"{where} text {index}"
+        if not isinstance(item, dict):
+            report.error(twhere, "must be a [[text]] table")
+            continue
+        for field_name in set(item) - TEXT_KEYS:
+            report.error(twhere, f"unknown field {field_name!r}")
+        path = item.get("path")
+        if path in seen:
+            report.error(twhere, f"{path!r} is translated twice")
+            continue
+        seen.add(path)
+        if path not in english:
+            report.error(twhere, f"{path!r} is not a text of {source}; run python3 tools/translate.py show {lang} {source}")
+            continue
+        if not isinstance(item.get("source"), str) or not i18n.FINGERPRINT.match(item["source"]):
+            report.error(twhere, "source must be the fingerprint tools/translate.py writes, ten hex digits")
+            continue
+        if not isinstance(item.get("text", ""), str):
+            report.error(twhere, "text must be a string")
+            continue
+        if "status" in item and item["status"] not in i18n.STATUSES:
+            report.error(twhere, f"status must be one of {', '.join(i18n.STATUSES)}")
+        text = item.get("text", "")
+        if not text.strip():
+            continue
+        if item["source"] != i18n.fingerprint(english[path]):
+            report.warn(where, f"{path}: the English changed since this translation; update it, then run python3 tools/translate.py stamp {lang} {source} --path '{path}'")
+        elif sorted(DIGITS.findall(english[path])) != sorted(DIGITS.findall(text)):
+            report.error(where, f"{path}: the numbers differ from the English ({' '.join(DIGITS.findall(english[path])) or 'none'}); keep every number as written, with a comma for the decimal point")
+
+
+def check_translations(report: Report):
+    """i18n/: the languages, the words and terms of each, and each overlay against its English."""
+    languages = check_languages(report)
+    if not i18n.BASE.is_dir():
+        return
+    for folder in sorted(p for p in i18n.BASE.iterdir() if p.is_dir()):
+        if folder.name not in languages:
+            report.error(f"i18n/{folder.name}/", "is not a language in i18n/languages.toml")
+    known = i18n.sources()
+    for lang in languages.values():
+        if not lang.folder.is_dir():
+            continue
+        strings = lang.folder / "strings.toml"
+        if strings.is_file() and (own := atlas._load_or_record(strings)) is not None:
+            where = str(strings.relative_to(atlas.ROOT))
+            for key, value in own.items():
+                if key not in atlas.WORDS:
+                    report.error(where, f"unknown key {key!r}; the keys are those of WORDS in tools/atlas.py")
+                elif not isinstance(value, str) or sorted(PLACEHOLDER.findall(value)) != sorted(PLACEHOLDER.findall(atlas.WORDS[key])):
+                    report.error(where, f"{key} must keep the placeholders {' '.join(PLACEHOLDER.findall(atlas.WORDS[key])) or '(none)'}")
+        glossary = lang.folder / "glossary.toml"
+        if glossary.is_file() and (terms := atlas._load_or_record(glossary)) is not None:
+            where = str(glossary.relative_to(atlas.ROOT))
+            for field_name in set(terms) - {"term"}:
+                report.error(where, f"unknown field {field_name!r}")
+            for index, term in enumerate(terms.get("term", []), 1):
+                for field_name in set(term) - GLOSSARY_KEYS:
+                    report.error(f"{where} term {index}", f"unknown field {field_name!r}")
+                if not str(term.get("en", "")).strip() or not str(term.get("text", "")).strip():
+                    report.error(f"{where} term {index}", "needs en and text")
+        for file in sorted(lang.folder.rglob("*.toml")):
+            if file.parent == lang.folder and file.name in ("strings.toml", "glossary.toml"):
+                continue
+            source = i18n.source_of(lang.id, file)
+            if source not in known:
+                report.error(str(file.relative_to(atlas.ROOT)), f"translates {source}, which does not exist")
+                continue
+            check_translation_file(lang.id, file, source, known[source], report)
 
 
 def check_taxonomy(tax: atlas.Taxonomy, report: Report):
@@ -418,6 +554,7 @@ def main() -> int:
         check_technology(tech, ctx, report, today)
     check_cycles(ctx, report)
     check_evidence(ctx, report, maintainers)
+    check_translations(report)
 
     for relative, message in atlas.LOAD_ERRORS.items():
         report.error(relative, message)

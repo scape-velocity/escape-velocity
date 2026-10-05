@@ -16,8 +16,9 @@ is TOML; the pages are generated. The model is explained in [docs/model.md](docs
 | `atlas/<domain>/<slug>.md`, `atlas/<domain>/README.md`, `STATUS.md` | Generated pages |
 | `evidence/<key>.toml` | One evidence card per source |
 | `taxonomy/` | Domains, readiness scales, metrics, controlled vocabulary, SDGs |
+| `i18n/` | Translations: the languages, and for each an overlay per source file (decision 0014) |
 | `templates/` | Commented starting points for a technology and an evidence card |
-| `tools/` | `generate.py`, `check.py`, shared `atlas.py` and `literature.py`, the read-only `mcp_server.py`, `build_site.py` for the JSON export and `llms.txt` |
+| `tools/` | `generate.py`, `check.py`, shared `atlas.py` and `literature.py`, the read-only `mcp_server.py`, `build_site.py` for the JSON export and `llms.txt`, `i18n.py` and `translate.py` for translations |
 | `web/` | The explorer published on GitHub Pages: a Next.js app exported as static files, one page per technology, card and domain, built from `atlas.json` (decision 0012) |
 | `skills/` | Agent skills, linked from `.claude/skills/` |
 | `docs/decisions/` | Why the project is the way it is |
@@ -43,7 +44,12 @@ is TOML; the pages are generated. The model is explained in [docs/model.md](docs
    gap. See the `decompose-technology` skill.
 7. **Scope.** No weapons, no dual-use research of concern, no medical advice
    ([decision 0001](docs/decisions/0001-purpose-and-scope.md)).
-8. **English only**: data, text, comments, commit messages, issues and pull requests.
+8. **English is the language of the work**: data, text, comments, commit messages, issues and the
+   titles and descriptions of pull requests. Translations live only under `i18n/` and in
+   `web/src/i18n/`, follow [docs/translating.md](docs/translating.md), and are left as
+   `status = "machine"` when an agent writes them. Never edit a translation when you change the
+   English: it goes stale on its own and a translator updates it
+   ([decision 0014](docs/decisions/0014-translations.md)).
 
 ## Before you finish
 
@@ -58,8 +64,8 @@ python3 tools/check.py
 ## Commits and pull requests
 
 - Title: `type(scope): summary`, imperative, lowercase, no final period, at most 72 characters.
-  Types: `data`, `evidence`, `taxonomy`, `skill`, `tools`, `web`, `docs`, `fix`, `chore`. The scope is the
-  technology id's slug, the domain or the tool. See [CONTRIBUTING.md](CONTRIBUTING.md#commit-and-pull-request-titles).
+  Types: `data`, `evidence`, `taxonomy`, `translation`, `skill`, `tools`, `web`, `docs`, `fix`,
+  `chore`. The scope is the technology id's slug, the domain, the language or the tool. See [CONTRIBUTING.md](CONTRIBUTING.md#commit-and-pull-request-titles).
 - Every commit is signed off (`git commit -s`) by the human contributor responsible for it. The
   sign-off is a human's certification; an agent does not certify on anyone's behalf.
 - Fill in the pull request template, listing the values added or changed and their cards.
@@ -76,3 +82,4 @@ python3 tools/check.py
 | [`find-neglected-gaps`](skills/find-neglected-gaps/SKILL.md) | Find bottlenecks many depend on and few research |
 | [`cross-domain-transfer`](skills/cross-domain-transfer/SKILL.md) | Borrow approaches from other domains, as speculation |
 | [`weekly-brief`](skills/weekly-brief/SKILL.md) | Summarize what is new for mapped technologies |
+| [`translate-page`](skills/translate-page/SKILL.md) | Translate a technology, a card or the taxonomy into a registered language |

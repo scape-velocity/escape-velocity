@@ -1,9 +1,10 @@
 /* The repeated blocks of the views of site/app.js: barChart, domainCard, metricCard, gapCard,
-   cardRow and the side panel of the graph. Server components. */
+   cardRow and the side panel of the graph. Server components, in the language of their atlas. */
 
 import Link from "next/link";
 import type { CSSProperties } from "react";
 
+import { fill, plural } from "@/i18n";
 import { domainColor } from "@/lib/colors";
 import { authorsShort, firstSentence, oneLine } from "@/lib/format";
 import { headline, openGaps, type Atlas } from "@/lib/model";
@@ -18,9 +19,10 @@ export interface BarRow {
   metric: Metric;
 }
 
-export function BarChart({ atlas, rows, max, unitLabel }: { atlas: Atlas; rows: BarRow[]; max: number; unitLabel: string }) {
-  const ticks =
-    unitLabel === "orders of magnitude"
+/** Distances to target as bars: in orders of magnitude when `log`, else in percentage points. */
+export function BarChart({ atlas, rows, max, log }: { atlas: Atlas; rows: BarRow[]; max: number; log: boolean }) {
+  const t = atlas.t.bars;
+  const ticks = log
       ? Array.from({ length: Math.min(max, 12) + 1 }, (_, i) => Math.round((i * max) / Math.min(max, 12)))
       : [0, 25, 50, 75, 100];
   return (
@@ -33,12 +35,20 @@ export function BarChart({ atlas, rows, max, unitLabel }: { atlas: Atlas; rows: 
         return (
           <div className="bar-row" key={tech.id}>
             <div className="bar-label">
-              <Link href={techPath(tech.id)}>{tech.name}</Link>{" "}
+              <Link href={techPath(tech.id, undefined, atlas.lang)}>{tech.name}</Link>{" "}
               <span className="muted">
-                {def?.name ?? metric.metric}: {metric.display.current} now, {metric.display.target} target
+                {fill(t.label, {
+                  metric: def?.name ?? metric.metric,
+                  current: metric.display.current ?? "",
+                  target: metric.display.target ?? "",
+                })}
               </span>
             </div>
-            <div className="bar-track" role="img" aria-label={`${tech.name}: ${metric.display.gap_to_target} to target`}>
+            <div
+              className="bar-track"
+              role="img"
+              aria-label={fill(t.aria, { tech: tech.name, distance: metric.display.gap_to_target ?? "" })}
+            >
               <div
                 className="bar-fill"
                 style={{ width: `${width.toFixed(1)}%`, "--d": met ? "var(--ok)" : domainColor(tech.domain) } as CSSProperties}
@@ -65,26 +75,28 @@ export function DomainCard({ atlas, domainId }: { atlas: Atlas; domainId: string
   if (!domain) return null;
   const techs = atlas.techsOf(domain.id);
   const gaps = techs.reduce((n, t) => n + openGaps(t).length, 0);
+  const t = atlas.t.domainCard;
   return (
     <article className="card domain-card">
       <h3>
         <Swatch domain={domain.id} />
-        <Link href={domainPath(domain.id)}>{domain.name}</Link>
+        <Link href={domainPath(domain.id, atlas.lang)}>{domain.name}</Link>
       </h3>
       <p>{domain.summary}</p>
       <p className="small muted">
-        {techs.length} technolog{techs.length === 1 ? "y" : "ies"} &middot; {gaps} open gap{gaps === 1 ? "" : "s"}
+        {plural(t.techs, techs.length)} &middot; {plural(t.openGaps, gaps)}
       </p>
       <ul className="tech-list">
-        {techs.map((t) => {
-          const m = headline(t);
+        {techs.map((tech) => {
+          const m = headline(tech);
           const distance = m?.display.gap_to_target;
-          const note = distance ? (distance === "met" ? "met" : `${distance.replace("orders of magnitude", "orders")} to go`) : "";
+          const met = m?.gap_to_target !== null && m?.gap_to_target !== undefined && m.gap_to_target <= 0;
+          const note = distance ? (met ? t.met : fill(t.toGo, { distance: distance.replace(t.ordersLong, t.ordersShort) })) : "";
           return (
-            <li key={t.id}>
-              <Link href={techPath(t.id)}>
-                <span className={`status-dot status-${t.status}`} title={t.status} />
-                {t.name}
+            <li key={tech.id}>
+              <Link href={techPath(tech.id, undefined, atlas.lang)}>
+                <span className={`status-dot status-${tech.status}`} title={atlas.label("technology_status", tech.status)} />
+                {tech.name}
               </Link>
               <span className="gap-note">{note}</span>
             </li>
@@ -99,11 +111,12 @@ export function MetricCard({ atlas, metric }: { atlas: Atlas; metric: Metric }) 
   const def = atlas.metrics.get(metric.metric) ?? { name: metric.metric, unit: "" };
   const size = metric.gap_to_target;
   const distance = metric.display.gap_to_target;
+  const t = atlas.t.metric;
   const sources = [metric.current?.evidence, metric.target?.evidence, metric.limit?.evidence].filter(
     (k): k is string => Boolean(k),
   );
   const meaning = "meaning" in def && def.meaning ? `${def.meaning.replace(/\.?$/, ".")} ` : "";
-  const direction = "direction" in def && def.direction ? `${def.direction === "lower" ? "Lower" : "Higher"} is better.` : "";
+  const direction = "direction" in def && def.direction ? (def.direction === "lower" ? t.lower : t.higher) : "";
   return (
     <article className="card metric-card">
       <h3>
@@ -112,15 +125,15 @@ export function MetricCard({ atlas, metric }: { atlas: Atlas; metric: Metric }) 
           {metric.headline ? (
             <>
               {" "}
-              <span className="chip" title="The metric shown for this technology in summaries">
-                headline
+              <span className="chip" title={t.headlineTitle}>
+                {t.headline}
               </span>
             </>
           ) : null}
         </span>
         {distance ? (
           <span className={`distance ${size !== null && size <= 0 ? "met" : ""}`}>
-            {distance === "met" ? "target met" : `${distance} to go`}
+            {size !== null && size <= 0 ? t.targetMet : fill(t.toGo, { distance })}
           </span>
         ) : null}
       </h3>
@@ -128,40 +141,42 @@ export function MetricCard({ atlas, metric }: { atlas: Atlas; metric: Metric }) 
         {meaning}
         {direction}
       </div>
-      <Ladder metric={metric} def={def} />
+      <Ladder metric={metric} def={def} t={atlas.t.ladder} />
       <div className="metric-values">
         <div>
-          <span>Current{metric.current?.as_of ? ` (${metric.current.as_of})` : ""}</span>
+          <span>
+            {t.current}
+            {metric.current?.as_of ? ` (${metric.current.as_of})` : ""}</span>
           <b>{metric.display.current || "–"}</b>
         </div>
         <div>
-          <span>Target</span>
+          <span>{t.target}</span>
           <b>{metric.display.target || "–"}</b>
         </div>
         <div>
-          <span>Limit</span>
+          <span>{t.limit}</span>
           <b>{metric.display.limit || "–"}</b>
         </div>
       </div>
       {metric.conditions ? (
         <div className="rationale">
-          <b>Conditions.</b> {oneLine(metric.conditions)}
+          <b>{t.conditions}</b> {oneLine(metric.conditions)}
         </div>
       ) : null}
       {metric.target?.rationale ? (
         <div className="rationale">
-          <b>Why this target.</b> {oneLine(metric.target.rationale)}
+          <b>{t.whyTarget}</b> {oneLine(metric.target.rationale)}
         </div>
       ) : null}
       {metric.limit?.basis ? (
         <div className="rationale">
-          <b>Limit.</b> {oneLine(metric.limit.basis)}
-          {metric.display.target_to_limit ? ` Target to limit: ${metric.display.target_to_limit}.` : ""}
+          <b>{t.limitBasis}</b> {oneLine(metric.limit.basis)}
+          {metric.display.target_to_limit ? ` ${fill(t.targetToLimit, { distance: metric.display.target_to_limit })}` : ""}
         </div>
       ) : null}
       {metric.current?.note ? (
         <div className="rationale">
-          <b>Note.</b> {oneLine(metric.current.note)}
+          <b>{t.note}</b> {oneLine(metric.current.note)}
         </div>
       ) : null}
       <EvidenceLinks atlas={atlas} keys={sources} />
@@ -170,6 +185,7 @@ export function MetricCard({ atlas, metric }: { atlas: Atlas; metric: Metric }) 
 }
 
 export function GapCard({ atlas, gap, tech, showOwner }: { atlas: Atlas; gap: Gap; tech: Technology; showOwner: boolean }) {
+  const t = atlas.t.gap;
   return (
     <article className={`card gap-card sev-${gap.severity}`} id={`gap-${gap.id}`}>
       <div className="card-title">
@@ -177,25 +193,25 @@ export function GapCard({ atlas, gap, tech, showOwner }: { atlas: Atlas; gap: Ga
       </div>
       {showOwner ? (
         <div className="owner">
-          <Swatch domain={tech.domain} /> <Link href={techPath(tech.id)}>{tech.name}</Link>
+          <Swatch domain={tech.domain} /> <Link href={techPath(tech.id, undefined, atlas.lang)}>{tech.name}</Link>
         </div>
       ) : null}
       <div className="chips">
         <SeverityChip atlas={atlas} severity={gap.severity} />
-        <PlainChip text={gap.type.replace(/-/g, " ")} title={atlas.meaning("gap_type", gap.type)} />
-        <PlainChip text={`layer: ${gap.layer}`} title={atlas.meaning("layer", gap.layer)} />
-        <PlainChip text={gap.status} title={atlas.meaning("gap_status", gap.status)} />
+        <PlainChip text={atlas.label("gap_type", gap.type)} title={atlas.meaning("gap_type", gap.type)} />
+        <PlainChip text={fill(t.layer, { layer: atlas.label("layer", gap.layer) })} title={atlas.meaning("layer", gap.layer)} />
+        <PlainChip text={atlas.label("gap_status", gap.status)} title={atlas.meaning("gap_status", gap.status)} />
       </div>
       <Paragraphs text={gap.description} />
       {gap.blocked_by && gap.blocked_by.length ? (
         <p className="small">
-          <b>Held open by:</b> <TechLinks atlas={atlas} ids={gap.blocked_by} />
+          <b>{t.heldOpenBy}</b> <TechLinks atlas={atlas} ids={gap.blocked_by} />
         </p>
       ) : null}
       {gap.approach && gap.approach.length ? (
         <>
           <p className="small" style={{ marginBottom: 0 }}>
-            <b>Approaches</b>
+            <b>{t.approaches}</b>
           </p>
           <ul className="approaches">
             {gap.approach.map((a, i) => (
@@ -210,7 +226,7 @@ export function GapCard({ atlas, gap, tech, showOwner }: { atlas: Atlas; gap: Ga
                 {(a.evidence ?? []).map((k) => (
                   <span key={k}>
                     {" "}
-                    <Link className="mono small" href={cardPath(k)}>
+                    <Link className="mono small" href={cardPath(k, atlas.lang)}>
                       {k}
                     </Link>
                   </span>
@@ -225,23 +241,36 @@ export function GapCard({ atlas, gap, tech, showOwner }: { atlas: Atlas; gap: Ga
   );
 }
 
+/** The class, status and type of an evidence card, with their meanings as titles. */
+export function EvidenceChips({ atlas, card }: { atlas: Atlas; card: EvidenceCard }) {
+  return (
+    <>
+      <PlainChip text={atlas.label("evidence_class", card.class)} title={atlas.meaning("evidence_class", card.class)} />
+      <PlainChip text={atlas.label("evidence_status", card.status)} title={atlas.meaning("evidence_status", card.status)} />
+      <PlainChip text={atlas.label("evidence_type", card.type)} title={atlas.meaning("evidence_type", card.type)} />
+    </>
+  );
+}
+
 export function CardRow({ atlas, card }: { atlas: Atlas; card: EvidenceCard }) {
   return (
     <article className="card">
       <div className="card-title">
         <h3 style={{ fontSize: "1rem" }}>
-          <Link href={cardPath(card.key)}>{card.title}</Link>
+          <Link href={cardPath(card.key, atlas.lang)}>{card.title}</Link>
         </h3>
         <span className="mono small muted">{card.key}</span>
       </div>
       <div className="small muted">
-        {authorsShort(card)} &middot; {card.venue ?? ""} &middot; {card.year ?? ""}
+        {authorsShort(card, atlas.lang)} &middot; {card.venue ?? ""} &middot; {card.year ?? ""}
       </div>
       <div className="chips" style={{ marginBottom: 0 }}>
-        <PlainChip text={card.class} title={atlas.meaning("evidence_class", card.class)} />
-        <PlainChip text={card.status} title={atlas.meaning("evidence_status", card.status)} />
-        <PlainChip text={card.type} title={atlas.meaning("evidence_type", card.type)} />
-        {card.cited_by.length ? <PlainChip text={`cited by ${card.cited_by.length}`} /> : <PlainChip text="not cited" />}
+        <EvidenceChips atlas={atlas} card={card} />
+        {card.cited_by.length ? (
+          <PlainChip text={fill(atlas.t.cardRow.citedBy, { n: card.cited_by.length })} />
+        ) : (
+          <PlainChip text={atlas.t.cardRow.notCited} />
+        )}
       </div>
     </article>
   );
@@ -250,13 +279,14 @@ export function CardRow({ atlas, card }: { atlas: Atlas; card: EvidenceCard }) {
 /** The side panel of the graph page for one technology. */
 export function TechPanel({ atlas, tech }: { atlas: Atlas; tech: Technology }) {
   const m = headline(tech);
+  const t = atlas.t.panel;
   return (
     <>
       <div className="small muted">
         <Swatch domain={tech.domain} /> {atlas.domains.get(tech.domain)?.name}
       </div>
       <h3 style={{ margin: "4px 0 6px" }}>
-        <Link href={techPath(tech.id)}>{tech.name}</Link>
+        <Link href={techPath(tech.id, undefined, atlas.lang)}>{tech.name}</Link>
       </h3>
       <div className="chips">
         <StatusChip atlas={atlas} status={tech.status} />
@@ -265,18 +295,18 @@ export function TechPanel({ atlas, tech }: { atlas: Atlas; tech: Technology }) {
       <p className="small">{firstSentence(tech.statement)}</p>
       {m && m.display.gap_to_target ? (
         <p className="small">
-          <b>{atlas.metrics.get(m.metric)?.name}</b>: {m.display.gap_to_target} to target
+          <b>{atlas.metrics.get(m.metric)?.name}</b>: {fill(t.toTarget, { distance: m.display.gap_to_target })}
         </p>
       ) : null}
       <p className="small" style={{ marginBottom: 4 }}>
-        <b>Requires:</b>{" "}
-        {tech.requires.length ? <TechLinks atlas={atlas} ids={tech.requires.map((r) => r.technology)} /> : "nothing recorded"}
+        <b>{t.requires}</b>{" "}
+        {tech.requires.length ? <TechLinks atlas={atlas} ids={tech.requires.map((r) => r.technology)} /> : t.nothingRecorded}
       </p>
       <p className="small" style={{ marginBottom: 8 }}>
-        <b>Required by:</b>{" "}
-        {tech.required_by.length ? <TechLinks atlas={atlas} ids={tech.required_by.map((r) => r.technology)} /> : "nothing yet"}
+        <b>{t.requiredBy}</b>{" "}
+        {tech.required_by.length ? <TechLinks atlas={atlas} ids={tech.required_by.map((r) => r.technology)} /> : t.nothingYet}
       </p>
-      <Link href={techPath(tech.id)}>Open the technology</Link>
+      <Link href={techPath(tech.id, undefined, atlas.lang)}>{t.open}</Link>
     </>
   );
 }

@@ -1,0 +1,21 @@
+# The languages the atlas is translated into (decision 0014). English is the source of every text
+# and is not listed here.
+#
+# Fields:
+#   id            the folder i18n/<id>/ and the address /<id>/ on the site: a lowercase ISO 639
+#                 code, with a region only when two variants of the language are both translated
+#   tag           the BCP 47 tag the pages declare, such as "pt-BR"
+#   name          the language's name in the language itself, as the language menu shows it
+#   english_name
+#   maintainers   GitHub handles, without @, of the people who approve translations into the
+#                 language (GOVERNANCE.md). A change to this list needs a maintainer of the atlas.
+#   published     true when the site builds its pages in the language. A language starts
+#                 unpublished, while the first texts are translated.
+
+[[language]]
+id = "pt"
+tag = "pt-BR"
+name = "Português (Brasil)"
+english_name = "Portuguese (Brazil)"
+maintainers = ["JoaoAlisson"]
+published = true

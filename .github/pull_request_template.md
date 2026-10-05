@@ -25,5 +25,6 @@ Closes #
 - [ ] Every target has a rationale, and every limit a physical basis.
 - [ ] New dependencies are technologies with their own files, linked in `[[requires]]`.
 - [ ] Nothing here is out of scope (decision 0001).
+- [ ] A translation keeps the English's numbers and the glossary's terms, and is `machine` if a model wrote it (docs/translating.md).
 - [ ] Every commit is signed off (`git commit -s`).
 - [ ] No card is verified by the person who added it, and nobody is added to a list of people here without a maintainer (GOVERNANCE.md).

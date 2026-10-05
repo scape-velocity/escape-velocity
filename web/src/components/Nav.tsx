@@ -1,17 +1,21 @@
 "use client";
 
 /* The section links of the header, with the active section marked as in site/app.js: a
-   technology or a domain belongs to the overview, a card to the evidence. */
+   technology or a domain belongs to the overview, a card to the evidence. The links stay in the
+   page language; the labels come from the server with it. */
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import type { Dictionary, Lang } from "@/i18n";
+import { englishPath, localePath } from "@/lib/paths";
+
 const SECTIONS = [
-  ["overview", "/", "Overview"],
-  ["graph", "/graph/", "Graph"],
-  ["gaps", "/gaps/", "Gaps"],
-  ["evidence", "/evidence/", "Evidence"],
-  ["about", "/about/", "About"],
+  ["overview", "/"],
+  ["graph", "/graph/"],
+  ["gaps", "/gaps/"],
+  ["evidence", "/evidence/"],
+  ["about", "/about/"],
 ] as const;
 
 function section(pathname: string): string {
@@ -21,13 +25,18 @@ function section(pathname: string): string {
   return "";
 }
 
-export function Nav() {
-  const active = section(usePathname() ?? "");
+export function Nav({ lang, labels, label }: { lang: Lang; labels: Dictionary["shell"]["nav"]; label: string }) {
+  const active = section(englishPath(usePathname() ?? "", lang));
   return (
-    <nav className="nav" aria-label="Sections">
-      {SECTIONS.map(([id, href, label]) => (
-        <Link key={id} href={href} className={active === id ? "active" : undefined} aria-current={active === id ? "page" : undefined}>
-          {label}
+    <nav className="nav" aria-label={label}>
+      {SECTIONS.map(([id, href]) => (
+        <Link
+          key={id}
+          href={localePath(href, lang)}
+          className={active === id ? "active" : undefined}
+          aria-current={active === id ? "page" : undefined}
+        >
+          {labels[id]}
         </Link>
       ))}
     </nav>

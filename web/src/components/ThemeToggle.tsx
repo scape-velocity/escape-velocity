@@ -2,7 +2,8 @@
 
 /* Switches between the light and dark themes and remembers the choice in localStorage
    ("ev-theme"). The stored choice is applied before the first paint by the script in the root
-   layout; with none, the page follows the system. Graphs restyle themselves when data-theme changes. */
+   layout; with none, the page follows the system. Graphs restyle themselves when data-theme changes.
+   The label comes from the server in the page language. */
 
 import { THEME_KEY } from "@/lib/theme";
 
@@ -12,7 +13,7 @@ function effectiveTheme(): "light" | "dark" {
   return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 }
 
-export function ThemeToggle() {
+export function ThemeToggle({ label }: { label: string }) {
   const toggle = () => {
     const next = effectiveTheme() === "dark" ? "light" : "dark";
     document.documentElement.dataset.theme = next;
@@ -23,7 +24,7 @@ export function ThemeToggle() {
     }
   };
   return (
-    <button className="theme-toggle" type="button" aria-label="Switch color theme" title="Switch color theme" onClick={toggle}>
+    <button className="theme-toggle" type="button" aria-label={label} title={label} onClick={toggle}>
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <circle cx="12" cy="12" r="5" />
         <path d="M12 1v3M12 20v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M1 12h3M20 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" />

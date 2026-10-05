@@ -3,10 +3,13 @@
 /* A list with select filters and a search box whose values live in the query string, as the gaps
    and evidence views of site/app.js. The rows are rendered on the server; this component only
    chooses which to show. The static HTML holds the unfiltered list (the Suspense fallback), and the
-   browser applies the query string once it hydrates. */
+   browser applies the query string once it hydrates. The words come from the server in the page
+   language. */
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Fragment, Suspense, useState, type ReactNode } from "react";
+
+import { fill } from "@/i18n/core";
 
 export interface Filter {
   name: string;
@@ -32,6 +35,8 @@ interface ListProps {
   noun: string;
   empty: string;
   rows: FilterRow[];
+  /** "All", "Search", "Clear" and the count template ("{shown} of {total} {noun}"). */
+  words: { all: string; search: string; clear: string; count: string };
 }
 
 type Values = Record<string, string>;
@@ -41,7 +46,7 @@ function blank(filters: Filter[]): Values {
 }
 
 function List({ initial, ...props }: ListProps & { initial: Values }) {
-  const { formId, countId, listId, filters, placeholder, noun, empty, rows } = props;
+  const { formId, countId, listId, filters, placeholder, noun, empty, rows, words } = props;
   const router = useRouter();
   const pathname = usePathname();
   const [values, setValues] = useState<Values>(initial);
@@ -64,7 +69,7 @@ function List({ initial, ...props }: ListProps & { initial: Values }) {
           <label key={f.name}>
             {f.label}
             <select name={f.name} value={values[f.name]} onChange={(e) => update({ ...values, [f.name]: e.target.value })}>
-              <option value="">All</option>
+              <option value="">{words.all}</option>
               {f.options.map(([value, text]) => (
                 <option key={value} value={value}>
                   {text}
@@ -74,7 +79,7 @@ function List({ initial, ...props }: ListProps & { initial: Values }) {
           </label>
         ))}
         <label>
-          Search
+          {words.search}
           <input
             type="search"
             name="q"
@@ -84,11 +89,11 @@ function List({ initial, ...props }: ListProps & { initial: Values }) {
           />
         </label>
         <button type="button" className="reset" onClick={() => update(blank(filters))}>
-          Clear
+          {words.clear}
         </button>
       </form>
       <div className="count" id={countId}>
-        {shown.length} of {rows.length} {noun}
+        {fill(words.count, { shown: shown.length, total: rows.length, noun })}
       </div>
       <div className="stack" id={listId}>
         {shown.length ? (

@@ -1,0 +1,257 @@
+{
+  "number": {
+    "decimal": ","
+  },
+  "site": {
+    "description": "Um atlas aberto do que falta a cada tecnologia para chegar à maturidade: métricas, lacunas, dependências e a evidência por trás de cada número.",
+    "jsonTitle": "O atlas em JSON"
+  },
+  "shell": {
+    "skip": "Ir para o conteúdo",
+    "sections": "Seções",
+    "nav": {
+      "overview": "Visão geral",
+      "graph": "Grafo",
+      "gaps": "Lacunas",
+      "evidence": "Evidências",
+      "about": "Sobre"
+    },
+    "alanMachineTitle": "The Alan Machine, o livro que acompanha o atlas",
+    "githubTitle": "Código-fonte no GitHub",
+    "theme": "Alternar tema de cores",
+    "languages": "Outros idiomas",
+    "version": "Versão do atlas {version}, {date}. Cada número leva à sua fonte.",
+    "licenses": "Dados {data}, textos {text}, código {code}.",
+    "contribute": "Contribuir"
+  },
+  "notice": {
+    "machine": "Esta página foi traduzida automaticamente e ainda não foi revisada.",
+    "partial": "Parte desta página ainda está em inglês.",
+    "help": "Como ajudar"
+  },
+  "notFound": {
+    "title": "Página não encontrada",
+    "text": "Não há nada neste endereço. {link}.",
+    "back": "Voltar à visão geral"
+  },
+  "common": {
+    "notAssessed": "não avaliado",
+    "level": "nível {level}",
+    "noneYet": "ninguém ainda:",
+    "volunteer": "candidate-se",
+    "sourceToml": "TOML de origem",
+    "unknown": "?",
+    "and": "e"
+  },
+  "overview": {
+    "title": "O que falta a cada tecnologia",
+    "lede": "Escape Velocity é um atlas aberto de tecnologias a caminho da maturidade: onde cada uma está, a meta que a tornaria útil, o limite físico por trás dessa meta, as lacunas no meio do caminho e as outras tecnologias de que ela depende. Cada número tem uma fonte.",
+    "statTechs": "tecnologias, {mapped} mapeadas por completo",
+    "statDomains": "domínios",
+    "statGaps": "lacunas abertas, {critical} críticas",
+    "statCards": "fichas de evidência, {verified} verificadas por um curador",
+    "distance": "Distância até a meta",
+    "allGaps": "Todas as lacunas",
+    "distanceText": "A métrica principal de cada tecnologia: a distância entre o melhor valor demonstrado e a meta, em ordens de grandeza. Abra uma tecnologia para ver as condições e a evidência por trás de cada valor.",
+    "noHeadline": "Nenhuma métrica principal tem ainda um valor atual e uma meta.",
+    "percentage": "Métricas em porcentagem",
+    "domains": "Domínios",
+    "seeGraph": "Ver o grafo",
+    "critical": "Lacunas críticas",
+    "noCritical": "Nenhuma lacuna crítica registrada.",
+    "depended": "As mais necessárias",
+    "neededBy": "necessária para {names}",
+    "holdsOpen": {
+      "one": "mantém aberta {n} lacuna",
+      "other": "mantém abertas {n} lacunas"
+    },
+    "noDeps": "Nenhuma dependência registrada ainda."
+  },
+  "bars": {
+    "label": "{metric}: {current} hoje, meta de {target}",
+    "aria": "{tech}: {distance} até a meta"
+  },
+  "domainCard": {
+    "techs": {
+      "one": "{n} tecnologia",
+      "other": "{n} tecnologias"
+    },
+    "openGaps": {
+      "one": "{n} lacuna aberta",
+      "other": "{n} lacunas abertas"
+    },
+    "met": "atingida",
+    "toGo": "faltam {distance}",
+    "ordersLong": "ordens de grandeza",
+    "ordersShort": "ordens"
+  },
+  "metric": {
+    "headline": "principal",
+    "headlineTitle": "A métrica que representa esta tecnologia nos resumos",
+    "targetMet": "meta atingida",
+    "toGo": "faltam {distance}",
+    "lower": "Quanto menor, melhor.",
+    "higher": "Quanto maior, melhor.",
+    "current": "Atual",
+    "target": "Meta",
+    "limit": "Limite",
+    "conditions": "Condições.",
+    "whyTarget": "Por que esta meta.",
+    "limitBasis": "Limite.",
+    "targetToLimit": "Da meta ao limite: {distance}.",
+    "note": "Observação."
+  },
+  "ladder": {
+    "now": "hoje",
+    "target": "meta",
+    "limit": "limite",
+    "log": "{name}: escala logarítmica, uma marca por ordem de grandeza; melhor à direita",
+    "linear": "{name}: escala linear; melhor à direita"
+  },
+  "gap": {
+    "layer": "camada: {layer}",
+    "heldOpenBy": "Mantida aberta por:",
+    "approaches": "Abordagens"
+  },
+  "cardRow": {
+    "citedBy": "citada por {n}",
+    "notCited": "não citada"
+  },
+  "panel": {
+    "toTarget": "{distance} até a meta",
+    "requires": "Depende de:",
+    "nothingRecorded": "nada registrado",
+    "requiredBy": "Necessária para:",
+    "nothingYet": "nada ainda",
+    "open": "Abrir a tecnologia"
+  },
+  "filters": {
+    "all": "Todos",
+    "search": "Busca",
+    "clear": "Limpar",
+    "count": "{shown} de {total} {noun}"
+  },
+  "graph": {
+    "title": "Grafo",
+    "description": "Todas as tecnologias do atlas e aquilo de que cada uma depende: uma dependência compartilhada aparece uma vez só, não importa quantos domínios esperem por ela.",
+    "heading": "O grafo de dependências",
+    "text": "Todas as tecnologias do atlas. Uma seta vai de uma tecnologia a outra de que ela depende; uma dependência compartilhada aparece uma vez só, não importa quantos domínios esperem por ela. Os nós tracejados são propostos e ainda não mapeados.",
+    "label": "Grafo de dependências de todas as tecnologias",
+    "empty": "Selecione uma tecnologia para ver do que ela depende e o que espera por ela.",
+    "group": "Agrupar por domínio",
+    "proposed": "Mostrar propostas",
+    "isolated": "Mostrar tecnologias sem ligações",
+    "legend": "Domínios (selecione para ocultar)",
+    "failed": "A biblioteca do grafo não carregou."
+  },
+  "gaps": {
+    "title": "Lacunas",
+    "description": "O que separa cada tecnologia da sua meta, classificado por tipo, camada e gravidade.",
+    "text": "O que separa cada tecnologia da sua meta, classificado por tipo, camada e gravidade. Uma lacuna mantida aberta por outra tecnologia aponta para ela.",
+    "domain": "Domínio",
+    "severity": "Gravidade",
+    "type": "Tipo",
+    "layer": "Camada",
+    "status": "Situação",
+    "placeholder": "Palavras do título ou da descrição",
+    "noun": "lacunas",
+    "empty": "Nenhuma lacuna atende a estes filtros."
+  },
+  "evidence": {
+    "title": "Evidências",
+    "description": "Cada número do atlas vem de uma ficha de evidência: a fonte, uma citação literal, as condições e uma classe.",
+    "text": "Cada número do atlas vem de uma ficha de evidência: a fonte, uma citação literal, as condições e uma classe. Agentes adicionam fichas como não verificadas ou conferidas por máquina; só um curador marca uma ficha como verificada.",
+    "class": "Classe",
+    "status": "Situação",
+    "type": "Tipo",
+    "placeholder": "Título, autor, veículo ou chave",
+    "noun": "fichas",
+    "empty": "Nenhuma ficha atende a estes filtros."
+  },
+  "card": {
+    "readSource": "Ler a fonte",
+    "findings": "Resultados",
+    "citedBy": "Citada por",
+    "notCited": "Nenhuma tecnologia cita esta ficha ainda.",
+    "added": "Adicionada em {date} por {who}",
+    "checked": ", conferida em {date}",
+    "report": "Relatar um problema"
+  },
+  "domain": {
+    "eyebrow": "Domínio",
+    "readinessOn": "Maturidade na escala {scale}",
+    "sdg": "ODS: {name}",
+    "moderators": "Moderadores:",
+    "noCurrent": "sem valor atual",
+    "nowTarget": " hoje, meta de {target}"
+  },
+  "tech": {
+    "describeTarget": ", meta de {target}",
+    "describe": "{sentence} {metric}: {current} hoje{target}.",
+    "need": " Necessário: {need}",
+    "readinessLevel": "Nível de maturidade",
+    "horizon": "horizonte {horizon}",
+    "gapOpen": "lacuna {severity} aberta",
+    "worstTitle": "A lacuna aberta mais grave",
+    "scope": "Escopo",
+    "readiness": "Maturidade",
+    "serves": "Contribui para",
+    "lastReviewed": "Última revisão",
+    "never": "nunca",
+    "curators": "Curadores",
+    "proposed": "Proposta: o enunciado e o escopo estão escritos, mas as métricas, a meta ou as lacunas ainda não estão completas. Um único número com fonte já é uma contribuição de verdade.",
+    "metrics": "Métricas",
+    "noMetric": "Nenhuma métrica ainda.",
+    "gaps": "Lacunas",
+    "noGap": "Nenhuma lacuna registrada ainda.",
+    "dependencies": "Dependências",
+    "requires": "Depende de",
+    "nothing": "Nada registrado.",
+    "requiredBy": "Necessária para",
+    "noDependents": "Nada no atlas depende dela ainda.",
+    "holdsOpen": "Mantém abertas",
+    "graphLabel": "Grafo de dependências em torno de {name}",
+    "graphHelp": "As setas vão de uma tecnologia àquilo de que ela depende. Selecione um nó para abri-lo.",
+    "evidence": "Evidências",
+    "noEvidence": "Nenhuma evidência citada ainda.",
+    "alanMachine": "Em The Alan Machine",
+    "page": "Página no GitHub",
+    "suggest": "Sugerir uma correção"
+  },
+  "about": {
+    "title": "Sobre",
+    "description": "O que é o atlas, o seu modelo, como usar os dados, como citá-lo e como contribuir.",
+    "heading": "Sobre o atlas",
+    "lede": "Velocidade de escape é a velocidade a partir da qual um foguete deixa de cair de volta. Uma tecnologia também tem a sua: o ponto em que ela funciona bem o bastante, barato o bastante e com confiabilidade suficiente para seguir adiante por conta própria.",
+    "model": "O modelo",
+    "modelItems": [
+      { "term": "Uma tecnologia", "text": "é uma capacidade com uma meta mensurável, um enunciado e um escopo." },
+      {
+        "term": "Cada métrica",
+        "text": "tem três números: o melhor valor demonstrado até agora, a meta com a sua justificativa e o limite físico, quando existe um."
+      },
+      {
+        "term": "As lacunas",
+        "text": "são classificadas por tipo, camada e gravidade. Uma lacuna mantida aberta por outra tecnologia aponta para ela."
+      },
+      {
+        "term": "As fichas de evidência",
+        "text": "trazem cada número: a fonte, uma citação literal, as condições e uma classe (consolidada, relatada, extrapolação, especulação)."
+      }
+    ],
+    "modelMore": "O modelo completo está em {link} (em inglês).",
+    "data": "Use os dados",
+    "dataJson": "{file}: o atlas inteiro em um arquivo, com o tamanho das lacunas, os dependentes e as citações ({format}).",
+    "dataFormat": "formato",
+    "dataLlms": "{llms} e {full}: o atlas para modelos de linguagem (em inglês).",
+    "dataMcp": "Um servidor MCP para agentes, em {file}: tecnologias, lacunas, dependências, gargalos, evidências e busca na literatura.",
+    "cite": "Como citar",
+    "citeText": "Cite a versão do atlas que você usou: esta página mostra a versão {version} ({date}). Os metadados de citação estão em {cff}. Os dados estão sob CC0 1.0, os textos sob CC BY 4.0 e o código sob Apache 2.0.",
+    "contribute": "Contribua",
+    "contributeText": "Um único número com fonte já é uma contribuição de verdade. Toda mudança, venha de uma pessoa ou de um agente, é um pull request revisado por uma pessoa. Veja {link}.",
+    "rolesText": "Cada domínio tem moderadores e cada tecnologia acompanhada tem curadores. Eles revisam as mudanças naquilo de que cuidam, e só eles marcam uma ficha de evidência como verificada. Como os papéis funcionam, e como assumir um, está em {link}.",
+    "alanMachine": "The Alan Machine",
+    "alanMachineText": "{link} é um livro de código aberto sobre um supercomputador hipotético nos limites físicos da computação. O atlas compartilha com ele as métricas e os tipos de afirmação, e liga cada tecnologia às páginas que tratam dela.",
+    "outOfScope": "Fora do escopo: armas, pesquisa de uso dual preocupante, vigilância dirigida a pessoas, aconselhamento de investimento e aconselhamento médico."
+  }
+}

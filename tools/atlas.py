@@ -20,6 +20,18 @@ SUPERSCRIPT = str.maketrans("0123456789-+", "⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁺")
 # A GitHub handle: letters, digits and single hyphens, at most 39 characters, no hyphen at the ends.
 GITHUB_HANDLE = re.compile(r"^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9])){0,38}$")
 GOVERNANCE_URL = REPO_URL + "/blob/main/GOVERNANCE.md"
+# The words the tools put around numbers. A translation replaces them in i18n/<lang>/strings.toml
+# (decision 0014); the placeholders in braces stay.
+WORDS = {
+    "decimal": ".",
+    "not_assessed": "not assessed",
+    "level": "level {level}",
+    "level_of": "{name} ({level} of {top})",
+    "met": "met",
+    "orders_of_magnitude": "{size} orders of magnitude",
+    "points": "points",
+}
+TAXONOMY_FILES = ("domains", "readiness-scales", "metrics", "sdgs", "vocabulary")
 
 
 def load_toml(path: Path) -> dict:
@@ -34,6 +46,7 @@ class Taxonomy:
     metrics: dict[str, dict]
     sdgs: dict[int, str]
     vocabulary: dict[str, dict[str, str]]  # field -> {value: meaning}
+    labels: dict[str, dict[str, str]] = field(default_factory=dict)  # field -> {value: label}
 
     def allowed(self, field_name: str) -> set[str]:
         return set(self.vocabulary.get(field_name, {}))
@@ -42,29 +55,43 @@ class Taxonomy:
         scale_id = tech.data.get("readiness_scale") or self.domains.get(tech.domain, {}).get("readiness_scale")
         return self.scales.get(scale_id)
 
-    def level_name(self, scale: dict | None, level) -> str:
+    def label(self, field_name: str, value: str) -> str:
+        """A vocabulary value in words: its id with spaces for hyphens, or its translation."""
+        return self.labels.get(field_name, {}).get(value) or value.replace("-", " ")
+
+    def level_name(self, scale: dict | None, level, words: dict = WORDS) -> str:
         if scale is None or level is None:
-            return "not assessed"
+            return words["not_assessed"]
         levels = {item["level"]: item for item in scale.get("level", [])}
         if level not in levels:
-            return f"level {level}"
+            return words["level"].format(level=level)
         top = max(levels)
-        return f"{levels[level]['name']} ({level} of {top})"
+        return words["level_of"].format(name=levels[level]["name"], level=level, top=top)
 
 
-def taxonomy() -> Taxonomy:
-    base = ROOT / "taxonomy"
-    vocabulary_file = load_toml(base / "vocabulary.toml")
+def taxonomy_files() -> dict[str, dict]:
+    """The files of taxonomy/ as read, by name without the extension."""
+    return {name: load_toml(ROOT / "taxonomy" / f"{name}.toml") for name in TAXONOMY_FILES}
+
+
+def taxonomy(files: dict[str, dict] | None = None) -> Taxonomy:
+    """The taxonomy, from taxonomy/ or from the same files translated (tools/i18n.py)."""
+    files = files or taxonomy_files()
     vocabulary = {
         name: {item["id"]: item.get("meaning", "") for item in items}
-        for name, items in vocabulary_file.items()
+        for name, items in files["vocabulary"].items()
+    }
+    labels = {
+        name: {item["id"]: item["label"] for item in items if item.get("label")}
+        for name, items in files["vocabulary"].items()
     }
     return Taxonomy(
-        domains={item["id"]: item for item in load_toml(base / "domains.toml").get("domain", [])},
-        scales={item["id"]: item for item in load_toml(base / "readiness-scales.toml").get("scale", [])},
-        metrics={item["id"]: item for item in load_toml(base / "metrics.toml").get("metric", [])},
-        sdgs={item["id"]: item["name"] for item in load_toml(base / "sdgs.toml").get("sdg", [])},
+        domains={item["id"]: item for item in files["domains"].get("domain", [])},
+        scales={item["id"]: item for item in files["readiness-scales"].get("scale", [])},
+        metrics={item["id"]: item for item in files["metrics"].get("metric", [])},
+        sdgs={item["id"]: item["name"] for item in files["sdgs"].get("sdg", [])},
         vocabulary=vocabulary,
+        labels=labels,
     )
 
 
@@ -180,7 +207,8 @@ def headroom(metric_def: dict, target: float, limit: float) -> float | None:
     return gap_size(metric_def, target, limit)
 
 
-def format_number(value) -> str:
+def format_number(value, decimal: str = ".") -> str:
+    """Thousands grouped by spaces, as in SI; `decimal` is the decimal mark of the language."""
     if isinstance(value, bool) or value is None:
         return str(value)
     if isinstance(value, int) and abs(value) < 1_000_000:
@@ -195,18 +223,18 @@ def format_number(value) -> str:
             whole, _, frac = text.partition(".")
             if len(whole.lstrip("-")) > 3:
                 whole = f"{int(whole):,}".replace(",", " ")
-            return f"{whole}.{frac}" if frac else whole
+            return f"{whole}{decimal}{frac}" if frac else whole
     mantissa = number / 10**exponent
-    mantissa_text = f"{mantissa:.3g}"
+    mantissa_text = f"{mantissa:.3g}".replace(".", decimal)
     if mantissa_text == "1":
         return f"10{str(exponent).translate(SUPERSCRIPT)}"
     return f"{mantissa_text} × 10{str(exponent).translate(SUPERSCRIPT)}"
 
 
-def format_value(value, unit: str) -> str:
+def format_value(value, unit: str, words: dict = WORDS) -> str:
     if value is None:
         return "–"
-    number = format_number(value)
+    number = format_number(value, words["decimal"])
     if unit in ("", "1"):
         return number
     if unit == "%":
@@ -214,12 +242,12 @@ def format_value(value, unit: str) -> str:
     return f"{number} {unit}"
 
 
-def format_gap(metric_def: dict, size: float | None) -> str:
+def format_gap(metric_def: dict, size: float | None, words: dict = WORDS) -> str:
     if size is None:
         return "–"
     if size <= 0:
-        return "met"
+        return words["met"]
     if metric_def.get("scale") == "log":
-        return f"{size:.1f} orders of magnitude"
+        return words["orders_of_magnitude"].format(size=f"{size:.1f}".replace(".", words["decimal"]))
     unit = metric_def.get("unit", "")
-    return f"{format_number(round(size, 3))} {'points' if unit == '%' else unit}".strip()
+    return f"{format_number(round(size, 3), words['decimal'])} {words['points'] if unit == '%' else unit}".strip()

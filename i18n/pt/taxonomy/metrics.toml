@@ -1,0 +1,311 @@
+# Portuguese (Brazil) translation of taxonomy/metrics.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "metric[energy-per-operation].name"
+source = "ff5b4d7864"
+text = "Energia por operação"
+
+[[text]]
+path = "metric[energy-per-operation].meaning"
+source = "e72cbc33b7"
+text = "Energia dissipada por operação lógica, medida no dispositivo"
+
+[[text]]
+path = "metric[wall-plug-energy-per-operation].name"
+source = "14369b7c63"
+text = "Energia por operação na tomada"
+
+[[text]]
+path = "metric[wall-plug-energy-per-operation].meaning"
+source = "e20f1be675"
+text = """
+Energia por operação lógica retirada da rede elétrica, incluindo o resfriamento e a alimentação
+"""
+
+[[text]]
+path = "metric[energy-efficiency].name"
+source = "f01da46253"
+text = "Eficiência energética computacional"
+
+[[text]]
+path = "metric[energy-efficiency].meaning"
+source = "fc73735951"
+text = """
+Operações de ponto flutuante por joule de um sistema completo, o mesmo que FLOP/s por watt, na
+precisão aritmética declarada nas condições (FP64 para a Green500; FP16, FP8 ou FP4 para
+aceleradores de IA)
+"""
+
+[[text]]
+path = "metric[energy-per-token].name"
+source = "380b06c6f9"
+text = "Energia por token"
+
+[[text]]
+path = "metric[energy-per-token].meaning"
+source = "ed489cb216"
+text = """
+Energia consumida por token gerado na inferência de um modelo de linguagem, conforme a definição da
+fonte
+"""
+
+[[text]]
+path = "metric[error-rate].name"
+source = "33a224722f"
+text = "Taxa de erro"
+
+[[text]]
+path = "metric[error-rate].meaning"
+source = "6787c42695"
+text = "Erros por operação, para um componente sem métrica mais específica"
+
+[[text]]
+path = "metric[two-qubit-gate-infidelity].name"
+source = "4c755b8300"
+text = "Infidelidade de porta de dois qubits"
+
+[[text]]
+path = "metric[two-qubit-gate-infidelity].meaning"
+source = "ee884da0b9"
+text = """
+Infidelidade média de uma porta de dois qubits, 1 - F_avg, medida por benchmarking aleatorizado ou
+benchmarking aleatorizado intercalado. Uma infidelidade de processo (de Pauli), como a que o
+benchmarking de ciclo ou de entropia cruzada relata, é convertida por r_avg = d r_process / (d + 1)
+= 0,8 r_process para d = 4, e a ficha diz isso
+"""
+
+[[text]]
+path = "metric[logical-error-per-cycle].name"
+source = "42b7eed636"
+text = "Erro lógico por ciclo"
+
+[[text]]
+path = "metric[logical-error-per-cycle].meaning"
+source = "e418292003"
+text = """
+Probabilidade de um qubit lógico com correção de erros falhar numa rodada de correção de erros
+"""
+
+[[text]]
+path = "metric[physical-qubits].name"
+source = "3dd070974e"
+text = "Qubits físicos"
+
+[[text]]
+path = "metric[physical-qubits].meaning"
+source = "014c530af9"
+text = "Número de qubits físicos operados em conjunto num mesmo dispositivo"
+
+[[text]]
+path = "metric[decoder-latency].name"
+source = "9d5b385259"
+text = "Latência do decodificador"
+
+[[text]]
+path = "metric[decoder-latency].meaning"
+source = "80887f94dc"
+text = """
+Tempo entre o fim de uma medição de síndrome e a correção do decodificador, em decodificação em
+tempo real
+"""
+
+[[text]]
+path = "metric[cooling-power].name"
+source = "6b4019cc6f"
+text = "Potência de refrigeração"
+
+[[text]]
+path = "metric[cooling-power].meaning"
+source = "c432ece497"
+text = "Calor que um refrigerador consegue remover na temperatura declarada"
+
+[[text]]
+path = "metric[net-removal-cost].name"
+source = "82bed3d9cd"
+text = "Custo nivelado da remoção líquida de CO2"
+
+[[text]]
+path = "metric[net-removal-cost].meaning"
+source = "6c08811d89"
+text = """
+Custo nivelado por tonelada de CO2 removida da atmosfera e armazenada de forma duradoura,
+descontadas as emissões de ciclo de vida da captura, da energia, do transporte e do armazenamento
+"""
+
+[[text]]
+path = "metric[capture-cost].name"
+source = "4171930915"
+text = "Custo nivelado da captura de CO2"
+
+[[text]]
+path = "metric[capture-cost].meaning"
+source = "f60afaec7e"
+text = """
+Custo nivelado por tonelada de CO2 capturada, antes do transporte e do armazenamento e sem descontar
+as emissões do processo. Menor que o custo de remoção líquida da mesma planta
+"""
+
+[[text]]
+path = "metric[specific-energy-consumption].name"
+source = "47d629147b"
+text = "Consumo específico de energia"
+
+[[text]]
+path = "metric[specific-energy-consumption].meaning"
+source = "ce70e840ae"
+text = "Energia usada para produzir um metro cúbico de água doce"
+
+[[text]]
+path = "metric[launch-cost].name"
+source = "44b2e41735"
+text = "Custo de lançamento"
+
+[[text]]
+path = "metric[launch-cost].meaning"
+source = "d04c8c3440"
+text = "Preço ou custo para colocar um quilograma de carga útil em órbita terrestre baixa"
+
+[[text]]
+path = "metric[scientific-gain].name"
+source = "ee9cf2d167"
+text = "Ganho científico (Q_sci)"
+
+[[text]]
+path = "metric[scientific-gain].meaning"
+source = "69f70c16d3"
+text = """
+Energia de fusão liberada dividida pela energia de aquecimento absorvida pelo plasma ou, no
+confinamento inercial, pela energia do driver entregue ao alvo (o ganho do alvo). O ponto de
+equilíbrio científico é Q_sci = 1; ele deixa de fora a energia retirada da rede para operar os
+drivers, o aquecimento e os ímãs
+"""
+
+[[text]]
+path = "metric[sensitivity].name"
+source = "ebb57a260d"
+text = "Sensibilidade"
+
+[[text]]
+path = "metric[sensitivity].meaning"
+source = "338c40d62e"
+text = "Proporção das pessoas com a condição que o teste detecta"
+
+[[text]]
+path = "metric[specificity].name"
+source = "bde4f8d2a9"
+text = "Especificidade"
+
+[[text]]
+path = "metric[specificity].meaning"
+source = "b34cc43ee8"
+text = "Proporção das pessoas sem a condição que o teste classifica corretamente como negativas"
+
+[[text]]
+path = "metric[communication-rate].name"
+source = "98b15b1ab3"
+text = "Taxa de comunicação"
+
+[[text]]
+path = "metric[communication-rate].meaning"
+source = "82e4db7bf0"
+text = """
+Palavras por minuto que uma pessoa comunica por meio de uma interface, com o tamanho do vocabulário
+e a taxa de erro de palavras declarados nas condições; entre modalidades, a área também relata a
+taxa de transferência de informação em bits por minuto
+"""
+
+[[text]]
+path = "metric[experimental-hit-rate].name"
+source = "bcdef1c795"
+text = "Taxa de acerto experimental"
+
+[[text]]
+path = "metric[experimental-hit-rate].meaning"
+source = "8d5dab0589"
+text = """
+Proporção das moléculas projetadas que atendem ao critério de sucesso declarado, como se ligar ao
+alvo abaixo de uma afinidade declarada, quando testadas experimentalmente
+"""
+
+[[text]]
+path = "metric[conductor-cost].name"
+source = "837f6590c1"
+text = "Custo do condutor"
+
+[[text]]
+path = "metric[conductor-cost].meaning"
+source = "cb58b3b281"
+text = """
+Preço de um condutor por quiloampere de corrente transportada ao longo de um metro, na temperatura e
+no campo declarados
+"""
+
+[[text]]
+path = "metric[nitrogen-derived-from-atmosphere].name"
+source = "e5c58256e7"
+text = "Nitrogênio derivado da atmosfera (%Ndfa)"
+
+[[text]]
+path = "metric[nitrogen-derived-from-atmosphere].meaning"
+source = "07adb4d798"
+text = """
+Proporção do nitrogênio de uma planta que vem da fixação biológica do N2 atmosférico, com o método
+de medição (diluição isotópica de 15N, abundância natural de 15N, ureídeos ou diferença de N)
+declarado nas condições
+"""
+
+[[text]]
+path = "metric[energy-per-bit].name"
+source = "e0d6d73cd7"
+text = "Energia por bit movimentado"
+
+[[text]]
+path = "metric[energy-per-bit].meaning"
+source = "cacd19d848"
+text = """
+Energia para mover um bit entre a memória e o processador, ou entre chips, incluindo a interface nas
+duas pontas
+"""
+
+[[text]]
+path = "metric[heat-flux].name"
+source = "d023379997"
+text = "Fluxo de calor removido"
+
+[[text]]
+path = "metric[heat-flux].meaning"
+source = "5cc3ca7461"
+text = """
+Calor que uma solução de resfriamento remove por unidade de área da superfície do dispositivo, na
+elevação de temperatura declarada
+"""
+
+[[text]]
+path = "metric[sequencing-cost].name"
+source = "bda4599784"
+text = "Custo por genoma humano"
+
+[[text]]
+path = "metric[sequencing-cost].meaning"
+source = "4e3c46c5cb"
+text = """
+Custo para sequenciar um genoma humano com cobertura de cerca de 30 vezes, conforme a definição da
+fonte
+"""
+
+[[text]]
+path = "metric[waveguide-loss].name"
+source = "41f20be05c"
+text = "Perda de propagação em guia de onda"
+
+[[text]]
+path = "metric[waveguide-loss].meaning"
+source = "490ed4849f"
+text = """
+Potência óptica perdida por unidade de comprimento num guia de onda integrado, no comprimento de
+onda e na geometria declarados
+"""
