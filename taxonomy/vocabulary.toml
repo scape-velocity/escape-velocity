@@ -164,7 +164,7 @@ meaning = "Peer-reviewed review article"
 
 [[evidence_type]]
 id = "preprint"
-meaning = "Preprint (arXiv, bioRxiv, medRxiv, ChemRxiv)"
+meaning = "Preprint (arXiv, bioRxiv, medRxiv, ChemRxiv): in the terms of NISO RP-8-2008, Journal Article Versions, the Author's Original, the Submitted Manuscript Under Review or the Accepted Manuscript, any version before the Version of Record that the publisher declares published. When a preprint is published, the card cites the Version of Record"
 
 [[evidence_type]]
 id = "dataset"

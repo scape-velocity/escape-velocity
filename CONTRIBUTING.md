@@ -40,6 +40,10 @@ the explorer in `web/` also needs Node.js ([web/README.md](web/README.md)).
 
 - Every number has a source in an evidence card, with a verbatim quote of at most 60 words from the
   abstract (or the page, for a dataset or report).
+- Numbers and units are written as the [SI Brochure](https://www.bipm.org/en/si-brochure-9)
+  (BIPM, 9th edition, 2019, version 4.01 of June 2026) says: a space between the number and the
+  unit, the digits of long numbers grouped in threes by a space, and a comma or a point as the
+  decimal sign.
 - Values are stored in the metric's unit from `taxonomy/metrics.toml`; state any conversion in the
   finding's `conditions`.
 - Preprints, company announcements and single unreplicated results are `reported`, not
