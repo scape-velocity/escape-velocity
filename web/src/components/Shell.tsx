@@ -101,7 +101,7 @@ export function Shell({ lang, children }: { lang: Lang; children: ReactNode }) {
                 code: <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>,
               })}{" "}
               <a href={atlasFile(lang)}>{languageOf(lang).file}</a> &middot; <a href={staticFile("llms.txt")}>llms.txt</a> &middot;{" "}
-              <a href={`${data.repository}/blob/main/CONTRIBUTING.md`}>{t.contribute}</a>
+              <Link href={localePath("/contribute/", lang)}>{t.contribute}</Link>
             </p>
           </div>
         </footer>

@@ -3,7 +3,7 @@
 The Escape Velocity explorer: a Next.js application in TypeScript, exported as static files and
 published on GitHub Pages ([decision 0012](../docs/decisions/0012-explorer-in-next.md)). It has one
 page per technology, evidence card and domain, plus the overview, the dependency graph, the gaps,
-the evidence list and the about page.
+the evidence list, the about page and the contribute page.
 
 It reads `atlas.json` at build time and nothing else, so build the data first. Contributing data
 needs only Python; working on the interface needs Node.js 20.9 or later (the workflows use 24).

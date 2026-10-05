@@ -249,9 +249,70 @@
     "citeText": "Cite a versão do atlas que você usou: esta página mostra a versão {version} ({date}). Os metadados de citação estão em {cff}. Os dados estão sob CC0 1.0, os textos sob CC BY 4.0 e o código sob Apache 2.0.",
     "contribute": "Contribua",
     "contributeText": "Um único número com fonte já é uma contribuição de verdade. Toda mudança, venha de uma pessoa ou de um agente, é um pull request revisado por uma pessoa. Veja {link}.",
+    "contributeLink": "como contribuir",
     "rolesText": "Cada domínio tem moderadores e cada tecnologia acompanhada tem curadores. Eles revisam as mudanças naquilo de que cuidam, e só eles marcam uma ficha de evidência como verificada. Como os papéis funcionam, e como assumir um, está em {link}.",
     "alanMachine": "The Alan Machine",
     "alanMachineText": "{link} é um livro de código aberto sobre um supercomputador hipotético nos limites físicos da computação. O atlas compartilha com ele as métricas e os tipos de afirmação, e liga cada tecnologia às páginas que tratam dela.",
     "outOfScope": "Fora do escopo: armas, pesquisa de uso dual preocupante, vigilância dirigida a pessoas, aconselhamento de investimento e aconselhamento médico."
+  },
+  "contribute": {
+    "title": "Contribua",
+    "description": "Como acrescentar um número com fonte, contestar um valor, propor uma tecnologia ou traduzir o atlas, com ou sem git.",
+    "heading": "Contribua com o atlas",
+    "lede": "Um único número com fonte já é uma contribuição de verdade. Você não precisa conhecer o atlas inteiro nem usar git: um formulário no GitHub basta.",
+    "what": "O que você pode contribuir",
+    "whatItems": [
+      {
+        "term": "Evidência:",
+        "text": "um artigo, conjunto de dados ou relatório com um número que atualiza um valor atual."
+      },
+      {
+        "term": "Uma contestação:",
+        "text": "um valor atual, meta, limite, nível de maturidade ou lacuna que você considera errado, com a sua fonte."
+      },
+      {
+        "term": "Uma tecnologia:",
+        "text": "uma que o atlas deveria acompanhar, ou uma dependência que ainda não tem página."
+      },
+      {
+        "term": "Uma tradução:",
+        "text": "uma tradução errada ou ausente, ou a oferta de traduzir para o seu idioma."
+      }
+    ],
+    "whatSource": "O que mais importa é a fonte. Um número sem fonte não entra no atlas; um número com fonte, mesmo que seja um só, entra.",
+    "forms": "Sem git: os formulários",
+    "formsText": "Cada formulário abre no GitHub e só exige uma conta. Ele pede o que quem revisa precisa, e os moderadores do domínio fazem a triagem.",
+    "formItems": {
+      "report-evidence": {
+        "name": "Report evidence",
+        "text": "uma fonte com um número que atualiza o atlas."
+      },
+      "challenge-value": {
+        "name": "Challenge a value",
+        "text": "um valor que você considera errado, com a sua fonte."
+      },
+      "propose-technology": {
+        "name": "Propose a technology",
+        "text": "uma tecnologia ou dependência que o atlas não tem."
+      },
+      "translation": {
+        "name": "Translation",
+        "text": "uma tradução errada ou ausente, um termo do glossário ou uma oferta de ajuda."
+      }
+    },
+    "discussions": "Ideias que ainda não são uma proposta, e perguntas sobre o atlas, vão para as {link}.",
+    "discussionsLink": "Discussions",
+    "pr": "Com git: um pull request",
+    "prText": "Se você usa um terminal, pode fazer a mudança você mesmo. Só é preciso Python 3.11 ou mais novo.",
+    "prSteps": [
+      "Faça um fork do repositório no GitHub e crie uma branch.",
+      "Edite o TOML de uma tecnologia ou de uma ficha de evidência, partindo dos modelos.",
+      "Rode o gerador e a verificação; a verificação diz o que falta.",
+      "Abra um pull request e preencha o modelo dele.",
+      "Um curador ou moderador daquilo que você mudou revisa, e um mantenedor faz o merge."
+    ],
+    "rules": "O passo a passo e as regras que todo pull request segue, das regras de evidência aos títulos e à assinatura (sign-off), estão em {link} (em inglês).",
+    "rulesLink": "CONTRIBUTING.md",
+    "roles": "Para cuidar de uma tecnologia, de um domínio ou de um idioma, veja {link}."
   }
 }

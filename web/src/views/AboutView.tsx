@@ -1,12 +1,15 @@
-/* What the atlas is, how to use its data, how to cite and how to take part. A port of aboutView()
-   in site/app.js, with the governance people of the atlas. */
+/* What the atlas is, how to use its data, how to cite and how to take part (the details are on
+   the contribute page). A port of aboutView() in site/app.js, with the governance people of the
+   atlas. */
 
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { TranslationNotice } from "@/components/ui";
 import type { Lang } from "@/i18n";
 import { rich } from "@/i18n/rich";
 import { languageOf, loadAtlas } from "@/lib/load";
+import { localePath } from "@/lib/paths";
 import { atlasFile, pageMetadata, staticFile } from "@/lib/site";
 
 export function aboutMetadata(lang: Lang): Metadata {
@@ -64,7 +67,7 @@ export function AboutView({ lang }: { lang: Lang }) {
         })}
       </p>
       <h2>{t.contribute}</h2>
-      <p>{rich(t.contributeText, { link: <a href={`${data.repository}/blob/main/CONTRIBUTING.md`}>CONTRIBUTING.md</a> })}</p>
+      <p>{rich(t.contributeText, { link: <Link href={localePath("/contribute/", lang)}>{t.contributeLink}</Link> })}</p>
       <p>{rich(t.rolesText, { link: <a href={atlas.governanceUrl()}>GOVERNANCE.md</a> })}</p>
       <h2>{t.alanMachine}</h2>
       <p>{rich(t.alanMachineText, { link: <a href={data.alan_machine}>The Alan Machine</a> })}</p>
