@@ -20,7 +20,7 @@ import urllib.request
 import xml.etree.ElementTree as ET
 from dataclasses import asdict, dataclass, field
 
-USER_AGENT = "escape-velocity-scout/0.1 (https://github.com/escape-velocity-org/escape-velocity)"
+USER_AGENT = "escape-velocity-scout/0.1 (https://github.com/scape-velocity/escape-velocity)"
 ATOM = {"a": "http://www.w3.org/2005/Atom", "arxiv": "http://arxiv.org/schemas/atom"}
 SOURCES = ("openalex", "arxiv", "crossref", "pubmed", "trials", "s2")
 

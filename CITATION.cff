@@ -6,7 +6,7 @@ authors:
   # TODO(maintainer): split into given-names and family-names, and add an ORCID.
   - given-names: "João Alisson"
 license: CC0-1.0
-repository-code: "https://github.com/escape-velocity-org/escape-velocity"
+repository-code: "https://github.com/scape-velocity/escape-velocity"
 keywords:
   - technology roadmapping
   - technology readiness

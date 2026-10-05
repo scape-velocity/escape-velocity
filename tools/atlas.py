@@ -12,7 +12,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-REPO_URL = "https://github.com/escape-velocity-org/escape-velocity"
+REPO_URL = "https://github.com/scape-velocity/escape-velocity"
 ALAN_MACHINE_URL = "https://the-alan-machine.github.io/alan-machine/"
 SUPERSCRIPT = str.maketrans("0123456789-+", "⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁺")
 
