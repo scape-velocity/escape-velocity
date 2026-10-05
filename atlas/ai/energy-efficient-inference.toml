@@ -1,0 +1,143 @@
+name = "Energy-efficient AI inference"
+statement = """
+Running trained AI models to answer queries at a small fraction of today's energy per generated
+token, across the whole stack from the chip to the cooling plant, so that wider use of AI does not
+need proportionally more electricity.
+"""
+scope = """
+In scope: the energy drawn to serve a trained language model, measured per token or per query,
+including accelerator, memory, interconnect, host and cooling overhead. Out of scope: the energy of
+training (not mapped yet); the logic devices, data movement and cooling that inference depends on,
+covered by computing/beyond-cmos-logic, computing/low-energy-data-movement and enablers/heat-removal;
+and what AI is used for, covered by ai/ai-for-science.
+"""
+status = "mapped"
+
+readiness = 6
+readiness_evidence = ["elsworth2025measuring", "oviedo2026energy"]
+readiness_note = "Efficiency gains are demonstrated in production serving (a 33x reduction in energy per median Gemini Apps prompt over one year, company-reported), but the order-of-magnitude hardware gaps below are at laboratory or prototype level."
+horizon = "2030s"
+sdgs = [7, 9, 13]
+search_terms = ["LLM inference energy per token", "energy consumption of large language model serving", "inference energy efficiency GPU"]
+curators = []
+last_reviewed = 2026-10-04
+alan_machine = [{ page = "building-alan/energy-per-token", title = "Building Alan: energy per token" }]
+
+[[requires]]
+technology = "computing/beyond-cmos-logic"
+why = "Arithmetic in the accelerator is bounded by the switching energy of CMOS logic, which is estimated to allow only about two hundred times more efficiency than current microprocessors."
+
+[[requires]]
+technology = "computing/low-energy-data-movement"
+why = "Token generation reads the model weights and the key-value cache from memory for every token, so memory and chip-to-chip traffic carries a large share of the energy."
+metric = "energy-per-bit"
+value = 1e-13
+need = "Energy per bit moved between memory and processor at or below 0.1 pJ, so that streaming weights costs a few watts per terabyte per second."
+
+[[requires]]
+technology = "enablers/heat-removal"
+why = "Delivered power and cooling capacity bound how many accelerators fit in a rack and therefore the tokens produced per site."
+
+[[metric]]
+id = "token-energy"
+metric = "energy-per-token"
+headline = true
+conditions = "GPU energy over the inference window divided by output tokens, as the source defines it; strongly dependent on model size, batch size, context and output length. The current value is for a 1B-parameter dense model, the favorable end of the range."
+
+[metric.current]
+value = 0.72
+as_of = 2026-08-01
+evidence = "vellaisamy2026characterization"
+note = "At 10 output tokens the same setup measures 7.46 J/token, so the number is only comparable under stated conditions. as_of is the approximate preprint month; the abstract gives no date."
+
+[metric.target]
+value = 7e-2
+rationale = "One order of magnitude below the current value under the same conditions. Oviedo et al. (Joule 2026) estimate 8 to 20 times line-of-sight energy reductions across models, serving systems and hardware; 10 times sits inside that range and needs no new device physics."
+evidence = "oviedo2026energy"
+
+[[gap]]
+id = "data-movement"
+title = "Moving weights and cache costs more than the arithmetic"
+description = """
+Each generated token streams the model weights and the key-value cache through memory, so memory
+traffic, not arithmetic, tends to bind the energy per token. The best published electrical
+die-to-die link measures 0.65 pJ/bit in a prototype, an interface-only figure. Closing the gap
+means fewer bytes moved (quantization, cache compression, sparse attention) and cheaper bytes.
+"""
+metric = "token-energy"
+type = "engineering"
+layer = "system"
+severity = "critical"
+status = "active"
+blocked_by = ["computing/low-energy-data-movement"]
+evidence = ["park2024pjbit"]
+search_terms = ["KV cache compression energy", "memory-bound LLM decoding energy"]
+
+[[gap]]
+id = "memory-bandwidth"
+title = "Decoding is bound by memory bandwidth, not compute"
+description = """
+Small batches leave the arithmetic units idle while the memory system is saturated. The measured
+token energy falls from 7.46 to 0.72 J/token as output length grows from 10 to 512 tokens at batch 16,
+because fixed costs are amortized; batching gains shrink as context grows (6.31x at 512 tokens of
+context against 1.17x at 4K for 10 output tokens).
+"""
+metric = "token-energy"
+type = "engineering"
+layer = "device"
+severity = "high"
+status = "active"
+blocked_by = ["computing/low-energy-data-movement"]
+evidence = ["vellaisamy2026characterization"]
+search_terms = ["high bandwidth memory energy LLM decoding", "batching energy per token context length"]
+
+[[gap]]
+id = "logic-energy"
+title = "CMOS logic has a ceiling of about two hundred times today's efficiency"
+description = """
+Ho, Erdil and Besiroglu estimate a ceiling of 4.7e15 FP4 operations per joule for CMOS
+microprocessors, roughly two hundred times current microprocessors, from switching, interconnect
+capacitance and leakage. The atlas has no sourced current FLOP-per-joule value for deployed
+accelerators yet, so this gap has no metric of its own.
+"""
+type = "fundamental-limit"
+layer = "physics"
+severity = "medium"
+status = "open"
+blocked_by = ["computing/beyond-cmos-logic"]
+evidence = ["ho2023limits"]
+search_terms = ["limits energy efficiency CMOS", "FLOP per joule trend accelerators"]
+
+[[gap]]
+id = "cooling"
+title = "Delivered power and cooling bound token output"
+description = """
+At deployment scale the binding constraint can move from peak compute to delivered data-center
+power, cooling capacity and PUE. Embedded microfluidic cooling supports about 1e3 W/cm2; accelerator
+power density keeps rising.
+"""
+metric = "token-energy"
+type = "engineering"
+layer = "deployment"
+severity = "medium"
+status = "active"
+blocked_by = ["enablers/heat-removal"]
+evidence = ["wei2026microfluidic"]
+search_terms = ["data center cooling AI accelerators PUE", "liquid cooling GPU racks"]
+
+[[gap]]
+id = "utilization"
+title = "Idle capacity and small batches waste energy"
+description = """
+Production energy per prompt includes idle machine capacity and data-center overhead, not only active
+accelerator power. Google reports a 33x reduction in energy per median Gemini Apps text prompt over one
+year from software efficiency and clean-energy procurement (the abstract states the combined effect
+on energy and does not separate the two). Further gains depend on batching, routing and model choice.
+"""
+metric = "token-energy"
+type = "engineering"
+layer = "deployment"
+severity = "high"
+status = "promising"
+evidence = ["elsworth2025measuring", "oviedo2026energy"]
+search_terms = ["LLM serving utilization energy", "energy-aware request routing small language models"]

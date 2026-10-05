@@ -1,0 +1,19 @@
+title = "Considering technology characteristics to project future costs of direct air capture"
+authors = ["Sievert, Katrin"]
+year = 2024
+venue = "Joule"
+type = "article"
+doi = "10.1016/j.joule.2024.02.005"
+class = "extrapolation"
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+status = "machine-checked"
+checked = 2026-10-04
+note = "A projection at 1 Gt-CO2 per year of cumulative capacity, not a present cost."
+
+[[finding]]
+metric = "cost-per-tonne-co2"
+value = 374
+unit = "USD t^-1"
+conditions = "Projection, solid sorbent DACCS, cost of CO2 net removed at 1 Gt-CO2/year cumulative capacity; 90% confidence range 281 to 579 USD/t. Not a current value."
+quote = "At 1 Gt-CO2/year cumulative capacity, we project DACCS costs at $341/tCO2 ($226–$544 at 90% confidence) for liquid solvent DACCS, $374/tCO2 ($281–$579) for solid sorbent DACCS"

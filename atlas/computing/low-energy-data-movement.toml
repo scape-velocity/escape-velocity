@@ -1,0 +1,40 @@
+name = "Low-energy data movement"
+statement = """
+Moving bits between memory and processor and between chips at a small fraction of today's energy
+per bit, by shorter and denser electrical links, in-package memory and optical interconnects.
+"""
+scope = """
+In scope: energy per bit of memory interfaces and chip-to-chip links, including the transceiver on
+both ends. Out of scope: the logic that computes on the data, covered by computing/beyond-cmos-logic;
+the photonic chips themselves, covered by enablers/photonic-integration.
+"""
+status = "scoping"
+readiness = 4
+readiness_evidence = ["park2024pjbit"]
+readiness_note = "The best figure found is a 28 nm prototype die-to-die interface; no deployed system figure is sourced yet."
+horizon = "2030s"
+sdgs = [9]
+search_terms = ["energy per bit die-to-die interface", "HBM interface energy pJ/bit", "co-packaged optics energy per bit", "processing in memory data movement energy"]
+curators = []
+last_reviewed = 2026-10-04
+alan_machine = [{ page = "building-alan/data-movement", title = "Building Alan: data movement" }]
+
+[[requires]]
+technology = "enablers/photonic-integration"
+why = "Optical links promise low energy per bit over longer distances than electrical links, and need integrated photonic chips to be made in volume."
+
+[[metric]]
+id = "bit-energy"
+metric = "energy-per-bit"
+headline = true
+conditions = "Interface energy of an electrical die-to-die link over a silicon interposer, transceiver only; a prototype, not a deployed memory system."
+
+[metric.current]
+value = 6.5e-13
+as_of = 2024-04-01
+evidence = "park2024pjbit"
+note = "0.65 pJ/bit. as_of is the approximate preprint month; the abstract gives no date."
+
+[metric.target]
+value = 1e-13
+rationale = "Atlas-set reasoning, not an agency target: at 0.1 pJ/bit, an accelerator streaming 10 TB/s (8e13 bit/s, an assumed HBM-class rate) spends 8 W on the link, against 52 W at the current 0.65 pJ/bit; this brings interconnect energy below a few percent of a kilowatt-class accelerator."

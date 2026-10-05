@@ -1,0 +1,25 @@
+title = "From Sputnik to Starship: Estimating the experience curve of space launch technology"
+authors = ["Terzi, Alessio", "Nicoli, Francesco"]
+year = 2026
+venue = "PNAS Nexus"
+type = "article"
+doi = "10.1093/pnasnexus/pgag217"
+class = "established"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+
+[[finding]]
+metric = "launch-cost"
+value = 3868
+unit = "USD kg^-1"
+conditions = "Average cost of sending one kilogram to orbit across all launches in 2025, from a standardized dataset of more than 4,400 launches; an average over all vehicles, not the price of the cheapest vehicle."
+quote = "the average cost of sending a kilogram to orbit has dropped from 87,023 USD in 1960 to 3,868 USD in 2025"
+
+[[finding]]
+metric = "launch-cost"
+value = 300
+unit = "USD kg^-1"
+conditions = "Central-estimate projection for 2040 from a Wright's-law experience curve; a projection, not a measurement."
+quote = "the average cost is expected to fall to 1,600 USD/kg by 2030 and 300 USD/kg by 2040"

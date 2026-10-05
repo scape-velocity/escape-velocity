@@ -1,0 +1,32 @@
+name = "Low-cost high-temperature superconducting conductor"
+statement = """
+High-temperature superconducting tape (REBCO) that carries kiloamperes at fusion-magnet
+conditions at a price per kA-m that lets magnets of hundreds of kilometres of tape be built.
+"""
+scope = """
+In: REBCO coated conductors and their manufacturing cost. Out: low-temperature superconductors
+such as Nb3Sn and NbTi, and the cabling and magnet engineering built on the tape.
+"""
+status = "scoping"
+readiness_scale = "mrl"
+sdgs = [7, 9]
+search_terms = ["REBCO coated conductor cost", "HTS tape price per kA-m", "REBCO manufacturing scale-up"]
+curators = []
+last_reviewed = 2026-10-04
+
+[[metric]]
+id = "conductor-cost"
+metric = "conductor-cost"
+headline = true
+conditions = "REBCO tape at 20 K and 20 T, field parallel to c; derived from price per metre and critical current."
+
+[metric.current]
+value = 100
+as_of = 2025-01-01
+evidence = "zhao2025commercial"
+note = "Derived from two numbers in the abstract (about 20 USD per metre; critical current above 200 A for a 4 mm tape), so the true value is at or below 100. The date is the year of the paper; no day is given."
+
+[metric.target]
+value = 20
+rationale = "The cost target for power applications set by a 2026 cost model and roadmap for PLD REBCO tape (fumarulo2026evaluating), which also gives the roadmap of growth rate, REBCO thickness and critical current to get there."
+evidence = "fumarulo2026evaluating"

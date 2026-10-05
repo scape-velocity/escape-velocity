@@ -1,0 +1,13 @@
+name = "High-power electronics"
+statement = """
+Converters and switches that move megawatts to gigawatts at high efficiency and power density,
+from the grid to magnets, lasers and data centres.
+"""
+scope = """
+In: wide-bandgap (silicon carbide, gallium nitride) devices, converters and their cooling.
+Out: signal-level electronics and the logic of computing (computing/beyond-cmos-logic).
+"""
+status = "proposed"
+sdgs = [7, 9]
+search_terms = ["wide bandgap power semiconductor", "silicon carbide converter efficiency", "pulsed power converter"]
+curators = []

@@ -1,0 +1,19 @@
+title = "Evaluating the scalability of REBCO coated-conductor manufacturing by pulsed laser deposition"
+authors = ["Fumarulo, Savino", "Massa, Leonardo", "Sesti, Valentina", "Kirkels, Arjan", "Senatore, Carmine", "Martina, Mario L V"]
+year = 2026
+venue = "Superconductor Science and Technology"
+type = "article"
+doi = "10.1088/1361-6668/aea455"
+class = "established"
+added = 2026-10-04
+added_by = "agent:claude-opus-5-5"
+status = "machine-checked"
+checked = 2026-10-04
+note = "Bottom-up cost model and learning curves for PLD REBCO tape. The present cost estimate is in the body of the paper, not the abstract; a curator who reads it can replace the derived current value of the atlas."
+
+[[finding]]
+metric = "conductor-cost"
+value = 20
+unit = "USD kA^-1 m^-1"
+conditions = "Cost target for power applications stated by the authors; not a measured price."
+quote = "we present a technology roadmap to reach the cost target of $20/(kA·m) required for power applications"

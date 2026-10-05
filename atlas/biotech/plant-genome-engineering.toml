@@ -1,0 +1,14 @@
+name = "Plant genome engineering"
+statement = """
+Making precise, heritable changes to the genomes of crop plants quickly and across species,
+without the long tissue-culture steps that limit many crops today.
+"""
+scope = """
+In: editing and transformation methods for crop plants and the regeneration of whole plants from
+edited cells. Out: the choice of trait (for example food/nitrogen-fixing-cereals) and field
+regulation of the resulting crops.
+"""
+status = "proposed"
+sdgs = [2]
+search_terms = ["plant genome editing CRISPR crops", "plant transformation regeneration bottleneck", "gene editing cereals"]
+curators = []

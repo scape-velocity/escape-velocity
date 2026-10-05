@@ -1,0 +1,48 @@
+name = "Low-cost DNA sequencing"
+statement = """
+Reading the sequence of a human genome, at about 30-fold coverage, for a cost low enough that
+sequencing is a routine step in research, screening and diagnosis.
+"""
+scope = """
+In: instruments, chemistry and workflows that read DNA, and the cost per human genome. Out: the
+interpretation of the sequence, and DNA writing (biotech/low-cost-dna-synthesis).
+"""
+status = "scoping"
+sdgs = [3, 9]
+search_terms = ["low-cost whole genome sequencing", "cost per genome sequencing", "sequencing-by-synthesis cost per gigabase"]
+curators = []
+last_reviewed = 2026-10-04
+
+[[metric]]
+id = "genome-cost"
+metric = "sequencing-cost"
+headline = true
+conditions = "One human genome at about 30-fold coverage; platform developer's figure per gigabase scaled to a genome."
+
+[metric.current]
+value = 90
+as_of = 2022-01-01
+evidence = "almogy2022cost"
+note = "Derived: 1 USD per Gb times 30 times 3 Gb. Preprint by the platform developer; the cost basis of the per-gigabase figure is not defined in the abstract. as_of is the preprint year."
+
+[metric.target]
+value = 10
+rationale = "Atlas working target, not set by an agency: one order of magnitude below the current value, where the sequencing cost of a genome would be comparable to a routine laboratory assay. NHGRI publishes the cost history but sets no target."
+evidence = "wetterstrand2023dna"
+
+[[gap]]
+id = "cost-basis"
+title = "Reagent price is not the cost of a genome"
+description = """
+The per-gigabase price quoted by a platform developer leaves out what NHGRI counts as production
+cost: labor, instruments amortized over three years, informatics and data submission. The atlas has
+no independent figure for the full cost of a 30-fold human genome today, so the current value
+is a derived, developer-reported number.
+"""
+metric = "genome-cost"
+type = "cost"
+layer = "deployment"
+severity = "medium"
+status = "open"
+evidence = ["wetterstrand2023dna", "almogy2022cost"]
+search_terms = ["full cost of whole genome sequencing including labor and informatics"]

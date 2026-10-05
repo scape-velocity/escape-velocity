@@ -1,0 +1,16 @@
+title = "Energy use of AI inference, efficiency pathways, and test-time scaling"
+authors = ["Oviedo, Felipe", "Kazhamiaka, Fiodar", "Choukse, Esha", "Kim, Allen", "Luers, Amy Lynd", "Nakagawa, Melanie", "Bianchini, Ricardo", "Lavista Ferres, Juan"]
+year = 2026
+venue = "Joule"
+type = "article"
+doi = "10.1016/j.joule.2026.102430"
+class = "established"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+note = "A bottom-up model with deployment assumptions, not a measurement: 0.31 Wh per query for frontier-scale models, not per token, so its finding carries no metric. Cited for the 8 to 20 times line-of-sight energy reduction the authors estimate."
+
+[[finding]]
+conditions = "Per query, not per token: bottom-up model estimate for frontier-scale models (>200B parameters) on H100 nodes (0.31 Wh, about 1128 J). No metric of the atlas is per query, so this finding carries no metric."
+quote = "we estimate a median energy of 0.31 Wh/query"

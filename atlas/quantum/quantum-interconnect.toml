@@ -1,0 +1,18 @@
+name = "Quantum interconnect"
+statement = """
+Channels that carry quantum states or entanglement between quantum processors in separate
+cryostats or modules, so that a machine can grow past what one cryostat holds.
+"""
+scope = """
+In scope: links between modules of a superconducting machine, such as microwave-to-optical
+transduction and optical entanglement distribution, and their fidelity and rate. Out of scope: long-distance
+quantum networks and communication for their own sake, and on-chip couplers inside a module.
+"""
+status = "proposed"
+sdgs = [9]
+search_terms = ["quantum interconnect modular quantum computer", "microwave-to-optical transduction", "entanglement distribution between cryostats"]
+curators = []
+
+[[requires]]
+technology = "enablers/photonic-integration"
+why = "Optical links between modules need low-loss waveguides, modulators and detectors integrated on chip."

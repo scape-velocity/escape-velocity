@@ -1,0 +1,82 @@
+name = "Multi-cancer early detection"
+statement = """
+A blood test that screens people without symptoms for many cancer types at once, finds cancers
+early enough to change outcomes, and rarely raises a false alarm. This entry maps the research
+state of the technology; it is not medical advice.
+"""
+scope = """
+In: blood-based tests for signals of several cancers at once (cell-free DNA methylation,
+fragmentomics, protein markers) used to screen people without symptoms. Out: tests for one cancer
+type, tests for people with symptoms or a known cancer, and treatment. Sequencing at scale is
+covered by biotech/low-cost-dna-sequencing.
+"""
+status = "scoping"
+readiness_scale = "clinical-device"
+horizon = "Not stated by any source read for this entry"
+sdgs = [3]
+search_terms = ["multi-cancer early detection", "cell-free DNA methylation cancer screening", "stage I sensitivity blood test cancer"]
+curators = []
+last_reviewed = 2026-10-04
+
+[[requires]]
+technology = "biotech/low-cost-dna-sequencing"
+why = "Methylation and fragment-based tests read cell-free DNA by sequencing, so test price follows sequencing price."
+
+[[metric]]
+id = "stage-one-sensitivity"
+metric = "sensitivity"
+headline = true
+conditions = "Stage I cancers of all types detected, blood-based methylation test, case-control validation set."
+
+[metric.current]
+value = 16.8
+as_of = 2021-01-01
+evidence = "klein2021clinical"
+note = "as_of is the publication year; the day is not in the abstract. Case-control data, not a screening population."
+
+[metric.target]
+value = 50
+rationale = "Atlas working target, not set by an agency or a regulator: the point at which a test finds more stage I cancers than it misses. No source read for this entry sets a numeric stage I threshold; the systematic review says population screening needs high specificity and reasonable sensitivity for early-stage disease."
+evidence = "wade2024multi"
+
+[[metric]]
+id = "specificity"
+metric = "specificity"
+conditions = "Cancer signal detection, case-control validation set."
+
+[metric.current]
+value = 99.5
+as_of = 2021-01-01
+evidence = "klein2021clinical"
+
+[[gap]]
+id = "stage-one-sensitivity"
+title = "Low sensitivity for stage I cancers"
+description = """
+In the case-control validation study sensitivity rose with stage, from 16.8% at stage I to 90.1%
+at stage IV, so the test finds mostly cancers that are already advanced. Stage I is where early
+detection would matter most and where little tumour DNA reaches the blood.
+"""
+metric = "stage-one-sensitivity"
+type = "scientific-unknown"
+layer = "physics"
+severity = "critical"
+status = "active"
+blocked_by = ["biotech/low-cost-dna-sequencing"]
+evidence = ["klein2021clinical"]
+search_terms = ["stage I sensitivity cell-free DNA", "early-stage cancer ctDNA shedding"]
+
+[[gap]]
+id = "clinical-utility"
+title = "Benefit to patients not shown in a randomized trial"
+description = """
+The NHS-Galleri randomized trial of 142,250 participants reported that its primary endpoint, a
+reduction in stage III/IV diagnoses in the test arm, was not met. Detecting cancers is not the same
+as improving outcomes; longer follow-up and other trials are needed.
+"""
+type = "scientific-unknown"
+layer = "deployment"
+severity = "high"
+status = "open"
+evidence = ["neal2026performance"]
+search_terms = ["NHS-Galleri primary endpoint", "multi-cancer early detection mortality randomized"]

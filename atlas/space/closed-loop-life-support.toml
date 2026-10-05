@@ -1,0 +1,16 @@
+name = "Closed-loop life support"
+statement = """
+A life-support system for people in space or on another world that recycles air, water and food
+waste so that resupply from Earth is a small fraction of the crew's consumption.
+"""
+scope = """
+In: recovery of water and oxygen, waste processing, and bioregenerative food production for a crew.
+Out: launch to orbit (space/low-cost-access-to-orbit), radiation shielding and the power plant.
+The headline metric, a closure fraction of mass flows, is not yet in taxonomy/metrics.toml, so the
+technology stays proposed.
+"""
+status = "proposed"
+sdgs = [9]
+search_terms = ["closed-loop life support system", "bioregenerative life support", "environmental control and life support system water recovery"]
+curators = []
+last_reviewed = 2026-10-04

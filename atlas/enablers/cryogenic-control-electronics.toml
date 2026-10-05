@@ -1,0 +1,14 @@
+name = "Cryogenic control electronics"
+statement = """
+Electronics that operate at cryogenic temperatures next to the qubits and generate control signals
+and read out results, replacing one line from room temperature per qubit.
+"""
+scope = """
+In scope: cryo-CMOS, superconducting digital logic and photonic links used to control and read out
+qubits in the cryostat. Out of scope: the qubits (quantum/fault-tolerant-quantum-computer) and the
+decoder algorithm (quantum/real-time-qec-decoder).
+"""
+status = "proposed"
+sdgs = [9]
+search_terms = ["cryo-CMOS qubit control", "superconducting digital control electronics", "cryogenic multiplexer qubits"]
+curators = []

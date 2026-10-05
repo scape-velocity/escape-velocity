@@ -1,0 +1,15 @@
+title = "A Roadmap toward Engineered Nitrogen-Fixing Nodule Symbiosis"
+authors = ["Huisman, Rik", "Geurts, René"]
+year = 2019
+venue = "Plant Communications"
+type = "review"
+doi = "10.1016/j.xplc.2019.100019"
+class = "established"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+
+[[finding]]
+conditions = "Qualitative statement from the abstract of a review."
+quote = "the long-standing objective to engineer the nitrogen-fixing nodulation trait on non-leguminous crop plants has not been achieved yet"

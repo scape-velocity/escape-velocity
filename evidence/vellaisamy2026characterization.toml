@@ -1,0 +1,19 @@
+title = "Characterization of Request and Token Energy Costs for LLM Inference Workloads on GPU Platforms"
+authors = ["Vellaisamy, Prabhu", "Lam, Vanessa", "Blanton, Shawn", "Shen, John Paul"]
+year = 2026
+venue = "arXiv"
+type = "preprint"
+arxiv = "2608.28044"
+class = "reported"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+note = "Token energy here is the marginal-plus-amortized energy per output token over the inference window of one batched request, measured on GPUs; it falls as output length grows because the fixed prefill cost is spread over more tokens."
+
+[[finding]]
+metric = "energy-per-token"
+value = 0.72
+unit = "J"
+conditions = "Llama-3.2-1B (dense, 1B parameters) on an NVIDIA H200 GPU, batch size 16, context 4K tokens, 512 output tokens. At 10 output tokens the same setup gives 7.46 J/token. A 1B model is far smaller than frontier models."
+quote = "increasing output length from 10 to 512 tokens reduces token energy from 7.46 to 0.72 J/token"

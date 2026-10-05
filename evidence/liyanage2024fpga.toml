@@ -1,0 +1,16 @@
+title = "FPGA-Based Distributed Union-Find Decoder for Surface Codes"
+authors = ["Liyanage, Namitha", "Wu, Yue", "Tagare, Siona", "Zhong, Lin"]
+year = 2024
+venue = "IEEE Transactions on Quantum Engineering"
+type = "article"
+doi = "10.1109/tqe.2024.3467271"
+class = "established"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+note = "Decoding time per measurement round under modeled noise, not the end-to-end latency of a real experiment; not comparable with the Willow decoder-latency finding."
+
+[[finding]]
+conditions = "Xilinx VCU129 FPGA decoding distance 51 under phenomenological noise; average latency per measurement round."
+quote = "decoding d=51 on a Xilinx VCU129 FPGA with an average latency of 544 ns per measurement round"

@@ -1,0 +1,14 @@
+name = "Tritium breeding"
+statement = """
+A fusion plant that makes at least as much tritium in its own blanket as it burns, and recovers
+and recycles the fuel fast enough to keep its startup inventory small.
+"""
+scope = """
+In: breeding blankets, tritium extraction and the plant's fuel cycle. Out: the plasma or target
+physics itself (energy/fusion-power) and lithium-isotope enrichment supply, which is not yet in
+the atlas.
+"""
+status = "proposed"
+sdgs = [7]
+search_terms = ["tritium breeding ratio", "tritium fuel cycle self-sufficiency", "breeding blanket lithium"]
+curators = []

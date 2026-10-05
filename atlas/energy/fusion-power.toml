@@ -1,0 +1,73 @@
+name = "Fusion power"
+statement = """
+A power plant that produces net electricity from nuclear fusion, which first needs a fusion fuel
+target or plasma that releases several times more energy than is delivered to it.
+"""
+scope = """
+In: deuterium-tritium fusion plants, whether by inertial confinement (laser-driven targets) or by
+magnetic confinement (tokamaks and stellarators). Out: fission and fission-fusion hybrids. The
+fuel supply is energy/tritium-breeding; the magnets are materials/low-cost-hts-conductor.
+"""
+status = "scoping"
+horizon = "2040s"
+sdgs = [7, 13]
+search_terms = ["target gain inertial fusion", "net electricity fusion pilot plant", "burning plasma fusion energy gain"]
+curators = []
+last_reviewed = 2026-10-04
+
+[[requires]]
+technology = "materials/low-cost-hts-conductor"
+why = "Compact magnetic-confinement designs need fields above 18-20 T, for which high-temperature superconductors are the enabling technology, and their cost and complexity are a large part of the reactor core."
+
+[[requires]]
+technology = "energy/tritium-breeding"
+why = "Deuterium-tritium plants must breed their own tritium; natural supply is negligible."
+
+[[requires]]
+technology = "enablers/high-repetition-rate-lasers"
+why = "A laser-driven inertial plant needs a driver that fires several times per second, not a few shots per day."
+
+[[requires]]
+technology = "enablers/power-electronics"
+why = "Magnet power supplies, pulsed power and the grid connection of a plant rely on high-power converters."
+
+[[metric]]
+id = "target-gain"
+metric = "fusion-target-gain"
+headline = true
+conditions = "Indirect-drive inertial confinement, laser energy delivered to the target, scientific breakeven."
+
+[metric.current]
+value = 1.5
+as_of = 2022-12-05
+evidence = "abushawareb2024achievement"
+
+[metric.target]
+value = 100
+rationale = "The high-gain requirement for an inertial fusion energy plant: a ratio of neutron yield to incident laser energy of about 100 (goncharov2025laser), stated independently as gains above 100 needed for a laser-fusion power plant (mcgeoch2025development). Gain must cover the driver's wall-plug efficiency, the thermal-to-electric conversion and the power recirculated to the driver, and still leave most of the output for the grid."
+evidence = "goncharov2025laser"
+
+[[gap]]
+id = "high-gain-implosions"
+title = "Gain of about 100 at power-plant repetition rates"
+description = """
+The record target gain is 1.5, from a single shot at the National Ignition Facility. A plant needs a
+gain of about 100, which in turn needs a high fraction of the laser energy coupled to the target and
+the loss mechanisms from laser-plasma instabilities held down. Broadband lasers show promise against
+those instabilities, and simulations predict gains above 100 with less than 1 MJ of argon fluoride
+laser energy in direct drive, with no experiment yet at that gain.
+"""
+metric = "target-gain"
+type = "scientific-unknown"
+layer = "physics"
+severity = "critical"
+status = "active"
+blocked_by = ["enablers/high-repetition-rate-lasers"]
+evidence = ["abushawareb2024achievement", "goncharov2025laser", "mcgeoch2025development"]
+search_terms = ["high gain inertial fusion target design", "laser-plasma instability mitigation broadband laser", "argon fluoride laser direct drive"]
+
+[[gap.approach]]
+name = "Direct drive with broadband argon fluoride lasers"
+readiness = 2
+evidence = ["mcgeoch2025development"]
+

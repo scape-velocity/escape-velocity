@@ -1,0 +1,15 @@
+title = "Permselectivity limits of biomimetic desalination membranes"
+authors = ["Werber, Jay R.", "Elimelech, Menachem"]
+year = 2018
+venue = "Science Advances"
+type = "article"
+doi = "10.1126/sciadv.aar8266"
+class = "established"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+
+[[finding]]
+conditions = "Qualitative statement from the abstract; the numeric limits are in the body of the paper."
+quote = "Defect-free biomimetic membranes thus offer great potential for seawater desalination and ultrapure water production"

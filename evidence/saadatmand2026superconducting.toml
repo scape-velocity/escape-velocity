@@ -1,0 +1,16 @@
+title = "Superconducting qubits in the millions: The potential and limitations of modularity"
+authors = ["Saadatmand, S. N."]
+year = 2026
+venue = "Physical Review Applied"
+type = "article"
+doi = "10.1103/k3d5-v43c"
+class = "extrapolation"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+note = "Only the first author was printed by the scout; the full list is longer. Architectural resource model, no measured value."
+
+[[finding]]
+conditions = "Resource-estimation model of a modular superconducting fault-tolerant computer with coherent links."
+quote = "Our tool can predict the size, power consumption, and execution time of these algorithms based on explicit assumptions about the physical layout, thermal load, and modular connectivity of the system."

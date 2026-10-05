@@ -1,0 +1,13 @@
+name = "Long-duration energy storage"
+statement = """
+Storage that holds grid energy for many hours to days or longer at a cost per kWh low enough
+to firm a grid supplied mostly by wind and solar.
+"""
+scope = """
+In: electrochemical (flow, metal-air), thermal, mechanical and chemical (hydrogen) storage with a
+duration beyond about 10 hours. Out: short-duration lithium-ion batteries for hours-scale shifting.
+"""
+status = "proposed"
+sdgs = [7, 13]
+search_terms = ["long-duration energy storage cost", "flow battery", "levelized cost of storage"]
+curators = []

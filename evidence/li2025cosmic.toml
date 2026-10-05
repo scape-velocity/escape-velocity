@@ -1,0 +1,17 @@
+title = "Cosmic-ray-induced correlated errors in superconducting qubit array"
+authors = ["Li, Xuegang", "Wang, Junhua", "Jiang, Yao-Yao", "Xue, Guangming", "Cai, Xiaoxia", "Zhou, Jun", "Gong, Ming", "Liu, Zhaofeng"]
+year = 2025
+venue = "Nature Communications"
+type = "article"
+doi = "10.1038/s41467-025-59778-z"
+pmid = "40393963"
+class = "established"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+note = "Author list truncated in the scout output (first eight shown). Mechanism evidence for the correlated-error gap; no atlas metric value taken."
+
+[[finding]]
+conditions = "Direct observation of muon-induced quasiparticle bursts and correlated errors on a 63-qubit processor, with muon detectors in the dilution refrigerator."
+quote = "We directly observe QP bursts leading to correlated errors that are induced solely by muons and separate the contributions of muons and γ-rays."

@@ -1,0 +1,13 @@
+name = "Geologic CO2 storage"
+statement = """
+Injection of CO2 into deep rock formations at gigatonne-per-year scale, with monitoring that shows
+it stays there.
+"""
+scope = """
+In: saline aquifers and depleted fields, including injectivity, capacity, monitoring and leakage
+risk. Out: mineralization in basalt as a capture route, and capture itself (climate/direct-air-capture).
+"""
+status = "proposed"
+sdgs = [13]
+search_terms = ["geologic CO2 storage capacity", "CO2 injection saline aquifer monitoring", "CO2 leakage risk storage"]
+curators = []

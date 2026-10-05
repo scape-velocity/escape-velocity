@@ -1,0 +1,17 @@
+title = "DNA Sequencing Costs: Data"
+authors = ["Wetterstrand, Kris A."]
+year = 2023
+venue = "NHGRI Genome Sequencing Program"
+type = "dataset"
+url = "https://www.genome.gov/about-genomics/fact-sheets/DNA-Sequencing-Costs-Data"
+accessed = 2026-10-04
+class = "established"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+note = "Page last updated 2023-05-16. The cost table itself is in a downloadable spreadsheet, not in the page text, so no finding quotes a number; the page is cited for the definition of cost per genome (3,000 Mb, 30-fold coverage, production costs only)."
+
+[[finding]]
+conditions = "NHGRI cost-per-genome definition."
+quote = "the assumed genome size was 3,000 Mb (i.e., the size of a human genome)"

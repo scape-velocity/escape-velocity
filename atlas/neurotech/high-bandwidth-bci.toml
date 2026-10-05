@@ -1,0 +1,58 @@
+name = "High-bandwidth brain-computer interface"
+statement = """
+An implanted interface that lets a person with paralysis communicate at close to the speed of
+natural conversation, reliably, from a device that works for years. This entry maps research; it is
+not medical advice.
+"""
+scope = """
+In: intracortical and other implanted interfaces that decode attempted speech or movement into
+text, sound or control. Out: non-invasive interfaces, and neural stimulation therapies. The
+recording electrodes are covered by neurotech/long-lived-neural-electrodes.
+"""
+status = "scoping"
+sdgs = [3, 10]
+search_terms = ["speech neuroprosthesis", "intracortical brain-computer interface communication", "attempted speech decoding"]
+curators = []
+last_reviewed = 2026-10-04
+
+[[requires]]
+technology = "neurotech/long-lived-neural-electrodes"
+why = "Decoding depends on recordings from implanted electrodes that must keep working for years."
+
+[[requires]]
+technology = "ai/energy-efficient-inference"
+why = "Decoding runs a neural network on the neural signal; running it in a wearable or implanted device needs low energy per inference."
+
+[[metric]]
+id = "speech-rate"
+metric = "communication-rate"
+headline = true
+conditions = "Speech-to-text decoding of attempted speech, intracortical arrays, one participant with ALS, large vocabulary."
+
+[metric.current]
+value = 62
+as_of = 2023-01-01
+evidence = "willett2023high"
+note = "as_of is the publication year; a later study in the same field reports about 32 words per minute in self-paced conversation (Card et al., NEJM 2024), so the figure depends on the task. One participant."
+
+[metric.target]
+value = 160
+rationale = "The speed of natural conversation as stated in the source paper, the rate at which a spoken exchange flows without the user waiting."
+evidence = "willett2023high"
+
+[[gap]]
+id = "rate-gap"
+title = "Decoding rate is well below natural conversation"
+description = """
+The 2023 demonstration decoded 62 words per minute, which the authors describe as beginning to
+approach the speed of natural conversation, 160 words per minute. The result comes from one
+participant, so how it generalizes across people is not established.
+"""
+metric = "speech-rate"
+type = "engineering"
+layer = "system"
+severity = "high"
+status = "active"
+blocked_by = ["neurotech/long-lived-neural-electrodes"]
+evidence = ["willett2023high"]
+search_terms = ["speech BCI words per minute", "unconstrained sentence decoding intracortical"]

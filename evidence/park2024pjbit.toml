@@ -1,0 +1,19 @@
+title = "A 0.65-pJ/bit 3.6-TB/s/mm I/O Interface with XTalk Minimizing Affine Signaling for Next-Generation HBM with High Interconnect Density"
+authors = ["Park, Hyunjun", "Shin, Ji-Won", "Kim, Hanseok", "Kim, Ji‐Hee", "Shin, Haengbeom", "Kim, Tae‐Hoon", "Park, Jung-Hun", "Choi, Woo‐Seok"]
+year = 2024
+venue = "arXiv"
+type = "preprint"
+arxiv = "2404.05119"
+class = "reported"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+note = "Fabricated prototype in 28 nm CMOS; the figure is the I/O interface only (die-to-die over a silicon interposer), not the DRAM array energy."
+
+[[finding]]
+metric = "energy-per-bit"
+value = 6.5e-13
+unit = "J"
+conditions = "Die-to-die I/O transceiver over silicon interposer or similar high-density interconnect, 28 nm CMOS prototype, edge density 3.6 TB/s/mm. 0.65 pJ/b converted to joules."
+quote = "the prototype XMAS transceiver achieves an edge density of 3.6TB/s/mm and an energy efficiency of 0.65pJ/b"

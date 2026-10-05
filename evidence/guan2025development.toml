@@ -1,0 +1,20 @@
+title = "Development of a cryogen-free dilution refrigerator with a cooling power of 2000 μ W at around 100 mK"
+authors = ["Guan, Xiang", "Wang, De Ming", "Xie, Yong Jie", "Fan, Jie", "Ji, Zhong Qing"]
+year = 2025
+venue = "Review of Scientific Instruments"
+type = "article"
+doi = "10.1063/5.0294894"
+pmid = "41329012"
+class = "established"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+note = "Cooling power at about 100 mK, not at the 10-20 mK qubit stage. Conversion: 2000 microwatts = 2e-3 W."
+
+[[finding]]
+metric = "cooling-power"
+value = 2e-3
+unit = "W"
+conditions = "Cryogen-free dilution refrigerator, four parallel dilution units, two pulse-tube precoolers; at 102.48 mK; 2000 microwatts converted to 2e-3 W."
+quote = "a cooling power of 2000 μW at 102.48 mK"

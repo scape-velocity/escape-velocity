@@ -1,0 +1,19 @@
+title = "Commercial compact fusion triggered REBCO tape industry: Pulsed laser deposition technology opportunities and challenges"
+authors = ["Zhao, Yue"]
+year = 2025
+venue = "Superconductivity"
+type = "article"
+doi = "10.1016/j.supcon.2025.100188"
+class = "established"
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+status = "machine-checked"
+checked = 2026-10-04
+note = "The abstract gives the price per metre and the critical current of PLD-REBCO tapes in separate clauses; the conductor cost in USD per kA per metre is derived: 20 USD/m divided by 0.2 kA is 100. A curator must confirm that the two numbers describe the same tape."
+
+[[finding]]
+metric = "conductor-cost"
+value = 100
+unit = "USD kA^-1 m^-1"
+conditions = "Derived: about 20 USD per metre divided by a critical current above 200 A for a 4 mm wide tape at 20 K, 20 T, field parallel to c. The critical current is a lower bound, so the true cost per kA-m is at or below this value. PLD-based REBCO tape, 2025."
+quote = "PLD-REBCO tapes have demonstrated excellent in-field performance ( I c >200 A-4 mm @20K, 20T, B//c) and competitive pricing ( ∼ $20/meter)"

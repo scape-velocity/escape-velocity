@@ -1,0 +1,37 @@
+name = "Real-time quantum error-correction decoder"
+statement = """
+Classical hardware and algorithms that turn the stream of syndrome measurements of an error-correcting
+code into corrections, fast enough that the quantum computer never waits for them.
+"""
+scope = """
+In scope: the decoding algorithm, its implementation on FPGA or ASIC, and its latency and throughput
+during a live experiment. Out of scope: the choice of code, the qubits themselves
+(quantum/fault-tolerant-quantum-computer) and the cryogenic electronics it may sit on
+(enablers/cryogenic-control-electronics).
+"""
+status = "scoping"
+sdgs = [9]
+search_terms = ["real-time decoder surface code", "FPGA decoder quantum error correction", "decoder latency"]
+curators = []
+last_reviewed = 2026-10-04
+
+[[requires]]
+technology = "enablers/cryogenic-control-electronics"
+why = "The decoder reads syndromes from the control system, and placing it near the qubits shortens the path and the latency."
+
+[[metric]]
+id = "latency"
+metric = "decoder-latency"
+headline = true
+conditions = "Average real-time decoder latency in a running experiment: distance-5 surface code, cycle time 1.1 microseconds."
+
+[metric.current]
+value = 6.3e-5
+as_of = 2024-12-09
+evidence = "google2024quantum"
+note = "Other decoder studies report times per measurement round under modeled noise (liyanage2024fpga); these are not end-to-end latencies in an experiment and are not used as current values."
+
+[metric.target]
+value = 1e-5
+rationale = "The control-system reaction time of 10 microseconds assumed by the RSA-2048 resource estimate (gidney2025how)."
+evidence = "gidney2025how"

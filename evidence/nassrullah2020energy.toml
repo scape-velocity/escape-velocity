@@ -1,0 +1,15 @@
+title = "Energy for desalination: A state-of-the-art review"
+authors = ["Nassrullah, Haya", "Anis, Shaheen Fatima", "Hashaikeh, Raed", "Hilal, Nidal"]
+year = 2020
+venue = "Desalination"
+type = "review"
+doi = "10.1016/j.desal.2020.114569"
+class = "established"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+
+[[finding]]
+conditions = "Qualitative statement from the abstract of a review."
+quote = "Most technologies are already working near their thermodynamic limit, while posing challenges in further SEC reductions."

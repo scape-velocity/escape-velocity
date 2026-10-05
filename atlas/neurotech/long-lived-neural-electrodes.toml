@@ -1,0 +1,14 @@
+name = "Long-lived neural electrodes"
+statement = """
+Implanted electrodes that record the activity of many neurons with stable signal quality for
+many years, without damaging tissue or being rejected by the body.
+"""
+scope = """
+In: intracortical electrode arrays and thin-film or flexible probes, and the signal stability and
+tissue response over time. Out: the decoding software and the interface as a whole
+(neurotech/high-bandwidth-bci).
+"""
+status = "proposed"
+sdgs = [3]
+search_terms = ["chronic intracortical electrode signal stability", "foreign body response neural probe", "flexible neural electrode long-term recording"]
+curators = []

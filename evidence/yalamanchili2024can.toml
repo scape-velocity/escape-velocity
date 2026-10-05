@@ -1,0 +1,18 @@
+title = "Can a forward osmosis-reverse osmosis hybrid system achieve 90 % wastewater recovery and desalination energy below 1 kWh/m3? A design and simulation study"
+authors = ["Yalamanchili, Rajashree", "Rodríguez-Roda, Ignasi", "Galizia, Albert", "Blandin, Gaëtan"]
+year = 2024
+venue = "Desalination"
+type = "article"
+doi = "10.1016/j.desal.2024.117767"
+class = "extrapolation"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+
+[[finding]]
+metric = "specific-energy-consumption"
+value = 0.96
+unit = "kWh m^-3"
+conditions = "Software simulation (not a measurement) of reverse osmosis on seawater diluted by forward osmosis with wastewater, to 7.4 g/l."
+quote = "enabling RO desalination at 0.96 kWh/m3"

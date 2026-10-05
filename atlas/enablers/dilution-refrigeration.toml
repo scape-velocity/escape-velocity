@@ -1,0 +1,31 @@
+name = "Dilution refrigeration"
+statement = """
+Cryostats that cool devices to a few millikelvin and remove the heat that wiring, amplifiers and
+control electronics add at that temperature.
+"""
+scope = """
+In scope: dilution refrigerators and their cooling power at the stages where qubits and cold
+electronics sit. Out of scope: the control electronics themselves (enablers/cryogenic-control-electronics)
+and cooling at room temperature (enablers/heat-removal).
+"""
+status = "proposed"
+sdgs = [9]
+# No target yet: no abstract states the heat load of a million-qubit machine. Kawabata (2026,
+# doi:10.1587/transele.2025sei0001) budgets stage-wise cryogenic power for an RSA-2048-scale
+# machine in the body of the paper; a curator who reads it can add a sourced target and move this
+# technology to scoping.
+search_terms = ["dilution refrigerator cooling power", "cryogen-free dilution refrigerator", "millikelvin platform large-scale quantum computing"]
+curators = []
+last_reviewed = 2026-10-04
+
+[[metric]]
+id = "power"
+metric = "cooling-power"
+headline = true
+conditions = "Cryogen-free dilution refrigerator with four parallel dilution units, at 102.48 mK; the power at the 10-20 mK qubit stage is far lower."
+
+[metric.current]
+value = 2e-3
+as_of = 2025-01-01
+evidence = "guan2025development"
+note = "as_of is the start of the publication year; the abstract gives no date."

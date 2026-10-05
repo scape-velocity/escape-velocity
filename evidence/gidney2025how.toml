@@ -1,0 +1,19 @@
+title = "How to factor 2048 bit RSA integers with less than a million noisy qubits"
+authors = ["Gidney, Craig"]
+year = 2025
+venue = "arXiv"
+type = "preprint"
+arxiv = "2505.15917"
+class = "reported"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+note = "Resource estimate, not a measurement. Used for targets: less than a million noisy qubits, 0.1% uniform gate error, 1 microsecond surface-code cycle, 10 microsecond control reaction time, less than a week of runtime."
+
+[[finding]]
+metric = "physical-qubits"
+value = 1e6
+unit = "qubit"
+conditions = "Upper bound on qubits for factoring a 2048 bit RSA integer in less than a week; the abstract says less than a million, so 1e6 is the bound, not an estimate of the exact count."
+quote = "I estimate that a 2048 bit RSA integer could be factored in less than a week by a quantum computer with less than a million noisy qubits."

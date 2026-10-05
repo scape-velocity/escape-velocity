@@ -1,0 +1,33 @@
+title = "Quantum error correction below the surface code threshold"
+authors = ["Google Quantum AI and Collaborators"]
+year = 2024
+venue = "Nature"
+type = "article"
+doi = "10.1038/s41586-024-08449-y"
+class = "established"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-opus-5-5"
+note = "Published online 2024-12-09; in print 2025. The Willow processor."
+
+[[finding]]
+metric = "logical-error-per-cycle"
+value = 1.43e-3
+unit = "1"
+conditions = "Distance-7 surface-code memory on 101 qubits of the Willow superconducting processor."
+quote = "culminating in a 101-qubit distance-7 code with 0.143% ± 0.003% error per cycle of error correction"
+
+[[finding]]
+metric = "decoder-latency"
+value = 6.3e-5
+unit = "s"
+conditions = "Average real-time decoder latency, distance-5 surface code, up to a million cycles of 1.1 microseconds each."
+quote = "achieving an average decoder latency of 63 μs at distance-5 up to a million cycles, with a cycle time of 1.1 μs"
+
+[[finding]]
+metric = "physical-qubits"
+value = 101
+unit = "qubit"
+conditions = "Qubits used by the distance-7 surface-code memory."
+quote = "culminating in a 101-qubit distance-7 code"

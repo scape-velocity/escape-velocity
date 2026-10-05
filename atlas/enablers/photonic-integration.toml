@@ -1,0 +1,44 @@
+name = "Photonic integration"
+statement = """
+Many optical components, such as waveguides, modulators, lasers and detectors, made together on one
+chip with low loss at a cost that allows volume.
+"""
+scope = """
+In scope: integrated photonic circuits, such as silicon nitride, silicon and III-V platforms, and
+their loss, integration of sources and detectors, and fabrication. Out of scope: the systems that use
+them, covered by quantum/quantum-interconnect and computing/low-energy-data-movement.
+"""
+status = "proposed"
+sdgs = [9]
+search_terms = ["silicon nitride low-loss waveguide", "heterogeneous integration III-V silicon photonics", "photonic integrated circuit"]
+curators = []
+
+[[metric]]
+id = "loss"
+metric = "waveguide-loss"
+headline = true
+conditions = "Silicon nitride waveguides with an 80 nm core, made in an anneal-free process at no more than 250 C."
+
+[metric.current]
+value = 1.77
+as_of = 2024-01-01
+evidence = "bose2024anneal"
+note = "as_of is the publication year; the abstract gives no date. No target yet: the loss a quantum interconnect or an optical memory link needs has not been sourced."
+
+[[gap]]
+id = "low-loss-with-active-devices"
+title = "Low loss and active devices in one process"
+description = """
+Silicon nitride gives the lowest waveguide loss, and integrating III-V and silicon materials has made
+large-scale nitride circuits with lasers and detectors possible. Ultra-low loss has been reached in
+an anneal-free process at no more than 250 C, which is compatible with CMOS back-end steps; keeping
+that loss while lasers, modulators and detectors share the chip, at volume, is the open problem.
+"""
+metric = "loss"
+type = "manufacturing"
+layer = "manufacturing"
+severity = "medium"
+status = "active"
+evidence = ["bose2024anneal", "xiang2022silicon"]
+search_terms = ["heterogeneous integration III-V silicon nitride laser", "low-temperature silicon nitride waveguide loss"]
+

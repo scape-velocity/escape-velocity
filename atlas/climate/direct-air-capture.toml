@@ -1,0 +1,39 @@
+name = "Direct air capture"
+statement = """
+Plants that remove CO2 from ambient air and store it durably, at a cost low enough to remove
+gigatonnes per year.
+"""
+scope = """
+In: capture of CO2 from air by sorbents or solvents, with transport and geological storage.
+Out: capture at point sources, biological and mineral removal, and the storage site itself
+(climate/geologic-co2-storage).
+"""
+status = "proposed"
+sdgs = [13]
+search_terms = ["direct air capture cost", "direct air capture energy requirement", "DACCS deployment"]
+curators = []
+
+[[requires]]
+technology = "materials/low-cost-co2-sorbents"
+why = "The sorbent sets the capture capacity, the regeneration energy and a large part of the plant's cost."
+
+[[requires]]
+technology = "climate/geologic-co2-storage"
+why = "Removal counts only if the CO2 stays out of the air for centuries; the storage is also part of the cost per tonne."
+
+[[gap]]
+id = "cost"
+title = "Projected cost stays in the hundreds of USD per tonne"
+description = """
+Design and learning-curve estimates put the levelized cost of capture in the hundreds of USD per
+tonne: 94 to 232 USD/t for a designed aqueous-KOH plant (capture only, a design not an operating
+plant), and 341 to 374 USD/t of CO2 net removed with transport and storage at 1 Gt-CO2 per year of
+cumulative capacity. No source found for the cost of a plant operating today. Closing the gap needs
+cheaper sorbents, lower regeneration energy and cheaper storage.
+"""
+type = "cost"
+layer = "deployment"
+severity = "critical"
+status = "open"
+blocked_by = ["materials/low-cost-co2-sorbents", "climate/geologic-co2-storage"]
+evidence = ["keith2018process", "sievert2024considering"]

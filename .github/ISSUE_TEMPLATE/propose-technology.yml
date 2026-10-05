@@ -1,0 +1,44 @@
+name: Propose a technology
+description: A technology the atlas should track, or a dependency that has no file yet.
+title: "data(<slug>): propose <technology>"
+labels: ["proposal"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      description: A capability with a measurable target, not a field, product or company.
+      placeholder: Direct air capture at 100 USD per tonne
+    validations:
+      required: true
+  - type: dropdown
+    id: domain
+    attributes:
+      label: Domain
+      options: [computing, quantum, ai, health, biotech, neurotech, energy, climate, materials, water, food, space, enablers]
+    validations:
+      required: true
+  - type: textarea
+    id: statement
+    attributes:
+      label: Statement
+      description: What exists when the technology is done, in one or two sentences.
+    validations:
+      required: true
+  - type: textarea
+    id: metric
+    attributes:
+      label: Headline metric, current value and target
+      description: The one number that best says how far it is, with sources if you have them.
+  - type: textarea
+    id: requires
+    attributes:
+      label: What it depends on, and what depends on it
+      description: Technologies in the atlas (ids such as quantum/fault-tolerant-quantum-computer) or new ones.
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope
+      options:
+        - label: This is not a weapon, dual-use research of concern, or surveillance aimed at people (decision 0001).
+          required: true

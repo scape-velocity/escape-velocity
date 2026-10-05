@@ -1,0 +1,19 @@
+title = "Laser requirements for inertial fusion energy target designs"
+authors = ["Goncharov, Valeri N."]
+year = 2025
+venue = "Optical Technologies for Inertial Fusion Energy"
+type = "article"
+doi = "10.1117/12.3041301"
+class = "reported"
+added = 2026-10-04
+added_by = "agent:claude-opus-5-5"
+status = "machine-checked"
+checked = 2026-10-04
+note = "Conference talk (SPIE proceedings). States the high-gain requirement for inertial fusion energy as a ratio of neutron yield to laser energy of about 100."
+
+[[finding]]
+metric = "fusion-target-gain"
+value = 100
+unit = "1"
+conditions = "Requirement for an inertial fusion energy plant, not a measurement: neutron yield over incident laser energy."
+quote = "implosion physics can meet the high-gain requirements for IFE (when a ratio of neutron yield to incident laser energy ~100)"

@@ -1,0 +1,16 @@
+title = "Silicon nitride passive and active photonic integrated circuits: trends and prospects"
+authors = ["Xiang, Chao", "Jin, Warren", "Bowers, John Edward"]
+year = 2022
+venue = "Photonics Research"
+type = "review"
+doi = "10.1364/prj.452936"
+class = "established"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+note = "Perspective article reviewing the state of the art."
+
+[[finding]]
+conditions = "Review of hybrid and heterogeneous integration of III-V with silicon nitride."
+quote = "the integration of Si and III-V materials has enabled new large-scale, advanced silicon nitride-based photonic integrated circuits with versatile functionality"

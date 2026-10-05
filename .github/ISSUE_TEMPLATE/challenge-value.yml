@@ -1,0 +1,26 @@
+name: Challenge a value
+description: A current value, target, limit, readiness level or gap you think is wrong.
+title: "fix(<slug>): <what is wrong>"
+labels: ["challenge"]
+body:
+  - type: input
+    id: technology
+    attributes:
+      label: Technology
+      placeholder: ai/energy-efficient-inference
+    validations:
+      required: true
+  - type: dropdown
+    id: what
+    attributes:
+      label: What is wrong
+      options: [Current value, Target, Physical limit, Readiness level, A gap, A dependency, An evidence card]
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why
+      description: What the atlas says, what you think is right, and your sources.
+    validations:
+      required: true

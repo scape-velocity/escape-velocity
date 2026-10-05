@@ -1,0 +1,99 @@
+name = "Nitrogen-fixing cereals"
+statement = """
+Cereal crops that obtain most of their nitrogen from the air, through their own nitrogenase, an
+engineered symbiosis or a partnered microbiome, so that high yields do not depend on synthetic
+nitrogen fertilizer.
+"""
+scope = """
+In: maize, wheat, rice and other cereals that fix nitrogen in the plant or in a stable association
+with it. Out: fertilizer-applied microbial inoculants that supplement but do not replace fertilizer
+(they appear here only as an approach), and plant gene-editing tools, which are
+biotech/plant-genome-engineering.
+"""
+status = "scoping"
+sdgs = [2, 15]
+search_terms = ["nitrogen fixation in cereals", "engineering nitrogenase in plants", "engineered nitrogen-fixing symbiosis non-legumes"]
+curators = []
+last_reviewed = 2026-10-04
+
+[[requires]]
+technology = "biotech/plant-genome-engineering"
+why = "Every route to a self-fertilizing cereal needs many coordinated edits to the plant genome."
+
+[[metric]]
+id = "n-fixation"
+metric = "nitrogen-from-fixation"
+headline = true
+conditions = "Share of the crop's nitrogen from biological fixation of atmospheric nitrogen, measured with 15N methods."
+
+[metric.current]
+value = 82
+as_of = 2018-01-01
+evidence = "vandeynze2018nitrogen"
+note = "Upper end of a 29-82% range, in an indigenous landrace grown in nitrogen-depleted soil. Not a modern high-yield cultivar: no elite cereal has shown this."
+
+[metric.target]
+value = 100
+rationale = "A crop that fully meets its nitrogen from the air is the 'N-self-fertilizing' crop described in the literature as capable of autonomous fixation, avoiding the need for chemical fertilizers. The target applies to elite cultivars at full yield, which is what the current value does not show."
+evidence = "guo2022biological"
+
+[[gap]]
+id = "landrace-to-elite"
+title = "Fixation shown in a landrace, not in high-yield cultivars"
+description = """
+The high fixation share was measured in a landrace with aerial roots that secrete mucilage, grown in
+nitrogen-depleted soil. Moving the trait into elite cultivars at full yield, and under fertilization,
+has not been shown. Engineered root-associated bacteria that keep fixing in fertilized fields have
+been commercialized, but their abstract reports a yield gain over fertilizer alone, not a share of
+nitrogen from fixation.
+"""
+metric = "n-fixation"
+type = "scientific-unknown"
+layer = "system"
+severity = "critical"
+status = "active"
+evidence = ["vandeynze2018nitrogen", "wen2021enabling"]
+search_terms = ["Sierra Mixe maize aerial roots mucilage breeding", "nitrogen fixation corn fertilized field 15N"]
+
+[[gap.approach]]
+name = "Engineered root-associated diazotroph that fixes nitrogen despite fertilizer"
+evidence = ["wen2021enabling"]
+
+[[gap]]
+id = "nitrogenase-in-plant-cells"
+title = "A working nitrogenase inside plant cells"
+description = """
+Expressing the nitrogenase components in plant mitochondria is the route to a crop that fixes its
+own nitrogen. Sixteen nitrogenase proteins have each been expressed and targeted to the
+mitochondrial matrix of a model plant, but the NifD component is the least abundant and a full
+working complex in a plant has not been shown.
+"""
+metric = "n-fixation"
+type = "engineering"
+layer = "device"
+severity = "critical"
+status = "active"
+blocked_by = ["biotech/plant-genome-engineering"]
+evidence = ["allen2017expression", "guo2022biological"]
+search_terms = ["nitrogenase mitochondria plant NifD expression", "nif genes plant organelle"]
+
+[[gap.approach]]
+name = "Fusion of NifD and NifK to equalize their abundance in plant mitochondria"
+evidence = ["allen2017expression"]
+
+[[gap]]
+id = "nodulation-in-cereals"
+title = "Root-nodule symbiosis not yet engineered into non-legumes"
+description = """
+Legumes host nitrogen-fixing rhizobia in root nodules. The objective of engineering nodulation in
+non-leguminous crops has not been achieved; the open questions are the signalling, infection and
+nodule-organogenesis programs.
+"""
+metric = "n-fixation"
+type = "scientific-unknown"
+layer = "physics"
+severity = "high"
+status = "open"
+blocked_by = ["biotech/plant-genome-engineering"]
+evidence = ["huisman2019roadmap", "guo2022biological"]
+search_terms = ["engineering root nodule symbiosis non-legume", "nodulation cereals synthetic biology"]

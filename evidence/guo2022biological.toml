@@ -1,0 +1,15 @@
+title = "Biological nitrogen fixation in cereal crops: Progress, strategies, and perspectives"
+authors = ["Guo, Kaiyan", "Yang, Jun", "Yu, Nan", "Luo, Li", "Wang, Ertao"]
+year = 2022
+venue = "Plant Communications"
+type = "review"
+doi = "10.1016/j.xplc.2022.100499"
+class = "established"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+
+[[finding]]
+conditions = "Qualitative statement from the abstract of a review."
+quote = "Engineering cereal crops that can fix nitrogen like legumes or associate with nitrogen-fixing microbiomes could help to avoid the problems caused by the overuse of synthetic nitrogen fertilizer."

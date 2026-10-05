@@ -1,0 +1,18 @@
+title = "Nitrogen fixation in a landrace of maize is supported by a mucilage-associated diazotrophic microbiota"
+authors = ["Van Deynze, Allen", "Zamora, Pablo", "Delaux, Pierre-Marc", "Heitmann, Cristobal", "Jayaraman, Dhileepkumar", "Rajasekar, Shanmugam", "Graham, Danielle", "Maëda, Junko"]
+year = 2018
+venue = "PLoS Biology"
+type = "article"
+doi = "10.1371/journal.pbio.2006352"
+class = "established"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+
+[[finding]]
+metric = "nitrogen-from-fixation"
+value = 82
+unit = "%"
+conditions = "Upper end of the 29-82% range measured by 15N field experiments over 5 years in an indigenous Sierra Mixe maize landrace in nitrogen-depleted soil, not a modern high-yield cultivar."
+quote = "atmospheric nitrogen fixation contributed 29%-82% of the nitrogen nutrition of Sierra Mixe maize"

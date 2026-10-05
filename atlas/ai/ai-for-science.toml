@@ -1,0 +1,20 @@
+name = "AI for science"
+statement = """
+AI systems that propose, test and refine scientific hypotheses, designs and experiments well enough
+that their results are confirmed in the laboratory at a rate that speeds up discovery.
+"""
+scope = """
+In scope: models and agents used to generate and rank candidates (molecules, proteins, materials,
+experiments) and to close the loop with laboratory or simulation feedback. Out of scope: the energy
+cost of running them, covered by ai/energy-efficient-inference; the specific discoveries they enable,
+covered by technologies such as biotech/de-novo-protein-design and
+health/antibiotics-for-resistant-bacteria.
+"""
+status = "proposed"
+sdgs = [3, 9]
+search_terms = ["AI for scientific discovery", "autonomous laboratory self-driving lab", "AI scientist hypothesis generation validated experiment"]
+curators = []
+
+[[requires]]
+technology = "ai/energy-efficient-inference"
+why = "Screening and agentic loops run many model calls per experiment, so the energy and cost per token set how far discovery loops can scale."

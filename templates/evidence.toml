@@ -1,0 +1,36 @@
+# Copy to evidence/<key>.toml. The key is the first author's family name, the year and the first
+# word of the title that is not an article, all lowercase ASCII: google2024quantum.
+# One card per source. Technologies cite the card by its key; "cited by" is computed.
+#
+# Status: an agent may write "unverified". skills/review-evidence/scripts/verify_evidence.py sets
+# "machine-checked" when the identifier resolves, the metadata matches and every quote is in the
+# abstract. Only a curator sets "verified", with reviewed_by.
+
+title = "Quantum error correction below the surface code threshold"
+authors = ["Google Quantum AI and Collaborators"]   # "Family, Given" for people; an organization as written
+year = 2024                  # must match the key
+venue = "Nature"
+type = "article"             # article | review | preprint | dataset | report | trial | patent | standard
+doi = "10.1038/s41586-024-08449-y"   # bare, without https://doi.org/
+# arxiv = "2408.13687"
+# pmid = "..."
+# nct = "NCT..."
+# url = "https://..."        # for sources without a DOI; then also:
+# accessed = 2026-10-04
+class = "established"        # established | reported | extrapolation | speculation; a preprint is never established
+status = "unverified"
+added = 2026-10-04
+added_by = "github-handle or agent:model-name"
+# checked = 2026-10-04       # set by verify_evidence.py --write
+# reviewed_by = "github-handle"
+# note = "..."
+
+# Findings: the numbers the atlas takes from this source. The unit is the metric's unit in
+# taxonomy/metrics.toml; convert the value if the source uses another (0.143% is 1.43e-3).
+# The quote is verbatim from the abstract (or the page, for a dataset or report), at most 60 words.
+[[finding]]
+metric = "logical-error-per-cycle"
+value = 1.43e-3
+unit = "1"
+conditions = "Distance-7 surface-code memory, 101 qubits, superconducting processor."
+quote = "exact words from the abstract"

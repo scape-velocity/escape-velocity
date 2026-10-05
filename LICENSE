@@ -1,0 +1,18 @@
+Escape Velocity
+Copyright (c) 2026 João Alisson and contributors
+
+This project is released under three licenses, by kind of content (decision 0009):
+
+Data: the files in taxonomy/, the technology files atlas/*/*.toml and the evidence cards
+evidence/*.toml are dedicated to the public domain under CC0 1.0 Universal. See LICENSE-DATA.
+Quotations inside evidence cards remain the words of their authors and are used as citations.
+  Summary: https://creativecommons.org/publicdomain/zero/1.0/
+
+Text: documentation, generated pages and skills are licensed under the Creative Commons
+Attribution 4.0 International License (CC BY 4.0). You may share and adapt them for any purpose,
+even commercially, with appropriate credit, a link to the license and an indication of changes.
+  Summary: https://creativecommons.org/licenses/by/4.0/
+  Legal code: https://creativecommons.org/licenses/by/4.0/legalcode
+
+Code: the tools in tools/ and the scripts in skills/*/scripts/ are licensed under the Apache
+License, Version 2.0. See LICENSE-CODE.

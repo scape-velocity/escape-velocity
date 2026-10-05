@@ -1,0 +1,13 @@
+name = "Perovskite-silicon tandem photovoltaics"
+statement = """
+Solar modules that stack a perovskite cell on a silicon cell to exceed the efficiency limit of
+silicon alone, and keep that efficiency for the 25 to 30 year life of a solar module.
+"""
+scope = """
+In: monolithic and mechanically stacked perovskite-on-silicon cells and modules, and their
+durability. Out: single-junction silicon and all-perovskite tandems.
+"""
+status = "proposed"
+sdgs = [7, 13]
+search_terms = ["perovskite silicon tandem solar cell efficiency", "perovskite stability damp heat", "tandem module"]
+curators = []

@@ -1,0 +1,34 @@
+name: Report evidence
+description: A paper, dataset or report with a number that updates the atlas.
+title: "evidence(<slug>): <what it shows>"
+labels: ["evidence"]
+body:
+  - type: input
+    id: technology
+    attributes:
+      label: Technology
+      description: Its id, as in the page's URL.
+      placeholder: energy/fusion-power
+    validations:
+      required: true
+  - type: input
+    id: identifier
+    attributes:
+      label: Source
+      description: DOI, arXiv id, PMID, NCT number, or URL.
+    validations:
+      required: true
+  - type: textarea
+    id: finding
+    attributes:
+      label: Finding
+      description: The metric, the value with its unit, and the conditions under which it was measured.
+    validations:
+      required: true
+  - type: textarea
+    id: quote
+    attributes:
+      label: Quote
+      description: The sentence of the abstract (or page) that states the value, verbatim.
+    validations:
+      required: true

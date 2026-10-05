@@ -1,0 +1,187 @@
+# Controlled vocabulary: the values the data files may use for each field.
+# tools/check.py rejects any other value.
+
+# Technology status: how far the atlas has mapped the technology, not how mature it is.
+[[technology_status]]
+id = "proposed"
+meaning = "Named, with a statement and a scope; nothing mapped yet"
+
+[[technology_status]]
+id = "scoping"
+meaning = "Dependencies and the headline metric are mapped; the current value has a source"
+
+[[technology_status]]
+id = "mapped"
+meaning = "Every metric has a current value with a source and a target; the main gaps are written"
+
+[[technology_status]]
+id = "tracked"
+meaning = "Mapped, and a curator reviews new evidence at least every six months"
+
+[[technology_status]]
+id = "achieved"
+meaning = "Every target is met; kept for the record"
+
+[[technology_status]]
+id = "retired"
+meaning = "No longer pursued, or merged into another technology; the reason is in the file"
+
+# Gap status.
+[[gap_status]]
+id = "open"
+meaning = "No approach has shown evidence of closing it"
+
+[[gap_status]]
+id = "active"
+meaning = "Research aimed at the gap is under way, without decisive results yet"
+
+[[gap_status]]
+id = "promising"
+meaning = "At least one approach has evidence that it can close the gap"
+
+[[gap_status]]
+id = "closed"
+meaning = "The metric reached the target in at least one demonstration"
+
+[[gap_status]]
+id = "beyond-limit"
+meaning = "The target lies beyond a physical limit; it must change, not the technology"
+
+# Gap type: what kind of obstacle it is. The scout looks for papers only for the first four.
+[[gap_type]]
+id = "scientific-unknown"
+meaning = "The underlying science is not understood well enough"
+
+[[gap_type]]
+id = "engineering"
+meaning = "The science is known; a working device or system is not"
+
+[[gap_type]]
+id = "fundamental-limit"
+meaning = "A physical law bounds the metric; progress means a different approach"
+
+[[gap_type]]
+id = "data"
+meaning = "The data, benchmarks or measurements needed do not exist"
+
+[[gap_type]]
+id = "manufacturing"
+meaning = "It works in the laboratory but cannot be made at scale or with the needed yield"
+
+[[gap_type]]
+id = "cost"
+meaning = "It works and can be made, but costs too much to be used"
+
+[[gap_type]]
+id = "regulation"
+meaning = "Approval, standards, safety or ethics block use"
+
+[[gap_type]]
+id = "supply-chain"
+meaning = "Scarce materials, single suppliers or export controls block scale"
+
+# Layer: where in the technology stack the gap sits.
+[[layer]]
+id = "physics"
+meaning = "Physical, chemical or biological principle; materials"
+
+[[layer]]
+id = "device"
+meaning = "A single component: a qubit, a cell, a molecule, an electrode"
+
+[[layer]]
+id = "system"
+meaning = "Components working together: architecture, control, integration"
+
+[[layer]]
+id = "manufacturing"
+meaning = "Making it at scale: process, yield, supply"
+
+[[layer]]
+id = "deployment"
+meaning = "Using it: cost, regulation, adoption, infrastructure"
+
+# Severity of a gap for the technology that has it.
+[[severity]]
+id = "critical"
+meaning = "The target cannot be reached until this gap closes"
+
+[[severity]]
+id = "high"
+meaning = "Reaching the target without closing it is possible but much harder"
+
+[[severity]]
+id = "medium"
+meaning = "Closing it would bring the target noticeably closer"
+
+[[severity]]
+id = "low"
+meaning = "Worth recording; not on the critical path"
+
+# Evidence class: how much the evidence card can carry. Mirrors the kinds of claim in The Alan
+# Machine (decision 0008).
+[[evidence_class]]
+id = "established"
+meaning = "Measured and published after peer review, or in a standard reference"
+
+[[evidence_class]]
+id = "reported"
+meaning = "A preprint, a company or press report, or a single unreplicated result"
+
+[[evidence_class]]
+id = "extrapolation"
+meaning = "A projection from established results under stated assumptions"
+
+[[evidence_class]]
+id = "speculation"
+meaning = "A hypothesis with no evidence yet, such as a cross-domain idea from an agent"
+
+# Evidence status: who has checked the card.
+[[evidence_status]]
+id = "unverified"
+meaning = "Added, by a person or an agent, and not checked yet"
+
+[[evidence_status]]
+id = "machine-checked"
+meaning = "The identifier resolves, the metadata matches and the quote appears in the abstract"
+
+[[evidence_status]]
+id = "verified"
+meaning = "A curator read the source and confirmed every finding"
+
+[[evidence_status]]
+id = "rejected"
+meaning = "The source does not support the card; kept so it is not added again"
+
+# Evidence type.
+[[evidence_type]]
+id = "article"
+meaning = "Peer-reviewed research article"
+
+[[evidence_type]]
+id = "review"
+meaning = "Peer-reviewed review article"
+
+[[evidence_type]]
+id = "preprint"
+meaning = "Preprint (arXiv, bioRxiv, medRxiv, ChemRxiv)"
+
+[[evidence_type]]
+id = "dataset"
+meaning = "Dataset or benchmark leaderboard, with an access date"
+
+[[evidence_type]]
+id = "report"
+meaning = "Report from a government, standards body, laboratory or company"
+
+[[evidence_type]]
+id = "trial"
+meaning = "Clinical trial registration (ClinicalTrials.gov, EU CTR, WHO ICTRP)"
+
+[[evidence_type]]
+id = "patent"
+meaning = "Patent or patent application"
+
+[[evidence_type]]
+id = "standard"
+meaning = "Standard or reference data (CODATA, ISO, NIST)"

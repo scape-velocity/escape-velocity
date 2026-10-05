@@ -1,0 +1,16 @@
+title = "Multiplexed superconducting qubit control at millikelvin temperatures with a low-power cryo-CMOS multiplexer"
+authors = ["Acharya, R.", "Brebels, S.", "Grill, Alexander", "Verjauw, Jeroen", "Ivanov, Ts.", "Lozano, Daniel Pérez", "Wan, Danny", "Van Damme, Jacques"]
+year = 2023
+venue = "Nature Electronics"
+type = "article"
+doi = "10.1038/s41928-023-01033-8"
+class = "established"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+note = "Author list truncated in the scout output. Evidence of cryo-CMOS control at millikelvin without degrading the qubit."
+
+[[finding]]
+conditions = "Radio-frequency cryo-CMOS multiplexer operating below 15 mK, interfaced with a superconducting qubit."
+quote = "operates below 15 mK with a minimal cross-coupling"

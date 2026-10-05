@@ -1,0 +1,20 @@
+title = "One-shot design of functional protein binders with BindCraft"
+authors = ["Pacesa, Martin", "Nickel, Lennart", "Schellhaas, Christian", "Schmidt, Joseph H.", "Pyatova, Ekaterina", "Kissling, Lucas", "Barendse, Patrick", "Choudhury, Jagrity"]
+year = 2025
+venue = "Nature"
+type = "article"
+doi = "10.1038/s41586-025-09429-6"
+pmid = "40866699"
+class = "established"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+note = "Author list truncated to the first eight as printed by the scout. The abstract gives a range across targets; the atlas takes the lower end as the value that holds across the targets tested."
+
+[[finding]]
+metric = "design-success-rate"
+value = 10
+unit = "%"
+conditions = "De novo protein binder design with an AlphaFold2-based pipeline; the range of experimental success rates across the targets tested, lower end."
+quote = "experimental success rates of 10–100%"

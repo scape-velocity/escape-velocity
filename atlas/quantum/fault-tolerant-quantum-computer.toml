@@ -1,0 +1,249 @@
+name = "Fault-tolerant quantum computer"
+statement = """
+A quantum computer that runs algorithms of practical value, with logical error rates low enough
+that the answer can be trusted. It does this by encoding each logical qubit in many noisy physical
+qubits and correcting errors faster than they accumulate.
+"""
+scope = """
+In scope: the full machine that error-corrects a computation, built here from physical qubits, a
+real-time decoder, cryogenic control and refrigeration, and links between modules. Out of scope:
+noisy intermediate-scale machines without error correction, quantum sensors and quantum networks
+for their own sake. The decoder is covered by quantum/real-time-qec-decoder and the module links
+by quantum/quantum-interconnect.
+"""
+status = "mapped"
+readiness = 4
+readiness_evidence = ["google2024quantum"]
+readiness_note = "A distance-7 surface-code memory below threshold has been shown in the laboratory; no logical algorithm of practical value has run, and the wiring, refrigeration and decoding for a million-qubit machine are not built."
+sdgs = [9]
+search_terms = ["quantum error correction below threshold", "logical qubit surface code", "fault-tolerant quantum computing resource estimate"]
+curators = []
+last_reviewed = 2026-10-04
+alan_machine = [{ page = "chapters/quantum-alan", title = "The quantum Alan" }, { page = "building-alan/quantum-hardware", title = "Building Alan: quantum hardware" }]
+
+[[requires]]
+technology = "quantum/real-time-qec-decoder"
+why = "Every error-correction cycle needs its syndromes decoded before the next logical operation that depends on them."
+metric = "decoder-latency"
+value = 1e-5
+need = "Reaction time of 10 microseconds, the figure assumed in the RSA-2048 resource estimate (gidney2025how)."
+
+[[requires]]
+technology = "enablers/dilution-refrigeration"
+why = "Superconducting qubits operate at about 10 mK, and every control line and amplifier adds heat to that stage."
+metric = "cooling-power"
+need = "Enough cooling power, in one cryostat or several linked, for the heat load of up to a million physical qubits and their wiring."
+
+[[requires]]
+technology = "enablers/cryogenic-control-electronics"
+why = "One coaxial line per qubit does not scale to a million qubits; control and readout electronics must sit in the cold."
+
+[[requires]]
+technology = "quantum/quantum-interconnect"
+why = "A machine of up to a million qubits is unlikely to fit in one cryostat, so modules must be linked by quantum channels."
+
+[[metric]]
+id = "logical-error"
+metric = "logical-error-per-cycle"
+headline = true
+conditions = "Surface-code memory, distance 7, 101 qubits, superconducting processor."
+
+[metric.current]
+value = 1.43e-3
+as_of = 2024-12-09
+evidence = "google2024quantum"
+
+[metric.target]
+value = 1e-12
+rationale = "Gidney's RSA-2048 estimate runs for less than a week at a 1 microsecond cycle, about 6e11 cycles (6.05e5 s divided by 1e-6 s; durations from gidney2025how). A single logical qubit must then fail with probability well under 1/(6e11), about 1.7e-12, per cycle; with many logical qubits the requirement is lower still, so 1e-12 is a floor of the order of magnitude, not a precise budget."
+evidence = "gidney2025how"
+
+[[metric]]
+id = "two-qubit-error"
+metric = "two-qubit-gate-error"
+conditions = "Best reported single pair: 60 ns gate on two fluxonium qubits, randomized benchmarking."
+
+[metric.current]
+value = 6e-4
+as_of = 2025-01-01
+evidence = "lin2025days"
+note = "as_of is the start of the publication year (PRX Quantum volume 6, 2025); the exact date was not in the abstract. One pair, not a uniform array."
+
+[metric.target]
+value = 1e-3
+rationale = "Gidney's RSA-2048 estimate assumes a uniform gate error of 0.1% across a square grid of qubits. The best pair already beats it, so the gap is uniformity across a million qubits, not the best pair."
+evidence = "gidney2025how"
+
+[[metric]]
+id = "qubits"
+metric = "physical-qubits"
+conditions = "Qubits used by the distance-7 surface-code memory on the Willow processor."
+
+[metric.current]
+value = 101
+as_of = 2024-12-09
+evidence = "google2024quantum"
+
+[metric.target]
+value = 1e6
+rationale = "Upper bound of the RSA-2048 resource estimate: less than a million noisy qubits (gidney2025how), down from 20 million in the 2019 estimate."
+evidence = "gidney2025how"
+
+[[metric]]
+id = "decoder"
+metric = "decoder-latency"
+conditions = "Average real-time decoder latency, distance-5 surface code, cycle time 1.1 microseconds."
+
+[metric.current]
+value = 6.3e-5
+as_of = 2024-12-09
+evidence = "google2024quantum"
+
+[metric.target]
+value = 1e-5
+rationale = "The control-system reaction time of 10 microseconds assumed by the RSA-2048 resource estimate (gidney2025how)."
+evidence = "gidney2025how"
+
+[[gap]]
+id = "physical-error"
+title = "Physical error rates uniform across the array"
+description = """
+Single pairs of superconducting qubits reach two-qubit gate fidelity of 99.94% (error 6e-4) with
+stability over 24 days, but a million-qubit machine needs every pair near that level at once, with
+leakage and crosstalk held down. The Willow memory ran at 0.143% logical error per cycle at
+distance 7, short of the target by about nine orders of magnitude. Closing it means both lower
+physical error and larger code distance on many more qubits.
+"""
+metric = "logical-error"
+type = "engineering"
+layer = "device"
+severity = "high"
+status = "active"
+evidence = ["google2024quantum", "lin2025days"]
+search_terms = ["two-qubit gate fidelity 99.9 superconducting", "fluxonium gate", "leakage suppression"]
+
+[[gap.approach]]
+name = "Fluxonium qubits with direct two-qubit gates"
+readiness = 3
+evidence = ["lin2025days"]
+
+[[gap]]
+id = "qubit-count-and-wiring"
+title = "Qubit count and control wiring"
+description = """
+The largest error-corrected memory in the evidence uses 101 qubits; the target is up to a million.
+A coaxial line per qubit from room temperature does not scale, so control and readout must move
+into the cryostat. Cryo-CMOS multiplexing has worked below 15 mK without degrading relaxation
+times, and superconducting digital demultiplexing has run a multi-qubit system, both at laboratory
+scale.
+"""
+metric = "qubits"
+type = "engineering"
+layer = "system"
+severity = "critical"
+status = "active"
+blocked_by = ["enablers/cryogenic-control-electronics", "enablers/dilution-refrigeration"]
+evidence = ["acharya2023multiplexed", "jordan2026quantum", "krinner2019engineering", "pauka2019cryogenic"]
+search_terms = ["cryo-CMOS qubit control", "wiring bottleneck superconducting qubits", "digital demultiplexing cryogenic"]
+
+[[gap.approach]]
+name = "Cryo-CMOS multiplexer below 15 mK"
+readiness = 4
+evidence = ["acharya2023multiplexed"]
+
+[[gap.approach]]
+name = "Superconducting digital control electronics at millikelvin"
+readiness = 4
+evidence = ["jordan2026quantum"]
+
+[[gap]]
+id = "correlated-errors"
+title = "Correlated errors from cosmic rays and radioactivity"
+description = """
+Muons and gamma rays create quasiparticle bursts that cause correlated errors across a chip, which
+error correction cannot absorb. A measurement on a 63-qubit processor separated the contributions
+of muons and gamma rays. Back-side phonon downconversion cut correlated poisoning by two orders of
+magnitude on three-qubit chips; it has not been shown on a million-qubit array.
+"""
+metric = "logical-error"
+type = "scientific-unknown"
+layer = "device"
+severity = "high"
+status = "promising"
+evidence = ["li2025cosmic", "iaia2022phonon"]
+search_terms = ["cosmic ray quasiparticle burst superconducting qubits", "phonon downconversion", "underground quantum processor"]
+
+[[gap.approach]]
+name = "Phonon downconversion with back-side normal-metal reservoirs"
+readiness = 4
+evidence = ["iaia2022phonon"]
+
+[[gap]]
+id = "decoding-at-scale"
+title = "Decoding at scale and in real time"
+description = """
+The Willow decoder averaged 63 microseconds at distance 5, six times the 10 microsecond reaction
+time assumed in the RSA-2048 estimate, and at a cycle time of 1.1 microseconds, far from 1
+microsecond at thousands of logical qubits. FPGA decoders report tens to hundreds of nanoseconds per
+measurement round in modeled-noise studies, which is not the same quantity as end-to-end latency in
+a running experiment.
+"""
+metric = "decoder"
+type = "engineering"
+layer = "system"
+severity = "high"
+status = "active"
+blocked_by = ["quantum/real-time-qec-decoder"]
+evidence = ["google2024quantum", "liyanage2024fpga", "gidney2025how"]
+search_terms = ["real-time decoder surface code latency", "FPGA ASIC decoder quantum error correction"]
+
+[[gap.approach]]
+name = "Distributed Union-Find decoder on FPGA"
+readiness = 3
+evidence = ["liyanage2024fpga"]
+
+[[gap]]
+id = "refrigeration"
+title = "Refrigeration for the heat load"
+description = """
+Each wired qubit adds passive heat load from cables and active load from signal dissipation. The
+strongest dilution refrigerator in the evidence delivers 2 mW at about 100 mK with a base
+temperature of 6.6 mK; no source in the atlas states the load of a million-qubit machine. Resource
+models of modular machines predict power and thermal load, and point to splitting the machine
+across cryostats.
+"""
+metric = "qubits"
+type = "engineering"
+layer = "system"
+severity = "high"
+status = "open"
+blocked_by = ["enablers/dilution-refrigeration"]
+evidence = ["guan2025development", "krinner2019engineering", "saadatmand2026superconducting"]
+search_terms = ["dilution refrigerator cooling power large-scale quantum computer", "heat budget qubit wiring"]
+
+[[gap.approach]]
+name = "Modular machine split across several cryostats"
+readiness = 2
+evidence = ["saadatmand2026superconducting"]
+
+[[gap]]
+id = "module-links"
+title = "Links between modules"
+description = """
+A multinode machine needs entanglement between cryostats. Internode gates may be two to three
+orders of magnitude noisier and slower than local operations, and a systems analysis finds link
+performance must improve by 10 to 100 times.
+"""
+metric = "logical-error"
+type = "engineering"
+layer = "system"
+severity = "high"
+status = "open"
+blocked_by = ["quantum/quantum-interconnect"]
+evidence = ["ang2024arquin"]
+search_terms = ["microwave-to-optical transduction", "modular superconducting quantum computer links"]
+
+[[gap.approach]]
+name = "Optical interconnects with entanglement distillation"
+readiness = 2
+evidence = ["ang2024arquin"]

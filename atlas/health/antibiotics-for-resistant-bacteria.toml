@@ -1,0 +1,20 @@
+name = "Antibiotics for resistant bacteria"
+statement = """
+New antibiotics, or other agents, that kill bacteria resistant to the drugs now in use, discovered
+and developed fast enough to keep pace with the spread of resistance. This entry maps research;
+it is not medical advice.
+"""
+scope = """
+In: small-molecule and peptide antibacterial discovery, including computational discovery, and
+agents against drug-resistant bacterial infections. Out: vaccines, bacteriophage therapy, and
+diagnostics. Computational discovery tools belong to ai/ai-for-science.
+"""
+status = "proposed"
+readiness_scale = "clinical-drug"
+sdgs = [3]
+search_terms = ["antibiotic discovery machine learning", "multidrug-resistant bacteria new antibiotic class", "antimicrobial resistance pipeline"]
+curators = []
+
+[[requires]]
+technology = "ai/ai-for-science"
+why = "Machine-learning models screen and generate candidate molecules far faster than screening libraries by hand."

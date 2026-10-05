@@ -1,0 +1,15 @@
+title = "The Future of Seawater Desalination: Energy, Technology, and the Environment"
+authors = ["Elimelech, Menachem", "Phillip, William A."]
+year = 2011
+venue = "Science"
+type = "review"
+doi = "10.1126/science.1200488"
+class = "established"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+
+[[finding]]
+conditions = "Qualitative statement from the abstract of a review; no metric value."
+quote = "seawater desalination is still more energy intensive compared to conventional technologies for the treatment of fresh water"

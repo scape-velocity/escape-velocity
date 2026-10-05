@@ -1,0 +1,16 @@
+title = "Multi-cancer early detection tests for general population screening: a systematic literature review"
+authors = ["Wade, Ros", "Nevitt, Sarah J", "Liu, Yiwen", "Harden, Melissa", "Khouja, Claire", "Raine, Gary", "Churchill, Rachel C.", "Dias, Sofia"]
+year = 2024
+venue = "medRxiv"
+type = "preprint"
+doi = "10.1101/2024.02.14.24302576"
+class = "reported"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+note = "Preprint. Cited only for the statement of what population screening needs; it sets no numeric threshold."
+
+[[finding]]
+conditions = "Systematic review of MCED tests for population screening."
+quote = "The use of an MCED test for population screening requires a high specificity and a reasonable sensitivity to detect early-stage disease"

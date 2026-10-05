@@ -1,0 +1,18 @@
+title = "Multistage electrodialysis for desalination of natural seawater"
+authors = ["Doornbusch, Gijs", "van der Wal, Marrit", "Tedesco, Michele", "Post, Jan W.", "Nijmeijer, Kitty", "Borneman, Zandrie"]
+year = 2021
+venue = "Desalination"
+type = "article"
+doi = "10.1016/j.desal.2021.114973"
+class = "established"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+
+[[finding]]
+metric = "specific-energy-consumption"
+value = 3
+unit = "kWh m^-3"
+conditions = "Measured, upscaled multistage electrodialysis on natural seawater, 27 g/l in and 1.9 g/l out, stable over 18 days. Electrodialysis, not reverse osmosis."
+quote = "The system performance was stable over 18 days, with an average energy consumption of 3 kWh/m3"

@@ -1,0 +1,20 @@
+title = "ARQUIN: Architectures for Multinode Superconducting Quantum Computers"
+authors = ["Ang, James", "Carini, Gabriella A.", "Chen, Yanzhu", "Chuang, Isaac L.", "Demarco, Michael", "Economou, Sophia E.", "Eickbusch, Alec", "Faraon, Andrei"]
+year = 2024
+venue = "ACM Transactions on Quantum Computing"
+type = "article"
+doi = "10.1145/3674151"
+class = "extrapolation"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+note = "Author list truncated in the scout output. Systems analysis with hardware models; the 10-100x is a requirement, not a measurement."
+
+[[finding]]
+conditions = "Systems analysis of multinode superconducting computers with optical interconnects."
+quote = "internode gates in these systems may be two to three orders of magnitude noisier and slower than local operations"
+
+[[finding]]
+conditions = "Same analysis; the link performance the algorithms require."
+quote = "We find that a factor of 10–100× better link performance is required"

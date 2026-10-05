@@ -1,0 +1,15 @@
+title = "Derivation of the Theoretical Minimum Energy of Separation of Desalination Processes"
+authors = ["Wang, Li Ares", "Violet, Camille", "DuChanois, Ryan M.", "Elimelech, Menachem"]
+year = 2020
+venue = "Journal of Chemical Education"
+type = "article"
+doi = "10.1021/acs.jchemed.0c01194"
+class = "established"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+
+[[finding]]
+conditions = "Qualitative statement from the abstract; the minimum is the Gibbs free energy of separation, its value is in the body of the paper."
+quote = "the energy consumption of these processes approaches the minimum thermodynamic limit with increased process staging"

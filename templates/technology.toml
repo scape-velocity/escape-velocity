@@ -1,0 +1,96 @@
+# Copy to atlas/<domain>/<slug>.toml. The file name is the technology's id inside its domain:
+# lowercase words joined by hyphens. The id used everywhere else is "<domain>/<slug>".
+# Delete what you do not use. Comments are kept; tools/generate.py builds the page.
+#
+# What each status requires (tools/check.py enforces it):
+#   proposed  name, statement, status
+#   scoping   + a headline metric with a sourced current value and a target with a rationale,
+#             last_reviewed
+#   mapped    + every metric has current and target, at least one gap, readiness with evidence
+#   tracked   + at least one curator, reviewed in the last six months
+#   retired   + retired_reason
+
+name = "Fault-tolerant quantum computer"
+statement = """
+A quantum computer that runs algorithms of practical value, with logical error rates low enough
+that the answer can be trusted.
+"""
+scope = """
+What is in and what is out. Name the neighbours: what this technology is not, and which
+technology in the atlas covers that instead.
+"""
+status = "proposed"
+
+# Readiness on the domain's scale (taxonomy/readiness-scales.toml), unless readiness_scale says otherwise.
+readiness = 4
+# readiness_scale = "mrl"
+readiness_evidence = ["google2024quantum"]
+readiness_note = "Below-threshold memory shown; no logical algorithm of practical value yet."
+horizon = "2030s"            # free text: when the field expects the target, if anyone says
+sdgs = [9]                   # taxonomy/sdgs.toml
+search_terms = ["quantum error correction below threshold", "logical qubit"]
+# openalex_topics = ["T10682"]
+# arxiv = ["quant-ph"]       # overrides the domain's categories for the scout
+curators = []                # GitHub handles, without @
+last_reviewed = 2026-10-04
+alan_machine = [{ page = "chapters/quantum-alan", title = "The quantum Alan" }]
+# retired_reason = "Merged into quantum/..."
+
+# What this technology needs from others. Each one is a technology in the atlas with its own file,
+# its own metrics and its own gaps. Add the dependency as "proposed" if it has no file yet.
+[[requires]]
+technology = "enablers/dilution-refrigeration"
+why = "Superconducting qubits operate at about 10 mK."
+metric = "cooling-power"     # optional: the number this technology needs from the dependency
+value = 1e-3
+need = "Cooling power at 20 mK for a million-qubit machine, or several fridges linked."
+
+# Metrics. Exactly one headline once the technology is at scoping or beyond.
+[[metric]]
+id = "logical-error"         # local id, used by gaps below
+metric = "logical-error-per-cycle"   # taxonomy/metrics.toml
+headline = true
+conditions = "Surface-code memory, distance 7, superconducting qubits."
+
+[metric.current]
+value = 1.43e-3
+as_of = 2024-12-09
+evidence = "google2024quantum"   # the card must have a finding for this metric
+# note = "..."
+
+[metric.target]
+value = 1e-12
+rationale = "Algorithms of practical value need about 10^10 to 10^12 logical operations without a failure."
+# evidence = "..."
+
+[metric.limit]
+value = 0
+basis = "No physical floor; error per cycle falls exponentially with code distance below threshold."
+# evidence = "..."
+
+# Earlier values, oldest first, for the trend on the page.
+# [[metric.history]]
+# value = 3.0e-2
+# as_of = 2023-02-22
+# evidence = "google2023suppressing"
+
+# Gaps: what stands between the current value and the target.
+[[gap]]
+id = "physical-error"
+title = "Physical error rates too far from threshold"
+description = """
+What is missing, in two to five sentences, with the numbers. Say what closing it looks like.
+"""
+metric = "logical-error"     # the local metric id it holds back (optional)
+type = "engineering"         # taxonomy/vocabulary.toml gap_type
+layer = "device"             # physics | device | system | manufacturing | deployment
+severity = "critical"        # critical | high | medium | low
+status = "active"            # open | active | promising | closed | beyond-limit
+blocked_by = ["enablers/dilution-refrigeration"]   # only technologies listed in requires
+evidence = ["google2024quantum"]
+search_terms = ["two-qubit gate fidelity 99.9"]
+
+[[gap.approach]]
+name = "Better junction materials"
+readiness = 3
+evidence = []

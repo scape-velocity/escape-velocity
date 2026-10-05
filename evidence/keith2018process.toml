@@ -1,0 +1,19 @@
+title = "A Process for Capturing CO2 from the Atmosphere"
+authors = ["Keith, David W."]
+year = 2018
+venue = "Joule"
+type = "article"
+doi = "10.1016/j.joule.2018.05.006"
+class = "extrapolation"
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+status = "machine-checked"
+checked = 2026-10-04
+note = "A design for a 1 Mt-CO2 per year plant with pilot-plant data; the cost is a design estimate, not a measured cost of an operating plant."
+
+[[finding]]
+metric = "cost-per-tonne-co2"
+value = 94
+unit = "USD t^-1"
+conditions = "Lower end of the levelized cost range of a designed aqueous-KOH plant capturing about 1 Mt-CO2 per year, with CO2 delivered at 15 MPa; capture only, storage not included. Upper end 232 USD/t. Design estimate, not a current value."
+quote = "the levelized cost per ton CO 2 captured from the atmosphere ranges from 94 to 232 $/t-CO 2"

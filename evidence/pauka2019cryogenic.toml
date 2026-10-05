@@ -1,0 +1,16 @@
+title = "A Cryogenic Interface for Controlling Many Qubits"
+authors = ["Pauka, S. J.", "Das, K.", "Kalra, R.", "Moini, A.", "Yang, Y.", "Trainer, M.", "Bousquet, A.", "Cantaloube, C."]
+year = 2019
+venue = "arXiv"
+type = "preprint"
+arxiv = "1912.01299"
+class = "reported"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+note = "Author list truncated in the scout output. Demonstrated on a quantum dot test device, not a superconducting qubit."
+
+[[finding]]
+conditions = "CMOS control platform of 100,000 transistors near 100 mK, benchmarked on a quantum dot test device."
+quote = "showing that the control of thousands of gate electrodes is feasible within the cooling power of commercially available dilution refrigerators"

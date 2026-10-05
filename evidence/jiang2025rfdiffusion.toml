@@ -1,0 +1,16 @@
+title = "RFdiffusion Exhibits Low Success Rate in De Novo Design of Functional Protein Binders for Biochemical Detection"
+authors = ["Jiang, Bruce", "Li, Xiaoxiao", "Guo, Amber", "Wei, Moris", "Wu, Junhua"]
+year = 2025
+venue = "bioRxiv"
+type = "preprint"
+doi = "10.1101/2025.02.07.636769"
+class = "reported"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+note = "Preprint; six targets, five designs each, one group. A counterweight to the success rates reported by the method developers."
+
+[[finding]]
+conditions = "Six targets, five RFdiffusion designs each, tested by one group."
+quote = "Binders for the other targets failed due to low expression, nonspecific binding, or undetectable affinity"

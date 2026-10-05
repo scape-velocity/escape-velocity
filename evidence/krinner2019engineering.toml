@@ -1,0 +1,16 @@
+title = "Engineering cryogenic setups for 100-qubit scale superconducting circuit systems"
+authors = ["Krinner, Sebastian", "Storz, Simon", "Kurpiers, Philipp", "Magnard, Paul", "Heinsoo, Johannes", "Keller, Raphael", "Lütolf, J.", "Eichler, Christopher"]
+year = 2019
+venue = "EPJ Quantum Technology"
+type = "article"
+doi = "10.1140/epjqt/s40507-019-0072-0"
+class = "established"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+note = "Author list truncated in the scout output. Heat budget of wiring in a dilution refrigerator."
+
+[[finding]]
+conditions = "Measured passive heat load of stainless steel and NbTi coaxial cables and active load of signal dissipation."
+quote = "The passive heat load of stainless steel and NbTi coaxial cables and the active load due to signal dissipation are measured"

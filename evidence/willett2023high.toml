@@ -1,0 +1,20 @@
+title = "A high-performance speech neuroprosthesis"
+authors = ["Willett, Francis R.", "Kunz, Erin M.", "Fan, Chaofei", "Avansino, Donald T.", "Wilson, Guy H", "Choi, Eun Young", "Kamdar, Foram B.", "Glasser, Matthew F."]
+year = 2023
+venue = "Nature"
+type = "article"
+doi = "10.1038/s41586-023-06377-x"
+pmid = "37612500"
+class = "established"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+note = "Author list truncated to the first eight as printed by the scout. One participant with amyotrophic lateral sclerosis."
+
+[[finding]]
+metric = "communication-rate"
+value = 62
+unit = "words min^-1"
+conditions = "Speech-to-text decoding of attempted speech from intracortical microelectrode arrays, one participant, 125,000-word vocabulary at 23.8% word error rate."
+quote = "Our participant’s attempted speech was decoded at 62 words per minute"

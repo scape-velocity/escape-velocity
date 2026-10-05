@@ -1,0 +1,19 @@
+title = "Microfluidic cooling for high-heat-flux chips: Thermal-path compression, bottleneck migration and near-junction limits"
+authors = ["Wei, Jie", "Lin, Shuyuan", "Fu, Junhao", "Zhao, Zhangchi", "Wei, Ning"]
+year = 2026
+venue = "Thermo-X"
+type = "review"
+doi = "10.70401/tx.2026.0024"
+class = "established"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+note = "The review itself warns that a record heat flux is not transferable without the heated area, temperature criterion, coolant state and hydraulic cost."
+
+[[finding]]
+metric = "heat-flux"
+value = 1e7
+unit = "W m^-2"
+conditions = "Upper end of the range the review gives for microfluidic cooling, 10^2 to 10^3 W/cm2 (1e6 to 1e7 W/m2); 10^3 W/cm2 converted to W/m2. Heated area, coolant and temperature criterion vary across the cited work."
+quote = "Microfluidic cooling can support 102-103 W/cm2 heat fluxes and higher local loads"

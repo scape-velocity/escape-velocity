@@ -1,0 +1,13 @@
+name = "High-repetition-rate high-energy lasers"
+statement = """
+Lasers of megajoule class that fire several times per second at high wall-plug efficiency and
+for billions of shots.
+"""
+scope = """
+In: laser drivers for inertial fusion and the diode-pumped solid-state, gas and fibre approaches
+to them. Out: continuous-wave industrial lasers and ultrashort-pulse lasers of low energy.
+"""
+status = "proposed"
+sdgs = [7, 9]
+search_terms = ["high repetition rate laser inertial fusion energy driver", "diode-pumped solid-state laser wall-plug efficiency", "kilojoule laser Hz"]
+curators = []

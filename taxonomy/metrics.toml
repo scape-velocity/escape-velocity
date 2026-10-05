@@ -1,0 +1,210 @@
+# The metrics technologies may report. A new metric is added here in the same pull request that
+# first uses it. One metric, one meaning, across every domain.
+#
+# Fields:
+#   id          lowercase words joined by hyphens
+#   name, meaning
+#   unit        plain text, SI where one exists (J, s, kWh m^-3, USD t^-1, %)
+#   direction   "lower" or "higher": which way is better
+#   scale       "log" when values span orders of magnitude, and the gap is reported in orders of
+#               magnitude; "linear" for bounded quantities such as percentages, reported as a difference
+#   alan_machine  the metric's name in The Alan Machine's data/metrics.toml, when the book uses it too
+#
+# A metric depends on how it is measured. Each value records its conditions in the evidence card.
+
+[[metric]]
+id = "energy-per-operation"
+name = "Energy per operation"
+meaning = "Energy dissipated per logic operation, measured at the device"
+unit = "J"
+direction = "lower"
+scale = "log"
+alan_machine = "energy_per_operation"
+
+[[metric]]
+id = "wall-plug-energy-per-operation"
+name = "Wall-plug energy per operation"
+meaning = "Energy per logic operation drawn from the grid, including cooling and power delivery"
+unit = "J"
+direction = "lower"
+scale = "log"
+alan_machine = "wall_plug_energy_per_operation"
+
+[[metric]]
+id = "energy-efficiency"
+name = "Computing energy efficiency"
+meaning = "Floating-point operations per joule for a whole system, the same as FLOP/s per watt"
+unit = "FLOP J^-1"
+direction = "higher"
+scale = "log"
+
+[[metric]]
+id = "energy-per-token"
+name = "Energy per token"
+meaning = "Energy drawn per generated token in language model inference, as defined by the source"
+unit = "J"
+direction = "lower"
+scale = "log"
+alan_machine = "energy_per_token"
+
+[[metric]]
+id = "error-rate"
+name = "Error rate"
+meaning = "Errors per operation, for a component with no more specific metric"
+unit = "1"
+direction = "lower"
+scale = "log"
+alan_machine = "error_rate"
+
+[[metric]]
+id = "two-qubit-gate-error"
+name = "Two-qubit gate error"
+meaning = "Error probability per two-qubit gate, as measured by the source (randomized benchmarking or cycle benchmarking)"
+unit = "1"
+direction = "lower"
+scale = "log"
+alan_machine = "error_rate"
+
+[[metric]]
+id = "logical-error-per-cycle"
+name = "Logical error per cycle"
+meaning = "Probability that an error-corrected logical qubit fails in one round of error correction"
+unit = "1"
+direction = "lower"
+scale = "log"
+
+[[metric]]
+id = "physical-qubits"
+name = "Physical qubits"
+meaning = "Number of physical qubits operated together in one device"
+unit = "qubit"
+direction = "higher"
+scale = "log"
+
+[[metric]]
+id = "decoder-latency"
+name = "Decoder latency"
+meaning = "Time from the end of a syndrome measurement to the decoder's correction, in real-time decoding"
+unit = "s"
+direction = "lower"
+scale = "log"
+
+[[metric]]
+id = "cooling-power"
+name = "Cooling power"
+meaning = "Heat a refrigerator can remove at the stated temperature"
+unit = "W"
+direction = "higher"
+scale = "log"
+
+[[metric]]
+id = "cost-per-tonne-co2"
+name = "Cost per tonne of CO2"
+meaning = "Cost to remove and durably store one tonne of carbon dioxide"
+unit = "USD t^-1"
+direction = "lower"
+scale = "log"
+
+[[metric]]
+id = "specific-energy-consumption"
+name = "Specific energy consumption"
+meaning = "Energy used to produce one cubic metre of fresh water"
+unit = "kWh m^-3"
+direction = "lower"
+scale = "log"
+
+[[metric]]
+id = "launch-cost"
+name = "Launch cost"
+meaning = "Price or cost to place one kilogram of payload in low Earth orbit"
+unit = "USD kg^-1"
+direction = "lower"
+scale = "log"
+
+[[metric]]
+id = "fusion-target-gain"
+name = "Target gain"
+meaning = "Fusion energy released divided by the energy delivered to the fuel target or plasma"
+unit = "1"
+direction = "higher"
+scale = "log"
+
+[[metric]]
+id = "sensitivity"
+name = "Sensitivity"
+meaning = "Share of people with the condition whom the test detects"
+unit = "%"
+direction = "higher"
+scale = "linear"
+
+[[metric]]
+id = "specificity"
+name = "Specificity"
+meaning = "Share of people without the condition whom the test correctly clears"
+unit = "%"
+direction = "higher"
+scale = "linear"
+
+[[metric]]
+id = "communication-rate"
+name = "Communication rate"
+meaning = "Words per minute a person communicates through an interface"
+unit = "words min^-1"
+direction = "higher"
+scale = "log"
+
+[[metric]]
+id = "design-success-rate"
+name = "Design success rate"
+meaning = "Share of designed molecules that work as intended when tested experimentally"
+unit = "%"
+direction = "higher"
+scale = "log"
+
+[[metric]]
+id = "conductor-cost"
+name = "Conductor cost"
+meaning = "Price of a conductor per kiloampere of current carried over one metre, at the stated temperature and field"
+unit = "USD kA^-1 m^-1"
+direction = "lower"
+scale = "log"
+
+[[metric]]
+id = "nitrogen-from-fixation"
+name = "Nitrogen from fixation"
+meaning = "Share of a crop's nitrogen that comes from biological fixation of atmospheric nitrogen"
+unit = "%"
+direction = "higher"
+scale = "linear"
+
+[[metric]]
+id = "energy-per-bit"
+name = "Energy per bit moved"
+meaning = "Energy to move one bit between memory and processor, or between chips, including the interface on both ends"
+unit = "J"
+direction = "lower"
+scale = "log"
+
+[[metric]]
+id = "heat-flux"
+name = "Heat flux removed"
+meaning = "Heat a cooling solution removes per unit area of the device surface, at the stated temperature rise"
+unit = "W m^-2"
+direction = "higher"
+scale = "log"
+
+[[metric]]
+id = "sequencing-cost"
+name = "Cost per human genome"
+meaning = "Cost to sequence one human genome at about 30-fold coverage, as defined by the source"
+unit = "USD"
+direction = "lower"
+scale = "log"
+
+[[metric]]
+id = "waveguide-loss"
+name = "Waveguide propagation loss"
+meaning = "Optical power lost per unit length in an integrated waveguide, at the stated wavelength and geometry"
+unit = "dB m^-1"
+direction = "lower"
+scale = "log"

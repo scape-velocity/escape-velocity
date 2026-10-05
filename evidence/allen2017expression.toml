@@ -1,0 +1,15 @@
+title = "Expression of 16 Nitrogenase Proteins within the Plant Mitochondrial Matrix"
+authors = ["Allen, Robert S.", "Tilbrook, Kimberley", "Warden, Andrew C.", "Campbell, Peter C.", "Rolland, Vivien", "Singh, Surinder Pal", "Wood, Craig C."]
+year = 2017
+venue = "Frontiers in Plant Science"
+type = "article"
+doi = "10.3389/fpls.2017.00287"
+class = "established"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+
+[[finding]]
+conditions = "Qualitative statement from the abstract; expression in Nicotiana benthamiana, not a crop."
+quote = "the NifD catalytic component was the least abundant"

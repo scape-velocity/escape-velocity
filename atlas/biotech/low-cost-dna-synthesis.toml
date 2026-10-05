@@ -1,0 +1,14 @@
+name = "Low-cost DNA synthesis"
+statement = """
+Writing long, accurate DNA of a chosen sequence at a cost and speed that let designs be built
+and tested without waiting or rationing.
+"""
+scope = """
+In: chemical and enzymatic synthesis of oligonucleotides, genes and assembled constructs. Out:
+reading DNA (biotech/low-cost-dna-sequencing) and delivering DNA into cells
+(biotech/in-vivo-gene-delivery).
+"""
+status = "proposed"
+sdgs = [9]
+search_terms = ["enzymatic DNA synthesis", "gene synthesis cost per base", "long DNA synthesis error rate"]
+curators = []

@@ -1,0 +1,19 @@
+title = "Limits to the Energy Efficiency of CMOS Microprocessors"
+authors = ["Ho, Anson", "Erdil, Ege", "Besiroglu, Tamay"]
+year = 2023
+venue = "arXiv"
+type = "preprint"
+arxiv = "2312.08595"
+class = "extrapolation"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+note = "An estimate of the maximum CMOS efficiency from first-principles energy costs and empirical parameters, in FP4 operations per joule; it is a projection, not a measurement."
+
+[[finding]]
+metric = "energy-efficiency"
+value = 4.7e15
+unit = "FLOP J^-1"
+conditions = "Geometric-mean estimate of the maximum floating point operations per joule for CMOS microprocessors, counted in FP4 operations, combining transistor switching, interconnect capacitance and leakage. An estimate of a ceiling, not a current value."
+quote = "Combining these yields a geometric mean estimate of 4.7e15 FP4/J for the maximum CMOS energy efficiency, roughly two hundred-fold more efficient than current microprocessors."

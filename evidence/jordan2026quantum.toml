@@ -1,0 +1,16 @@
+title = "A quantum computer controlled by superconducting digital electronics at millikelvin temperature"
+authors = ["Jordan, Caleb", "Bernhardt, Jacob", "Rahamim, Joseph", "Kirichenko, Alex", "Bharadwaj, Karthik Srikanth", "Fry-Bouriaux, Louis", "Somoroff, Aaron", "Porsch, Katie"]
+year = 2026
+venue = "Nature Electronics"
+type = "article"
+doi = "10.1038/s41928-026-01576-6"
+class = "established"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+note = "Author list truncated in the scout output. First multi-qubit system with superconducting digital control electronics at millikelvin."
+
+[[finding]]
+conditions = "Multi-qubit system with superconducting digital demultiplexing of control lines."
+quote = "The system utilizes digital demultiplexing, breaking the linear scaling of control lines to number of qubits."

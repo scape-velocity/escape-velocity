@@ -1,0 +1,19 @@
+title = "Cost-efficient whole genome-sequencing using novel mostly natural sequencing-by-synthesis chemistry and open fluidics platform"
+authors = ["Almogy, Gilad", "Pratt, Mark", "Oberstrass, Florian C.", "Lee, Linda", "Mazur, Dan", "Beckett, Nate", "Barad, Omer", "Soifer, Ilya"]
+year = 2022
+venue = "bioRxiv"
+type = "preprint"
+doi = "10.1101/2022.05.29.493900"
+class = "reported"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+note = "Preprint by the platform developer; the abstract gives cost per gigabase, not per genome. The finding below is derived, see its conditions."
+
+[[finding]]
+metric = "sequencing-cost"
+value = 90
+unit = "USD"
+conditions = "Derived, not stated in the abstract: 1 USD per Gb times 30-fold coverage of a 3 Gb human genome (3,000 Mb and 30-fold coverage are the assumptions NHGRI uses for Illumina-type platforms, see wetterstrand2023dna). Cost basis of the 1 USD/Gb figure is not defined in the abstract."
+quote = "at a low cost of $1/Gb"

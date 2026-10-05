@@ -1,0 +1,20 @@
+title = "Anneal-free ultra-low loss silicon nitride integrated photonics"
+authors = ["Bose, Debapam", "Harrington, Mark", "Isichenko, Andrei", "Liu, Kaikai", "Wang, Jiawei", "Chauhan, Nitesh", "Newman, Zachary L.", "Blumenthal, Daniel J."]
+year = 2024
+venue = "Light Science & Applications"
+type = "article"
+doi = "10.1038/s41377-024-01503-4"
+pmid = "38977674"
+class = "established"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+note = "Waveguide loss in a CMOS-compatible low-temperature process."
+
+[[finding]]
+metric = "waveguide-loss"
+value = 1.77
+unit = "dB m^-1"
+conditions = "80 nm nitride core waveguides, anneal-free process at a maximum of 250 C."
+quote = "enabling 1.77 dB m -1 loss and 14.9 million Q for 80 nm nitride core waveguides"

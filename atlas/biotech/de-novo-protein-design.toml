@@ -1,0 +1,58 @@
+name = "De novo protein design"
+statement = """
+Designing a protein with a chosen structure or function from scratch, by computer, so that the
+first designs tested in the laboratory work as intended.
+"""
+scope = """
+In: computational design of new protein binders, enzymes and assemblies that do not exist in
+nature, and the experimental success rate of the designs. Out: directed evolution of natural
+proteins, and delivery of the proteins into the body (biotech/in-vivo-gene-delivery).
+"""
+status = "scoping"
+sdgs = [3, 9]
+search_terms = ["de novo protein binder design", "RFdiffusion", "experimental success rate designed proteins"]
+curators = []
+last_reviewed = 2026-10-04
+
+[[requires]]
+technology = "ai/ai-for-science"
+why = "Design methods are deep-learning models trained on protein structures."
+
+[[requires]]
+technology = "biotech/low-cost-dna-synthesis"
+why = "Every designed protein must be encoded as synthetic DNA before it can be expressed and tested."
+
+[[metric]]
+id = "success-rate"
+metric = "design-success-rate"
+headline = true
+conditions = "De novo protein binders, experimental success rate across the targets tested by the method's developers."
+
+[metric.current]
+value = 10
+as_of = 2025-01-01
+evidence = "pacesa2025one"
+note = "Lower end of a reported range of 10 to 100% across targets. as_of is the publication year. Independent groups report lower rates for other methods (see the gap)."
+
+[metric.target]
+value = 90
+rationale = "The goal of the one-design-one-binder approach named in the BindCraft paper: with a success rate of 90%, testing three designs gives more than a 99.9% chance of at least one working binder (1 minus 0.1 cubed), so no high-throughput screening is needed. Atlas reasoning, not an agency target."
+evidence = "pacesa2025one"
+
+[[gap]]
+id = "success-rate-variability"
+title = "Success rate varies widely between targets and between groups"
+description = """
+The developers of one pipeline report experimental success rates of 10 to 100% depending on the
+target. An earlier study found the overall design success rate low and raised it nearly 10-fold
+with deep-learning filtering. An independent group testing another method on six targets, five
+designs each, reported that most targets gave no working binder.
+"""
+metric = "success-rate"
+type = "scientific-unknown"
+layer = "device"
+severity = "high"
+status = "active"
+blocked_by = ["ai/ai-for-science"]
+evidence = ["pacesa2025one", "bennett2023improving", "jiang2025rfdiffusion"]
+search_terms = ["protein binder design failure modes", "benchmark designed binders independent validation"]

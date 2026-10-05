@@ -1,0 +1,19 @@
+title = "Embedded Cooling for Wide Bandgap Power Amplifiers: A Review"
+authors = ["Bar‐Cohen, Avram", "Maurer, J. J.", "Altman, David H."]
+year = 2019
+venue = "Journal of Electronic Packaging"
+type = "review"
+doi = "10.1115/1.4043404"
+class = "established"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+note = "A laboratory record on small GaN-on-diamond test devices, not a package-compatible cooler for a large AI accelerator die."
+
+[[finding]]
+metric = "heat-flux"
+value = 4e8
+unit = "W m^-2"
+conditions = "Record heat flux above 40 kW/cm2 (4e8 W/m2) in DARPA's near-junction thermal transport program, GaN-on-diamond, embedded cooling, small heated area."
+quote = "heat fluxes, above 40 kW/cm2, achieved in Defense Advanced Research Projects Agency (DARPA)'s near-junction thermal transport (NJTT) program"

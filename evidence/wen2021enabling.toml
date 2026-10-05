@@ -1,0 +1,15 @@
+title = "Enabling Biological Nitrogen Fixation for Cereal Crops in Fertilized Fields"
+authors = ["Wen, Amy", "Havens, Keira L.", "Bloch, Sarah E.", "Shah, Neal", "Higgins, Douglas A.", "Davis-Richardson, Austin G.", "Sharon, Judee", "Rezaei, Farzaneh"]
+year = 2021
+venue = "ACS Synthetic Biology"
+type = "article"
+doi = "10.1021/acssynbio.1c00049"
+class = "established"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+
+[[finding]]
+conditions = "Qualitative statement from the abstract; an engineered Kosakonia strain, in nitrogen-rich environments."
+quote = "increasing nitrogen fixation activity 122-fold in nitrogen-rich environments"

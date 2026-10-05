@@ -1,0 +1,18 @@
+title = "Performance of a multi-cancer early detection test in the randomized controlled NHS-Galleri trial"
+authors = ["Neal, Richard D", "Dolly, Saoirse Olivia", "Johnson, Peter", "Jones, Helen", "Kumar, Sir Harpal", "Lee, Lennard Y. W.", "Lee, Yujin", "Liang, Wei"]
+year = 2026
+venue = "Nature Medicine"
+type = "article"
+doi = "10.1038/s41591-026-04652-8"
+pmid = "42773209"
+nct = "NCT05611632"
+class = "established"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+note = "Author list truncated to the first eight as printed by the scout. Descriptive secondary endpoints; the primary endpoint was reported elsewhere."
+
+[[finding]]
+conditions = "NHS-Galleri randomized trial, 142,250 participants aged 50-77."
+quote = "the primary endpoint of a reduction in the incidence of stage III/IV cancer diagnoses in the intervention arm versus control arm was not met"

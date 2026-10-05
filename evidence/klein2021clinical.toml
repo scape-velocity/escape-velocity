@@ -1,0 +1,28 @@
+title = "Clinical validation of a targeted methylation-based multi-cancer early detection test using an independent validation set"
+authors = ["Klein, Eric A.", "Richards, Donald", "Cohn, Allen Lee", "Tummala, Meghna", "Lapham, Rosanna L.", "Cosgrove, David Owen", "Chung, Gina G.", "Clement, Jessica"]
+year = 2021
+venue = "Annals of Oncology"
+type = "article"
+doi = "10.1016/j.annonc.2021.05.806"
+pmid = "34176681"
+nct = "NCT02889978"
+class = "established"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+note = "Author list truncated to the first eight as printed by the scout. Case-control validation set (CCGA substudy 3), not a screening population."
+
+[[finding]]
+metric = "sensitivity"
+value = 16.8
+unit = "%"
+conditions = "Stage I cancers, any of more than 50 cancer types, blood-based methylation MCED test, independent validation set of 4077 participants (case-control)."
+quote = "stage I: 16.8% (14.5% to 19.5%)"
+
+[[finding]]
+metric = "specificity"
+value = 99.5
+unit = "%"
+conditions = "Cancer signal detection in the independent validation set, 1254 non-cancer participants."
+quote = "Specificity for cancer signal detection was 99.5%"

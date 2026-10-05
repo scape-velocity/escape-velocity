@@ -1,0 +1,144 @@
+# The domains of the atlas. Every technology belongs to exactly one domain, the one whose community
+# would curate it. Dependencies cross domains freely.
+#
+# Fields:
+#   id                lowercase words joined by hyphens; the folder atlas/<id>/
+#   name, summary
+#   readiness_scale   default scale for the domain's technologies (taxonomy/readiness-scales.toml)
+#   openalex_fields   OpenAlex field ids (https://openalex.org/fields/<id>) the domain draws on
+#   arxiv             arXiv categories the scout searches by default (empty when the field rarely
+#                     uses arXiv)
+#   pubmed            true when the scout should also search PubMed and ClinicalTrials.gov
+#   sdgs              UN Sustainable Development Goals the domain serves most directly
+#
+# A new domain needs a decision record: domains are the top of the navigation and change rarely.
+
+[[domain]]
+id = "computing"
+name = "Computing"
+summary = "Classical information processing: logic, memory and data movement after the end of transistor scaling."
+readiness_scale = "trl"
+openalex_fields = [17, 22]
+arxiv = ["cs.AR", "cs.ET", "physics.app-ph"]
+pubmed = false
+sdgs = [9]
+
+[[domain]]
+id = "quantum"
+name = "Quantum technologies"
+summary = "Machines that use superposition and entanglement: quantum computers, sensors and networks."
+readiness_scale = "trl"
+openalex_fields = [31, 17]
+arxiv = ["quant-ph"]
+pubmed = false
+sdgs = [9]
+
+[[domain]]
+id = "ai"
+name = "Artificial intelligence"
+summary = "Learning systems: their capability, reliability and the energy and data they consume."
+readiness_scale = "trl"
+openalex_fields = [17]
+arxiv = ["cs.LG", "cs.CL", "cs.AI"]
+pubmed = false
+sdgs = [9]
+
+[[domain]]
+id = "health"
+name = "Health and medicine"
+summary = "Diagnosis, prevention and treatment of disease, measured in patients."
+readiness_scale = "clinical-drug"
+openalex_fields = [27, 30, 24]
+arxiv = []
+pubmed = true
+sdgs = [3]
+
+[[domain]]
+id = "biotech"
+name = "Biotechnology"
+summary = "Engineering biology: designing molecules, cells and organisms, and manufacturing with them."
+readiness_scale = "trl"
+openalex_fields = [13, 15]
+arxiv = ["q-bio.BM", "q-bio.QM"]
+pubmed = true
+sdgs = [3, 9, 12]
+
+[[domain]]
+id = "neurotech"
+name = "Neurotechnology"
+summary = "Reading from and writing to the nervous system: brain-computer interfaces and neural therapies."
+readiness_scale = "clinical-device"
+openalex_fields = [28, 22, 27]
+arxiv = ["q-bio.NC", "eess.SP"]
+pubmed = true
+sdgs = [3]
+
+[[domain]]
+id = "energy"
+name = "Energy"
+summary = "Generating, storing and delivering energy: fusion, fission, solar, batteries and the grid."
+readiness_scale = "trl"
+openalex_fields = [21, 22]
+arxiv = ["physics.plasm-ph", "physics.app-ph", "cond-mat.mtrl-sci"]
+pubmed = false
+sdgs = [7, 13]
+
+[[domain]]
+id = "climate"
+name = "Climate and environment"
+summary = "Removing greenhouse gases, adapting to a warmer climate and measuring the planet."
+readiness_scale = "trl"
+openalex_fields = [23, 19, 15]
+arxiv = ["physics.ao-ph"]
+pubmed = false
+sdgs = [13, 15]
+
+[[domain]]
+id = "materials"
+name = "Materials and manufacturing"
+summary = "New materials and the ability to make them at scale."
+readiness_scale = "trl"
+openalex_fields = [25, 16]
+arxiv = ["cond-mat.mtrl-sci", "cond-mat.supr-con"]
+pubmed = false
+sdgs = [9, 12]
+
+[[domain]]
+id = "water"
+name = "Water"
+summary = "Clean water for people, farms and industry: desalination, purification and reuse."
+readiness_scale = "trl"
+openalex_fields = [23, 15]
+arxiv = []
+pubmed = false
+sdgs = [6]
+
+[[domain]]
+id = "food"
+name = "Food and agriculture"
+summary = "Growing more food with less land, water, fertilizer and emissions."
+readiness_scale = "trl"
+openalex_fields = [11, 13]
+arxiv = []
+pubmed = false
+sdgs = [2, 15]
+
+[[domain]]
+id = "space"
+name = "Space"
+summary = "Reaching, working in and living in space."
+readiness_scale = "trl"
+openalex_fields = [22, 19, 31]
+arxiv = ["astro-ph.IM", "physics.space-ph"]
+pubmed = false
+sdgs = [9]
+
+[[domain]]
+id = "enablers"
+name = "Enabling technologies"
+summary = "Cross-cutting technologies many others depend on: cryogenics, power electronics, photonics, sensors and precision manufacturing."
+readiness_scale = "trl"
+openalex_fields = [22, 31]
+arxiv = ["physics.app-ph", "physics.ins-det"]
+pubmed = false
+sdgs = [9]

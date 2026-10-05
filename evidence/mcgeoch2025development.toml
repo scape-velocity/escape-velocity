@@ -1,0 +1,19 @@
+title = "Development path to an ArF laser-fusion pilot power plant"
+authors = ["McGeoch, Malcolm W.", "Obenschain, Stephen P."]
+year = 2025
+venue = "Optical Technologies for Inertial Fusion Energy"
+type = "article"
+doi = "10.1117/12.3047795"
+class = "reported"
+added = 2026-10-04
+added_by = "agent:claude-opus-5-5"
+status = "machine-checked"
+checked = 2026-10-04
+note = "Conference talk (SPIE proceedings). Independent statement of the same gain requirement, with simulations of direct drive by an argon fluoride laser."
+
+[[finding]]
+metric = "fusion-target-gain"
+value = 100
+unit = "1"
+conditions = "Requirement for a laser-fusion power plant, from simulations at the Naval Research Laboratory; not a measurement."
+quote = "the gains (>100) needed for a laser-fusion power plant can be achieved with less than 1MJ of laser energy"

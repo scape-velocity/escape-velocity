@@ -1,0 +1,38 @@
+name = "High-flux heat removal"
+statement = """
+Cooling that removes the heat of dense chips and stacked dies at the device, at heat fluxes well
+above those of air and cold-plate cooling, in a form that fits in a package and can be made in volume.
+"""
+scope = """
+In scope: embedded and near-junction cooling (microfluidic channels, manifolds, jets, two-phase
+flow, diamond spreaders), measured by heat flux removed at a stated temperature rise. Out of scope:
+the data-center plant and heat rejection; low-temperature refrigeration, covered by
+enablers/dilution-refrigeration.
+"""
+status = "scoping"
+readiness = 4
+readiness_evidence = ["wei2026microfluidic", "barcohen2019embedded"]
+readiness_note = "Embedded cooling is shown on thermal test vehicles and small GaN-on-diamond devices; a review warns that records are not transferable to package-compatible, large-area, deployed platforms."
+horizon = "2030s"
+sdgs = [9]
+search_terms = ["embedded microfluidic cooling heat flux", "two-phase manifold microchannel cooling", "near-junction thermal management diamond"]
+curators = []
+last_reviewed = 2026-10-04
+alan_machine = [{ page = "building-alan/heat-removal", title = "Building Alan: heat removal" }]
+
+[[metric]]
+id = "flux"
+metric = "heat-flux"
+headline = true
+conditions = "Heat flux a cooler removes per unit area of the device surface. Heated area, coolant, temperature rise and pumping cost differ across sources and must be stated."
+
+[metric.current]
+value = 1e7
+as_of = 2026-01-01
+evidence = "wei2026microfluidic"
+note = "The upper end of the 10^2 to 10^3 W/cm2 range stated by the review, taken as 1e3 W/cm2. as_of is the year of the review; the abstract gives no date."
+
+[metric.target]
+value = 1e8
+rationale = "Atlas-set reasoning: 10 kW/cm2 over large package-compatible areas. DARPA's near-junction program reached above 40 kW/cm2 (4e8 W/m2) on small GaN-on-diamond devices, so a quarter of that record on deployable, area-scaled hardware would give stacked logic a tenfold margin over today's microfluidic range."
+evidence = "barcohen2019embedded"

@@ -1,0 +1,17 @@
+title = "Improving de novo protein binder design with deep learning"
+authors = ["Bennett, Nathaniel R.", "Coventry, Brian", "Goreshnik, Inna", "Huang, Buwei", "Allen, Aza", "Vafeados, Dionne K.", "Peng, Ying Po", "Dauparas, Justas"]
+year = 2023
+venue = "Nature Communications"
+type = "article"
+doi = "10.1038/s41467-023-38328-5"
+pmid = "37149653"
+class = "established"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+note = "Author list truncated to the first eight as printed by the scout."
+
+[[finding]]
+conditions = "Deep-learning filtering of designed binders (AlphaFold2 or RoseTTAFold) against energy-based design."
+quote = "increases design success rates nearly 10-fold"

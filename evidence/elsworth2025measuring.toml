@@ -1,0 +1,16 @@
+title = "Measuring the environmental impact of delivering AI at Google Scale"
+authors = ["Elsworth, Cooper", "Huang, Keguo", "Patterson, David", "Schneider, Ian", "Sedivy, Robert", "Goodman, Savannah", "Townsend, Ben", "Ranganathan, Parthasarathy"]
+year = 2025
+venue = "arXiv"
+type = "preprint"
+arxiv = "2508.15734"
+class = "reported"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+note = "Authors beyond the eighth are not listed in the scout output. Company-measured production serving. The figure is 0.24 Wh per median Gemini Apps text prompt, not per token, so the card carries no energy-per-token finding; the atlas cites it for the 33x one-year reduction and for production readiness."
+
+[[finding]]
+conditions = "Per prompt, not per token: median Gemini Apps text prompt, full serving stack (0.24 Wh, about 864 J). No metric of the atlas is per prompt, so this finding carries no metric."
+quote = "the median Gemini Apps text prompt consumes 0.24 Wh of energy"

@@ -1,0 +1,196 @@
+# Readiness scales. A technology states its readiness as a level number on one scale: its own
+# `readiness_scale`, or its domain's default. Levels are ordered; a higher level is more mature.
+#
+# Fields:
+#   id, name, summary, source, url
+#   [[scale.level]]   level (integer, starting at 1), name, meaning
+#
+# The definitions are summaries; follow the source for an assessment.
+
+[[scale]]
+id = "trl"
+name = "Technology readiness level"
+summary = "From a principle observed in the laboratory to a system proven in operation."
+source = "NASA, Technology Readiness Levels"
+url = "https://www.nasa.gov/directorates/somd/spacetech/technology-readiness-level"
+
+[[scale.level]]
+level = 1
+name = "TRL 1"
+meaning = "Basic principles observed and reported"
+
+[[scale.level]]
+level = 2
+name = "TRL 2"
+meaning = "Technology concept or application formulated"
+
+[[scale.level]]
+level = 3
+name = "TRL 3"
+meaning = "Analytical and experimental proof of concept of the critical function"
+
+[[scale.level]]
+level = 4
+name = "TRL 4"
+meaning = "Component or breadboard validated in the laboratory"
+
+[[scale.level]]
+level = 5
+name = "TRL 5"
+meaning = "Component or breadboard validated in a relevant environment"
+
+[[scale.level]]
+level = 6
+name = "TRL 6"
+meaning = "System or subsystem prototype demonstrated in a relevant environment"
+
+[[scale.level]]
+level = 7
+name = "TRL 7"
+meaning = "System prototype demonstrated in an operational environment"
+
+[[scale.level]]
+level = 8
+name = "TRL 8"
+meaning = "Actual system completed and qualified through test and demonstration"
+
+[[scale.level]]
+level = 9
+name = "TRL 9"
+meaning = "Actual system proven in operation"
+
+[[scale]]
+id = "mrl"
+name = "Manufacturing readiness level"
+summary = "From manufacturing implications identified to full-rate production."
+source = "US Department of Defense, Manufacturing Readiness Level Deskbook"
+url = "https://www.dodmrl.org"
+
+[[scale.level]]
+level = 1
+name = "MRL 1"
+meaning = "Basic manufacturing implications identified"
+
+[[scale.level]]
+level = 2
+name = "MRL 2"
+meaning = "Manufacturing concepts identified"
+
+[[scale.level]]
+level = 3
+name = "MRL 3"
+meaning = "Manufacturing proof of concept developed"
+
+[[scale.level]]
+level = 4
+name = "MRL 4"
+meaning = "Capability to produce the technology in a laboratory environment"
+
+[[scale.level]]
+level = 5
+name = "MRL 5"
+meaning = "Capability to produce prototype components in a production-relevant environment"
+
+[[scale.level]]
+level = 6
+name = "MRL 6"
+meaning = "Capability to produce a prototype system or subsystem in a production-relevant environment"
+
+[[scale.level]]
+level = 7
+name = "MRL 7"
+meaning = "Capability to produce systems or components in a production-representative environment"
+
+[[scale.level]]
+level = 8
+name = "MRL 8"
+meaning = "Pilot line demonstrated; ready for low-rate production"
+
+[[scale.level]]
+level = 9
+name = "MRL 9"
+meaning = "Low-rate production demonstrated; ready for full-rate production"
+
+[[scale.level]]
+level = 10
+name = "MRL 10"
+meaning = "Full-rate production demonstrated"
+
+[[scale]]
+id = "clinical-drug"
+name = "Clinical development of a drug or biologic"
+summary = "From a target to a standard treatment. Approval by one major regulator counts as approved."
+source = "Escape Velocity, after the phases of clinical development used by the FDA and the EMA"
+url = "https://www.fda.gov/patients/drug-development-process/step-3-clinical-research"
+
+[[scale.level]]
+level = 1
+name = "Discovery"
+meaning = "Target or candidate identified"
+
+[[scale.level]]
+level = 2
+name = "Preclinical"
+meaning = "Tested in cells and animals"
+
+[[scale.level]]
+level = 3
+name = "Phase 1"
+meaning = "First in humans: safety and dose"
+
+[[scale.level]]
+level = 4
+name = "Phase 2"
+meaning = "Efficacy and side effects in patients"
+
+[[scale.level]]
+level = 5
+name = "Phase 3"
+meaning = "Confirmatory trials in large patient groups"
+
+[[scale.level]]
+level = 6
+name = "Approved"
+meaning = "Approved by at least one major regulator"
+
+[[scale.level]]
+level = 7
+name = "Standard of care"
+meaning = "Recommended in clinical guidelines and in routine use"
+
+[[scale]]
+id = "clinical-device"
+name = "Clinical development of a medical device or diagnostic"
+summary = "From a concept to a device in routine use. Clearance by one major regulator counts as cleared."
+source = "Escape Velocity, after the medical device pathway of the FDA"
+url = "https://www.fda.gov/patients/device-development-process/step-3-pathway-approval"
+
+[[scale.level]]
+level = 1
+name = "Concept"
+meaning = "Device concept and first bench work"
+
+[[scale.level]]
+level = 2
+name = "Bench and animal"
+meaning = "Bench, analytical and animal testing"
+
+[[scale.level]]
+level = 3
+name = "Early feasibility"
+meaning = "First studies in humans, a few participants"
+
+[[scale.level]]
+level = 4
+name = "Pivotal"
+meaning = "Pivotal clinical study that supports a regulatory decision"
+
+[[scale.level]]
+level = 5
+name = "Cleared or approved"
+meaning = "Cleared or approved by at least one major regulator"
+
+[[scale.level]]
+level = 6
+name = "Standard of care"
+meaning = "Recommended in clinical guidelines and in routine use"

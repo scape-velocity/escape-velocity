@@ -1,0 +1,13 @@
+name = "High-selectivity membranes"
+statement = """
+Membranes that separate salt from water or one gas from another with both high permeability and
+high selectivity, so that separation needs energy close to the thermodynamic minimum.
+"""
+scope = """
+In: polymer, ceramic and two-dimensional-material membranes for desalination and gas separation.
+Out: thermal separation processes, and sorbents (materials/low-cost-co2-sorbents).
+"""
+status = "proposed"
+sdgs = [6, 13]
+search_terms = ["membrane selectivity permeability trade-off", "desalination membrane salt rejection", "two-dimensional membrane separation"]
+curators = []

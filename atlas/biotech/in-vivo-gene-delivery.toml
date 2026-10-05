@@ -1,0 +1,19 @@
+name = "In vivo gene delivery"
+statement = """
+Getting a gene, an editor or an RNA into the cells of a living body that need it, and only those
+cells, safely and at a dose that works.
+"""
+scope = """
+In: viral vectors, lipid nanoparticles and engineered capsids that carry genetic cargo to target
+cells in a living body. Out: the choice of the cargo and the design of new proteins
+(biotech/de-novo-protein-design is an input, not part of this entry).
+"""
+status = "proposed"
+readiness_scale = "clinical-drug"
+sdgs = [3]
+search_terms = ["in vivo gene delivery targeted capsid", "AAV capsid engineering", "lipid nanoparticle extrahepatic delivery"]
+curators = []
+
+[[requires]]
+technology = "biotech/de-novo-protein-design"
+why = "Designed binders and capsid proteins can redirect vectors to specific cell types."

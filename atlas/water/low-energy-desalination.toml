@@ -1,0 +1,72 @@
+name = "Low-energy desalination"
+statement = """
+Turning seawater into fresh water using electricity close to the thermodynamic minimum for the
+separation, so that desalination is no longer limited by its energy bill.
+"""
+scope = """
+In: seawater desalination by membranes (reverse osmosis, electrodialysis) and the energy recovery
+and staging around them. Out: the membranes themselves, which are materials/high-selectivity-membranes;
+brackish and wastewater reuse, which start from much lower salinity and need less energy; and the
+power source, which belongs to the energy domain.
+"""
+status = "scoping"
+sdgs = [6]
+search_terms = ["seawater reverse osmosis specific energy consumption", "thermodynamic minimum energy of desalination", "multistage electrodialysis seawater"]
+curators = []
+last_reviewed = 2026-10-04
+
+[[requires]]
+technology = "materials/high-selectivity-membranes"
+why = "Membrane permeability and selectivity set how close staged desalination can get to the thermodynamic minimum."
+
+[[metric]]
+id = "sec"
+metric = "specific-energy-consumption"
+headline = true
+conditions = "Seawater feed, electricity per cubic metre of fresh water."
+
+[metric.current]
+value = 3
+as_of = 2021-01-01
+evidence = "doornbusch2021multistage"
+note = "Best value found in a measurement with natural seawater in this seed pass: multistage electrodialysis, not reverse osmosis. The abstract-level search did not find a measured full-scale reverse osmosis figure with a quotable number, so the true state of the art may be lower; a curator should replace this value with a full-scale reverse osmosis measurement."
+
+[metric.target]
+value = 1.0
+rationale = "A round value chosen by the atlas, not set by an agency: about the level a simulation study reached for reverse osmosis on osmotically diluted seawater (0.96 kWh/m3), and a third of the current value, so that energy stops dominating the cost of desalinated water."
+evidence = "yalamanchili2024can"
+
+[[gap]]
+id = "thermodynamic-floor"
+title = "Practical plants already work near the thermodynamic limit"
+description = """
+Reversible reverse osmosis and electrodialysis consume the Gibbs free energy of separation, and the
+practical energy of both approaches that minimum only as the number of stages grows. Reviews state
+that most desalination technologies already work near their limit, so the remaining reduction is
+bounded and each step costs capital. The numeric value of the minimum is in the body of the cited
+papers and is not recorded here yet.
+"""
+metric = "sec"
+type = "fundamental-limit"
+layer = "physics"
+severity = "high"
+status = "open"
+evidence = ["wang2020derivation", "elimelech2011future", "nassrullah2020energy"]
+search_terms = ["Gibbs free energy of separation seawater", "minimum energy desalination recovery ratio"]
+
+[[gap]]
+id = "membrane-permselectivity"
+title = "Membrane permeability and selectivity trade off"
+description = """
+Reverse osmosis membranes trade water permeability against salt rejection. Analysis of biomimetic
+membranes indicates what a more permeable, defect-free membrane could offer for seawater
+desalination, but such membranes are not yet a commercial product.
+"""
+metric = "sec"
+type = "engineering"
+layer = "device"
+severity = "high"
+status = "active"
+blocked_by = ["materials/high-selectivity-membranes"]
+evidence = ["werber2018permselectivity", "elimelech2011future"]
+search_terms = ["permselectivity upper bound seawater reverse osmosis membrane", "aquaporin biomimetic membrane desalination"]

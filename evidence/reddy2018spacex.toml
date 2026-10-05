@@ -1,0 +1,15 @@
+title = "The SpaceX Effect"
+authors = ["Reddy, Vidya Sagar"]
+year = 2018
+venue = "New Space"
+type = "article"
+doi = "10.1089/space.2017.0032"
+class = "established"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+
+[[finding]]
+conditions = "Qualitative statement from the abstract of a survey."
+quote = "reusability is fast becoming the norm of the launch vehicle industry"

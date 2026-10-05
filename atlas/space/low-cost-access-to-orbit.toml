@@ -1,0 +1,64 @@
+name = "Low-cost access to orbit"
+statement = """
+Placing payload in low Earth orbit at a cost per kilogram low enough that mass is no longer the
+main limit on what is built in space.
+"""
+scope = """
+In: the cost per kilogram of launch to low Earth orbit, by reusable or otherwise cheaper launch
+systems. Out: what is built or kept alive in orbit (space/closed-loop-life-support) and in-space
+transport beyond low Earth orbit.
+"""
+status = "scoping"
+sdgs = [9]
+search_terms = ["launch cost per kilogram to low Earth orbit", "reusable launch vehicle economics", "experience curve space launch"]
+curators = []
+last_reviewed = 2026-10-04
+
+[[metric]]
+id = "launch-cost"
+metric = "launch-cost"
+headline = true
+conditions = "Average cost of sending one kilogram to orbit, all launches in the year."
+
+[metric.current]
+value = 3868
+as_of = 2025-12-31
+evidence = "terzi2026from"
+note = "An average over a dataset of all launches, so below the list price of low-cost vehicles for some missions and above it for others."
+
+[metric.target]
+value = 300
+rationale = "The central-estimate projection of the same experience-curve study for 2040; it is a forecast from a Wright's-law fit, not a goal set by an agency, and is used here as the next milestone."
+evidence = "terzi2026from"
+
+[[gap]]
+id = "reusability"
+title = "Reuse of the whole launch system"
+description = """
+Reusable first stages reduced launch cost, and providers on several continents plan reusable
+systems. The cost per kilogram falls with cumulative payload launched, following a learning curve,
+so further reductions depend on reuse at higher rate and with more of the vehicle recovered.
+"""
+metric = "launch-cost"
+type = "cost"
+layer = "deployment"
+severity = "high"
+status = "active"
+evidence = ["reddy2018spacex", "terzi2026from"]
+search_terms = ["fully reusable launch vehicle turnaround cost", "Wright's law launch cost"]
+
+[[gap]]
+id = "market-and-debris"
+title = "Market structure and orbital debris may slow the decline"
+description = """
+The study that fits the learning curve warns that geopolitical shifts, possible monopolistic
+behavior in commercial launch markets and the growing problem of orbital debris may temper the cost
+reductions.
+"""
+metric = "launch-cost"
+type = "regulation"
+layer = "deployment"
+severity = "medium"
+status = "open"
+evidence = ["terzi2026from"]
+search_terms = ["orbital debris launch market concentration"]

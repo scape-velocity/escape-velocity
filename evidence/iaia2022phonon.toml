@@ -1,0 +1,17 @@
+title = "Phonon downconversion to suppress correlated errors in superconducting qubits"
+authors = ["Iaia, Vito", "Ku, Jaseung", "Ballard, A.", "Larson, C. P.", "Yelton, E.", "Liu, C. H.", "Patel, S.", "McDermott, Robert"]
+year = 2022
+venue = "Nature Communications"
+type = "article"
+doi = "10.1038/s41467-022-33997-0"
+pmid = "36307415"
+class = "established"
+status = "machine-checked"
+checked = 2026-10-04
+added = 2026-10-04
+added_by = "agent:claude-sonnet-5"
+note = "Author list truncated in the scout output. A mitigation approach for correlated errors; no atlas metric value taken."
+
+[[finding]]
+conditions = "Back-side normal-metal phonon downconversion on qubit chips, three qubits monitored per chip."
+quote = "observe a two-order of magnitude reduction in correlated poisoning due to background radiation"
