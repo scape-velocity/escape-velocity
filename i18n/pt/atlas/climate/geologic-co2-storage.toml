@@ -1,0 +1,27 @@
+# Portuguese (Brazil) translation of atlas/climate/geologic-co2-storage.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "0f81f87ad5"
+text = "Armazenamento geológico de CO2"
+
+[[text]]
+path = "statement"
+source = "756a2fb811"
+text = """
+Injeção de CO2 em formações rochosas profundas na escala de gigatoneladas por ano, com
+monitoramento que mostre que ele permanece lá.
+"""
+
+[[text]]
+path = "scope"
+source = "14682a07b9"
+text = """
+Dentro: aquíferos salinos e campos esgotados, incluindo injetividade, capacidade, monitoramento e
+risco de vazamento. Fora: mineralização em basalto como rota de captura, e a própria captura
+(climate/direct-air-capture).
+"""

@@ -1,0 +1,18 @@
+# Portuguese (Brazil) translation of evidence/bennett2023improving.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "bb64489808"
+text = "Lista de autores truncada aos oito primeiros, como impressa pelo scout."
+
+[[text]]
+path = "finding[1].conditions"
+source = "ae8467d255"
+text = """
+Filtragem por aprendizado profundo de ligantes projetados (AlphaFold2 ou RoseTTAFold) comparada ao
+projeto baseado em energia.
+"""

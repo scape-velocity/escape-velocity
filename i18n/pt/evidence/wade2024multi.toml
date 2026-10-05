@@ -1,0 +1,18 @@
+# Portuguese (Brazil) translation of evidence/wade2024multi.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "69183ccbfc"
+text = """
+Preprint. Citado só pela afirmação do que o rastreamento populacional precisa; não fixa limiar
+numérico.
+"""
+
+[[text]]
+path = "finding[1].conditions"
+source = "1ace99a3f7"
+text = "Revisão sistemática de testes MCED para rastreamento populacional."

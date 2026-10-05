@@ -1,0 +1,15 @@
+# Portuguese (Brazil) translation of evidence/xiang2022silicon.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "38b498e440"
+text = "Artigo de perspectiva que revisa o estado da arte."
+
+[[text]]
+path = "finding[1].conditions"
+source = "762a84babe"
+text = "Revisão da integração híbrida e heterogênea de III-V com nitreto de silício."

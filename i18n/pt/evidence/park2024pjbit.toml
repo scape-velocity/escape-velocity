@@ -1,0 +1,22 @@
+# Portuguese (Brazil) translation of evidence/park2024pjbit.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "083d9d7872"
+text = """
+Protótipo fabricado em CMOS de 28 nm; o valor é só da interface de E/S (die a die sobre um
+interposer de silício), não a energia da matriz de DRAM.
+"""
+
+[[text]]
+path = "finding[1].conditions"
+source = "c4213d25f7"
+text = """
+Transceptor de E/S die a die sobre interposer de silício ou interconexão de alta densidade
+semelhante, protótipo em CMOS de 28 nm, densidade de borda de 3,6 TB/s/mm. 0,65 pJ/b convertidos em
+joules.
+"""

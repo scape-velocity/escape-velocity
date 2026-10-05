@@ -1,0 +1,27 @@
+# Portuguese (Brazil) translation of atlas/enablers/cryogenic-control-electronics.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "5724b9e1d0"
+text = "Eletrônica criogênica de controle"
+
+[[text]]
+path = "statement"
+source = "fa0cf2c689"
+text = """
+Eletrônica que opera em temperaturas criogênicas junto aos qubits, gera os sinais de controle e lê
+os resultados, substituindo uma linha vinda da temperatura ambiente por qubit.
+"""
+
+[[text]]
+path = "scope"
+source = "d65345575f"
+text = """
+No escopo: cryo-CMOS, lógica digital supercondutora e enlaces fotônicos usados para controlar e ler
+qubits no criostato. Fora do escopo: os qubits (quantum/fault-tolerant-quantum-computer) e o
+algoritmo do decodificador (quantum/real-time-qec-decoder).
+"""

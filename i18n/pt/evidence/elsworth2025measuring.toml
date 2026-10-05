@@ -1,0 +1,23 @@
+# Portuguese (Brazil) translation of evidence/elsworth2025measuring.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "0882498106"
+text = """
+Os autores além do oitavo não constam na saída do scout. Serviço em produção medido pela empresa. O
+valor é 0,24 Wh por prompt de texto mediano do Gemini Apps, não por token, então a ficha não traz
+resultado de energia por token; o atlas a cita pela redução de 33x em um ano e pela maturidade de
+produção.
+"""
+
+[[text]]
+path = "finding[1].conditions"
+source = "08a4dc9f22"
+text = """
+Por prompt, não por token: prompt de texto mediano do Gemini Apps, pilha de serviço completa (0,24
+Wh, cerca de 864 J). Nenhuma métrica do atlas é por prompt, então este resultado não traz métrica.
+"""

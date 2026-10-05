@@ -1,0 +1,51 @@
+# Portuguese (Brazil) translation of atlas/materials/low-cost-hts-conductor.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "becbd80c36"
+text = "Condutor supercondutor de alta temperatura de baixo custo"
+
+[[text]]
+path = "statement"
+source = "d437875c2d"
+text = """
+Fita supercondutora de alta temperatura (REBCO) que conduz quiloampères nas condições de um ímã de
+fusão, a um preço por kA-m que permita construir ímãs com centenas de quilômetros de fita.
+"""
+
+[[text]]
+path = "scope"
+source = "4649a3ab41"
+text = """
+Dentro: condutores revestidos de REBCO e seu custo de fabricação. Fora: supercondutores de baixa
+temperatura como Nb3Sn e NbTi, e o cabeamento e a engenharia de ímãs construídos sobre a fita.
+"""
+
+[[text]]
+path = "metric[conductor-cost].conditions"
+source = "6bc3b3d242"
+text = """
+Fita REBCO a 20 K e 20 T, campo paralelo a c; derivado do preço por metro e da corrente crítica.
+"""
+
+[[text]]
+path = "metric[conductor-cost].current.note"
+source = "155c205dbc"
+text = """
+Derivado de dois números do resumo (cerca de 20 USD por metro; corrente crítica acima de 200 A para
+uma fita de 4 mm), então o valor real é igual ou menor que 100. A data é o ano do artigo; nenhum
+dia é informado.
+"""
+
+[[text]]
+path = "metric[conductor-cost].target.rationale"
+source = "c223040c25"
+text = """
+A meta de custo para aplicações de potência definida por um modelo de custo e roteiro de 2026 para
+fita REBCO por PLD (fumarulo2026evaluating), que também traz o roteiro de taxa de crescimento,
+espessura de REBCO e corrente crítica para chegar lá.
+"""

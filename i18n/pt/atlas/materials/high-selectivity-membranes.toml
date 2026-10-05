@@ -1,0 +1,27 @@
+# Portuguese (Brazil) translation of atlas/materials/high-selectivity-membranes.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "2859a2c9b2"
+text = "Membranas de alta seletividade"
+
+[[text]]
+path = "statement"
+source = "3096638fa1"
+text = """
+Membranas que separam sal de água ou um gás de outro com alta permeabilidade e alta seletividade ao
+mesmo tempo, de modo que a separação exija energia próxima do mínimo termodinâmico.
+"""
+
+[[text]]
+path = "scope"
+source = "6362152f50"
+text = """
+Dentro: membranas poliméricas, cerâmicas e de materiais bidimensionais para dessalinização e
+separação de gases. Fora: processos de separação térmica e sorventes
+(materials/low-cost-co2-sorbents).
+"""

@@ -1,0 +1,21 @@
+# Portuguese (Brazil) translation of evidence/pauka2019cryogenic.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "51a1e502e0"
+text = """
+Lista de autores truncada na saída do scout. Demonstrado em um dispositivo de teste de ponto
+quântico, não em um qubit supercondutor.
+"""
+
+[[text]]
+path = "finding[1].conditions"
+source = "6a7649a925"
+text = """
+Plataforma de controle CMOS de 100 000 transistores perto de 100 mK, avaliada em um dispositivo de
+teste de ponto quântico.
+"""

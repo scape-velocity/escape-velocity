@@ -1,0 +1,78 @@
+# Portuguese (Brazil) translation of atlas/space/low-cost-access-to-orbit.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "24035f262f"
+text = "Acesso de baixo custo à órbita"
+
+[[text]]
+path = "statement"
+source = "7af4534e64"
+text = """
+Colocar carga útil em órbita terrestre baixa a um custo por quilograma baixo o bastante para que a
+massa deixe de ser o principal limite do que se constrói no espaço.
+"""
+
+[[text]]
+path = "scope"
+source = "3624eb7917"
+text = """
+Dentro: o custo por quilograma do lançamento à órbita terrestre baixa, por sistemas de lançamento
+reutilizáveis ou de outro modo mais baratos. Fora: o que se constrói ou se mantém vivo em órbita
+(space/closed-loop-life-support) e o transporte espacial além da órbita terrestre baixa.
+"""
+
+[[text]]
+path = "metric[launch-cost].conditions"
+source = "7b24ca744a"
+text = "Custo médio de enviar um quilograma à órbita, todos os lançamentos do ano."
+
+[[text]]
+path = "metric[launch-cost].current.note"
+source = "8bdc2b8f15"
+text = """
+Uma média sobre um conjunto de dados de todos os lançamentos, portanto abaixo do preço de tabela de
+veículos de baixo custo para algumas missões e acima dele para outras.
+"""
+
+[[text]]
+path = "metric[launch-cost].target.rationale"
+source = "1692942f4c"
+text = """
+A projeção de estimativa central do mesmo estudo de curva de experiência para 2040; é uma previsão
+a partir de um ajuste pela lei de Wright, não uma meta definida por uma agência, e é usada aqui
+como o próximo marco.
+"""
+
+[[text]]
+path = "gap[reusability].title"
+source = "d830fd8950"
+text = "Reutilização de todo o sistema de lançamento"
+
+[[text]]
+path = "gap[reusability].description"
+source = "bbac19dcda"
+text = """
+Primeiros estágios reutilizáveis reduziram o custo de lançamento, e fornecedores em vários
+continentes planejam sistemas reutilizáveis. O custo por quilograma cai com a carga útil acumulada
+lançada, seguindo uma curva de aprendizado, então novas reduções dependem de reutilização em ritmo
+maior e com mais do veículo recuperado.
+"""
+
+[[text]]
+path = "gap[market-and-debris].title"
+source = "6a5cf19b25"
+text = "Estrutura de mercado e detritos orbitais podem desacelerar a queda"
+
+[[text]]
+path = "gap[market-and-debris].description"
+source = "92332dd1ef"
+text = """
+O estudo que ajusta a curva de aprendizado alerta que mudanças geopolíticas, possível comportamento
+monopolista nos mercados de lançamento comercial e o problema crescente dos detritos orbitais podem
+moderar as reduções de custo.
+"""

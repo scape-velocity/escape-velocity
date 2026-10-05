@@ -1,0 +1,83 @@
+# Portuguese (Brazil) translation of atlas/neurotech/high-bandwidth-bci.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "e468923a77"
+text = "Interface cérebro-computador de alta largura de banda"
+
+[[text]]
+path = "statement"
+source = "e2b842ad17"
+text = """
+Uma interface implantada que permite a uma pessoa com paralisia comunicar-se perto da velocidade de
+uma conversa natural, de forma confiável, com um dispositivo que funcione por anos. Esta entrada
+mapeia pesquisa; não é aconselhamento médico.
+"""
+
+[[text]]
+path = "scope"
+source = "ec7f87155c"
+text = """
+Dentro: interfaces intracorticais e outras implantadas que decodificam fala ou movimento tentados
+em texto, som ou controle. Fora: interfaces não invasivas e terapias de estimulação neural. Os
+eletrodos de registro são tratados em neurotech/long-lived-neural-electrodes.
+"""
+
+[[text]]
+path = "requires[neurotech/long-lived-neural-electrodes].why"
+source = "4c2c491435"
+text = """
+A decodificação depende de registros de eletrodos implantados que precisam continuar funcionando
+por anos.
+"""
+
+[[text]]
+path = "requires[ai/energy-efficient-inference].why"
+source = "1197b32f4b"
+text = """
+A decodificação roda uma rede neural sobre o sinal neural; rodá-la em um dispositivo vestível ou
+implantado exige pouca energia por inferência.
+"""
+
+[[text]]
+path = "metric[speech-rate].conditions"
+source = "f21e6d16e5"
+text = """
+Decodificação de fala para texto da fala tentada, matrizes intracorticais, um participante com ELA,
+vocabulário amplo.
+"""
+
+[[text]]
+path = "metric[speech-rate].current.note"
+source = "20bb98b2ce"
+text = """
+as_of é o ano de publicação; um estudo posterior na mesma área relata cerca de 32 palavras por
+minuto em conversa no ritmo do próprio participante (Card et al., NEJM 2024), então o número
+depende da tarefa. Um participante.
+"""
+
+[[text]]
+path = "metric[speech-rate].target.rationale"
+source = "17ec03f86a"
+text = """
+A velocidade da conversa natural conforme o artigo da fonte, o ritmo em que uma troca falada flui
+sem que o usuário espere.
+"""
+
+[[text]]
+path = "gap[rate-gap].title"
+source = "4fb6d9e89c"
+text = "A taxa de decodificação está bem abaixo da conversa natural"
+
+[[text]]
+path = "gap[rate-gap].description"
+source = "dcc36d997c"
+text = """
+A demonstração de 2023 decodificou 62 palavras por minuto, o que os autores descrevem como
+começando a se aproximar da velocidade da conversa natural, 160 palavras por minuto. O resultado
+vem de um participante, então não está estabelecido como ele se generaliza entre pessoas.
+"""

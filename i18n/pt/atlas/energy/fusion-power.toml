@@ -1,0 +1,106 @@
+# Portuguese (Brazil) translation of atlas/energy/fusion-power.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "eaa6a00d6b"
+text = "Energia de fusão"
+
+[[text]]
+path = "statement"
+source = "bc634ca4e7"
+text = """
+Uma usina que produz eletricidade líquida a partir da fusão nuclear, o que primeiro exige um alvo
+de combustível de fusão ou um plasma que libere várias vezes mais energia do que recebe.
+"""
+
+[[text]]
+path = "scope"
+source = "cff7d32e0b"
+text = """
+Dentro: usinas de fusão deutério-trítio, por confinamento inercial (alvos acionados por laser) ou
+por confinamento magnético (tokamaks e stellarators). Fora: fissão e híbridos fissão-fusão. O
+suprimento de combustível é energy/tritium-breeding; os ímãs são materials/low-cost-hts-conductor.
+"""
+
+[[text]]
+path = "horizon"
+source = "96ea2252c4"
+text = "Década de 2040"
+
+[[text]]
+path = "requires[materials/low-cost-hts-conductor].why"
+source = "fd983725de"
+text = """
+Projetos compactos de confinamento magnético precisam de campos acima de 18-20 T, para os quais os
+supercondutores de alta temperatura são a tecnologia habilitadora, e seu custo e complexidade são
+grande parte do núcleo do reator.
+"""
+
+[[text]]
+path = "requires[energy/tritium-breeding].why"
+source = "7ed1d89edb"
+text = """
+Usinas de deutério-trítio precisam regenerar o próprio trítio; o suprimento natural é desprezível.
+"""
+
+[[text]]
+path = "requires[enablers/high-repetition-rate-lasers].why"
+source = "8e8f061115"
+text = """
+Uma usina inercial acionada por laser precisa de um driver que dispare várias vezes por segundo,
+não alguns disparos por dia.
+"""
+
+[[text]]
+path = "requires[enablers/power-electronics].why"
+source = "a46034c1e4"
+text = """
+As fontes de alimentação dos ímãs, a potência pulsada e a conexão da usina à rede dependem de
+conversores de alta potência.
+"""
+
+[[text]]
+path = "metric[target-gain].conditions"
+source = "ae1a993859"
+text = """
+Confinamento inercial de acionamento indireto, energia de laser entregue ao alvo, breakeven
+científico.
+"""
+
+[[text]]
+path = "metric[target-gain].target.rationale"
+source = "9ed400885a"
+text = """
+O requisito de alto ganho para uma usina de energia de fusão inercial: uma razão entre o rendimento
+de nêutrons e a energia de laser incidente de cerca de 100 (goncharov2025laser), afirmado de forma
+independente como ganhos acima de 100 necessários para uma usina de fusão a laser
+(mcgeoch2025development). O ganho precisa cobrir a eficiência na tomada do driver, a conversão
+térmica-elétrica e a potência recirculada ao driver, e ainda deixar a maior parte da produção para
+a rede.
+"""
+
+[[text]]
+path = "gap[high-gain-implosions].title"
+source = "17b27092ac"
+text = "Ganho de cerca de 100 nas taxas de repetição de uma usina"
+
+[[text]]
+path = "gap[high-gain-implosions].description"
+source = "cf40d2d9c3"
+text = """
+O recorde de ganho do alvo é 1,5, de um único disparo na National Ignition Facility. Uma usina
+precisa de um ganho de cerca de 100, o que por sua vez exige uma alta fração da energia do laser
+acoplada ao alvo e o controle dos mecanismos de perda das instabilidades laser-plasma. Lasers de
+banda larga são promissores contra essas instabilidades, e simulações preveem ganhos acima de 100
+com menos de 1 MJ de energia de laser de fluoreto de argônio em acionamento direto, ainda sem
+experimento com esse ganho.
+"""
+
+[[text]]
+path = "gap[high-gain-implosions].approach[1].name"
+source = "5d09072323"
+text = "Acionamento direto com lasers de fluoreto de argônio de banda larga"

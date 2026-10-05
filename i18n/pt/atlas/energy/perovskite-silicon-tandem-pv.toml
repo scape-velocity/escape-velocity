@@ -1,0 +1,27 @@
+# Portuguese (Brazil) translation of atlas/energy/perovskite-silicon-tandem-pv.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "425b15a6de"
+text = "Fotovoltaica tandem perovskita-silício"
+
+[[text]]
+path = "statement"
+source = "5753c00882"
+text = """
+Módulos solares que empilham uma célula de perovskita sobre uma célula de silício para superar o
+limite de eficiência do silício sozinho, e mantêm essa eficiência pelos 25 a 30 anos de vida de um
+módulo solar.
+"""
+
+[[text]]
+path = "scope"
+source = "059dd3c404"
+text = """
+Dentro: células e módulos de perovskita sobre silício, monolíticos e empilhados mecanicamente, e
+sua durabilidade. Fora: silício de junção única e tandems só de perovskita.
+"""

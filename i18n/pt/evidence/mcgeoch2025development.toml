@@ -1,0 +1,21 @@
+# Portuguese (Brazil) translation of evidence/mcgeoch2025development.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "d9abd64755"
+text = """
+Palestra de conferência (anais da SPIE). Declaração independente do mesmo requisito de ganho, com
+simulações de acionamento direto por um laser de fluoreto de argônio.
+"""
+
+[[text]]
+path = "finding[1].conditions"
+source = "ffb2377265"
+text = """
+Requisito para uma usina de fusão a laser, a partir de simulações no Naval Research Laboratory; não
+uma medição.
+"""

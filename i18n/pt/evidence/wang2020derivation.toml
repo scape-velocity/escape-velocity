@@ -1,0 +1,13 @@
+# Portuguese (Brazil) translation of evidence/wang2020derivation.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "finding[1].conditions"
+source = "258855d28f"
+text = """
+Afirmação qualitativa do resumo; o mínimo é a energia livre de Gibbs de separação, seu valor está no
+corpo do artigo.
+"""

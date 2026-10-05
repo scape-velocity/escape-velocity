@@ -1,0 +1,19 @@
+# Portuguese (Brazil) translation of evidence/fumarulo2026evaluating.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "3551dbbff9"
+text = """
+Modelo de custo de baixo para cima e curvas de aprendizado para fita REBCO por PLD. A estimativa de
+custo atual está no corpo do artigo, não no resumo; um curador que a ler pode substituir o valor
+atual derivado do atlas.
+"""
+
+[[text]]
+path = "finding[1].conditions"
+source = "39cba6587a"
+text = "Meta de custo para aplicações de potência declarada pelos autores; não é um preço medido."

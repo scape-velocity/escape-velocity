@@ -1,0 +1,82 @@
+# Portuguese (Brazil) translation of atlas/biotech/de-novo-protein-design.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "e0cf19a673"
+text = "Projeto de proteínas de novo"
+
+[[text]]
+path = "statement"
+source = "87cb7f3d4a"
+text = """
+Projetar do zero, por computador, uma proteína com estrutura ou função escolhida, de modo que os
+primeiros projetos testados em laboratório funcionem como pretendido.
+"""
+
+[[text]]
+path = "scope"
+source = "1af62337dc"
+text = """
+Dentro: projeto computacional de novos ligantes proteicos, enzimas e montagens que não existem na
+natureza, e a taxa de sucesso experimental dos projetos. Fora: evolução dirigida de proteínas
+naturais e a entrega das proteínas no corpo (biotech/in-vivo-gene-delivery).
+"""
+
+[[text]]
+path = "requires[ai/ai-for-science].why"
+source = "34cc0f1fe5"
+text = """
+Os métodos de projeto são modelos de aprendizado profundo treinados com estruturas de proteínas.
+"""
+
+[[text]]
+path = "requires[biotech/low-cost-dna-synthesis].why"
+source = "ece520ece8"
+text = """
+Toda proteína projetada precisa ser codificada como DNA sintético antes de ser expressa e testada.
+"""
+
+[[text]]
+path = "metric[success-rate].conditions"
+source = "95b5916e6d"
+text = """
+Ligantes proteicos de novo, taxa de sucesso experimental nos alvos testados pelos desenvolvedores
+do método.
+"""
+
+[[text]]
+path = "metric[success-rate].current.note"
+source = "3ec04a1506"
+text = """
+Extremo inferior de uma faixa relatada de 10 a 100% entre alvos. as_of é o ano de publicação.
+Grupos independentes relatam taxas menores para outros métodos (ver a lacuna).
+"""
+
+[[text]]
+path = "metric[success-rate].target.rationale"
+source = "be9a105277"
+text = """
+A meta da abordagem um-projeto-um-ligante citada no artigo do BindCraft: com uma taxa de sucesso de
+90%, testar três projetos dá mais de 99,9% de chance de ao menos um ligante funcional (1 menos 0,1
+ao cubo), de modo que não é preciso triagem de alto rendimento. Raciocínio do atlas, não uma meta
+de agência.
+"""
+
+[[text]]
+path = "gap[success-rate-variability].title"
+source = "7afadb4aca"
+text = "A taxa de sucesso varia muito entre alvos e entre grupos"
+
+[[text]]
+path = "gap[success-rate-variability].description"
+source = "85c8f08ff3"
+text = """
+Os desenvolvedores de um pipeline relatam taxas de sucesso experimental de 10 a 100% conforme o
+alvo. Um estudo anterior achou baixa a taxa de sucesso geral dos projetos e a elevou quase 10 vezes
+com filtragem por aprendizado profundo. Um grupo independente que testou outro método em seis
+alvos, cinco projetos cada, relatou que a maioria dos alvos não deu nenhum ligante funcional.
+"""

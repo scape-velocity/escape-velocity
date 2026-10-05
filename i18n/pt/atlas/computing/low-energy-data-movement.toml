@@ -1,0 +1,78 @@
+# Portuguese (Brazil) translation of atlas/computing/low-energy-data-movement.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "38a680a586"
+text = "Movimentação de dados de baixa energia"
+
+[[text]]
+path = "statement"
+source = "700f67eb96"
+text = """
+Mover bits entre memória e processador e entre chips com uma pequena fração da energia atual por
+bit, por meio de enlaces elétricos mais curtos e densos, memória dentro do encapsulamento e
+interconexões ópticas.
+"""
+
+[[text]]
+path = "scope"
+source = "f703406bcd"
+text = """
+No escopo: energia por bit das interfaces de memória e dos enlaces entre chips, incluindo o
+transceptor nas duas pontas. Fora do escopo: a lógica que computa sobre os dados, coberta por
+computing/beyond-cmos-logic; os próprios chips fotônicos, cobertos por
+enablers/photonic-integration.
+"""
+
+[[text]]
+path = "readiness_note"
+source = "8aeaa1490a"
+text = """
+O melhor valor encontrado é de um protótipo de interface die-to-die em 28 nm; ainda não há valor
+com fonte de um sistema em operação.
+"""
+
+[[text]]
+path = "horizon"
+source = "b3ecd8392c"
+text = "Década de 2030"
+
+[[text]]
+path = "requires[enablers/photonic-integration].why"
+source = "a5f8073826"
+text = """
+Enlaces ópticos prometem baixa energia por bit em distâncias maiores que os enlaces elétricos, e
+precisam de chips fotônicos integrados fabricados em volume.
+"""
+
+[[text]]
+path = "metric[bit-energy].conditions"
+source = "ef756f30ca"
+text = """
+Energia de interface de um enlace elétrico die-to-die sobre um interposer de silício, só o
+transceptor; um protótipo, não um sistema de memória em operação.
+"""
+
+[[text]]
+path = "metric[bit-energy].current.note"
+source = "f38042338d"
+text = "0,65 pJ/bit. as_of é o mês aproximado do preprint; o resumo não dá data."
+
+[[text]]
+path = "metric[bit-energy].target.rationale"
+source = "4b362b1473"
+text = """
+Raciocínio definido pelo atlas, não uma meta de agência: a 0,1 pJ/bit, um acelerador que transmite
+10 TB/s (8e13 bit/s, uma taxa suposta da classe HBM) gasta 8 W no enlace, contra 52 W aos atuais
+0,65 pJ/bit; isso leva a energia de interconexão a menos de alguns por cento de um acelerador da
+classe do quilowatt.
+"""
+
+[[text]]
+path = "alan_machine[building-alan/data-movement].title"
+source = "b8f35f1022"
+text = "Construindo Alan: movimentação de dados"

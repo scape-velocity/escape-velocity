@@ -1,0 +1,37 @@
+# Portuguese (Brazil) translation of atlas/health/antibiotics-for-resistant-bacteria.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "de5f552674"
+text = "Antibióticos para bactérias resistentes"
+
+[[text]]
+path = "statement"
+source = "866dda3730"
+text = """
+Novos antibióticos, ou outros agentes, que matem bactérias resistentes aos medicamentos hoje em
+uso, descobertos e desenvolvidos rápido o bastante para acompanhar a disseminação da resistência.
+Esta entrada mapeia pesquisa; não é aconselhamento médico.
+"""
+
+[[text]]
+path = "scope"
+source = "9d01a7f1c5"
+text = """
+Dentro: descoberta de antibacterianos de pequenas moléculas e peptídeos, incluindo a descoberta
+computacional, e agentes contra infecções bacterianas resistentes a medicamentos. Fora: vacinas,
+terapia com bacteriófagos e diagnósticos. As ferramentas de descoberta computacional pertencem a
+ai/ai-for-science.
+"""
+
+[[text]]
+path = "requires[ai/ai-for-science].why"
+source = "8c48d56360"
+text = """
+Modelos de aprendizado de máquina triam e geram moléculas candidatas muito mais rápido do que a
+triagem manual de bibliotecas.
+"""

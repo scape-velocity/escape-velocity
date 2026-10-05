@@ -1,0 +1,21 @@
+# Portuguese (Brazil) translation of evidence/barcohen2019embedded.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "28245646ba"
+text = """
+Um recorde de laboratório em pequenos dispositivos de teste de GaN sobre diamante, não um resfriador
+compatível com o encapsulamento de um die grande de acelerador de IA.
+"""
+
+[[text]]
+path = "finding[1].conditions"
+source = "e42680f6d8"
+text = """
+Fluxo de calor recorde acima de 40 kW/cm2 (4e8 W/m2) no programa de transporte térmico próximo à
+junção da DARPA, GaN sobre diamante, resfriamento embutido, pequena área aquecida.
+"""

@@ -1,0 +1,186 @@
+# Portuguese (Brazil) translation of atlas/ai/energy-efficient-inference.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "5f108f707d"
+text = "Inferência de IA com eficiência energética"
+
+[[text]]
+path = "statement"
+source = "7bdb17eb91"
+text = """
+Executar modelos de IA treinados para responder a consultas com uma pequena fração da energia atual
+por token gerado, em toda a pilha, do chip à central de resfriamento, de modo que o uso mais amplo
+de IA não exija proporcionalmente mais eletricidade.
+"""
+
+[[text]]
+path = "scope"
+source = "3acba723bd"
+text = """
+No escopo: a energia consumida para servir um modelo de linguagem treinado, medida por token ou por
+consulta, incluindo acelerador, memória, interconexão, host e a sobrecarga do resfriamento. Fora do
+escopo: a energia do treinamento (ainda não mapeada); os dispositivos lógicos, a movimentação de
+dados e o resfriamento de que a inferência depende, cobertos por computing/beyond-cmos-logic,
+computing/low-energy-data-movement e enablers/heat-removal; e aquilo para que a IA é usada, coberto
+por ai/ai-for-science.
+"""
+
+[[text]]
+path = "readiness_note"
+source = "3e4565159c"
+text = """
+Ganhos de eficiência estão demonstrados em produção (uma redução de 33x na energia por prompt
+mediano do Gemini Apps em um ano, relatada pela empresa), mas as lacunas de hardware de uma ordem
+de grandeza descritas abaixo estão em nível de laboratório ou de protótipo.
+"""
+
+[[text]]
+path = "horizon"
+source = "b3ecd8392c"
+text = "Década de 2030"
+
+[[text]]
+path = "requires[computing/beyond-cmos-logic].why"
+source = "95a95770f3"
+text = """
+A aritmética no acelerador é limitada pela energia de chaveamento da lógica CMOS, que, segundo
+estimativas, permite apenas cerca de duzentas vezes mais eficiência do que os microprocessadores
+atuais.
+"""
+
+[[text]]
+path = "requires[computing/low-energy-data-movement].why"
+source = "9b141fa520"
+text = """
+A geração de tokens lê da memória os pesos do modelo e o cache de chave-valor a cada token, de modo
+que o tráfego de memória e entre chips responde por uma grande parte da energia.
+"""
+
+[[text]]
+path = "requires[computing/low-energy-data-movement].need"
+source = "9438ebe17b"
+text = """
+Energia por bit movido entre memória e processador igual ou inferior a 0,1 pJ, de modo que
+transmitir os pesos custe poucos watts por terabyte por segundo.
+"""
+
+[[text]]
+path = "requires[enablers/heat-removal].why"
+source = "3beb650ac3"
+text = """
+A potência entregue e a capacidade de resfriamento limitam quantos aceleradores cabem em um rack e,
+portanto, os tokens produzidos por instalação.
+"""
+
+[[text]]
+path = "metric[token-energy].conditions"
+source = "67d38c7422"
+text = """
+Energia da GPU na janela de inferência dividida pelos tokens de saída, conforme a fonte a define;
+depende fortemente do tamanho do modelo, do tamanho do lote, do contexto e do comprimento da saída.
+O valor atual é para um modelo denso de 1B de parâmetros, o extremo favorável da faixa.
+"""
+
+[[text]]
+path = "metric[token-energy].current.note"
+source = "36c707199d"
+text = """
+Com 10 tokens de saída, a mesma configuração mede 7,46 J/token, de modo que o número só é
+comparável nas condições declaradas. as_of é o mês aproximado do preprint; o resumo não dá data.
+"""
+
+[[text]]
+path = "metric[token-energy].target.rationale"
+source = "c51cab13d9"
+text = """
+Uma ordem de grandeza abaixo do valor atual nas mesmas condições. Oviedo et al. (Joule 2026)
+estimam reduções de energia de 8 a 20 vezes, já à vista, entre modelos, sistemas de serviço e
+hardware; 10 vezes fica dentro dessa faixa e não exige nova física de dispositivos.
+"""
+
+[[text]]
+path = "gap[data-movement].title"
+source = "a88f45765b"
+text = "Mover pesos e cache custa mais do que a aritmética"
+
+[[text]]
+path = "gap[data-movement].description"
+source = "30e589c95e"
+text = """
+Cada token gerado transmite os pesos do modelo e o cache de chave-valor pela memória, de modo que o
+tráfego de memória, e não a aritmética, tende a limitar a energia por token. O melhor enlace
+elétrico die-to-die publicado mede 0,65 pJ/bit em um protótipo, um valor só da interface. Fechar a
+lacuna significa mover menos bytes (quantização, compressão de cache, atenção esparsa) e bytes mais
+baratos.
+"""
+
+[[text]]
+path = "gap[memory-bandwidth].title"
+source = "5729f3aa89"
+text = "A decodificação é limitada pela largura de banda da memória, não pela computação"
+
+[[text]]
+path = "gap[memory-bandwidth].description"
+source = "2f5bd39c3b"
+text = """
+Lotes pequenos deixam as unidades aritméticas ociosas enquanto o sistema de memória está saturado.
+A energia por token medida cai de 7,46 para 0,72 J/token à medida que o comprimento da saída cresce
+de 10 para 512 tokens com lote 16, porque os custos fixos são amortizados; os ganhos de agrupamento
+em lotes diminuem à medida que o contexto cresce (6,31x com 512 tokens de contexto contra 1,17x com
+4K, para 10 tokens de saída).
+"""
+
+[[text]]
+path = "gap[logic-energy].title"
+source = "6bdd2d9d59"
+text = "A lógica CMOS tem um teto de cerca de duzentas vezes a eficiência atual"
+
+[[text]]
+path = "gap[logic-energy].description"
+source = "90554e9745"
+text = """
+Ho, Erdil e Besiroglu estimam um teto de 4,7e15 operações FP4 por joule para microprocessadores
+CMOS, aproximadamente duzentas vezes os microprocessadores atuais, a partir do chaveamento, da
+capacitância das interconexões e da fuga. O atlas ainda não tem um valor atual com fonte de FLOP
+por joule para aceleradores em operação, por isso esta lacuna não tem métrica própria.
+"""
+
+[[text]]
+path = "gap[cooling].title"
+source = "b5780bb0c4"
+text = "A potência entregue e o resfriamento limitam a produção de tokens"
+
+[[text]]
+path = "gap[cooling].description"
+source = "5337f4c9a0"
+text = """
+Em escala de implantação, a restrição limitante pode passar da computação de pico para a potência
+entregue ao data center, a capacidade de resfriamento e o PUE. O resfriamento microfluídico
+embutido suporta cerca de 1e3 W/cm2; a densidade de potência dos aceleradores continua a subir.
+"""
+
+[[text]]
+path = "gap[utilization].title"
+source = "620a34dbbb"
+text = "Capacidade ociosa e lotes pequenos desperdiçam energia"
+
+[[text]]
+path = "gap[utilization].description"
+source = "df0c930a8a"
+text = """
+A energia por prompt em produção inclui a capacidade ociosa das máquinas e a sobrecarga do data
+center, não apenas a potência ativa dos aceleradores. O Google relata uma redução de 33x na energia
+por prompt de texto mediano do Gemini Apps em um ano, por eficiência de software e compra de
+energia limpa (o resumo declara o efeito combinado sobre a energia e não separa os dois). Novos
+ganhos dependem de agrupamento em lotes, roteamento e escolha do modelo.
+"""
+
+[[text]]
+path = "alan_machine[building-alan/energy-per-token].title"
+source = "45a577ae7d"
+text = "Construindo Alan: energia por token"

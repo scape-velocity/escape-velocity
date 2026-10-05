@@ -1,0 +1,27 @@
+# Portuguese (Brazil) translation of atlas/enablers/power-electronics.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "1304ca0df8"
+text = "Eletrônica de alta potência"
+
+[[text]]
+path = "statement"
+source = "e3c2e052e7"
+text = """
+Conversores e chaves que transferem de megawatts a gigawatts com alta eficiência e densidade de
+potência, da rede elétrica para ímãs, lasers e data centers.
+"""
+
+[[text]]
+path = "scope"
+source = "02f98317ac"
+text = """
+Dentro: dispositivos de banda proibida larga (carbeto de silício, nitreto de gálio), conversores e
+seu resfriamento. Fora: eletrônica de nível de sinal e a lógica da computação
+(computing/beyond-cmos-logic).
+"""

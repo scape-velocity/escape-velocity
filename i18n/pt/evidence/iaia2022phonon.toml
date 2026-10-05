@@ -1,0 +1,21 @@
+# Portuguese (Brazil) translation of evidence/iaia2022phonon.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "0126a5644f"
+text = """
+Lista de autores truncada na saída do scout. Uma abordagem de mitigação para erros correlacionados;
+nenhum valor de métrica do atlas foi extraído.
+"""
+
+[[text]]
+path = "finding[1].conditions"
+source = "d9ab5396c0"
+text = """
+Conversão descendente de fônons por metal normal na face traseira de chips de qubits, três qubits
+monitorados por chip.
+"""

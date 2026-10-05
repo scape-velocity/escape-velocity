@@ -1,0 +1,21 @@
+# Portuguese (Brazil) translation of evidence/liyanage2024fpga.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "ab413a93ee"
+text = """
+Tempo de decodificação por rodada de medição sob ruído modelado, não a latência de ponta a ponta de
+um experimento real; não comparável com o resultado de latência do decodificador do Willow.
+"""
+
+[[text]]
+path = "finding[1].conditions"
+source = "b09b0ce7fc"
+text = """
+FPGA Xilinx VCU129 decodificando distância 51 sob ruído fenomenológico; latência média por rodada de
+medição.
+"""

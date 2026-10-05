@@ -1,0 +1,21 @@
+# Portuguese (Brazil) translation of evidence/guan2025development.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "4415ced8a0"
+text = """
+Potência de resfriamento a cerca de 100 mK, não no estágio de qubits de 10-20 mK. Conversão: 2000
+microwatts = 2e-3 W.
+"""
+
+[[text]]
+path = "finding[1].conditions"
+source = "64e6d4ef62"
+text = """
+Refrigerador de diluição sem criogênicos, quatro unidades de diluição em paralelo, dois
+pré-resfriadores de tubo pulsado; a 102,48 mK; 2000 microwatts convertidos em 2e-3 W.
+"""

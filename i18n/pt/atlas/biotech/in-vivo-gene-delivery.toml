@@ -1,0 +1,35 @@
+# Portuguese (Brazil) translation of atlas/biotech/in-vivo-gene-delivery.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "e14363b49a"
+text = "Entrega gênica in vivo"
+
+[[text]]
+path = "statement"
+source = "f26fe7ab89"
+text = """
+Levar um gene, um editor ou um RNA às células de um corpo vivo que precisam dele, e só a essas
+células, com segurança e em uma dose que funcione.
+"""
+
+[[text]]
+path = "scope"
+source = "c8f6ce34e2"
+text = """
+Dentro: vetores virais, nanopartículas lipídicas e capsídeos modificados que levam carga genética a
+células-alvo em um corpo vivo. Fora: a escolha da carga e o projeto de novas proteínas
+(biotech/de-novo-protein-design é um insumo, não parte desta entrada).
+"""
+
+[[text]]
+path = "requires[biotech/de-novo-protein-design].why"
+source = "9cdefa0458"
+text = """
+Ligantes e proteínas de capsídeo projetados podem redirecionar vetores a tipos celulares
+específicos.
+"""

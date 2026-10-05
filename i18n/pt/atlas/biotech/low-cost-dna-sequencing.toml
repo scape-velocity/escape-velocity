@@ -1,0 +1,67 @@
+# Portuguese (Brazil) translation of atlas/biotech/low-cost-dna-sequencing.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "5a9c86aca4"
+text = "Sequenciamento de DNA de baixo custo"
+
+[[text]]
+path = "statement"
+source = "f7be63b3fc"
+text = """
+Ler a sequência de um genoma humano, com cobertura de cerca de 30 vezes, a um custo baixo o
+bastante para que o sequenciamento seja uma etapa de rotina em pesquisa, rastreamento e
+diagnóstico.
+"""
+
+[[text]]
+path = "scope"
+source = "0435cb00d5"
+text = """
+Dentro: instrumentos, química e fluxos de trabalho que leem DNA, e o custo por genoma humano. Fora:
+a interpretação da sequência e a escrita de DNA (biotech/low-cost-dna-synthesis).
+"""
+
+[[text]]
+path = "metric[genome-cost].conditions"
+source = "48bf27759f"
+text = """
+Um genoma humano com cobertura de cerca de 30 vezes; número do desenvolvedor da plataforma por
+gigabase, escalado para um genoma.
+"""
+
+[[text]]
+path = "metric[genome-cost].current.note"
+source = "165199db04"
+text = """
+Derivado: 1 USD por Gb vezes 30 vezes 3 Gb. Preprint do desenvolvedor da plataforma; a base de
+custo do número por gigabase não é definida no resumo. as_of é o ano do preprint.
+"""
+
+[[text]]
+path = "metric[genome-cost].target.rationale"
+source = "343f07f29b"
+text = """
+Meta de trabalho do atlas, não definida por uma agência: uma ordem de grandeza abaixo do valor
+atual, onde o custo de sequenciamento de um genoma seria comparável ao de um ensaio laboratorial de
+rotina. O NHGRI publica o histórico de custos, mas não define meta.
+"""
+
+[[text]]
+path = "gap[cost-basis].title"
+source = "ed6c7f8e21"
+text = "O preço do reagente não é o custo de um genoma"
+
+[[text]]
+path = "gap[cost-basis].description"
+source = "932cf76b66"
+text = """
+O preço por gigabase citado por um desenvolvedor de plataforma deixa de fora o que o NHGRI conta
+como custo de produção: mão de obra, instrumentos amortizados em três anos, informática e submissão
+de dados. O atlas não tem um número independente para o custo total hoje de um genoma humano com
+cobertura de 30 vezes, então o valor atual é um número derivado, relatado pelo desenvolvedor.
+"""

@@ -1,0 +1,13 @@
+# Portuguese (Brazil) translation of evidence/yalamanchili2024can.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "finding[1].conditions"
+source = "8004d0365e"
+text = """
+Simulação em software (não uma medição) de osmose reversa em água do mar diluída por osmose direta
+com efluente, até 7,4 g/l.
+"""

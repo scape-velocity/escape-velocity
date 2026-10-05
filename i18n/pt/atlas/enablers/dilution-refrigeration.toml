@@ -1,0 +1,41 @@
+# Portuguese (Brazil) translation of atlas/enablers/dilution-refrigeration.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "4d759123ce"
+text = "Refrigeração por diluição"
+
+[[text]]
+path = "statement"
+source = "8426528be9"
+text = """
+Criostatos que resfriam dispositivos a poucos milikelvin e removem o calor que a fiação, os
+amplificadores e a eletrônica de controle acrescentam nessa temperatura.
+"""
+
+[[text]]
+path = "scope"
+source = "62fc913904"
+text = """
+No escopo: refrigeradores de diluição e sua potência de resfriamento nos estágios onde ficam os
+qubits e a eletrônica fria. Fora do escopo: a própria eletrônica de controle
+(enablers/cryogenic-control-electronics) e o resfriamento à temperatura ambiente
+(enablers/heat-removal).
+"""
+
+[[text]]
+path = "metric[power].conditions"
+source = "27b6214ec6"
+text = """
+Refrigerador de diluição sem criogênicos líquidos, com quatro unidades de diluição em paralelo, a
+102,48 mK; a potência no estágio dos qubits, de 10-20 mK, é muito menor.
+"""
+
+[[text]]
+path = "metric[power].current.note"
+source = "60e317863d"
+text = "as_of é o início do ano de publicação; o resumo não dá data."

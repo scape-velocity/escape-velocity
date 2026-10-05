@@ -1,0 +1,22 @@
+# Portuguese (Brazil) translation of evidence/almogy2022cost.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "3a4b441e0f"
+text = """
+Preprint do desenvolvedor da plataforma; o resumo dá o custo por gigabase, não por genoma. O
+resultado abaixo é derivado, veja suas condições.
+"""
+
+[[text]]
+path = "finding[1].conditions"
+source = "a157beb4d1"
+text = """
+Derivado, não declarado no resumo: 1 USD por Gb vezes cobertura de 30 vezes de um genoma humano de 3
+Gb (3 000 Mb e cobertura de 30 vezes são as premissas que o NHGRI usa para plataformas do tipo
+Illumina, veja wetterstrand2023dna). A base de custo do valor de 1 USD/Gb não é definida no resumo.
+"""

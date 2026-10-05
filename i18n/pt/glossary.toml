@@ -174,3 +174,153 @@ note = "Of a translation whose English has changed since."
 en = "Sustainable Development Goals"
 text = "Objetivos de Desenvolvimento Sustentável (ODS)"
 note = "The names of the goals are the official ones of the United Nations in Brazil, https://brasil.un.org/pt-br/sdgs, in sentence case."
+
+[[term]]
+en = "abstract"
+text = "resumo"
+note = "Of a paper."
+
+[[term]]
+en = "review"
+text = "revisão"
+note = "A review article. 'Peer review' is 'revisão por pares'."
+
+[[term]]
+en = "derived"
+text = "derivado"
+note = "Of a number computed from what the source states, not stated by it."
+
+[[term]]
+en = "lower bound"
+text = "limite inferior"
+
+[[term]]
+en = "upper bound"
+text = "limite superior"
+
+[[term]]
+en = "line-of-sight"
+text = "já à vista"
+note = "Of a gain reachable with techniques known today."
+
+[[term]]
+en = "levelized cost"
+text = "custo nivelado"
+
+[[term]]
+en = "In: / Out:"
+text = "Dentro: / Fora:"
+note = "The short form that opens the two halves of a scope."
+
+[[term]]
+en = "link"
+text = "enlace"
+note = "A data or quantum link. 'Link' stays for a web address."
+
+[[term]]
+en = "interconnect"
+text = "interconexão"
+
+[[term]]
+en = "decoder"
+text = "decodificador"
+
+[[term]]
+en = "surface code"
+text = "código de superfície"
+
+[[term]]
+en = "logical qubit"
+text = "qubit lógico"
+note = "And 'qubit físico' for physical qubit."
+
+[[term]]
+en = "fault-tolerant"
+text = "tolerante a falhas"
+
+[[term]]
+en = "syndrome"
+text = "síndrome"
+note = "Of quantum error correction."
+
+[[term]]
+en = "entanglement"
+text = "emaranhamento"
+
+[[term]]
+en = "dilution refrigerator"
+text = "refrigerador de diluição"
+
+[[term]]
+en = "heat flux"
+text = "fluxo de calor"
+
+[[term]]
+en = "wall-plug efficiency"
+text = "eficiência na tomada"
+
+[[term]]
+en = "waveguide"
+text = "guia de onda"
+
+[[term]]
+en = "batch"
+text = "lote"
+note = "Batch size is 'tamanho de lote'."
+
+[[term]]
+en = "binder"
+text = "ligante"
+note = "A designed protein that binds a target."
+
+[[term]]
+en = "target (of a binder or drug)"
+text = "alvo"
+note = "Not 'meta', which is the target value of a metric."
+
+[[term]]
+en = "screening"
+text = "rastreamento"
+note = "Of a population for disease. 'Triagem' for screening molecules or candidates."
+
+[[term]]
+en = "stage I"
+text = "estágio I"
+note = "Of a cancer. 'Estádio' is also used in Brazilian oncology."
+
+[[term]]
+en = "endpoint"
+text = "desfecho"
+note = "Of a clinical trial."
+
+[[term]]
+en = "sorbent"
+text = "sorvente"
+
+[[term]]
+en = "plant"
+text = "usina"
+note = "A power or capture plant. 'Planta piloto' stays, as the field says it; otherwise 'planta' only for the organism."
+
+[[term]]
+en = "blanket"
+text = "manto"
+note = "Of a fusion reactor."
+
+[[term]]
+en = "breeding"
+text = "regeneração"
+note = "Of tritium in a fusion blanket."
+
+[[term]]
+en = "payload"
+text = "carga útil"
+
+[[term]]
+en = "reverse osmosis"
+text = "osmose reversa"
+note = "And 'osmose direta' for forward osmosis."
+
+[[term]]
+en = "landrace"
+text = "variedade crioula"

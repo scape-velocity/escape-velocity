@@ -1,0 +1,46 @@
+# Portuguese (Brazil) translation of atlas/computing/beyond-cmos-logic.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "6f894e3973"
+text = "Lógica além do CMOS"
+
+[[text]]
+path = "statement"
+source = "339bff7d7f"
+text = """
+Lógica que realiza uma computação com muito menos energia por operação do que o CMOS de silício
+permite, por meio de chaves mais abruptas, operação reversível ou adiabática, ou dispositivos
+supercondutores e outros, até perto do limite termodinâmico.
+"""
+
+[[text]]
+path = "scope"
+source = "c2cb6ac388"
+text = """
+No escopo: dispositivos e circuitos para operações lógicas, medidos pela energia por operação no
+dispositivo e com o resfriamento e a alimentação incluídos. Fora do escopo: mover dados entre
+memória e processador, coberto por computing/low-energy-data-movement; remover o calor, coberto por
+enablers/heat-removal; lógica quântica, coberta pelo domínio quantum.
+"""
+
+[[text]]
+path = "metric[op-energy].conditions"
+source = "3372cc7c1c"
+text = """
+Energia dissipada por operação lógica no dispositivo. Ainda não há valor atual com fonte; veja o
+relatório.
+"""
+
+[[text]]
+path = "metric[op-energy].limit.basis"
+source = "39db914c27"
+text = """
+Limite de Landauer para apagar um bit a 300 K, kT ln 2 com k = 1,380649e-23 J/K, cerca de 2,87e-21
+J. Ele limita operações logicamente irreversíveis; a lógica reversível pode, em princípio, ir
+abaixo disso por operação, ao custo da velocidade.
+"""

@@ -1,0 +1,25 @@
+# Portuguese (Brazil) translation of evidence/ang2024arquin.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "dc202bc21e"
+text = """
+Lista de autores truncada na saída do scout. Análise de sistemas com modelos de hardware; o 10-100x
+é um requisito, não uma medição.
+"""
+
+[[text]]
+path = "finding[1].conditions"
+source = "a1b572208b"
+text = """
+Análise de sistemas de computadores supercondutores de múltiplos nós com interconexões ópticas.
+"""
+
+[[text]]
+path = "finding[2].conditions"
+source = "abc6fb8d2d"
+text = "Mesma análise; o desempenho de enlace que os algoritmos exigem."

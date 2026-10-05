@@ -1,0 +1,18 @@
+# Portuguese (Brazil) translation of evidence/lin2025days.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "0c796c3783"
+text = "Dois qubits fluxonium acoplados indutivamente; um par, não uma matriz."
+
+[[text]]
+path = "finding[1].conditions"
+source = "1508bbdfab"
+text = """
+Porta de dois qubits de 60 ns em um par de qubits fluxonium, benchmarking aleatorizado; fidelidade
+média de porta de 99,94%, logo infidelidade 1 - 0,9994 = 6e-4.
+"""

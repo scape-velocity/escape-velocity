@@ -1,0 +1,14 @@
+# Portuguese (Brazil) translation of evidence/vandeynze2018nitrogen.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "finding[1].conditions"
+source = "0e52af4428"
+text = """
+Extremo superior da faixa de 29-82% medida por experimentos de campo com 15N ao longo de 5 anos em
+uma variedade crioula de milho indígena Sierra Mixe em solo pobre em nitrogênio, não uma cultivar
+moderna de alta produtividade.
+"""

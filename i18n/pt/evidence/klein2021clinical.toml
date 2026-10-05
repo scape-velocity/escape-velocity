@@ -1,0 +1,28 @@
+# Portuguese (Brazil) translation of evidence/klein2021clinical.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "05f357cb61"
+text = """
+Lista de autores truncada aos oito primeiros, como impressa pelo scout. Conjunto de validação
+caso-controle (CCGA substudy 3), não uma população de rastreamento.
+"""
+
+[[text]]
+path = "finding[1].conditions"
+source = "66073d0b22"
+text = """
+Cânceres em estágio I, qualquer um de mais de 50 tipos de câncer, teste MCED de metilação baseado em
+sangue, conjunto de validação independente de 4077 participantes (caso-controle).
+"""
+
+[[text]]
+path = "finding[2].conditions"
+source = "f9f689b70e"
+text = """
+Detecção de sinal de câncer no conjunto de validação independente, 1254 participantes sem câncer.
+"""

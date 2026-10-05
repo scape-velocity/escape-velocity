@@ -1,0 +1,76 @@
+# Portuguese (Brazil) translation of atlas/enablers/heat-removal.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "name"
+source = "8266ddc61f"
+text = "Remoção de calor de alto fluxo"
+
+[[text]]
+path = "statement"
+source = "809eb8f65e"
+text = """
+Resfriamento que remove o calor de chips densos e dies empilhados no próprio dispositivo, com
+fluxos de calor bem acima dos do resfriamento a ar e por placa fria, numa forma que caiba em um
+encapsulamento e possa ser fabricada em volume.
+"""
+
+[[text]]
+path = "scope"
+source = "7d41fbeed1"
+text = """
+No escopo: resfriamento embutido e junto à junção (canais microfluídicos, manifolds, jatos,
+escoamento bifásico, difusores de diamante), medido pelo fluxo de calor removido com uma elevação
+de temperatura declarada. Fora do escopo: a central do data center e a rejeição de calor; a
+refrigeração a baixa temperatura, coberta por enablers/dilution-refrigeration.
+"""
+
+[[text]]
+path = "readiness_note"
+source = "4e00911adf"
+text = """
+O resfriamento embutido está demonstrado em veículos de teste térmico e em pequenos dispositivos de
+GaN sobre diamante; uma revisão adverte que os recordes não são transferíveis para plataformas
+compatíveis com encapsulamento, de grande área e em operação.
+"""
+
+[[text]]
+path = "horizon"
+source = "b3ecd8392c"
+text = "Década de 2030"
+
+[[text]]
+path = "metric[flux].conditions"
+source = "af44db0810"
+text = """
+Fluxo de calor que um resfriador remove por unidade de área da superfície do dispositivo. A área
+aquecida, o fluido de resfriamento, a elevação de temperatura e o custo de bombeamento variam entre
+as fontes e devem ser declarados.
+"""
+
+[[text]]
+path = "metric[flux].current.note"
+source = "e824ce52ba"
+text = """
+O extremo superior da faixa de 10^2 a 10^3 W/cm2 declarada pela revisão, tomado como 1e3 W/cm2.
+as_of é o ano da revisão; o resumo não dá data.
+"""
+
+[[text]]
+path = "metric[flux].target.rationale"
+source = "3b9604bde7"
+text = """
+Raciocínio definido pelo atlas: 10 kW/cm2 em grandes áreas compatíveis com encapsulamento. O
+programa de resfriamento junto à junção da DARPA chegou a mais de 40 kW/cm2 (4e8 W/m2) em pequenos
+dispositivos de GaN sobre diamante, de modo que um quarto desse recorde em hardware implantável e
+escalado em área daria à lógica empilhada uma margem de dez vezes sobre a faixa microfluídica
+atual.
+"""
+
+[[text]]
+path = "alan_machine[building-alan/heat-removal].title"
+source = "6e3d2e978a"
+text = "Construindo Alan: remoção de calor"

@@ -1,0 +1,22 @@
+# Portuguese (Brazil) translation of evidence/terzi2026from.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "finding[1].conditions"
+source = "e8772b3e6e"
+text = """
+Custo médio de enviar um quilograma à órbita em todos os lançamentos de 2025, a partir de um
+conjunto de dados padronizado de mais de 4 400 lançamentos; uma média sobre todos os veículos, não o
+preço do veículo mais barato.
+"""
+
+[[text]]
+path = "finding[2].conditions"
+source = "b3a5d530c9"
+text = """
+Projeção de estimativa central para 2040 a partir de uma curva de experiência pela lei de Wright;
+uma projeção, não uma medição.
+"""

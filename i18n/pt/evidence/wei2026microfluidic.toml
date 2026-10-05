@@ -1,0 +1,22 @@
+# Portuguese (Brazil) translation of evidence/wei2026microfluidic.toml (decision 0014).
+# Each text replaces the English at `path` while `source` is the fingerprint of the English it
+# was translated from. Run python3 tools/translate.py show to see both side by side.
+status = "machine"
+reviewed_by = []
+
+[[text]]
+path = "note"
+source = "e9c836ce45"
+text = """
+A própria revisão adverte que um fluxo de calor recorde não é transferível sem a área aquecida, o
+critério de temperatura, o estado do fluido refrigerante e o custo hidráulico.
+"""
+
+[[text]]
+path = "finding[1].conditions"
+source = "2ba949f83f"
+text = """
+Extremo superior da faixa que a revisão dá para resfriamento microfluídico, 10^2 a 10^3 W/cm2 (1e6 a
+1e7 W/m2); 10^3 W/cm2 convertidos em W/m2. Área aquecida, fluido refrigerante e critério de
+temperatura variam entre os trabalhos citados.
+"""
