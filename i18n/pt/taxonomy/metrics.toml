@@ -47,10 +47,14 @@ text = "Energia por token"
 
 [[text]]
 path = "metric[energy-per-token].meaning"
-source = "ed489cb216"
+source = "e267d56896"
 text = """
 Energia consumida por token gerado na inferência de um modelo de linguagem, conforme a definição da
-fonte
+fonte. O número pertence a uma de três fronteiras de medida, e as condições do valor dizem qual: só
+o chip ou acelerador; o sistema, como potência na tomada (o MLPerf Power mede a potência do sistema
+inteiro com um analisador de potência aprovado pela SPEC, lido pelo Power-Thermal Daemon, PTD,
+arXiv:2410.12032); ou a instalação, o sistema multiplicado pela eficiência no uso de energia do data
+center (PUE, ISO/IEC 30134-2:2026). Números de fronteiras diferentes não são comparáveis
 """
 
 [[text]]

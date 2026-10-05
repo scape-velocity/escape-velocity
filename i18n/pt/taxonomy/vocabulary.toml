@@ -396,8 +396,13 @@ text = "preprint"
 
 [[text]]
 path = "evidence_type[preprint].meaning"
-source = "f908aa1a8c"
-text = "Preprint (arXiv, bioRxiv, medRxiv, ChemRxiv)"
+source = "0f124618af"
+text = """
+Preprint (arXiv, bioRxiv, medRxiv, ChemRxiv): nos termos da NISO RP-8-2008, Journal Article
+Versions, o Author's Original, o Submitted Manuscript Under Review ou o Accepted Manuscript,
+qualquer versão anterior à Version of Record que a editora declara publicada. Quando um preprint é
+publicado, a ficha cita a Version of Record
+"""
 
 [[text]]
 path = "evidence_type[dataset].label"
