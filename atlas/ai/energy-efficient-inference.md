@@ -105,7 +105,7 @@ Evidence: [elsworth2025measuring](../../evidence/elsworth2025measuring.toml), [o
 
 ### CMOS logic has a ceiling of about two hundred times today's efficiency
 
-severity **medium**; status **open**; type fundamental-limit; layer physics.
+severity **medium**; status **open**; type fundamental-limit; layer principle.
 
 Ho, Erdil and Besiroglu estimate a ceiling of 4.7e15 FP4 operations per joule for CMOS microprocessors, roughly two hundred times current microprocessors, from switching, interconnect capacitance and leakage. The atlas has no sourced current FLOP-per-joule value for deployed accelerators yet, so this gap has no metric of its own.
 

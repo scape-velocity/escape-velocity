@@ -13,7 +13,7 @@ added_by = "agent:claude-sonnet-5"
 note = "Author list truncated to the first eight as printed by the scout. The abstract gives a range across targets; the atlas takes the lower end as the value that holds across the targets tested."
 
 [[finding]]
-metric = "design-success-rate"
+metric = "experimental-hit-rate"
 value = 10
 unit = "%"
 conditions = "De novo protein binder design with an AlphaFold2-based pipeline; the range of experimental success rates across the targets tested, lower end."

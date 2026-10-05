@@ -12,7 +12,7 @@ checked = 2026-10-04
 note = "A projection at 1 Gt-CO2 per year of cumulative capacity, not a present cost."
 
 [[finding]]
-metric = "cost-per-tonne-co2"
+metric = "net-removal-cost"
 value = 374
 unit = "USD t^-1"
 conditions = "Projection, solid sorbent DACCS, cost of CO2 net removed at 1 Gt-CO2/year cumulative capacity; 90% confidence range 281 to 579 USD/t. Not a current value."

@@ -22,9 +22,9 @@ In: deuterium-tritium fusion plants, whether by inertial confinement (laser-driv
 
 | Metric | Current | Target | Physical limit | Gap to target | Target to limit |
 |---|---|---|---|---|---|
-| **Target gain** (headline) | 1.5 (2022-12-05, [abushawareb2024achievement](../../evidence/abushawareb2024achievement.toml)) | 100 | – | 1.8 orders of magnitude | – |
+| **Scientific gain (Q_sci)** (headline) | 1.5 (2022-12-05, [abushawareb2024achievement](../../evidence/abushawareb2024achievement.toml)) | 100 | – | 1.8 orders of magnitude | – |
 
-- **Target gain**: measured as: Indirect-drive inertial confinement, laser energy delivered to the target, scientific breakeven.; target: The high-gain requirement for an inertial fusion energy plant: a ratio of neutron yield to incident laser energy of about 100 (goncharov2025laser), stated independently as gains above 100 needed for a laser-fusion power plant (mcgeoch2025development). Gain must cover the driver's wall-plug efficiency, the thermal-to-electric conversion and the power recirculated to the driver, and still leave most of the output for the grid. ([goncharov2025laser](../../evidence/goncharov2025laser.toml)).
+- **Scientific gain (Q_sci)**: measured as: Indirect-drive inertial confinement, laser energy delivered to the target, scientific breakeven.; target: The high-gain requirement for an inertial fusion energy plant: a ratio of neutron yield to incident laser energy of about 100 (goncharov2025laser), stated independently as gains above 100 needed for a laser-fusion power plant (mcgeoch2025development). Gain must cover the driver's wall-plug efficiency, the thermal-to-electric conversion and the power recirculated to the driver, and still leave most of the output for the grid. ([goncharov2025laser](../../evidence/goncharov2025laser.toml)).
 
 ## Dependencies
 
@@ -66,7 +66,7 @@ graph LR
 
 ### Gain of about 100 at power-plant repetition rates
 
-severity **critical**; status **active**; type scientific-unknown; layer physics; blocks Target gain.
+severity **critical**; status **active**; type scientific-unknown; layer principle; blocks Scientific gain (Q_sci).
 
 The record target gain is 1.5, from a single shot at the National Ignition Facility. A plant needs a gain of about 100, which in turn needs a high fraction of the laser energy coupled to the target and the loss mechanisms from laser-plasma instabilities held down. Broadband lasers show promise against those instabilities, and simulations predict gains above 100 with less than 1 MJ of argon fluoride laser energy in direct drive, with no experiment yet at that gain.
 

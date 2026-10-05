@@ -21,9 +21,9 @@ In: maize, wheat, rice and other cereals that fix nitrogen in the plant or in a 
 
 | Metric | Current | Target | Physical limit | Gap to target | Target to limit |
 |---|---|---|---|---|---|
-| **Nitrogen from fixation** (headline) | 82% (2018-01-01, [vandeynze2018nitrogen](../../evidence/vandeynze2018nitrogen.toml)) | 100% | – | 18 points | – |
+| **Nitrogen derived from the atmosphere (%Ndfa)** (headline) | 82% (2018-01-01, [vandeynze2018nitrogen](../../evidence/vandeynze2018nitrogen.toml)) | 100% | – | 18 points | – |
 
-- **Nitrogen from fixation**: measured as: Share of the crop's nitrogen from biological fixation of atmospheric nitrogen, measured with 15N methods.; current: Upper end of a 29-82% range, in an indigenous landrace grown in nitrogen-depleted soil. Not a modern high-yield cultivar: no elite cereal has shown this.; target: A crop that fully meets its nitrogen from the air is the 'N-self-fertilizing' crop described in the literature as capable of autonomous fixation, avoiding the need for chemical fertilizers. The target applies to elite cultivars at full yield, which is what the current value does not show. ([guo2022biological](../../evidence/guo2022biological.toml)).
+- **Nitrogen derived from the atmosphere (%Ndfa)**: measured as: Share of the crop's nitrogen from biological fixation of atmospheric nitrogen, measured with 15N methods.; current: Upper end of a 29-82% range, in an indigenous landrace grown in nitrogen-depleted soil. Not a modern high-yield cultivar: no elite cereal has shown this.; target: A crop that fully meets its nitrogen from the air is the 'N-self-fertilizing' crop described in the literature as capable of autonomous fixation, avoiding the need for chemical fertilizers. The target applies to elite cultivars at full yield, which is what the current value does not show. ([guo2022biological](../../evidence/guo2022biological.toml)).
 
 ## Dependencies
 
@@ -53,7 +53,7 @@ graph LR
 
 ### A working nitrogenase inside plant cells
 
-severity **critical**; status **active**; type engineering; layer device; blocks Nitrogen from fixation.
+severity **critical**; status **active**; type engineering; layer device; blocks Nitrogen derived from the atmosphere (%Ndfa).
 
 Expressing the nitrogenase components in plant mitochondria is the route to a crop that fixes its own nitrogen. Sixteen nitrogenase proteins have each been expressed and targeted to the mitochondrial matrix of a model plant, but the NifD component is the least abundant and a full working complex in a plant has not been shown.
 
@@ -67,7 +67,7 @@ Evidence: [allen2017expression](../../evidence/allen2017expression.toml), [guo20
 
 ### Fixation shown in a landrace, not in high-yield cultivars
 
-severity **critical**; status **active**; type scientific-unknown; layer system; blocks Nitrogen from fixation.
+severity **critical**; status **active**; type scientific-unknown; layer system; blocks Nitrogen derived from the atmosphere (%Ndfa).
 
 The high fixation share was measured in a landrace with aerial roots that secrete mucilage, grown in nitrogen-depleted soil. Moving the trait into elite cultivars at full yield, and under fertilization, has not been shown. Engineered root-associated bacteria that keep fixing in fertilized fields have been commercialized, but their abstract reports a yield gain over fertilizer alone, not a share of nitrogen from fixation.
 
@@ -79,7 +79,7 @@ Evidence: [vandeynze2018nitrogen](../../evidence/vandeynze2018nitrogen.toml), [w
 
 ### Root-nodule symbiosis not yet engineered into non-legumes
 
-severity **high**; status **open**; type scientific-unknown; layer physics; blocks Nitrogen from fixation.
+severity **high**; status **open**; type scientific-unknown; layer principle; blocks Nitrogen derived from the atmosphere (%Ndfa).
 
 Legumes host nitrogen-fixing rhizobia in root nodules. The objective of engineering nodulation in non-leguminous crops has not been achieved; the open questions are the signalling, infection and nodule-organogenesis programs.
 

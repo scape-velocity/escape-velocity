@@ -11,7 +11,7 @@ added = 2026-10-04
 added_by = "agent:claude-sonnet-5"
 
 [[finding]]
-metric = "nitrogen-from-fixation"
+metric = "nitrogen-derived-from-atmosphere"
 value = 82
 unit = "%"
 conditions = "Upper end of the 29-82% range measured by 15N field experiments over 5 years in an indigenous Sierra Mixe maize landrace in nitrogen-depleted soil, not a modern high-yield cultivar."

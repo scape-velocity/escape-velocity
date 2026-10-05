@@ -21,9 +21,9 @@ In: computational design of new protein binders, enzymes and assemblies that do 
 
 | Metric | Current | Target | Physical limit | Gap to target | Target to limit |
 |---|---|---|---|---|---|
-| **Design success rate** (headline) | 10% (2025-01-01, [pacesa2025one](../../evidence/pacesa2025one.toml)) | 90% | – | 1.0 orders of magnitude | – |
+| **Experimental hit rate** (headline) | 10% (2025-01-01, [pacesa2025one](../../evidence/pacesa2025one.toml)) | 90% | – | 1.0 orders of magnitude | – |
 
-- **Design success rate**: measured as: De novo protein binders, experimental success rate across the targets tested by the method's developers.; current: Lower end of a reported range of 10 to 100% across targets. as_of is the publication year. Independent groups report lower rates for other methods (see the gap).; target: The goal of the one-design-one-binder approach named in the BindCraft paper: with a success rate of 90%, testing three designs gives more than a 99.9% chance of at least one working binder (1 minus 0.1 cubed), so no high-throughput screening is needed. Atlas reasoning, not an agency target. ([pacesa2025one](../../evidence/pacesa2025one.toml)).
+- **Experimental hit rate**: measured as: De novo protein binders, experimental success rate across the targets tested by the method's developers.; current: Lower end of a reported range of 10 to 100% across targets. as_of is the publication year. Independent groups report lower rates for other methods (see the gap).; target: The goal of the one-design-one-binder approach named in the BindCraft paper: with a success rate of 90%, testing three designs gives more than a 99.9% chance of at least one working binder (1 minus 0.1 cubed), so no high-throughput screening is needed. Atlas reasoning, not an agency target. ([pacesa2025one](../../evidence/pacesa2025one.toml)).
 
 ## Dependencies
 
@@ -66,7 +66,7 @@ graph LR
 
 ### Success rate varies widely between targets and between groups
 
-severity **high**; status **active**; type scientific-unknown; layer device; blocks Design success rate.
+severity **high**; status **active**; type scientific-unknown; layer device; blocks Experimental hit rate.
 
 The developers of one pipeline report experimental success rates of 10 to 100% depending on the target. An earlier study found the overall design success rate low and raised it nearly 10-fold with deep-learning filtering. An independent group testing another method on six targets, five designs each, reported that most targets gave no working binder.
 

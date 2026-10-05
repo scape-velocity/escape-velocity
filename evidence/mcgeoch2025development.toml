@@ -12,7 +12,7 @@ checked = 2026-10-04
 note = "Conference talk (SPIE proceedings). Independent statement of the same gain requirement, with simulations of direct drive by an argon fluoride laser."
 
 [[finding]]
-metric = "fusion-target-gain"
+metric = "scientific-gain"
 value = 100
 unit = "1"
 conditions = "Requirement for a laser-fusion power plant, from simulations at the Naval Research Laboratory; not a measurement."

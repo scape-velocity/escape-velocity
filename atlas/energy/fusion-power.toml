@@ -33,7 +33,7 @@ why = "Magnet power supplies, pulsed power and the grid connection of a plant re
 
 [[metric]]
 id = "target-gain"
-metric = "fusion-target-gain"
+metric = "scientific-gain"
 headline = true
 conditions = "Indirect-drive inertial confinement, laser energy delivered to the target, scientific breakeven."
 
@@ -59,7 +59,7 @@ laser energy in direct drive, with no experiment yet at that gain.
 """
 metric = "target-gain"
 type = "scientific-unknown"
-layer = "physics"
+layer = "principle"
 severity = "critical"
 status = "active"
 blocked_by = ["enablers/high-repetition-rate-lasers"]

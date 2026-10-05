@@ -56,7 +56,7 @@ graph LR
 
 ### Low sensitivity for stage I cancers
 
-severity **critical**; status **active**; type scientific-unknown; layer physics; blocks Sensitivity.
+severity **critical**; status **active**; type scientific-unknown; layer principle; blocks Sensitivity.
 
 In the case-control validation study sensitivity rose with stage, from 16.8% at stage I to 90.1% at stage IV, so the test finds mostly cancers that are already advanced. Stage I is where early detection would matter most and where little tumour DNA reaches the blood.
 

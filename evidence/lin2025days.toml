@@ -12,8 +12,8 @@ added_by = "agent:claude-sonnet-5"
 note = "Two inductively coupled fluxonium qubits; one pair, not an array."
 
 [[finding]]
-metric = "two-qubit-gate-error"
+metric = "two-qubit-gate-infidelity"
 value = 6e-4
 unit = "1"
-conditions = "60 ns two-qubit gate on one pair of fluxonium qubits, randomized benchmarking; fidelity 99.94% converted to error 1 - 0.9994 = 6e-4."
+conditions = "60 ns two-qubit gate on one pair of fluxonium qubits, randomized benchmarking; average gate fidelity 99.94%, so infidelity 1 - 0.9994 = 6e-4."
 quote = "estimated using randomized benchmarking, was as high as 99.94%"

@@ -12,7 +12,7 @@ checked = 2026-10-04
 note = "Conference talk (SPIE proceedings). States the high-gain requirement for inertial fusion energy as a ratio of neutron yield to laser energy of about 100."
 
 [[finding]]
-metric = "fusion-target-gain"
+metric = "scientific-gain"
 value = 100
 unit = "1"
 conditions = "Requirement for an inertial fusion energy plant, not a measurement: neutron yield over incident laser energy."

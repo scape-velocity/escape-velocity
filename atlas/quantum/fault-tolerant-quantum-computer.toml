@@ -60,7 +60,7 @@ evidence = "gidney2025how"
 
 [[metric]]
 id = "two-qubit-error"
-metric = "two-qubit-gate-error"
+metric = "two-qubit-gate-infidelity"
 conditions = "Best reported single pair: 60 ns gate on two fluxonium qubits, randomized benchmarking."
 
 [metric.current]

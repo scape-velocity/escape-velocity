@@ -24,7 +24,7 @@ why = "Every designed protein must be encoded as synthetic DNA before it can be 
 
 [[metric]]
 id = "success-rate"
-metric = "design-success-rate"
+metric = "experimental-hit-rate"
 headline = true
 conditions = "De novo protein binders, experimental success rate across the targets tested by the method's developers."
 

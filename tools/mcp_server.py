@@ -266,7 +266,7 @@ TOOLS = {
     "technology": (tool_technology, "Everything about one technology: statement, metrics with gap to target and to the physical limit, gaps, dependencies, what dependents need from it.",
                    {"id": {"type": "string", "description": "Technology id, <domain>/<slug>, such as quantum/fault-tolerant-quantum-computer"}}, ["id"]),
     "gaps": (tool_gaps, "Gaps across the atlas, most severe first, filtered by facets.",
-             {"domain": facet("domain id"), "type": facet("gap type, such as engineering or cost"), "layer": facet("layer: physics, device, system, manufacturing, deployment"),
+             {"domain": facet("domain id"), "type": facet("gap type, such as engineering or cost"), "layer": facet("layer: principle, device, system, manufacturing, deployment"),
               "severity": facet("severity: critical, high, medium, low"), "status": facet("gap status: open, active, promising, closed, beyond-limit")}, []),
     "dependencies": (tool_dependencies, "Dependency tree of a technology: what it requires (down) or what requires it (up).",
                      {"id": {"type": "string"}, "direction": {"type": "string", "enum": ["down", "up"]}, "depth": {"type": "integer", "minimum": 1, "maximum": 6}}, ["id"]),
