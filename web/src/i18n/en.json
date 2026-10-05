@@ -34,6 +34,25 @@
     "text": "Nothing at this address. {link}.",
     "back": "Back to the overview"
   },
+  "priorities": {
+    "title": "Priorities",
+    "link": "Priorities",
+    "description": "What the community wants mapped next, counted from the votes in the Priorities discussions on GitHub.",
+    "heading": "Community priorities",
+    "lede": "Which technologies the community wants mapped next. Each technology has a discussion in the Priorities category on GitHub, and a thumbs up on its opening post is a vote. One vote per account.",
+    "rule": "Votes rank what the community wants mapped next. They never change a status, a readiness level, a claim class or a number.",
+    "counted": "Counted on {date} from the {link}.",
+    "categoryLink": "Priorities discussions",
+    "newAccounts": "Votes from accounts created less than {days} days before the vote are not counted.",
+    "position": "#",
+    "technology": "Technology",
+    "votes": "Votes",
+    "discussion": "Discussion",
+    "vote": "Vote",
+    "voteForThis": "Vote for this priority",
+    "pending": "The votes have not been counted yet. {link}.",
+    "discussionsLink": "See the discussions on GitHub"
+  },
   "common": {
     "notAssessed": "not assessed",
     "level": "level {level}",

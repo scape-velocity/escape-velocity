@@ -59,6 +59,49 @@ export function loadAtlas(lang: Lang = DEFAULT_LANG): Atlas {
   return atlas;
 }
 
+/** One technology in priorities.json (docs/export.md). */
+export interface PriorityRow {
+  id: string;
+  votes: number;
+  excluded_new_accounts: number;
+  discussion: string;
+}
+
+/** The vote count written by `python3 tools/priorities.py count` (decision 0016). */
+export interface Priorities {
+  schema: number;
+  counted_at: string;
+  rule: string;
+  min_account_age_days: number;
+  category_url: string;
+  technologies: PriorityRow[];
+}
+
+let priorities: Priorities | null | undefined;
+
+/** The vote count at PRIORITIES_JSON, or null when the variable is unset or the file is missing:
+    the count has not run (no token, no "Priorities" category yet), and the explorer shows no
+    ranking. Votes rank what to map next; nothing else in the atlas reads them. */
+export function loadPriorities(): Priorities | null {
+  if (priorities !== undefined) return priorities;
+  const env = process.env.PRIORITIES_JSON;
+  priorities = null;
+  if (!env) return priorities;
+  const file = path.resolve(process.cwd(), env);
+  let text: string;
+  try {
+    text = readFileSync(file, "utf-8");
+  } catch {
+    return priorities;
+  }
+  const data = JSON.parse(text) as Priorities;
+  if (data.schema !== 1) {
+    throw new Error(`${path.basename(file)} has schema ${data.schema}; this interface reads schema 1 (docs/export.md).`);
+  }
+  priorities = data;
+  return priorities;
+}
+
 /** The languages with pages: listed in atlas.json and with interface strings in src/i18n. */
 export function siteLanguages(): (Language & { id: Lang })[] {
   return loadAtlas(DEFAULT_LANG).data.languages.filter((l): l is Language & { id: Lang } => isLang(l.id));

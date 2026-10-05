@@ -15,6 +15,7 @@ is a shorter introduction for readers who do not use git.
 | A source, a doubt or an idea, and no git | Fill in a form on GitHub; a curator or moderator turns it into a change | [Without git: the issue forms](#without-git-the-issue-forms) |
 | A source and a GitHub account, and you can use a terminal | Edit the TOML yourself and open a pull request | [With git: step by step](#with-git-step-by-step) |
 | Another language you read as well as English | Translate pages of the atlas or the interface | [Translating](#translating) |
+| You want to say what should be mapped next | Vote in the Priorities discussions | [The priorities page](https://scape-velocity.github.io/escape-velocity/priorities/) |
 
 With git you can also **map a technology**, taking one from `proposed` to `scoping` or `mapped`
 (the `decompose-technology` skill), or **curate** one: become responsible for it
