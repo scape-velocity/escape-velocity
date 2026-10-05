@@ -3,8 +3,8 @@ message: "If you use the atlas, please cite it as below, with the commit or rele
 title: "Escape Velocity: an open atlas of what each technology needs to reach maturity"
 type: dataset
 authors:
-  # TODO(maintainer): split into given-names and family-names, and add an ORCID.
   - given-names: "João Alisson"
+    family-names: "Costa Silva"
 license: CC0-1.0
 repository-code: "https://github.com/scape-velocity/escape-velocity"
 keywords:
