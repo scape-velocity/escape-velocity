@@ -48,7 +48,7 @@ papers and is not recorded here yet.
 """
 metric = "sec"
 type = "fundamental-limit"
-layer = "physics"
+layer = "principle"
 severity = "high"
 status = "open"
 evidence = ["wang2020derivation", "elimelech2011future", "nassrullah2020energy"]

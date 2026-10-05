@@ -53,10 +53,10 @@ limit is itself a gap, of status `beyond-limit`: the target has to change.
 ## Gaps
 
 Each gap has a **type** (scientific-unknown, engineering, fundamental-limit, data, manufacturing,
-cost, regulation, supply-chain), a **layer** (physics, device, system, manufacturing, deployment), a
-**severity** and a **status** (open, active, promising, closed, beyond-limit). A gap held open by a
-dependency says `blocked_by` that dependency. Approaches are the lines of research aimed at the
-gap, each with its evidence and readiness.
+cost, regulation, supply-chain), a **layer** (principle, device, system, manufacturing, deployment),
+a **severity** and a **status** (open, active, promising, closed, beyond-limit). A gap is closed only
+by an established evidence card. A gap held open by a dependency says `blocked_by` that dependency.
+Approaches are the lines of research aimed at the gap, each with its evidence and readiness.
 
 ## Evidence
 

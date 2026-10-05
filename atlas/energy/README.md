@@ -10,7 +10,7 @@ Moderators: none yet; see [how to become one](../../GOVERNANCE.md#moderators).
 
 | Technology | Atlas status | Readiness | Headline metric | Current | Target | Gap to target |
 |---|---|---|---|---|---|---|
-| [Fusion power](fusion-power.md) | scoping | not assessed | Target gain | 1.5 | 100 | 1.8 orders of magnitude |
+| [Fusion power](fusion-power.md) | scoping | not assessed | Scientific gain (Q_sci) | 1.5 | 100 | 1.8 orders of magnitude |
 | [Long-duration energy storage](long-duration-storage.md) | proposed | not assessed | – | – | – | – |
 | [Perovskite-silicon tandem photovoltaics](perovskite-silicon-tandem-pv.md) | proposed | not assessed | – | – | – | – |
 | [Tritium breeding](tritium-breeding.md) | proposed | not assessed | – | – | – | – |

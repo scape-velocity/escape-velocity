@@ -10,6 +10,6 @@ Moderators: none yet; see [how to become one](../../GOVERNANCE.md#moderators).
 
 | Technology | Atlas status | Readiness | Headline metric | Current | Target | Gap to target |
 |---|---|---|---|---|---|---|
-| [Nitrogen-fixing cereals](nitrogen-fixing-cereals.md) | scoping | not assessed | Nitrogen from fixation | 82% | 100% | 18 points |
+| [Nitrogen-fixing cereals](nitrogen-fixing-cereals.md) | scoping | not assessed | Nitrogen derived from the atmosphere (%Ndfa) | 82% | 100% | 18 points |
 
 Depends on technologies in other domains: [Plant genome engineering](../../atlas/biotech/plant-genome-engineering.md).

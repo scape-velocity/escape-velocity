@@ -264,6 +264,10 @@ def check_technology(tech: atlas.Technology, ctx: generate.Context, report: Repo
         for key in gap.get("evidence", []):
             if key not in ctx.cards:
                 report.error(gwhere, f"cites {key!r}, which is not in evidence/")
+        if gap.get("status") == "closed" and not any(
+            key in ctx.cards and ctx.cards[key][1].get("class") == "established" for key in gap.get("evidence", [])
+        ):
+            report.error(gwhere, "status 'closed' needs an established evidence card in evidence")
         for approach in gap.get("approach", []):
             if not str(approach.get("name", "")).strip():
                 report.error(gwhere, "an approach has no name")

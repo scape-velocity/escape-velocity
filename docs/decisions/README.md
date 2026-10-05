@@ -7,7 +7,7 @@ decision is never edited after it is accepted; a later decision supersedes it.
 |---|---|---|
 | [0001](0001-purpose-and-scope.md) | Purpose and scope | accepted |
 | [0002](0002-data-in-git.md) | Data in Git, TOML as the source, Markdown generated | accepted |
-| [0003](0003-taxonomy-and-dependency-graph.md) | Taxonomy: domains, facets and a dependency graph | accepted |
+| [0003](0003-taxonomy-and-dependency-graph.md) | Taxonomy: domains, facets and a dependency graph | accepted; layer name `physics` superseded by 0013 |
 | [0004](0004-three-numbers-per-metric.md) | Three numbers per metric: current, target, limit | accepted |
 | [0005](0005-readiness-scales.md) | Pluggable readiness scales | accepted |
 | [0006](0006-evidence-policy.md) | Evidence policy | accepted |
@@ -17,3 +17,4 @@ decision is never edited after it is accepted; a later decision supersedes it.
 | [0010](0010-static-site-and-json-export.md) | A static site and a JSON export | accepted; item 3 superseded by 0012 |
 | [0011](0011-moderators-and-the-moderation-check.md) | Moderators by domain and a moderation check | accepted |
 | [0012](0012-explorer-in-next.md) | The explorer in Next.js, one page per technology and card | accepted |
+| [0013](0013-terms-of-the-fields.md) | The terms of each field | accepted |

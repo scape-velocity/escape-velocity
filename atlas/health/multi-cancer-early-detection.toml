@@ -59,7 +59,7 @@ detection would matter most and where little tumour DNA reaches the blood.
 """
 metric = "stage-one-sensitivity"
 type = "scientific-unknown"
-layer = "physics"
+layer = "principle"
 severity = "critical"
 status = "active"
 blocked_by = ["biotech/low-cost-dna-sequencing"]

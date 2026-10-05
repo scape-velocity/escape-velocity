@@ -10,7 +10,7 @@ Moderators: none yet; see [how to become one](../../GOVERNANCE.md#moderators).
 
 | Technology | Atlas status | Readiness | Headline metric | Current | Target | Gap to target |
 |---|---|---|---|---|---|---|
-| [De novo protein design](de-novo-protein-design.md) | scoping | not assessed | Design success rate | 10% | 90% | 1.0 orders of magnitude |
+| [De novo protein design](de-novo-protein-design.md) | scoping | not assessed | Experimental hit rate | 10% | 90% | 1.0 orders of magnitude |
 | [Low-cost DNA sequencing](low-cost-dna-sequencing.md) | scoping | not assessed | Cost per human genome | 90 USD | 10 USD | 1.0 orders of magnitude |
 | [In vivo gene delivery](in-vivo-gene-delivery.md) | proposed | not assessed | – | – | – | – |
 | [Low-cost DNA synthesis](low-cost-dna-synthesis.md) | proposed | not assessed | – | – | – | – |

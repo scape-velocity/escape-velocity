@@ -83,7 +83,7 @@ What is missing, in two to five sentences, with the numbers. Say what closing it
 """
 metric = "logical-error"     # the local metric id it holds back (optional)
 type = "engineering"         # taxonomy/vocabulary.toml gap_type
-layer = "device"             # physics | device | system | manufacturing | deployment
+layer = "device"             # principle | device | system | manufacturing | deployment
 severity = "critical"        # critical | high | medium | low
 status = "active"            # open | active | promising | closed | beyond-limit
 blocked_by = ["enablers/dilution-refrigeration"]   # only technologies listed in requires

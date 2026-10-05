@@ -12,7 +12,7 @@ checked = 2026-10-04
 note = "Author list reduced to the first author; the paper carries the collaboration author list. Shot of 2022-12-05, published 2024."
 
 [[finding]]
-metric = "fusion-target-gain"
+metric = "scientific-gain"
 value = 1.5
 unit = "1"
 conditions = "Indirect-drive implosion at the National Ignition Facility, 2.05 MJ of 351 nm laser light, 3.1 MJ fusion yield, 2022-12-05."

@@ -63,7 +63,7 @@ Evidence: [werber2018permselectivity](../../evidence/werber2018permselectivity.t
 
 ### Practical plants already work near the thermodynamic limit
 
-severity **high**; status **open**; type fundamental-limit; layer physics; blocks Specific energy consumption.
+severity **high**; status **open**; type fundamental-limit; layer principle; blocks Specific energy consumption.
 
 Reversible reverse osmosis and electrodialysis consume the Gibbs free energy of separation, and the practical energy of both approaches that minimum only as the number of stages grows. Reviews state that most desalination technologies already work near their limit, so the remaining reduction is bounded and each step costs capital. The numeric value of the minimum is in the body of the cited papers and is not recorded here yet.
 

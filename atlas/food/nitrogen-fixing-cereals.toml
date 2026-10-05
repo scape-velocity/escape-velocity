@@ -22,7 +22,7 @@ why = "Every route to a self-fertilizing cereal needs many coordinated edits to 
 
 [[metric]]
 id = "n-fixation"
-metric = "nitrogen-from-fixation"
+metric = "nitrogen-derived-from-atmosphere"
 headline = true
 conditions = "Share of the crop's nitrogen from biological fixation of atmospheric nitrogen, measured with 15N methods."
 
@@ -91,7 +91,7 @@ nodule-organogenesis programs.
 """
 metric = "n-fixation"
 type = "scientific-unknown"
-layer = "physics"
+layer = "principle"
 severity = "high"
 status = "open"
 blocked_by = ["biotech/plant-genome-engineering"]

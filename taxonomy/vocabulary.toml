@@ -41,7 +41,7 @@ meaning = "At least one approach has evidence that it can close the gap"
 
 [[gap_status]]
 id = "closed"
-meaning = "The metric reached the target in at least one demonstration"
+meaning = "The metric reached the target in a demonstration backed by an established evidence card; a single reported result leaves the gap promising"
 
 [[gap_status]]
 id = "beyond-limit"
@@ -82,7 +82,7 @@ meaning = "Scarce materials, single suppliers or export controls block scale"
 
 # Layer: where in the technology stack the gap sits.
 [[layer]]
-id = "physics"
+id = "principle"
 meaning = "Physical, chemical or biological principle; materials"
 
 [[layer]]
@@ -118,8 +118,8 @@ meaning = "Closing it would bring the target noticeably closer"
 id = "low"
 meaning = "Worth recording; not on the critical path"
 
-# Evidence class: how much the evidence card can carry. Mirrors the kinds of claim in The Alan
-# Machine (decision 0008).
+# Evidence class: how much the evidence card can carry. The same kinds of claim as The Alan
+# Machine (decision 0008), except Philosophy, which no evidence card carries.
 [[evidence_class]]
 id = "established"
 meaning = "Measured and published after peer review, or in a standard reference"

@@ -101,7 +101,7 @@ capacitance and leakage. The atlas has no sourced current FLOP-per-joule value f
 accelerators yet, so this gap has no metric of its own.
 """
 type = "fundamental-limit"
-layer = "physics"
+layer = "principle"
 severity = "medium"
 status = "open"
 blocked_by = ["computing/beyond-cmos-logic"]

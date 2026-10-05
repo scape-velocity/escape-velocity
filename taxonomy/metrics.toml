@@ -3,11 +3,13 @@
 #
 # Fields:
 #   id          lowercase words joined by hyphens
-#   name, meaning
+#   name        the term the literature of the field uses
+#   meaning
 #   unit        plain text, SI where one exists (J, s, kWh m^-3, USD t^-1, %)
 #   direction   "lower" or "higher": which way is better
 #   scale       "log" when values span orders of magnitude, and the gap is reported in orders of
-#               magnitude; "linear" for bounded quantities such as percentages, reported as a difference
+#               magnitude; "linear" for bounded quantities such as percentages, reported as a difference.
+#               A percentage that spans orders of magnitude, such as a hit rate, is "log"
 #   alan_machine  the metric's name in The Alan Machine's data/metrics.toml, when the book uses it too
 #
 # A metric depends on how it is measured. Each value records its conditions in the evidence card.
@@ -33,7 +35,7 @@ alan_machine = "wall_plug_energy_per_operation"
 [[metric]]
 id = "energy-efficiency"
 name = "Computing energy efficiency"
-meaning = "Floating-point operations per joule for a whole system, the same as FLOP/s per watt"
+meaning = "Floating-point operations per joule for a whole system, the same as FLOP/s per watt, at the arithmetic precision stated in the conditions (FP64 for the Green500; FP16, FP8 or FP4 for AI accelerators)"
 unit = "FLOP J^-1"
 direction = "higher"
 scale = "log"
@@ -57,9 +59,9 @@ scale = "log"
 alan_machine = "error_rate"
 
 [[metric]]
-id = "two-qubit-gate-error"
-name = "Two-qubit gate error"
-meaning = "Error probability per two-qubit gate, as measured by the source (randomized benchmarking or cycle benchmarking)"
+id = "two-qubit-gate-infidelity"
+name = "Two-qubit gate infidelity"
+meaning = "Average gate infidelity of a two-qubit gate, 1 - F_avg, as measured by randomized or interleaved randomized benchmarking. A process (Pauli) infidelity, as cycle or cross-entropy benchmarking report, is converted with r_avg = d r_process / (d + 1) = 0.8 r_process for d = 4, and the card says so"
 unit = "1"
 direction = "lower"
 scale = "log"
@@ -98,9 +100,17 @@ direction = "higher"
 scale = "log"
 
 [[metric]]
-id = "cost-per-tonne-co2"
-name = "Cost per tonne of CO2"
-meaning = "Cost to remove and durably store one tonne of carbon dioxide"
+id = "net-removal-cost"
+name = "Levelized cost of net CO2 removal"
+meaning = "Levelized cost per tonne of CO2 removed from the atmosphere and durably stored, net of the life-cycle emissions of capture, energy, transport and storage"
+unit = "USD t^-1"
+direction = "lower"
+scale = "log"
+
+[[metric]]
+id = "capture-cost"
+name = "Levelized cost of CO2 capture"
+meaning = "Levelized cost per tonne of CO2 captured, before transport and storage and without netting out the emissions of the process. Lower than the net removal cost of the same plant"
 unit = "USD t^-1"
 direction = "lower"
 scale = "log"
@@ -122,9 +132,9 @@ direction = "lower"
 scale = "log"
 
 [[metric]]
-id = "fusion-target-gain"
-name = "Target gain"
-meaning = "Fusion energy released divided by the energy delivered to the fuel target or plasma"
+id = "scientific-gain"
+name = "Scientific gain (Q_sci)"
+meaning = "Fusion energy released divided by the heating energy absorbed by the plasma or, in inertial confinement, by the driver energy delivered to the target (the target gain). Scientific breakeven is Q_sci = 1; it leaves out the energy drawn from the grid to run the drivers, heating and magnets"
 unit = "1"
 direction = "higher"
 scale = "log"
@@ -148,15 +158,15 @@ scale = "linear"
 [[metric]]
 id = "communication-rate"
 name = "Communication rate"
-meaning = "Words per minute a person communicates through an interface"
+meaning = "Words per minute a person communicates through an interface, with the vocabulary size and the word error rate stated in the conditions; across modalities the field also reports the information transfer rate in bits per minute"
 unit = "words min^-1"
 direction = "higher"
 scale = "log"
 
 [[metric]]
-id = "design-success-rate"
-name = "Design success rate"
-meaning = "Share of designed molecules that work as intended when tested experimentally"
+id = "experimental-hit-rate"
+name = "Experimental hit rate"
+meaning = "Share of designed molecules that meet the stated success criterion, such as binding the target below a stated affinity, when tested experimentally"
 unit = "%"
 direction = "higher"
 scale = "log"
@@ -170,9 +180,9 @@ direction = "lower"
 scale = "log"
 
 [[metric]]
-id = "nitrogen-from-fixation"
-name = "Nitrogen from fixation"
-meaning = "Share of a crop's nitrogen that comes from biological fixation of atmospheric nitrogen"
+id = "nitrogen-derived-from-atmosphere"
+name = "Nitrogen derived from the atmosphere (%Ndfa)"
+meaning = "Share of a plant's nitrogen that comes from biological fixation of atmospheric N2, with the measurement method (15N isotope dilution, 15N natural abundance, ureide or N difference) stated in the conditions"
 unit = "%"
 direction = "higher"
 scale = "linear"

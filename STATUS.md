@@ -32,15 +32,15 @@ One number per technology, the one that best says how far it has to go.
 | Technology | Domain | Atlas status | Readiness | Headline metric | Current | Target | Gap to target |
 |---|---|---|---|---|---|---|---|
 | [Energy-efficient AI inference](atlas/ai/energy-efficient-inference.md) | ai | mapped | TRL 6 (6 of 9) | Energy per token | 0.72 J | 0.07 J | 1.0 orders of magnitude |
-| [De novo protein design](atlas/biotech/de-novo-protein-design.md) | biotech | scoping | not assessed | Design success rate | 10% | 90% | 1.0 orders of magnitude |
+| [De novo protein design](atlas/biotech/de-novo-protein-design.md) | biotech | scoping | not assessed | Experimental hit rate | 10% | 90% | 1.0 orders of magnitude |
 | [Low-cost DNA sequencing](atlas/biotech/low-cost-dna-sequencing.md) | biotech | scoping | not assessed | Cost per human genome | 90 USD | 10 USD | 1.0 orders of magnitude |
 | [Beyond-CMOS logic](atlas/computing/beyond-cmos-logic.md) | computing | proposed | not assessed | Energy per operation | – | – | – |
 | [Low-energy data movement](atlas/computing/low-energy-data-movement.md) | computing | scoping | TRL 4 (4 of 9) | Energy per bit moved | 6.5 × 10⁻¹³ J | 10⁻¹³ J | 0.8 orders of magnitude |
 | [Dilution refrigeration](atlas/enablers/dilution-refrigeration.md) | enablers | proposed | not assessed | Cooling power | 0.002 W | – | – |
 | [High-flux heat removal](atlas/enablers/heat-removal.md) | enablers | scoping | TRL 4 (4 of 9) | Heat flux removed | 10⁷ W m^-2 | 10⁸ W m^-2 | 1.0 orders of magnitude |
 | [Photonic integration](atlas/enablers/photonic-integration.md) | enablers | proposed | not assessed | Waveguide propagation loss | 1.77 dB m^-1 | – | – |
-| [Fusion power](atlas/energy/fusion-power.md) | energy | scoping | not assessed | Target gain | 1.5 | 100 | 1.8 orders of magnitude |
-| [Nitrogen-fixing cereals](atlas/food/nitrogen-fixing-cereals.md) | food | scoping | not assessed | Nitrogen from fixation | 82% | 100% | 18 points |
+| [Fusion power](atlas/energy/fusion-power.md) | energy | scoping | not assessed | Scientific gain (Q_sci) | 1.5 | 100 | 1.8 orders of magnitude |
+| [Nitrogen-fixing cereals](atlas/food/nitrogen-fixing-cereals.md) | food | scoping | not assessed | Nitrogen derived from the atmosphere (%Ndfa) | 82% | 100% | 18 points |
 | [Multi-cancer early detection](atlas/health/multi-cancer-early-detection.md) | health | scoping | not assessed | Sensitivity | 16.8% | 50% | 33.2 points |
 | [Low-cost high-temperature superconducting conductor](atlas/materials/low-cost-hts-conductor.md) | materials | scoping | not assessed | Conductor cost | 100 USD kA^-1 m^-1 | 20 USD kA^-1 m^-1 | 0.7 orders of magnitude |
 | [High-bandwidth brain-computer interface](atlas/neurotech/high-bandwidth-bci.md) | neurotech | scoping | not assessed | Communication rate | 62 words min^-1 | 160 words min^-1 | 0.4 orders of magnitude |
