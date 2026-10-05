@@ -15,7 +15,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 REPO_URL = "https://github.com/scape-velocity/escape-velocity"
-ALAN_MACHINE_URL = "https://the-alan-machine.github.io/alan-machine/"
+ALAN_MACHINE_URL = "https://the-alan-machine.github.io/the-alan-machine/"
 SUPERSCRIPT = str.maketrans("0123456789-+", "⁰¹²³⁴⁵⁶⁷⁸⁹⁻⁺")
 # A GitHub handle: letters, digits and single hyphens, at most 39 characters, no hyphen at the ends.
 GITHUB_HANDLE = re.compile(r"^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9])){0,38}$")

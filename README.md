@@ -84,7 +84,7 @@ unverified; only curators and moderators verify it ([GOVERNANCE.md](GOVERNANCE.m
 
 ## The Alan Machine
 
-[The Alan Machine](https://the-alan-machine.github.io/alan-machine/) is an open-source book about a
+[The Alan Machine](https://the-alan-machine.github.io/the-alan-machine/) is an open-source book about a
 hypothetical supercomputer at the physical limits of computation. Its Building Alan dossiers track
 real hardware against those limits. Escape Velocity shares its metrics and its kinds of claim, links
 each technology to the pages that discuss it, and maps quantum computing and AI first because both
