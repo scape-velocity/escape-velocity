@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/evidence/",
     "/about/",
     "/contribute/",
+    "/priorities/",
     ...data.taxonomy.domains.map((d) => domainPath(d.id)),
     ...data.technologies.map((t) => techPath(t.id)),
     ...data.evidence.map((c) => cardPath(c.key)),

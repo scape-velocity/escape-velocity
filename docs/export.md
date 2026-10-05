@@ -132,3 +132,23 @@ A translation adds `translation` at the top level, to each technology and to eac
 - `llms-full.txt`: every technology and evidence card as plain Markdown
 
 Both are in English only.
+
+## priorities.json
+
+`priorities.json` sits next to `atlas.json` when the votes could be counted
+([decision 0016](decisions/0016-community-priorities.md)). `python3 tools/priorities.py count`
+writes it from the thumbs up on each technology's Discussion in the "Priorities" category. It is
+absent when there is no token or no such category; a reader then has no ranking. It is in English
+only and lists no login.
+
+Votes rank what the community wants mapped next. They never change a status, a readiness level, a
+claim class or a number.
+
+| Field | |
+|---|---|
+| `schema` | 1 |
+| `counted_at` | When the count ran, in UTC |
+| `rule` | The sentence above |
+| `min_account_age_days` | 30: a vote from an account younger than this at the time of the vote is left out |
+| `category_url` | The Priorities category on GitHub |
+| `technologies` | Ordered by votes, most first: `id`, `votes`, `excluded_new_accounts` (left out for the account's age) and `discussion` (its URL, where to vote) |

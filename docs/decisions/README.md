@@ -20,3 +20,4 @@ decision is never edited after it is accepted; a later decision supersedes it.
 | [0013](0013-terms-of-the-fields.md) | The terms of each field | accepted |
 | [0014](0014-translations.md) | Translations: English as the source, overlays per language | accepted |
 | [0015](0015-impact-of-a-technology.md) | The impact of a technology, no stronger than its evidence | accepted |
+| [0016](0016-community-priorities.md) | Community priorities: votes on a Discussion per technology | accepted |

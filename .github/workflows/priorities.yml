@@ -1,0 +1,33 @@
+name: Open the priority discussions
+
+# One Discussion per technology in the "Priorities" category, where a thumbs up is a vote
+# (decision 0016). Runs when the atlas changes, so a new technology gets its Discussion. Without
+# the category it warns and passes; the count is made by pages.yml.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "atlas/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  discussions: write
+
+concurrency:
+  group: priorities
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Open the missing discussions
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 tools/priorities.py sync

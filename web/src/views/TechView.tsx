@@ -14,7 +14,7 @@ import { fill, type Lang } from "@/i18n";
 import { firstSentence, oneLine } from "@/lib/format";
 import type { GraphTech } from "@/lib/graph";
 import { headline, type Atlas } from "@/lib/model";
-import { loadAtlas } from "@/lib/load";
+import { loadAtlas, loadPriorities } from "@/lib/load";
 import { domainPath, techPath } from "@/lib/paths";
 import { pageMetadata } from "@/lib/site";
 import type { Requirement, Technology } from "@/lib/types";
@@ -72,6 +72,7 @@ export function TechView({ lang, domain: domainId, slug }: { lang: Lang; domain:
   const cited = tech.evidence.map((key) => atlas.cards.get(key)).filter((c) => c !== undefined);
   const neighborhood = [...new Set([tech.id, ...atlas.transitive(tech.id, "down"), ...atlas.transitive(tech.id, "up")])];
   const hasGraph = neighborhood.length > 1;
+  const vote = loadPriorities()?.technologies.find((p) => p.id === tech.id);
   const graphTechs: GraphTech[] = neighborhood.map((id) => {
     const other = atlas.techs.get(id) as Technology;
     return {
@@ -97,6 +98,11 @@ export function TechView({ lang, domain: domainId, slug }: { lang: Lang; domain:
           <StatusChip atlas={atlas} status={tech.status} />
           <PlainChip text={tech.readiness_name} title={t.readinessLevel} />
           {tech.horizon ? <PlainChip text={fill(t.horizon, { horizon: tech.horizon })} /> : null}
+          {vote ? (
+            <a className="chip" href={vote.discussion} title={atlas.t.priorities.rule}>
+              {atlas.t.priorities.voteForThis}
+            </a>
+          ) : null}
           {tech.worst_open_severity ? (
             <Chip
               text={fill(t.gapOpen, { severity: atlas.label("severity", tech.worst_open_severity) })}

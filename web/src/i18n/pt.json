@@ -34,6 +34,25 @@
     "text": "Não há nada neste endereço. {link}.",
     "back": "Voltar à visão geral"
   },
+  "priorities": {
+    "title": "Prioridades",
+    "link": "Prioridades",
+    "description": "O que a comunidade quer ver mapeado a seguir, contado a partir dos votos nas discussões de prioridades no GitHub.",
+    "heading": "Prioridades da comunidade",
+    "lede": "Quais tecnologias a comunidade quer ver mapeadas a seguir. Cada tecnologia tem uma discussão na categoria Priorities do GitHub, e um polegar para cima na publicação de abertura é um voto. Um voto por conta.",
+    "rule": "Os votos ordenam o que a comunidade quer ver mapeado a seguir. Nunca mudam um status, um nível de prontidão, uma classe de afirmação nem um número.",
+    "counted": "Contagem de {date}, a partir das {link}.",
+    "categoryLink": "discussões de prioridades",
+    "newAccounts": "Não contam os votos de contas criadas menos de {days} dias antes do voto.",
+    "position": "#",
+    "technology": "Tecnologia",
+    "votes": "Votos",
+    "discussion": "Discussão",
+    "vote": "Votar",
+    "voteForThis": "Votar nesta prioridade",
+    "pending": "Os votos ainda não foram contados. {link}.",
+    "discussionsLink": "Veja as discussões no GitHub"
+  },
   "common": {
     "notAssessed": "não avaliado",
     "level": "nível {level}",
