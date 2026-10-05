@@ -5,6 +5,7 @@ type: dataset
 authors:
   - given-names: "João Alisson"
     family-names: "Costa Silva"
+    orcid: "https://orcid.org/0009-0001-5508-944X"
 license: CC0-1.0
 repository-code: "https://github.com/scape-velocity/escape-velocity"
 keywords:
