@@ -4,37 +4,165 @@ Thank you for helping. Escape Velocity is only as good as its numbers and the pe
 them. You do not need to know the whole atlas: one sourced value, one gap, one dependency is a real
 contribution.
 
-## Ways to help
+This page is a step-by-step guide for a first contribution, followed by the rules every change
+follows. The [Contribute page of the explorer](https://scape-velocity.github.io/escape-velocity/contribute/)
+is a shorter introduction for readers who do not use git.
 
-- **Add evidence**: a measurement that updates a current value, with its source. Use the
-  [report evidence](.github/ISSUE_TEMPLATE/report-evidence.yml) form or open a pull request.
-- **Challenge a value**: a current value, a target or a limit you think is wrong. Use the
-  [challenge a value](.github/ISSUE_TEMPLATE/challenge-value.yml) form, with your source.
-- **Propose a technology**: use the [propose a technology](.github/ISSUE_TEMPLATE/propose-technology.yml)
-  form, or write the file yourself following the `define-technology` skill.
-- **Map a technology**: take one from `proposed` to `scoping` or `mapped` (see the
-  `decompose-technology` skill).
-- **Curate**: become responsible for a technology (below).
-- **Translate**: the atlas is written in English and translated by people who read both. See
-  [docs/translating.md](docs/translating.md) and the
-  [translation](.github/ISSUE_TEMPLATE/translation.yml) form.
+## Pick your path
 
-## How a change is made
+| You have | Path | Start at |
+|---|---|---|
+| A source, a doubt or an idea, and no git | Fill in a form on GitHub; a curator or moderator turns it into a change | [Without git: the issue forms](#without-git-the-issue-forms) |
+| A source and a GitHub account, and you can use a terminal | Edit the TOML yourself and open a pull request | [With git: step by step](#with-git-step-by-step) |
+| Another language you read as well as English | Translate pages of the atlas or the interface | [Translating](#translating) |
 
-1. Fork the repository and create a branch.
-2. Edit the TOML: `atlas/<domain>/<slug>.toml`, `evidence/<key>.toml`, or `taxonomy/`. Start from
-   `templates/` for new files.
-3. Run:
-   ```bash
-   python3 tools/generate.py
-   python3 tools/check.py
-   python3 skills/review-evidence/scripts/verify_evidence.py   # if you added evidence
-   ```
-4. Commit with a sign-off and open a pull request using the template.
+With git you can also **map a technology**, taking one from `proposed` to `scoping` or `mapped`
+(the `decompose-technology` skill), or **curate** one: become responsible for it
+([Curators and moderators](#curators-and-moderators)).
 
-Only Python 3.11 or later is needed, with no packages to install. The `python3` that comes with
-macOS is older and cannot read TOML; install a current one from python.org or Homebrew. Working on
-the explorer in `web/` also needs Node.js ([web/README.md](web/README.md)).
+## Without git: the issue forms
+
+You need only a GitHub account. Each form asks for what a reviewer needs; the source is the part
+that matters most.
+
+| Form | Use it for |
+|---|---|
+| [Report evidence](https://github.com/scape-velocity/escape-velocity/issues/new?template=report-evidence.yml) | A paper, dataset or report with a number that updates the atlas |
+| [Challenge a value](https://github.com/scape-velocity/escape-velocity/issues/new?template=challenge-value.yml) | A current value, target, limit, readiness level or gap you think is wrong, with your source |
+| [Propose a technology](https://github.com/scape-velocity/escape-velocity/issues/new?template=propose-technology.yml) | A technology the atlas should track, or a dependency that has no file yet |
+| [Translation](https://github.com/scape-velocity/escape-velocity/issues/new?template=translation.yml) | A wrong or missing translation, a term of a glossary, or an offer to translate |
+
+Blank issues are off. Ideas that are not a proposal yet, and questions about the atlas, go to
+[Discussions](https://github.com/scape-velocity/escape-velocity/discussions).
+
+An issue opened from a form is labelled with its domain and mentions the domain's moderators, who
+triage it ([GOVERNANCE.md](GOVERNANCE.md#moderators)).
+
+## With git: step by step
+
+### 1. Install what you need
+
+- **Python 3.11 or later**, with no packages to install. The tools read TOML with the standard
+  library, which older versions do not have. The `python3` that comes with macOS is older (3.9) and
+  cannot run them; install a current one from [python.org](https://www.python.org/downloads/) or
+  Homebrew. Check with:
+
+  ```bash
+  python3 --version
+  ```
+
+- **git** and a **GitHub account**.
+- **Node.js 20.9 or later** only if you work on the explorer in `web/`
+  ([web/README.md](web/README.md)). Contributing data never needs it.
+
+### 2. Fork and clone
+
+On [the repository](https://github.com/scape-velocity/escape-velocity), press **Fork** to make your
+own copy. Then clone your fork and make a branch for one subject:
+
+```bash
+git clone https://github.com/<your-handle>/escape-velocity.git
+cd escape-velocity
+git checkout -b add-dac-cost-2025
+```
+
+### 3. Edit the TOML
+
+The data is TOML; the pages are generated from it. Start new files from `templates/`, whose
+comments explain every field:
+
+| To | Edit | Start from |
+|---|---|---|
+| Add a source | `evidence/<key>.toml`, one card per source | `templates/evidence.toml` |
+| Add a technology | `atlas/<domain>/<slug>.toml` | `templates/technology.toml` |
+| Change a value, a gap or a dependency | the technology's `atlas/<domain>/<slug>.toml` | |
+| Add a metric | `taxonomy/metrics.toml`, in the same pull request that first uses it | |
+
+```bash
+cp templates/evidence.toml evidence/<key>.toml
+```
+
+Before you edit:
+
+- A current value cites an evidence card with a finding for that metric, in the metric's unit
+  ([Evidence rules](#evidence-rules)).
+- A target has a rationale: who set it, or why this value. A limit appears only where a physical
+  law gives one, with the basis.
+- Use only values from the taxonomy (`taxonomy/`). A new domain or readiness scale needs a
+  decision.
+- A dependency is a technology. If a technology needs something others would need too, give it its
+  own file (as `proposed` if need be) and link it with `[[requires]]`, not as a gap.
+- Do not edit the generated files: `STATUS.md`, the `.md` pages under `atlas/` and
+  `evidence/README.md`.
+- Out of scope: weapons, dual-use research of concern and medical advice
+  ([decision 0001](docs/decisions/0001-purpose-and-scope.md)).
+
+The skills in `skills/` describe the same procedures in detail, for people and agents:
+`define-technology` to add a technology, `decompose-technology` to map its dependencies and gaps,
+`assess-readiness` for a readiness level, `scout-literature` to search for sources.
+
+### 4. Generate and check
+
+From the repository root:
+
+```bash
+python3 tools/generate.py
+python3 tools/check.py
+```
+
+`generate.py` rewrites the generated pages from the TOML. `check.py` must pass; each error names
+the file and what is wrong, and it also fails when a generated page does not match the TOML.
+
+If you added or changed an evidence card, check it against its source:
+
+```bash
+python3 skills/review-evidence/scripts/verify_evidence.py <key>
+```
+
+It resolves the identifier, compares the title, year and first author, and looks for every quote in
+the abstract. Add `--write` to mark the passing cards `machine-checked`; it never marks a card
+`verified`. If a card cannot pass (a source with no abstract online, for instance), say why in the
+pull request.
+
+### 5. Commit with a sign-off
+
+```bash
+git add evidence/<key>.toml atlas/<domain>/<slug>.toml atlas/<domain>/<slug>.md
+git commit -s -m "data(direct-air-capture): update current cost"
+git push origin add-dac-cost-2025
+```
+
+Add the generated pages that changed as well; `git status` lists them. The `-s` adds the sign-off
+line ([Developer Certificate of Origin](#developer-certificate-of-origin)); every commit needs it.
+
+### 6. Open the pull request
+
+GitHub offers to open a pull request after the push. Give it a title in the
+[form below](#commit-and-pull-request-titles) and fill in the template: what changes, the
+technologies and cards touched, every value added or changed with its card, and which parts an agent
+drafted, if any.
+
+### 7. Review
+
+The `moderation` check lists who can approve your change (a curator of the technology, a moderator
+of its domain, a language maintainer or a maintainer), requests their review and keeps a comment
+with that table. The `check` workflow runs `tools/check.py` and builds the explorer. Answer the
+review with new commits on the same branch; they go into the same pull request.
+
+### 8. Merge
+
+When the checks pass and a reviewer who covers the change approves, a maintainer reads the final
+diff and squash-merges the pull request: its title becomes the commit on `main`. The explorer is
+rebuilt from `main` and your values appear on their pages.
+
+## Translating
+
+The atlas is written in English and translated by people who read both. The interface words are in
+`web/src/i18n/<lang>.json`; the texts of the atlas are overlays under `i18n/<lang>/`, and
+`tools/translate.py` writes their paths and fingerprints for you. The whole procedure, the glossary
+and how to add a language are in [docs/translating.md](docs/translating.md). Translation pull
+requests follow the steps above, with the title `translation(<lang>): <what>`, and are approved by
+the language's maintainers.
 
 ## Evidence rules
 
@@ -57,8 +185,9 @@ keeping the gaps current and verifying cards (`status = "verified"`, `reviewed_b
 looks after a domain. A technology with a curator can reach status `tracked`.
 
 Your pull request needs an approval from a curator or moderator of what it changes; the
-`moderation` check says who, requests their review and passes once one of them approves. Roles,
-terms, conflicts of interest and how to become one are in [GOVERNANCE.md](GOVERNANCE.md).
+`moderation` check says who, requests their review and passes once one of them approves. Nobody
+verifies their own card. Roles, terms, conflicts of interest and how to become one are in
+[GOVERNANCE.md](GOVERNANCE.md).
 
 ## Commit and pull request titles
 
