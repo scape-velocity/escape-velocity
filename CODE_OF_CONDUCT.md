@@ -9,4 +9,4 @@ is welcome and belongs in an issue with sources.
 To report unacceptable behavior, write to the maintainers at the address below. Reports are handled
 privately.
 
-Contact: TODO(maintainer): add a contact address before the repository is public.
+Contact: [joaoalissoncsilva@gmail.com](mailto:joaoalissoncsilva@gmail.com)
