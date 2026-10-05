@@ -1,0 +1,345 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://scape-velocity.github.io/escape-velocity/atlas.schema.json",
+ "title": "Escape Velocity atlas export, schema 1",
+ "description": "The shape of atlas.json and atlas.<lang>.json, written by tools/build_site.py and described in docs/export.md. tools/check.py validates the export against this file with a standard-library validator that reads $ref to $defs, type, enum, required, properties, additionalProperties and items, so keep to those keywords. Objects closed with additionalProperties false fail the check when a field is added without documenting it here and in docs/export.md.",
+ "type": "object",
+ "additionalProperties": false,
+ "required": ["schema", "lang", "tag", "name", "description", "version", "version_date", "license", "repository", "site", "alan_machine", "governance", "languages", "taxonomy", "technologies", "evidence"],
+ "properties": {
+  "schema": {"type": "integer", "enum": [1]},
+  "lang": {"type": "string"},
+  "tag": {"type": "string"},
+  "name": {"type": "string"},
+  "description": {"type": "string"},
+  "version": {"type": "string"},
+  "version_date": {"type": ["string", "null"]},
+  "license": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["data", "text", "code", "note"],
+   "properties": {
+    "data": {"type": "string"},
+    "text": {"type": "string"},
+    "code": {"type": "string"},
+    "note": {"type": "string"}
+   }
+  },
+  "repository": {"type": "string"},
+  "site": {"type": "string"},
+  "alan_machine": {"type": "string"},
+  "governance": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["maintainers", "url"],
+   "properties": {
+    "maintainers": {"$ref": "#/$defs/strings"},
+    "url": {"type": "string"}
+   }
+  },
+  "languages": {"type": "array", "items": {"$ref": "#/$defs/language"}},
+  "translation": {"$ref": "#/$defs/translation"},
+  "taxonomy": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["domains", "metrics", "readiness_scales", "sdgs", "vocabulary"],
+   "properties": {
+    "domains": {"type": "array", "items": {"$ref": "#/$defs/domain"}},
+    "metrics": {"type": "array", "items": {"$ref": "#/$defs/metric_definition"}},
+    "readiness_scales": {"type": "array", "items": {"$ref": "#/$defs/readiness_scale"}},
+    "sdgs": {"type": "array", "items": {"$ref": "#/$defs/sdg"}},
+    "vocabulary": {
+     "type": "object",
+     "additionalProperties": {"type": "array", "items": {"$ref": "#/$defs/vocabulary_item"}}
+    }
+   }
+  },
+  "technologies": {"type": "array", "items": {"$ref": "#/$defs/technology"}},
+  "evidence": {"type": "array", "items": {"$ref": "#/$defs/evidence_card"}}
+ },
+ "$defs": {
+  "strings": {"type": "array", "items": {"type": "string"}},
+  "integers": {"type": "array", "items": {"type": "integer"}},
+  "translation": {
+   "description": "How much of a translated page is translated: counts of texts (decision 0014).",
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["translated", "total", "machine", "stale", "reviewed_by"],
+   "properties": {
+    "translated": {"type": "integer"},
+    "total": {"type": "integer"},
+    "machine": {"type": "integer"},
+    "stale": {"type": "integer"},
+    "reviewed_by": {"$ref": "#/$defs/strings"}
+   }
+  },
+  "language": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["id", "tag", "name", "english_name", "maintainers", "file"],
+   "properties": {
+    "id": {"type": "string"},
+    "tag": {"type": "string"},
+    "name": {"type": "string"},
+    "english_name": {"type": "string"},
+    "maintainers": {"$ref": "#/$defs/strings"},
+    "file": {"type": "string"},
+    "translation": {"$ref": "#/$defs/translation"}
+   }
+  },
+  "domain": {
+   "type": "object",
+   "required": ["id", "name", "readiness_scale"],
+   "properties": {
+    "id": {"type": "string"},
+    "name": {"type": "string"},
+    "summary": {"type": "string"},
+    "readiness_scale": {"type": "string"},
+    "sdgs": {"$ref": "#/$defs/integers"},
+    "moderators": {"$ref": "#/$defs/strings"},
+    "openalex_fields": {"type": "array"},
+    "arxiv": {"$ref": "#/$defs/strings"},
+    "pubmed": {"type": "boolean"}
+   }
+  },
+  "metric_definition": {
+   "type": "object",
+   "required": ["id", "name", "unit"],
+   "properties": {
+    "id": {"type": "string"},
+    "name": {"type": "string"},
+    "meaning": {"type": "string"},
+    "unit": {"type": "string"},
+    "direction": {"type": "string", "enum": ["lower", "higher"]},
+    "scale": {"type": "string", "enum": ["log", "linear"]},
+    "alan_machine": {"type": "string"}
+   }
+  },
+  "readiness_scale": {
+   "type": "object",
+   "required": ["id", "name", "level"],
+   "properties": {
+    "id": {"type": "string"},
+    "name": {"type": "string"},
+    "level": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "required": ["level", "name"],
+      "properties": {"level": {"type": "integer"}, "name": {"type": "string"}, "meaning": {"type": "string"}}
+     }
+    }
+   }
+  },
+  "sdg": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["id", "name"],
+   "properties": {"id": {"type": "integer"}, "name": {"type": "string"}}
+  },
+  "vocabulary_item": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["id", "label", "meaning"],
+   "properties": {"id": {"type": "string"}, "label": {"type": "string"}, "meaning": {"type": "string"}}
+  },
+  "technology": {
+   "description": "One technology: every field of its TOML file except metric, gap and requires, which come derived below, plus the derived fields of docs/export.md.",
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["id", "domain", "name", "statement", "status", "readiness_name", "metrics", "gaps", "requires", "required_by", "blocks", "dependents", "dependent_domains", "worst_open_severity", "evidence", "source", "page", "alan_machine"],
+   "properties": {
+    "id": {"type": "string"},
+    "domain": {"type": "string"},
+    "name": {"type": "string"},
+    "statement": {"type": "string"},
+    "scope": {"type": "string"},
+    "status": {"type": "string", "enum": ["proposed", "scoping", "mapped", "tracked", "achieved", "retired"]},
+    "readiness": {"type": "integer"},
+    "readiness_scale": {"type": "string"},
+    "readiness_evidence": {"$ref": "#/$defs/strings"},
+    "readiness_note": {"type": "string"},
+    "readiness_name": {"type": "string"},
+    "horizon": {"type": "string"},
+    "sdgs": {"$ref": "#/$defs/integers"},
+    "openalex_topics": {"$ref": "#/$defs/strings"},
+    "arxiv": {"$ref": "#/$defs/strings"},
+    "search_terms": {"$ref": "#/$defs/strings"},
+    "curators": {"$ref": "#/$defs/strings"},
+    "last_reviewed": {"type": "string"},
+    "retired_reason": {"type": "string"},
+    "impact": {"type": "array", "items": {"$ref": "#/$defs/impact"}},
+    "metrics": {"type": "array", "items": {"$ref": "#/$defs/metric"}},
+    "gaps": {"type": "array", "items": {"$ref": "#/$defs/gap"}},
+    "requires": {"type": "array", "items": {"$ref": "#/$defs/requirement"}},
+    "required_by": {"type": "array", "items": {"$ref": "#/$defs/requirement"}},
+    "blocks": {"type": "array", "items": {"$ref": "#/$defs/block"}},
+    "dependents": {"$ref": "#/$defs/strings"},
+    "dependent_domains": {"$ref": "#/$defs/strings"},
+    "worst_open_severity": {"type": ["string", "null"]},
+    "evidence": {"$ref": "#/$defs/strings"},
+    "source": {"type": "string"},
+    "page": {"type": "string"},
+    "alan_machine": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["page", "title", "url"],
+      "properties": {"page": {"type": "string"}, "title": {"type": "string"}, "url": {"type": "string"}}
+     }
+    },
+    "translation": {"$ref": "#/$defs/translation"}
+   }
+  },
+  "impact": {
+   "description": "What reaching the technology's target would change, and for whom (decision 0015). No claim is stronger than the evidence cards it cites.",
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["kind", "who", "claim", "class", "evidence"],
+   "properties": {
+    "kind": {"type": "string", "enum": ["benefit", "risk"]},
+    "who": {"type": "string"},
+    "claim": {"type": "string"},
+    "class": {"type": "string", "enum": ["established", "reported", "extrapolation"]},
+    "evidence": {"$ref": "#/$defs/strings"},
+    "metric": {"type": "string"},
+    "horizon": {"type": "string"},
+    "sdgs": {"$ref": "#/$defs/integers"},
+    "assumptions": {"type": "string"}
+   }
+  },
+  "value_table": {
+   "type": "object",
+   "required": ["value"],
+   "properties": {
+    "value": {"type": "number"},
+    "as_of": {"type": "string"},
+    "evidence": {"type": "string"},
+    "note": {"type": "string"},
+    "rationale": {"type": "string"},
+    "basis": {"type": "string"}
+   }
+  },
+  "metric": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["metric", "gap_to_target", "target_to_limit", "display"],
+   "properties": {
+    "id": {"type": "string"},
+    "metric": {"type": "string"},
+    "headline": {"type": "boolean"},
+    "conditions": {"type": "string"},
+    "current": {"$ref": "#/$defs/value_table"},
+    "target": {"$ref": "#/$defs/value_table"},
+    "limit": {"$ref": "#/$defs/value_table"},
+    "history": {"type": "array", "items": {"$ref": "#/$defs/value_table"}},
+    "gap_to_target": {"type": ["number", "null"]},
+    "target_to_limit": {"type": ["number", "null"]},
+    "display": {
+     "type": "object",
+     "additionalProperties": false,
+     "required": ["current", "target", "limit", "gap_to_target", "target_to_limit"],
+     "properties": {
+      "current": {"type": ["string", "null"]},
+      "target": {"type": ["string", "null"]},
+      "limit": {"type": ["string", "null"]},
+      "gap_to_target": {"type": ["string", "null"]},
+      "target_to_limit": {"type": ["string", "null"]}
+     }
+    }
+   }
+  },
+  "gap": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["id", "title", "type", "layer", "severity", "status"],
+   "properties": {
+    "id": {"type": "string"},
+    "title": {"type": "string"},
+    "description": {"type": "string"},
+    "metric": {"type": "string"},
+    "type": {"type": "string"},
+    "layer": {"type": "string"},
+    "severity": {"type": "string"},
+    "status": {"type": "string"},
+    "blocked_by": {"$ref": "#/$defs/strings"},
+    "evidence": {"$ref": "#/$defs/strings"},
+    "search_terms": {"$ref": "#/$defs/strings"},
+    "approach": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {"name": {"type": "string"}, "readiness": {"type": "integer"}, "evidence": {"$ref": "#/$defs/strings"}}
+     }
+    }
+   }
+  },
+  "requirement": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["technology"],
+   "properties": {
+    "technology": {"type": "string"},
+    "why": {"type": "string"},
+    "metric": {"type": "string"},
+    "value": {"type": "number"},
+    "need": {"type": "string"}
+   }
+  },
+  "block": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["technology", "gap", "title"],
+   "properties": {"technology": {"type": "string"}, "gap": {"type": "string"}, "title": {"type": "string"}}
+  },
+  "evidence_card": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["key", "title", "authors", "year", "type", "class", "status", "added", "added_by", "finding", "link", "cited_by", "source"],
+   "properties": {
+    "key": {"type": "string"},
+    "title": {"type": "string"},
+    "authors": {"$ref": "#/$defs/strings"},
+    "year": {"type": "integer"},
+    "venue": {"type": "string"},
+    "type": {"type": "string"},
+    "doi": {"type": "string"},
+    "arxiv": {"type": "string"},
+    "pmid": {"type": "string"},
+    "nct": {"type": "string"},
+    "url": {"type": "string"},
+    "accessed": {"type": "string"},
+    "class": {"type": "string", "enum": ["established", "reported", "extrapolation", "speculation"]},
+    "status": {"type": "string"},
+    "added": {"type": "string"},
+    "added_by": {"type": "string"},
+    "checked": {"type": "string"},
+    "reviewed_by": {"type": "string"},
+    "note": {"type": "string"},
+    "finding": {"type": "array", "items": {"$ref": "#/$defs/finding"}},
+    "link": {"type": ["string", "null"]},
+    "cited_by": {"$ref": "#/$defs/strings"},
+    "source": {"type": "string"},
+    "translation": {"$ref": "#/$defs/translation"}
+   }
+  },
+  "finding": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": ["quote"],
+   "properties": {
+    "metric": {"type": "string"},
+    "value": {"type": "number"},
+    "unit": {"type": "string"},
+    "conditions": {"type": "string"},
+    "quote": {"type": "string"},
+    "note": {"type": "string"},
+    "uncertainty": {"type": "number"},
+    "interval": {"type": "array", "items": {"type": "number"}},
+    "coverage": {"type": "number"}
+   }
+  }
+ }
+}

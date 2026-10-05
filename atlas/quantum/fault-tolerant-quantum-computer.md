@@ -19,6 +19,12 @@
 
 In scope: the full machine that error-corrects a computation, built here from physical qubits, a real-time decoder, cryogenic control and refrigeration, and links between modules. Out of scope: noisy intermediate-scale machines without error correction, quantum sensors and quantum networks for their own sake. The decoder is covered by quantum/real-time-qec-decoder and the module links by quantum/quantum-interconnect.
 
+## Impact
+
+What reaching the target would change, and for whom (decision 0015).
+
+- **Risk**: A quantum computer with less than a million noisy qubits could factor a 2048-bit RSA integer in less than a week, under the estimate's assumptions of a uniform gate error of 0.1%, a surface-code cycle of 1 microsecond and a control reaction time of 10 microseconds. Who: Anyone whose data is protected by RSA-2048. Class reported; unlocked by the target for Physical qubits; serves UN SDG 9 Industry, innovation and infrastructure; evidence [gidney2025how](../../evidence/gidney2025how.toml).
+
 ## Metrics
 
 | Metric | Current | Target | Physical limit | Gap to target | Target to limit |

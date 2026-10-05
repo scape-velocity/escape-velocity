@@ -138,6 +138,7 @@ def tool_technology(args: dict) -> dict:
         "domain": tech.domain,
         **{k: plain(v) for k, v in tech.data.items() if k != "metric"},
         "readiness_name": data.tax.level_name(data.tax.scale_of(tech), tech.data.get("readiness")),
+        "sdg_names": [{"id": n, "name": data.tax.sdgs.get(n)} for n in tech.data.get("sdgs", [])],
         "metric": metrics,
         "required_by": [
             {"technology": dependent, "needs": plain(next((r for r in data.techs[dependent].requires() if r.get("technology") == tech.id), {}))}
@@ -263,7 +264,7 @@ def facet(name: str) -> dict:
 TOOLS = {
     "list_technologies": (tool_list_technologies, "List technologies in the atlas with status, readiness, headline metric and dependencies.",
                           {"domain": facet("domain id, such as quantum or health"), "status": facet("atlas status: proposed, scoping, mapped, tracked, achieved, retired")}, []),
-    "technology": (tool_technology, "Everything about one technology: statement, metrics with gap to target and to the physical limit, gaps, dependencies, what dependents need from it.",
+    "technology": (tool_technology, "Everything about one technology: statement, horizon, the UN SDGs it serves (sdgs, with sdg_names), its impact (who gains or is put at risk when the target is reached, with class and evidence), metrics with gap to target and to the physical limit, gaps, dependencies, what dependents need from it.",
                    {"id": {"type": "string", "description": "Technology id, <domain>/<slug>, such as quantum/fault-tolerant-quantum-computer"}}, ["id"]),
     "gaps": (tool_gaps, "Gaps across the atlas, most severe first, filtered by facets.",
              {"domain": facet("domain id"), "type": facet("gap type, such as engineering or cost"), "layer": facet("layer: principle, device, system, manufacturing, deployment"),

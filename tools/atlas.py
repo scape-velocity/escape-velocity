@@ -134,6 +134,10 @@ class Technology:
     def gaps(self) -> list[dict]:
         return self.data.get("gap", [])
 
+    def impacts(self) -> list[dict]:
+        """The [[impact]] tables: what reaching the target would change, for whom (decision 0015)."""
+        return self.data.get("impact", [])
+
     def requires(self) -> list[dict]:
         return self.data.get("requires", [])
 

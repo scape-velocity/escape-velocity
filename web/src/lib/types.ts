@@ -155,6 +155,20 @@ export interface AlanMachinePage {
   url: string;
 }
 
+/** What reaching a technology's target would change, and for whom (decision 0015). The class is
+    never stronger than the cited cards; an extrapolation carries its assumptions. */
+export interface Impact {
+  kind: "benefit" | "risk";
+  who: string;
+  claim: string;
+  class: "established" | "reported" | "extrapolation";
+  evidence: string[];
+  metric?: string;
+  horizon?: string;
+  sdgs?: number[];
+  assumptions?: string;
+}
+
 export interface Technology {
   id: string;
   domain: string;
@@ -172,6 +186,7 @@ export interface Technology {
   sdgs?: number[];
   search_terms?: string[];
   curators?: string[];
+  impact?: Impact[];
   metrics: Metric[];
   gaps: Gap[];
   requires: Requirement[];

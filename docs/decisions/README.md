@@ -19,3 +19,4 @@ decision is never edited after it is accepted; a later decision supersedes it.
 | [0012](0012-explorer-in-next.md) | The explorer in Next.js, one page per technology and card | accepted |
 | [0013](0013-terms-of-the-fields.md) | The terms of each field | accepted |
 | [0014](0014-translations.md) | Translations: English as the source, overlays per language | accepted |
+| [0015](0015-impact-of-a-technology.md) | The impact of a technology, no stronger than its evidence | accepted |

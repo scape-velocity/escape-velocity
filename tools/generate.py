@@ -73,6 +73,8 @@ class Context:
             keys += gap.get("evidence", [])
             for approach in gap.get("approach", []):
                 keys += approach.get("evidence", [])
+        for impact in tech.impacts():
+            keys += impact.get("evidence", [])
         return list(dict.fromkeys(keys))
 
     def metric_def(self, metric: dict) -> dict:
@@ -169,6 +171,13 @@ def technology_page(ctx: Context, tech: atlas.Technology) -> str:
 
     if data.get("scope"):
         lines += ["## Scope", "", " ".join(data["scope"].split()), ""]
+
+    impacts = tech.impacts()
+    if impacts:
+        lines += ["## Impact", "", "What reaching the target would change, and for whom (decision 0015).", ""]
+        for impact in impacts:
+            lines.append(impact_line(ctx, tech, page, impact))
+        lines.append("")
 
     metrics = tech.metrics()
     if metrics:
@@ -293,6 +302,32 @@ def technology_page(ctx: Context, tech: atlas.Technology) -> str:
     if terms:
         lines += ["## Search terms", "", "Where the `scout-literature` skill starts: " + "; ".join(f"`{t}`" for t in terms) + ".", ""]
     return "\n".join(lines).rstrip() + "\n"
+
+
+def impact_line(ctx: Context, tech: atlas.Technology, page: str, impact: dict) -> str:
+    """One impact as a list item: kind, claim, who, class, metric, horizon, SDGs, evidence and,
+    for an extrapolation, its assumptions."""
+    def sentence(text) -> str:
+        text = cell(text)
+        return text if text.endswith((".", "!", "?")) or not text else text + "."
+
+    kind = str(impact.get("kind", "")).capitalize()
+    facts = [f"class {impact.get('class', '')}"]
+    if impact.get("metric"):
+        definition = ctx.tax.metrics.get(impact["metric"], {})
+        facts.append(f"unlocked by the target for {cell(definition.get('name', impact['metric']))}")
+    if impact.get("horizon"):
+        facts.append(f"horizon {cell(impact['horizon'])}")
+    if impact.get("sdgs"):
+        facts.append("serves UN SDG " + cell(", ".join(f"{n} {ctx.tax.sdgs.get(n, '')}" for n in impact["sdgs"])))
+    cards = ", ".join(evidence_link(page, key) for key in impact.get("evidence", []))
+    facts.append(f"evidence {cards or '–'}")
+    summary = "; ".join(facts)
+    summary = summary[0].upper() + summary[1:]
+    line = f"- **{kind}**: {sentence(impact.get('claim', ''))} Who: {sentence(impact.get('who', ''))} {summary}."
+    if impact.get("assumptions"):
+        line += f" Assumptions: {sentence(impact['assumptions'])}"
+    return line
 
 
 def need_text(ctx: Context, requirement: dict) -> str:

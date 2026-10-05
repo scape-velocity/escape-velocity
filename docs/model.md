@@ -36,6 +36,7 @@ The technologies many others wait on, across domains, are the bottlenecks; `STAT
 | `[[metric]]` | The numbers that measure progress: current, target, limit |
 | `[[gap]]` | What stands between the current value and the target |
 | `[[requires]]` | The technologies it depends on, and what it needs from each |
+| `[[impact]]` | What reaching the target would change, and for whom: a benefit or a risk, with its evidence |
 | `search_terms` | Where the literature scout starts |
 | `alan_machine` | Pages of The Alan Machine that discuss it |
 
@@ -57,6 +58,17 @@ cost, regulation, supply-chain), a **layer** (principle, device, system, manufac
 a **severity** and a **status** (open, active, promising, closed, beyond-limit). A gap is closed only
 by an established evidence card. A gap held open by a dependency says `blocked_by` that dependency.
 Approaches are the lines of research aimed at the gap, each with its evidence and readiness.
+
+## Impact
+
+Each `[[impact]]` says what reaching the target would change: its **kind** (benefit or risk),
+**who** gains or is put at risk, the **claim** in one or two sentences, its **class** and the
+evidence cards it rests on. Optionally the metric whose target unlocks it, a horizon and the UN
+SDGs it serves. The class is never stronger than the evidence: an `established` impact cites an
+established card, a `reported` one an established or reported card, and an `extrapolation` states
+its `assumptions`. Speculation is not an impact; it stays in the pull request or the issue. A
+mapped, tracked or achieved technology has at least one impact
+([decision 0015](decisions/0015-impact-of-a-technology.md)).
 
 ## Evidence
 

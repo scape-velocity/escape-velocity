@@ -184,3 +184,26 @@ ganhos dependem de agrupamento em lotes, roteamento e escolha do modelo.
 path = "alan_machine[building-alan/energy-per-token].title"
 source = "45a577ae7d"
 text = "Construindo Alan: energia por token"
+
+[[text]]
+path = "impact[1].who"
+source = "dbfec0c405"
+text = "Data centers que servem modelos de IA, e as redes elétricas que os abastecem"
+
+[[text]]
+path = "impact[1].claim"
+source = "4ff11e2225"
+text = """
+Entre modelos, sistemas de serviço e hardware, ganhos de eficiência já à vista poderiam reduzir a
+energia da inferência de IA de 8 a 20 vezes. Com 1 bilhão de consultas por dia, 10% delas longas, a
+demanda cairia de 1,7 GWh por dia para 0,8 GWh por dia com intervenções de eficiência.
+"""
+
+[[text]]
+path = "impact[1].assumptions"
+source = "668d55639f"
+text = """
+Um modelo de baixo para cima do serviço em produção, a partir da vazão de tokens, da potência dos nós
+e do overhead, para modelos de escala de fronteira (mais de 200B de parâmetros) em nós H100; não é
+uma medição.
+"""

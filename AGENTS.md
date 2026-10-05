@@ -83,3 +83,6 @@ python3 tools/check.py
 | [`cross-domain-transfer`](skills/cross-domain-transfer/SKILL.md) | Borrow approaches from other domains, as speculation |
 | [`weekly-brief`](skills/weekly-brief/SKILL.md) | Summarize what is new for mapped technologies |
 | [`translate-page`](skills/translate-page/SKILL.md) | Translate a technology, a card or the taxonomy into a registered language |
+| [`first-contribution`](skills/first-contribution/SKILL.md) | Guide a newcomer from a small task to a pull request |
+| [`write-impact`](skills/write-impact/SKILL.md) | Write who gains or loses from a technology, with evidence |
+| [`add-evidence-from-doi`](skills/add-evidence-from-doi/SKILL.md) | Turn a paper you already have into a checked evidence card |

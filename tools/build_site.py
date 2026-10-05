@@ -10,6 +10,7 @@ web/ builds from atlas.json (decision 0012). It is never committed.
                           citations); the format is described in docs/export.md
     _site/atlas.<lang>.json  the same in each published language of i18n/languages.toml, with the
                           translated texts in place of the English (decision 0014)
+    _site/atlas.schema.json  the JSON Schema of atlas.json, copied from tools/atlas.schema.json
     _site/llms.txt        an index for language models (https://llmstxt.org)
     _site/llms-full.txt   every technology and evidence card as plain Markdown
 
@@ -34,6 +35,9 @@ import atlas  # noqa: E402
 import i18n  # noqa: E402
 
 SCHEMA_VERSION = 1
+# The JSON Schema (2020-12) of atlas.json. tools/check.py validates the export against it, so a
+# field added here without documentation fails the check (docs/export.md).
+SCHEMA_FILE = Path(__file__).resolve().parent / "atlas.schema.json"
 SITE_URL = "https://scape-velocity.github.io/escape-velocity/"
 SEVERITY_ORDER = {"critical": 0, "high": 1, "medium": 2, "low": 3}
 LICENSE = {
@@ -86,6 +90,8 @@ def cited_keys(tech: atlas.Technology) -> list[str]:
         keys += gap.get("evidence", [])
         for approach in gap.get("approach", []):
             keys += approach.get("evidence", [])
+    for impact in tech.impacts():
+        keys += impact.get("evidence", [])
     return list(dict.fromkeys(keys))
 
 
@@ -296,6 +302,22 @@ def tech_markdown(tech: dict, cards: dict[str, dict]) -> list[str]:
                 line += f" Evidence: {', '.join(gap['evidence'])}."
             lines.append(line)
         lines.append("")
+    if tech.get("impact"):
+        lines.append("Impact:")
+        for impact in tech["impact"]:
+            line = f"- {str(impact.get('kind', '')).capitalize()}: {paragraphs(impact.get('claim'))}"
+            line += f" Who: {paragraphs(impact.get('who'))}. Class: {impact.get('class')}."
+            if impact.get("assumptions"):
+                line += f" Assumptions: {paragraphs(impact['assumptions'])}"
+            if impact.get("metric"):
+                line += f" Unlocked by the target for {impact['metric']}."
+            if impact.get("horizon"):
+                line += f" Horizon: {impact['horizon']}."
+            if impact.get("sdgs"):
+                line += f" UN SDG: {', '.join(str(n) for n in impact['sdgs'])}."
+            line += f" Evidence: {', '.join(impact.get('evidence', []))}."
+            lines.append(line)
+        lines.append("")
     if tech["requires"]:
         lines.append("Requires:")
         for requirement in tech["requires"]:
@@ -348,6 +370,7 @@ def llms_txt(data: dict) -> str:
         "",
         f"- [atlas.json]({SITE_URL}atlas.json): the whole atlas in one JSON file, with gap sizes, dependents and citations",
         f"- [llms-full.txt]({SITE_URL}llms-full.txt): every technology and evidence card as Markdown",
+        f"- [atlas.schema.json]({SITE_URL}atlas.schema.json): the JSON Schema (2020-12) of atlas.json",
         f"- [Repository]({data['repository']}): the TOML sources, the MCP server (tools/mcp_server.py) and the skills",
         "",
     ]
@@ -424,6 +447,7 @@ def main(argv: list[str]) -> int:
     for name, content in [("atlas.json", data)] + [(f"atlas.{k}.json", v) for k, v in translations.items()]:
         content["languages"] = listing
         (out / name).write_text(json.dumps(content, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    shutil.copyfile(SCHEMA_FILE, out / "atlas.schema.json")
     (out / "llms.txt").write_text(llms_txt(data), encoding="utf-8")
     (out / "llms-full.txt").write_text(llms_full(data), encoding="utf-8")
     print(
