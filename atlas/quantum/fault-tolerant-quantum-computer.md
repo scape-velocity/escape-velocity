@@ -13,7 +13,7 @@
 | Serves | UN SDG 9 Industry, innovation and infrastructure |
 | Curators | none yet; see [how to become one](../../GOVERNANCE.md#curators) |
 | Last reviewed | 2026-10-04 |
-| In The Alan Machine | [The quantum Alan](https://the-alan-machine.github.io/alan-machine/chapters/quantum-alan/index.html), [Building Alan: quantum hardware](https://the-alan-machine.github.io/alan-machine/building-alan/quantum-hardware/index.html) |
+| In The Alan Machine | [The quantum Alan](https://the-alan-machine.github.io/the-alan-machine/chapters/quantum-alan/index.html), [Building Alan: quantum hardware](https://the-alan-machine.github.io/the-alan-machine/building-alan/quantum-hardware/index.html) |
 
 ## Scope
 

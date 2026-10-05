@@ -14,7 +14,7 @@
 | Serves | UN SDG 7 Affordable and clean energy, 9 Industry, innovation and infrastructure, 13 Climate action |
 | Curators | none yet; see [how to become one](../../GOVERNANCE.md#curators) |
 | Last reviewed | 2026-10-04 |
-| In The Alan Machine | [Building Alan: energy per token](https://the-alan-machine.github.io/alan-machine/building-alan/energy-per-token/index.html) |
+| In The Alan Machine | [Building Alan: energy per token](https://the-alan-machine.github.io/the-alan-machine/building-alan/energy-per-token/index.html) |
 
 ## Scope
 
